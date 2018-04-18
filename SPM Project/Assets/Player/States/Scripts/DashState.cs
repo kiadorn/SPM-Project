@@ -4,11 +4,11 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/States/Dash")]
 public class DashState : State{
-	public int dashSpeed;
+	public int dashSpeed; //Distans/hastighet dashen är.
 
 	private Transform transform { get { return _controller.transform; }}
 	private PlayerController _controller;
-	private float originalGravity;
+	private float originalGravity; //används vid återställande av gravity
 
 	public override void Initialize(Controller owner){
 		_controller = (PlayerController)owner;
@@ -22,18 +22,25 @@ public class DashState : State{
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
 	}
+	//Stänger av gravity, så den bör ej påerka distans på dash
 	public void DisableGravity(){
 		originalGravity = _controller.Gravity;
 		_controller.Gravity = 0;
 	}
+	//Dash
 	public void Dash (){
+		transform.GetComponent<PlayerController> ().Velocity = new Vector2(0,0);
 		float xdirandmag = Input.GetAxisRaw ("Horizontal") * dashSpeed;
 		float ydirandmag  = Input.GetAxisRaw ("Vertical") * dashSpeed;
 		transform.Translate(new Vector2(xdirandmag, ydirandmag ) * Time.deltaTime);
 	}
+
+	//Återställer gravity efter dash.
 	public void EnableGravity (){
 		_controller.Gravity = originalGravity;
 	}
+
+	//Collision test
 	private void UpdateNormalForce(RaycastHit2D[] hits)
 	{
 		if (hits.Length == 0) {
