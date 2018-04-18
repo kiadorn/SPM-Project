@@ -45,5 +45,6 @@ public static class MathHelper {
         float angle = Vector2.Angle(normal, Vector2.right);
         float delta = Mathf.Abs(angle < 90.0f ? angle : angle - 180);
         return delta;
-    }
+    }
+
 }
