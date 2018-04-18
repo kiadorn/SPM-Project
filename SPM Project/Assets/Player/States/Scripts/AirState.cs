@@ -27,6 +27,7 @@ public class AirState : State{
 	{
 		if(Input.GetButtonDown("Jump") && canDash){
 			_controller.TransitionTo<DashState>();
+			canDash = false;
 		}
 		UpdateGravity();
 		RaycastHit2D[] hits = _controller.DetectHits();
