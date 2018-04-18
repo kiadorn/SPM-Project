@@ -96,20 +96,28 @@ public class AirState : State{
 			return;
 		} else if (Input.GetButton ("Right") && Input.GetButtonDown ("Jump")) {
 			transform.position += Vector3.right * dashDistance;
+			canDash = false;
 		} else if (Input.GetButton ("Left") && Input.GetButtonDown ("Jump")) {
 			transform.position += Vector3.left * dashDistance;
+			canDash = false;
 		} else if (Input.GetButton ("Up") && Input.GetButtonDown ("Jump")) {
 			transform.position += Vector3.up * dashDistance;
+			canDash = false;
 		} else if (Input.GetButton ("Down") && Input.GetButtonDown ("Jump")) {
 			transform.position += Vector3.down * dashDistance;
+			canDash = false;
 		} else if ((Input.GetButton ("Right") && Input.GetButton ("Up")) && Input.GetButtonDown ("Jump")) {
 			transform.position += new Vector3(1,1,0) * dashDistance;
+			canDash = false;
 		} else if ((Input.GetButton ("Right") && Input.GetButton ("Down")) && Input.GetButtonDown ("Jump")) {
 			transform.position += new Vector3(1,-1,0) * dashDistance;
+			canDash = false;
 		} else if ((Input.GetButton ("Left") && Input.GetButton ("Up")) && Input.GetButtonDown ("Jump")) {
 			transform.position += new Vector3(-1,1,0) * dashDistance;
+			canDash = false;
 		} else if ((Input.GetButton ("Left") && Input.GetButton ("Down")) && Input.GetButtonDown ("Jump")) {
 			transform.position += new Vector3(-1,-1,0) * dashDistance;
+			canDash = false;
 		} 
 
 	}
