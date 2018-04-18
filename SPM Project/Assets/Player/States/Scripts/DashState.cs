@@ -21,8 +21,6 @@ public class DashState : State{
 		EnableGravity ();
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
-		//behöver check för att se om man dashat in i en vägg/golv
-		_controller.TransitionTo<AirState>();
 	}
 	public void DisableGravity(){
 		originalGravity = _controller.Gravity;
