@@ -10,12 +10,16 @@ public class PlayerStats : MonoBehaviour {
     public GameObject SwordIcon;
     public GameObject ShieldIcon;
 
+    public GameObject Player;
+
     public int StartingHealth;
 
     public int HealthPoints;
     public int Currency = 0;
     public bool HasSword;
     public bool HasShield;
+
+    public CheckPoint Current;
     
     public void ChangeHealth(int i) {
         HealthPoints += i;
@@ -76,6 +80,10 @@ public class PlayerStats : MonoBehaviour {
         }
         if (Input.GetKeyDown("l")) {
             ChangeCurrency(-1);
+        }
+        if (Input.GetKeyDown("m")) {
+            if (Current)
+                Player.transform.position = Current.transform.position;
         }
     }
 }
