@@ -18,6 +18,7 @@ public class PlayerController : Controller{
 
 	private void Update()
 	{
+		Debug.Log (Velocity);
 		CurrentState.Update();
 		if (Input.GetKeyDown (KeyCode.R)) {
 			SceneManager.LoadScene(0);

@@ -4,7 +4,9 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/States/Dash")]
 public class DashState : State{
-	public int dashSpeed; //Distans/hastighet dashen är.
+	public float dashSpeed; //Distans/hastighet dashen är.
+	public float dashTimeTarget; //Tiden innan scriptet kollar om spelaren fortfarande är i luften. (Vill ej att Gravity från AirState ska påverka dashen) OBS: Funker ej ännu och är därför för tillfället utkommenterad.
+	private float dashTime;
 
 	private Transform transform { get { return _controller.transform; }}
 	private PlayerController _controller;
@@ -16,23 +18,28 @@ public class DashState : State{
 
 	public override void Enter()
 	{
+	//	dashTime = 0;
 		DisableGravity ();
 		Dash();
 		EnableGravity ();
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
 	}
-	//Stänger av gravity, så den bör ej påerka distans på dash
+/*	public override void Update(){
+		dashTime += Time.deltaTime*1;
+	}*/
+
+	//Stänger av gravity, så den bör ej påerka distans på dash OBS: Verkar inte göra något. :(
 	public void DisableGravity(){
 		originalGravity = _controller.Gravity;
 		_controller.Gravity = 0;
 	}
 	//Dash
 	public void Dash (){
-		transform.GetComponent<PlayerController> ().Velocity = new Vector2(0,0);
+		_controller.Velocity = new Vector2(0,0);
 		float xdirandmag = Input.GetAxisRaw ("Horizontal") * dashSpeed;
 		float ydirandmag  = Input.GetAxisRaw ("Vertical") * dashSpeed;
-		transform.Translate(new Vector2(xdirandmag, ydirandmag ) * Time.deltaTime);
+		_controller.Velocity += new Vector2(xdirandmag,ydirandmag);
 	}
 
 	//Återställer gravity efter dash.
@@ -43,7 +50,7 @@ public class DashState : State{
 	//Collision test
 	private void UpdateNormalForce(RaycastHit2D[] hits)
 	{
-		if (hits.Length == 0) {
+		if (hits.Length == 0/* && dashTime >= dashTimeTarget*/) {
 			_controller.TransitionTo<AirState> ();
 		}
 		foreach (RaycastHit2D hit in hits)
