@@ -122,4 +122,9 @@ public class GroundState : State{
 			MathHelper.Sign(newVelocity.x) != MathHelper.Sign(Velocity.x) ? Vector2.zero :
 			newVelocity;
 	}
+
+    public void CheckWithEnemy()
+    {
+        _controller.TransitionTo<HurtState>();
+    }
 }

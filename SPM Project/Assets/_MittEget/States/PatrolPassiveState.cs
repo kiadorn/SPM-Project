@@ -2,62 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Enemy/States/Passive")]
 public class PatrolPassiveState : State {
-
-    public float speed;
-    public bool startMovingRight = true;
-    public float groundCheckDistance;
-    public Transform groundDetection;
 
     private bool movingRight;
     private float timer = 0f;
     private float saveSpeed;
     public float waitingTime = 2f;
+    public float aggroRange = 5f;
 
     private PatrolEnemyController _controller;
-
-    private void Start()
-    {
-        movingRight = startMovingRight;
-        saveSpeed = speed;
-    }
 
     public override void Initialize(Controller owner)
     {
         _controller = (PatrolEnemyController)owner;
+        movingRight = _controller.startMovingRight;
+        saveSpeed = _controller.speed;
+    }
+
+    public override void Enter()
+    {
+        _controller.speed = 3f;
     }
 
     public override void Update()
     {
-        //transform.Translate(Vector2.right * speed * Time.deltaTime);
+        UpdatePatrolMovement();
+        CheckForPlayer();
+    }
 
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, groundCheckDistance);
-        if (groundInfo.collider == false)
+    private void UpdatePatrolMovement()
+    {
+        _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
+
+        RaycastHit2D groundInfo = Physics2D.Raycast(_controller.groundDetection.position, Vector2.down, _controller.groundCheckDistance);
+        if (groundInfo.collider == false || groundInfo.collider.gameObject.layer != 8)
         {
             if (movingRight)
             {
-                speed = 0;
+
+                _controller.speed = 0;
                 timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
-                    //transform.eulerAngles = new Vector3(0, -180, 0);
+                    _controller.transform.eulerAngles = new Vector3(0, -180, 0);
                     movingRight = false;
                     timer = 0f;
-                    speed = saveSpeed;
+                    _controller.speed = saveSpeed;
                 }
             }
             else
             {
-                speed = 0;
+                _controller.speed = 0;
                 timer += Time.deltaTime;
+
                 if (timer > waitingTime)
                 {
-                    //transform.eulerAngles = new Vector3(0, 0, 0);
+                    _controller.transform.eulerAngles = new Vector3(0, 0, 0);
                     movingRight = true;
                     timer = 0f;
-                    speed = saveSpeed;
+                    _controller.speed = saveSpeed;
                 }
             }
         }
     }
+
+    private void CheckForPlayer()
+    {
+        float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
+        if (checkDistance < aggroRange)
+        {
+            _controller.TransitionTo<PatrolAggressiveState>();
+        }
+    }
+
 }
