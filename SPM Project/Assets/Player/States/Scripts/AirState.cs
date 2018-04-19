@@ -25,7 +25,10 @@ public class AirState : State{
 
 	public override void Update()
 	{
-		UpdateDash ();
+		if(Input.GetButtonDown("Jump") && canDash){
+			_controller.TransitionTo<DashState>();
+			canDash = false;
+		}
 		UpdateGravity();
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
@@ -88,37 +91,5 @@ public class AirState : State{
 					Velocity.normalized) > 0.0f)
 				_controller.TransitionTo<WallState>();
 		}
-	}
-
-	public void UpdateDash()
-	{
-		if (!Input.GetButtonDown ("Jump") || canDash == false) {
-			return;
-		} else if (Input.GetButton ("Right") && Input.GetButtonDown ("Jump")) {
-			transform.position += Vector3.right * dashDistance;
-			canDash = false;
-		} else if (Input.GetButton ("Left") && Input.GetButtonDown ("Jump")) {
-			transform.position += Vector3.left * dashDistance;
-			canDash = false;
-		} else if (Input.GetButton ("Up") && Input.GetButtonDown ("Jump")) {
-			transform.position += Vector3.up * dashDistance;
-			canDash = false;
-		} else if (Input.GetButton ("Down") && Input.GetButtonDown ("Jump")) {
-			transform.position += Vector3.down * dashDistance;
-			canDash = false;
-		} else if ((Input.GetButton ("Right") && Input.GetButton ("Up")) && Input.GetButtonDown ("Jump")) {
-			transform.position += new Vector3(1,1,0) * dashDistance;
-			canDash = false;
-		} else if ((Input.GetButton ("Right") && Input.GetButton ("Down")) && Input.GetButtonDown ("Jump")) {
-			transform.position += new Vector3(1,-1,0) * dashDistance;
-			canDash = false;
-		} else if ((Input.GetButton ("Left") && Input.GetButton ("Up")) && Input.GetButtonDown ("Jump")) {
-			transform.position += new Vector3(-1,1,0) * dashDistance;
-			canDash = false;
-		} else if ((Input.GetButton ("Left") && Input.GetButton ("Down")) && Input.GetButtonDown ("Jump")) {
-			transform.position += new Vector3(-1,-1,0) * dashDistance;
-			canDash = false;
-		} 
-
 	}
 }
