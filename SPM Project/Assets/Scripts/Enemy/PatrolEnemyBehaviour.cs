@@ -5,41 +5,56 @@ using UnityEngine;
 public class PatrolEnemyBehaviour : MonoBehaviour {
 
     public float speed;
+    public bool startMovingRight = true;
     public float groundCheckDistance;
-
-    public bool movingRight = true;
-
     public Transform groundDetection;
 
-    private Vector2 vectorDirection;
+    private bool movingRight;
+    private float timer = 0f;
+    private float saveSpeed;
+    public float waitingTime = 2f;
 
     private void Start()
     {
-        /*if (movingRight)
-        {
-            vectorDirection = Vector2.right;
-        } else
-        {
-            vectorDirection = Vector2.left;
-        }*/
-        vectorDirection = (movingRight == true) ? Vector2.right : Vector2.left;
+        movingRight = startMovingRight;
+        saveSpeed = speed;
     }
 
     void Update () {
-        transform.Translate(vectorDirection * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, groundCheckDistance);
-        if (groundInfo.collider == false) {
+        if (groundInfo.collider == false)
+        {
             if (movingRight)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
+                speed = 0;
+                timer += Time.deltaTime;
+                if (timer > waitingTime)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    movingRight = false;
+                    timer = 0f;
+                    speed = saveSpeed;
+                }
             } else
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
+                speed = 0;
+                timer += Time.deltaTime;
+                if (timer > waitingTime)
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    movingRight = true;
+                    timer = 0f;
+                    speed = saveSpeed;
+                }
             }
         }
-
 	}
+
+    private void OnValidate()
+    {
+        transform.eulerAngles = (startMovingRight == true) ? new Vector3(0, 0, 0) : new Vector3(0, -180, 0);
+    }
+
 }
