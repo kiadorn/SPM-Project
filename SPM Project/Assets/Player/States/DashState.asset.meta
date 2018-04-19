@@ -1,16 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:SPM Project/Assets/Prefabs.meta
-guid: f308ff1bde0747f41867d0489ac22ce1
-folderAsset: yes
-timeCreated: 1524049467
-=======
-guid: 9a79c77a67d40504aa793a821ffe867b
-timeCreated: 1524055754
->>>>>>> 191d170c0ae29ebe1f0511d1e7dc03c88dcc5e7a:SPM Project/Assets/Player/States/DashState.asset.meta
-licenseType: Free
+guid: c501bf4692c602945ab2001b5ff393b4
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
