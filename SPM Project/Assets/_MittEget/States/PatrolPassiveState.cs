@@ -29,7 +29,7 @@ public class PatrolPassiveState : State {
 
     public override void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        //transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, groundCheckDistance);
         if (groundInfo.collider == false)
@@ -40,7 +40,7 @@ public class PatrolPassiveState : State {
                 timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
-                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    //transform.eulerAngles = new Vector3(0, -180, 0);
                     movingRight = false;
                     timer = 0f;
                     speed = saveSpeed;
@@ -52,7 +52,7 @@ public class PatrolPassiveState : State {
                 timer += Time.deltaTime;
                 if (timer > waitingTime)
                 {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    //transform.eulerAngles = new Vector3(0, 0, 0);
                     movingRight = true;
                     timer = 0f;
                     speed = saveSpeed;
