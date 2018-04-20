@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealthScript : MonoBehaviour {
-	private int playerHealth;
+	public int playerHealth;
+	public float invulnTime;
+	private float invulnTimer;
 
 	private void Start(){
 		playerHealth = 2;
+		Debug.Log ("Spelarhälsa satt till 2 i kod.");
 	}
 
-	//Spelarhälsa
+	void Update(){
+			invulnTimer += Time.deltaTime;
+	}
+
+	//Spelarhälsa, kanske vill koppla något grafiskt till invulntime?
 	public void RemoveHealth(int d){
+		if(invulnTimer >= invulnTime){
 		playerHealth = playerHealth - d;
 		if(playerHealth <= 0){
 			PlayerDeath ();
+			}
 		}
 	}
 	public void RestoreHealth(){
