@@ -33,7 +33,7 @@ public class AirState : State{
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
 		transform.Translate(Velocity * Time.deltaTime);
-		CancelJump ();
+        CancelJump ();
 	}
 
 	private void UpdateMovement()

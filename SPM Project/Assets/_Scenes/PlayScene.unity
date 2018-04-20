@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 522065601}
   - component: {fileID: 522065600}
   - component: {fileID: 522065599}
+  - component: {fileID: 522065603}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -654,14 +655,37 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 522065598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 2.43, z: -0.1102207}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -7.648914, y: 2.308997, z: -0.1102207}
   m_LocalScale: {x: 1.4560112, y: 1.4560121, z: 1.4560121}
   m_Children:
   - {fileID: 847075183}
+  - {fileID: 1566064985}
+  - {fileID: 1451838211}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &522065603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522065598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e0831424ff269419b23c688e09f078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 0
+  WakeRange: 8
+  ShootInterval: 1
+  BulletSpeed: 6
+  BulletTimer: 0
+  awake: 0
+  Bullet: {fileID: 1888600415765958, guid: 2fd05add2e30f9f4c8dff7348666aed0, type: 2}
+  Target: {fileID: 689740227}
+  ShootingArea: {fileID: 1451838211}
+  speed: 50
 --- !u!1 &536860518
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +922,7 @@ Transform:
   m_GameObject: {fileID: 689740223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.2, y: -3.38, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -943,7 +967,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 689740223}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -1076,7 +1100,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847075182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48, z: 0}
+  m_LocalPosition: {x: 0.51, y: -0.03, z: 0}
   m_LocalScale: {x: 0.53417265, y: 0.53417265, z: 0.53417265}
   m_Children: []
   m_Father: {fileID: 522065602}
@@ -2280,6 +2304,34 @@ Transform:
   m_Father: {fileID: 1468411836}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1451838210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1451838211}
+  m_Layer: 0
+  m_Name: ShootingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451838211
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1451838210}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9, y: -0.03, z: 0}
+  m_LocalScale: {x: 0.9999992, y: 0.9999985, z: 0.9999985}
+  m_Children: []
+  m_Father: {fileID: 522065602}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468411835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2415,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2427,12 +2479,84 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475012078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.48, y: -3.319785, z: 0.00390625}
+  m_LocalPosition: {x: -7.4, y: -2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1566064984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1566064985}
+  - component: {fileID: 1566064986}
+  - component: {fileID: 1566064987}
+  m_Layer: 0
+  m_Name: ShootingArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566064985
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566064984}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.99, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 522065602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!60 &1566064986
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566064984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.37082353, y: 0.10890496}
+      - {x: -1.2966292, y: -1.1116614}
+      - {x: -1.2986642, y: -4.191177}
+      - {x: 1.0225229, y: -4.0169106}
+      - {x: 1.4325147, y: -1.0777941}
+      - {x: 0.16894512, y: 0.13431585}
+--- !u!114 &1566064987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566064984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aec76a8b458a6b4a8cdd26c41b03e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AI: {fileID: 0}
 --- !u!1 &1568910716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,7 +2992,7 @@ MonoBehaviour:
   TimeBeforeLookAround: 0.2
   PlayerMaximumSpeedForLookAround: 0.2
   Player: {fileID: 689740228}
-  Offset: {x: 1, y: 1, z: -2}
+  Offset: {x: 1, y: 2.3, z: -2}
 --- !u!1 &2016733150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,7 +3142,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

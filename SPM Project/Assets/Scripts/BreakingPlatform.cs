@@ -24,7 +24,6 @@ public class BreakingPlatform : MonoBehaviour {
 	}
 
     private IEnumerator Colapse(int colapseTime, int resetTime) {
-        Debug.Log("Hello");
         _colapsing = true;
         yield return new WaitForSeconds(colapseTime);
         _collider.enabled = false;
@@ -35,7 +34,7 @@ public class BreakingPlatform : MonoBehaviour {
         _colapsing = false; 
     }
 
-    private void OnTriggerEnter2D(Collider2D coll) {
+    private void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.tag == "Player" && !_colapsing){
             StartCoroutine(Colapse(ColapseTime, ResetTime));
         }
