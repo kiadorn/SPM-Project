@@ -31,16 +31,6 @@ public class PatrolEnemyController : Controller
         {
             playerStats.ChangeHealth(-1);
             player.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
-            //Vector2 direction = (Vector2)player.position - (Vector2)this.transform.position;
-            //player.gameObject.GetComponent<PlayerController>().Velocity += direction * 100;
-           /* if ((player.position.x - transform.position.x) > 0)
-            {
-                
-                player.gameObject.GetComponent<PlayerController>().Velocity += new Vector2(20, 10);
-            } else
-            {
-                player.gameObject.GetComponent<PlayerController>().Velocity += new Vector2(-20, 10);
-            }*/
         }
     }
 }

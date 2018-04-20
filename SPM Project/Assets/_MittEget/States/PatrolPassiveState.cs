@@ -23,6 +23,7 @@ public class PatrolPassiveState : State {
     public override void Enter()
     {
         _controller.speed = 3f;
+        _controller.GetComponentInChildren<SpriteRenderer>().color = Color.black;
     }
 
     public override void Update()

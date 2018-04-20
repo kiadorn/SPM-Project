@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6905fb930ef844f80fb7d246c4aa23, type: 3}
   m_Name: HurtState
   m_EditorClassIdentifier: 
-  yVelocity: 20
-  xVelocity: 20
+  yVelocity: 10
+  xVelocity: 10

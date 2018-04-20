@@ -18,6 +18,7 @@ public class PatrolAggressiveState : State {
     public override void Enter()
     {
         _controller.speed = 3;
+        _controller.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
 
     public override void Update()

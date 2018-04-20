@@ -105,26 +105,21 @@ public class GroundState : State{
 	private void Accelerate(float input)
 	{
 		int direction = MathHelper.Sign(Velocity.x);
-		float turnModifier = MathHelper.Sign(input) != direction && direction != 0 ?
-			TurnModifier : 1f;
-		Vector2 deltaVelocity = VectorAlongGround * input * Acceleration * turnModifier
-			* Time.deltaTime;
+		float turnModifier = MathHelper.Sign(input) != direction && direction != 0 ? TurnModifier : 1f;
+		Vector2 deltaVelocity = VectorAlongGround * input * Acceleration * turnModifier * Time.deltaTime;
 		Vector2 newVelocity = Velocity + deltaVelocity;
-		Velocity = newVelocity.magnitude > _controller.MaxSpeed ? VectorAlongGround *
-			MathHelper.Sign(Velocity.x) * _controller.MaxSpeed : newVelocity;
+		Velocity = newVelocity.magnitude > _controller.MaxSpeed ? VectorAlongGround * MathHelper.Sign(Velocity.x) * _controller.MaxSpeed : newVelocity;
 	}
 	private void Decelerate()
 	{
-		Vector2 deltaVelocity = MathHelper.Sign(Velocity.x) * VectorAlongGround *
-			Deceleration * Time.deltaTime;
+		Vector2 deltaVelocity = MathHelper.Sign(Velocity.x) * VectorAlongGround * Deceleration * Time.deltaTime;
 		Vector2 newVelocity = Velocity - deltaVelocity;
-		Velocity = Velocity.magnitude < MathHelper.FloatEpsilon ||
-			MathHelper.Sign(newVelocity.x) != MathHelper.Sign(Velocity.x) ? Vector2.zero :
-			newVelocity;
+		Velocity = Velocity.magnitude < MathHelper.FloatEpsilon || MathHelper.Sign(newVelocity.x) != MathHelper.Sign(Velocity.x) ? Vector2.zero : newVelocity;
 	}
 
     public void CheckWithEnemy()
     {
+        //Incomplete
         _controller.TransitionTo<HurtState>();
     }
 }
