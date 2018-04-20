@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: PassiveState
   m_EditorClassIdentifier: 
   waitingTime: 2
+  aggroRange: 5

@@ -19,7 +19,7 @@ public class CameraShake : MonoBehaviour
         _intensity -= Time.deltaTime / MaxDuration;
         _intensity = Mathf.Clamp01(_intensity);
         float magnitude = IntensityToMagnitudeCurve.Evaluate(_intensity);
-        float xPerlin = Mathf.Lerp(-MaxShake.x, MaxShake.x, Mathf.PerlinNoise(Time.time * PerlinSpeed.x, 0f));
+        float xPerlin = Mathf.Lerp(-MaxShake.x, MaxShake.x, Mathf.PerlinNoise(Time.time * PerlinSpeed.x, 0.0f));
         float yPerlin = Mathf.Lerp(-MaxShake.y, MaxShake.y, Mathf.PerlinNoise(0.0f, Time.time * PerlinSpeed.y));
         float roll = Mathf.Lerp(-MaxRoll, MaxRoll, Mathf.PerlinNoise(Time.time * RollSpeed, Time.time * RollSpeed));
         transform.localPosition = new Vector3(xPerlin, yPerlin, 0.0f) * magnitude;
