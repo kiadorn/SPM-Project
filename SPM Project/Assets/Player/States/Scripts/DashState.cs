@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*Teoretisk alternativ lösning:
-Använd transform.position = Vector3.Lerp(spelarposition, slutposition, TidAttDasha) för att förflytta spelaren under dash.  (Se exemplet: https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html)
-lerpa från högt värde till lågt och sätt en timer.
-
-Problem som uppstår har förmodligen med att göra att Stat:et gör väldigt lite och förlitar sig för mycket på AirState för rörelse.
+/* Att göra:
+Raycast runtomkring spelaren fungerar inte som intended. Dash avbryts nästan direkt om metoden körs.
 */
-
-
 [CreateAssetMenu(menuName = "Player/States/Dash")]
 public class DashState : State{
 
 	public float dashSpeed; //Hastighet dashen är.
 	public float dashDistance; //Distans dashen är.
 	public float dashTimeTarget; //Tiden spelaren befinner sig i dash state.
+	public BoxCollider2D playerCollider;
 	private float dashTime;
-
 	private Transform transform { get { return _controller.transform; }}
 	private PlayerController _controller;
 	private float xDir;
@@ -35,25 +30,18 @@ public class DashState : State{
 		xDir = Input.GetAxisRaw ("Horizontal");
 		yDir = Input.GetAxisRaw ("Vertical");
 		targetPos = new Vector3 (this.transform.position.x + xDir * dashDistance, this.transform.position.y + yDir * dashDistance, 0f);
-
+		_controller.Velocity = new Vector2(0, 0);
 	}
-	public override void Update(){
+	public override void Update(){			
 			Dash();
+			CheckSurrounding ();
 			dashTime += Time.deltaTime;
-			playerPos = new Vector2 (this.transform.position.x, this.transform.position.y);
-		Vector2 lel = new Vector2 (0f,0f);
-		Vector2 lel2 = new Vector2 (0.25f, 0.25f);
-		if (Physics2D.BoxCast(playerPos, lel2, 0,lel) != null) {
-			RaycastHit2D[] hits = _controller.DetectHits ();
-			UpdateNormalForce (hits);
-		}
 			if (dashTime >= dashTimeTarget) {
 			RaycastHit2D[] hits = _controller.DetectHits ();
 			UpdateNormalForce (hits);
 			}
 	}
 	public void Dash (){
-
 		transform.position = Vector3.MoveTowards(this.transform.position, targetPos, dashSpeed*Time.deltaTime);
 	}
 	//Collision test
@@ -70,6 +58,21 @@ public class DashState : State{
 				}
 			if (MathHelper.GetWallAngleDelta (hit.normal) < _controller.MaxWallAngleDelta) {
 				_controller.TransitionTo<WallState> ();
+				}
+			}
+	}
+
+	private void CheckSurrounding(){
+		float angle = 0;
+		for (int i=0; i<24; i++) {
+			float x = Mathf.Cos (angle);
+			float y = Mathf.Sin (angle);
+			angle += 15;
+			Vector2 dir = new Vector3 (x, y);
+			Debug.DrawRay (this.transform.position, dir, Color.red); 				// Debug rad, ta bort när denna metod fungerar som intended.
+			if (Physics.Raycast (this.transform.position, dir, 0.1f) != null) {
+				RaycastHit2D[] hits = _controller.DetectHits ();
+				UpdateNormalForce (hits);
 				}
 			}
 		}

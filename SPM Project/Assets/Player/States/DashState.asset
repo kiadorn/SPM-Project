@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 50
   dashDistance: 3
-  dashTimeTarget: 0.2
+  dashTimeTarget: 0.15
+  playerCollider: {fileID: 0}
