@@ -19,6 +19,7 @@ public class GroundState : State{
 	public float TimeToJumpApex;
 	public int MaxJumps = 1;
 	private int _jumps;
+    private Vector2 previousVelocity;
 
 	private Vector2 VectorAlongGround { get { return
 			MathHelper.RotateVector(_groundNormal, -90f);} }
@@ -93,6 +94,12 @@ public class GroundState : State{
 		{
 			if (Mathf.Approximately(Velocity.magnitude, 0.0f)) continue;
 			Velocity += MathHelper.GetNormalForce(Velocity, hit.normal);
+            if (hit.collider.GetComponent<VelocityAttribute>())
+            {
+                Velocity -= previousVelocity;
+                Velocity += hit.collider.GetComponent<VelocityAttribute>().Velocity;
+                previousVelocity = hit.collider.GetComponent<VelocityAttribute>().Velocity;
+            }
 		}
 	}
 	private void UpdateMovement()
@@ -105,21 +112,21 @@ public class GroundState : State{
 	private void Accelerate(float input)
 	{
 		int direction = MathHelper.Sign(Velocity.x);
-		float turnModifier = MathHelper.Sign(input) != direction && direction != 0 ?
-			TurnModifier : 1f;
-		Vector2 deltaVelocity = VectorAlongGround * input * Acceleration * turnModifier
-			* Time.deltaTime;
+		float turnModifier = MathHelper.Sign(input) != direction && direction != 0 ? TurnModifier : 1f;
+		Vector2 deltaVelocity = VectorAlongGround * input * Acceleration * turnModifier * Time.deltaTime;
 		Vector2 newVelocity = Velocity + deltaVelocity;
-		Velocity = newVelocity.magnitude > _controller.MaxSpeed ? VectorAlongGround *
-			MathHelper.Sign(Velocity.x) * _controller.MaxSpeed : newVelocity;
+		Velocity = newVelocity.magnitude > _controller.MaxSpeed ? VectorAlongGround * MathHelper.Sign(Velocity.x) * _controller.MaxSpeed : newVelocity;
 	}
 	private void Decelerate()
 	{
-		Vector2 deltaVelocity = MathHelper.Sign(Velocity.x) * VectorAlongGround *
-			Deceleration * Time.deltaTime;
+		Vector2 deltaVelocity = MathHelper.Sign(Velocity.x) * VectorAlongGround * Deceleration * Time.deltaTime;
 		Vector2 newVelocity = Velocity - deltaVelocity;
-		Velocity = Velocity.magnitude < MathHelper.FloatEpsilon ||
-			MathHelper.Sign(newVelocity.x) != MathHelper.Sign(Velocity.x) ? Vector2.zero :
-			newVelocity;
+		Velocity = Velocity.magnitude < MathHelper.FloatEpsilon || MathHelper.Sign(newVelocity.x) != MathHelper.Sign(Velocity.x) ? Vector2.zero : newVelocity;
 	}
+
+    public void CheckWithEnemy()
+    {
+        //Incomplete
+        _controller.TransitionTo<HurtState>();
+    }
 }

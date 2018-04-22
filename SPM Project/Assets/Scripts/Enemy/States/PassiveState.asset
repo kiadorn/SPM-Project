@@ -8,11 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7657f834a0b69f74195ff19ed5bd4bb2, type: 3}
-  m_Name: AirState
+  m_Script: {fileID: 11500000, guid: 46d7760e6a46d8047b29f061f8b7a4bf, type: 3}
+  m_Name: PassiveState
   m_EditorClassIdentifier: 
-  dashDistance: 5
-  Acceleration: 100
-  Friction: 20
-  CanCancelJump: 0
-  canDash: 0
+  waitingTime: 2
+  aggroRange: 5

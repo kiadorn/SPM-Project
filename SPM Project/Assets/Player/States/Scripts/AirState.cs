@@ -29,7 +29,8 @@ public class AirState : State{
 			_controller.TransitionTo<DashState>();
 			canDash = false;
 		}
-		UpdateGravity();
+        UpdateMovement();
+        UpdateGravity();
 		RaycastHit2D[] hits = _controller.DetectHits();
 		UpdateNormalForce(hits);
 		transform.Translate(Velocity * Time.deltaTime);
