@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05371c40d95d23f49b69b7336522ec51, type: 3}
   m_Name: GroundState
   m_EditorClassIdentifier: 
-  Acceleration: 100
+  Acceleration: 50
   Deceleration: 150
   TurnModifier: 3
   InitialJumpDistance: 0.5
