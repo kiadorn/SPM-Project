@@ -9,7 +9,6 @@ public class MovePlatformTrigger : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player")) {
             GetComponentInParent<MovePlatform>().shouldIMove = true;
-            Debug.Log("We in bois");
         }
         
     }
