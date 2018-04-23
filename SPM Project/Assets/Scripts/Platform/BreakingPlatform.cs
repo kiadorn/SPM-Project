@@ -16,6 +16,7 @@ public class BreakingPlatform : MonoBehaviour {
 	void Start () {
         _renderer = GetComponent<MeshRenderer>();
         _collider = GetComponent<Collider2D>();
+        //_collider2 = GetComponentInChildren<Collider2D>();
     }
 	
 	// Update is called once per frame
@@ -24,7 +25,6 @@ public class BreakingPlatform : MonoBehaviour {
 	}
 
     private IEnumerator Colapse(int colapseTime, int resetTime) {
-        Debug.Log("Hello");
         _colapsing = true;
         yield return new WaitForSeconds(colapseTime);
         _collider.enabled = false;
@@ -35,8 +35,14 @@ public class BreakingPlatform : MonoBehaviour {
         _colapsing = false; 
     }
 
-    private void OnTriggerEnter2D(Collider2D coll) {
+    /*private void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.tag == "Player" && !_colapsing){
+            StartCoroutine(Colapse(ColapseTime, ResetTime));
+        }
+    }*/
+
+    private void OnCollisionEnter2D(Collision2D coll) {
+        if (coll.gameObject.tag == "Player" && !_colapsing) {
             StartCoroutine(Colapse(ColapseTime, ResetTime));
         }
     }
