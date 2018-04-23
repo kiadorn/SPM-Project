@@ -41,16 +41,14 @@ public class ShootingSystem : MonoBehaviour {
 
     void RangeCheck() {
         Distance = Vector3.Distance(transform.position, Target.transform.position);
-        if(Distance < WakeRange) {
-            awake = true;
+        if(awake) {
             Vector3 vectorToTarget = Target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
             ShootSpot.transform.position = Vector3.MoveTowards(ShootSpot.transform.position, AggroPos.transform.position, (moveSpeed * Time.deltaTime));
         }
-        if (Distance > WakeRange) {
-            awake = false;
+        if (!awake) {
             ShootSpot.transform.position = Vector3.MoveTowards(ShootSpot.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
         }
     }
