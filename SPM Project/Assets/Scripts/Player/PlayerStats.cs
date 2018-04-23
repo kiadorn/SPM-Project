@@ -66,12 +66,12 @@ public class PlayerStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        /*
         //Testing Health
         if (Input.GetKeyDown("o")) {
             ChangeHealth(1);
         }
-        if (Input.GetKeyDown("p")) {
+        if (Input.GetKeyDown("u")) {
             ChangeHealth(-1);
         }
         //Testing Health
@@ -80,7 +80,7 @@ public class PlayerStats : MonoBehaviour {
         }
         if (Input.GetKeyDown("l")) {
             ChangeCurrency(-1);
-        }
+        }*/
         if (Input.GetKeyDown("m")) {
             if (Current)
                 Player.transform.position = Current.transform.position;
