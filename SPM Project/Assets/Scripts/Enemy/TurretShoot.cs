@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TurretShoot : MonoBehaviour {
 
-    public ShootingSystem AI;
+    private ShootingSystem AI;
     private bool _shooting;
 
-	/*
-	void Awake () {
-        AI = GetComponentInParent<ShootingSystem>();
-	}*/
+	
+	void Start () {
+        AI = transform.parent.GetChild(0).GetComponent<ShootingSystem>();
+	}
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {

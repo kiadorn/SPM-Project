@@ -190,8 +190,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1447749232301422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7301013, y: -0, z: 0}
-  m_LocalScale: {x: 1.8720531, y: 1.8720516, z: 1.872051}
+  m_LocalPosition: {x: 0.93, y: 0, z: 0}
+  m_LocalScale: {x: 1.8720545, y: 1.8720547, z: 1.8720537}
   m_Children: []
   m_Father: {fileID: 4544671047498330}
   m_RootOrder: 0
@@ -380,13 +380,8 @@ MonoBehaviour:
   BulletTimer: 0
   awake: 0
   Bullet: {fileID: 1888600415765958, guid: 2fd05add2e30f9f4c8dff7348666aed0, type: 2}
-  Target: {fileID: 0}
-  ShootingArea: {fileID: 4747786585998972}
   speed: 50
   hiddenPos: {x: 0, y: 0, z: 0}
-  AggroPos: {fileID: 1200867830636726}
-  PassivePos: {fileID: 1761079296997946}
-  ShootSpot: {fileID: 1713464722976918}
   moveSpeed: 1
   CanShoot: 0
 --- !u!114 &114961630268235264
@@ -400,4 +395,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aec76a8b458a6b4a8cdd26c41b03e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AI: {fileID: 114037343628337834}

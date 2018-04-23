@@ -13,25 +13,35 @@ public class ShootingSystem : MonoBehaviour {
     public bool awake = false;
 
     public GameObject Bullet;
-    public Transform Target;
-    public Transform ShootingArea;
+    private Transform Target;
+    private Transform ShootingArea;
 
     public float speed = 5.0f;
 
     public Vector3 hiddenPos;
-    public GameObject AggroPos;
-    public GameObject PassivePos;
-    public GameObject ShootSpot;
+    private GameObject AggroPos;
+    private GameObject PassivePos;
+    private GameObject Muzzle;
+    private GameObject ShootSpot;
    // Vector3 AgPos;
 
     public float moveSpeed = 0.2f;
     public bool CanShoot;
 
+    void Start() {
+        AggroPos = transform.GetChild(1).gameObject;
+        PassivePos = transform.GetChild(2).gameObject;
+        ShootSpot = transform.GetChild(0).GetChild(0).gameObject;
+        Muzzle = transform.GetChild(0).gameObject;
+        ShootingArea = transform.parent.GetChild(1).GetComponent<Transform>();
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void Update () {
         hiddenPos = PassivePos.transform.position;
         //AgPos = AggroPos.transform.position;
         RangeCheck();
-        if(ShootSpot.transform.position != AggroPos.transform.position) {
+        if(Muzzle.transform.position != AggroPos.transform.position) {
             CanShoot = false;
         }
         else {
@@ -46,10 +56,10 @@ public class ShootingSystem : MonoBehaviour {
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            ShootSpot.transform.position = Vector3.MoveTowards(ShootSpot.transform.position, AggroPos.transform.position, (moveSpeed * Time.deltaTime));
+            Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, AggroPos.transform.position, (moveSpeed * Time.deltaTime));
         }
         if (!awake) {
-            ShootSpot.transform.position = Vector3.MoveTowards(ShootSpot.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
+            Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
         }
     }
 
@@ -61,14 +71,11 @@ public class ShootingSystem : MonoBehaviour {
             dir.Normalize();
 
             GameObject bulletClone;
-            bulletClone = Instantiate(Bullet, ShootingArea.transform.position, ShootingArea.transform.rotation);
+            bulletClone = Instantiate(Bullet, ShootSpot.transform.position, ShootingArea.transform.rotation);
             bulletClone.GetComponent<Rigidbody2D>().velocity = dir * BulletSpeed;
 
             BulletTimer = 0;
         }
 
-    }
-
-    void Start() {
     }
 }
