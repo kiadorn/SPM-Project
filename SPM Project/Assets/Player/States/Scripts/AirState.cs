@@ -6,6 +6,7 @@ using System.Linq;
 [CreateAssetMenu(menuName = "Player/States/Air")]
 public class AirState : State{
 	[Header("Movement")]
+	public float dashDistance;
 	public float Acceleration;
 	public float Friction;
 
@@ -24,7 +25,6 @@ public class AirState : State{
 
 	public override void Update()
 	{
-		UpdateMovement ();
 		if(Input.GetButtonDown("Jump") && canDash){
 			_controller.TransitionTo<DashState>();
 			canDash = false;

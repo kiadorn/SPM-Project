@@ -2,16 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*Teoretisk alternativ lösning:
-Använd transform.position = Vector3.Lerp(spelarposition, slutposition, TidAttDasha) för att förflytta spelaren under dash.  (Se exemplet: https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html)
-Slutposition måste bli checkad med raycasts så att spelaren inte hamnar i en vägg eller object.
-Om den passar checken så kan spelaren förflyttas distansen given av slutposition, om inte bör slutposition ändras med hjälp av: RaycastHit.distance - ett värde så spelaren inte hamnar direkt bredvid/på väggen/objectet. 
-(Ska kolla med David/någon som har bättre koll om ovan är viable eller en total slös med tid innan jag börjar implementera. Kommer förmodligen kräva att nästan hela Statet skrivs om. /Joakim)
-
-Problem som uppstår har förmodligen med att göra att Stat:et gör väldigt lite och förlitar sig för mycket på AirState för rörelse.
-*/
-
-
 [CreateAssetMenu(menuName = "Player/States/Dash")]
 public class DashState : State{
 	public float dashSpeed; //Distans/hastighet dashen är.
@@ -39,7 +29,7 @@ public class DashState : State{
 		dashTime += Time.deltaTime*1;
 	}*/
 
-	//Stänger av gravity, så den bör ej påerka distans på dash OBS: Verkar inte göra någon skillnad om dessa metoder körs eller ej, eftersom spelaren är i DashState i endast en frame. Dessa metoder försvinner med största sannolihet.
+	//Stänger av gravity, så den bör ej påerka distans på dash OBS: Verkar inte göra något. :(
 	public void DisableGravity(){
 		originalGravity = _controller.Gravity;
 		_controller.Gravity = 0;
@@ -60,7 +50,7 @@ public class DashState : State{
 	//Collision test
 	private void UpdateNormalForce(RaycastHit2D[] hits)
 	{
-		if (hits.Length == 0) {
+		if (hits.Length == 0/* && dashTime >= dashTimeTarget*/) {
 			_controller.TransitionTo<AirState> ();
 		}
 		foreach (RaycastHit2D hit in hits)
