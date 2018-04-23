@@ -9,16 +9,22 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour {
     public Text HealthUI;
     public Text CurrencyUI;
-    public int HealthPoints;
-    public int Currency = 0;
+
+    [Header("Objektinstanser")]
     public GameObject Player;
-    public int StartingHealth;
-    public int CurrentHealth;
     public GameObject stats;
     private GameManager manager;
+
+    [Header("Stats och unlocks")]
+    public bool HasSword;
+    public int Currency = 0;
+    public int CurrentHealth;
+    public int StartingHealth;
+    public int LoadedHealthPoints;
+
     public void ChangeHealth(int i)
     {
-        HealthPoints += i;
+        CurrentHealth += i;
         CheckIfDead();
     }
 
@@ -32,16 +38,20 @@ public class PlayerStats : MonoBehaviour {
     void Start()
     {
         manager = stats.GetComponent<GameManager>();
-        HealthPoints = StartingHealth;
+        CurrentHealth = LoadedHealthPoints;
         UpdateHealth();
         ChangeCurrency(Currency);
         
+    }
+    public void SavePlayerStats()
+    {
+        GameManager.SavePlayer(this);
     }
     private void LoadStats()
     {
         if (Input.GetKeyDown("u"))
         {
-            HealthPoints = manager.HealthPoints;
+            CurrentHealth = manager.HealthPoints;
             Currency = manager.Currency;
         }
 
@@ -49,12 +59,12 @@ public class PlayerStats : MonoBehaviour {
 
     private void UpdateHealth()
     {
-        this.HealthUI.text = HealthPoints.ToString();
+        this.HealthUI.text = CurrentHealth.ToString();
     }
 
     private void CheckIfDead()
     {
-        if (HealthPoints < 1)
+        if (CurrentHealth < 1)
         {
             //Kill player-move to respawn;
             this.HealthUI.text = "Dead";
@@ -87,7 +97,11 @@ public class PlayerStats : MonoBehaviour {
         {
             ChangeCurrency(-1);
         }
-
+        if (Input.GetKeyDown("n"))
+        {
+            SavePlayerStats();
+        }
+       
     }
 }
 

@@ -33,7 +33,14 @@ public class GameManager : MonoBehaviour {
     //    ShieldIcon.SetActive(true);
     //    HasShield = true;
     //}
+    private void LoadStats()
+    {
+        if (Input.GetKeyDown("u"))
+        {
+            
+        }
 
+    }
     private void Awake()
     {
         if (instance == null)
@@ -63,13 +70,10 @@ public class GameManager : MonoBehaviour {
         }
         if (Input.GetKeyDown("escape"))
         {
-            SavePlayer();
-              //  MainMenu();                                   //SKAPA MAINMENU
         }
     }
         public void SavePlayerStats()
         {
-            SavePlayer();
         }
         public void LoadPlayerStats()
         {
@@ -79,16 +83,15 @@ public class GameManager : MonoBehaviour {
         }
     private void OnApplicationQuit()
     {
-        SavePlayer();
     }
-    public static void SavePlayer() //Sparfunktion
+    public static void SavePlayer(PlayerStats player) //Sparfunktion
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/player.sav", FileMode.Create);
-            PlayerData data = new PlayerData();
-            data.HealthPoints = instance.HealthPoints;
-            data.Currency = instance.Currency;
-            data.HasSword = instance.HasSword;
+            PlayerData data = new PlayerData(player);
+            data.HealthPoints = player.CurrentHealth;
+            data.Currency = player.Currency;
+            data.HasSword = player.HasSword;
             //data.HasShield = instance.HasShield;
             bf.Serialize(stream, data);
             stream.Close();
@@ -122,7 +125,13 @@ public class GameManager : MonoBehaviour {
 public class PlayerData //Serializerbara egenskaper (De som går att föra över binärt till sparfilsenkryption)
 {
     public int HealthPoints;
-    public int Currency;
+    public int Currency = 0;
     public bool HasSword;
+    public bool HasShield;
+    public PlayerData(PlayerStats player) {
+     HealthPoints = player.CurrentHealth;
+     Currency = player.Currency;
+    HasSword = player.HasSword;
     //public bool HasShield;
+    }
 }
