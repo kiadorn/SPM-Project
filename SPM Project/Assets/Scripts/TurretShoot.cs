@@ -24,9 +24,8 @@ public class TurretShoot : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
     void Update () {
-        if (_shooting) {
+        if (_shooting && AI.CanShoot) {
             AI.Shoot();
         }
     }
