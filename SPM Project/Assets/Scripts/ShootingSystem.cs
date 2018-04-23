@@ -22,14 +22,14 @@ public class ShootingSystem : MonoBehaviour {
     public GameObject AggroPos;
     public GameObject PassivePos;
     public GameObject ShootSpot;
-    Vector3 AgPos;
+   // Vector3 AgPos;
 
     public float moveSpeed = 0.2f;
     public bool CanShoot;
 
     void Update () {
         hiddenPos = PassivePos.transform.position;
-        AgPos = AggroPos.transform.position;
+        //AgPos = AggroPos.transform.position;
         RangeCheck();
         if(ShootSpot.transform.position != AggroPos.transform.position) {
             CanShoot = false;
