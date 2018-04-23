@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114480122803376972}
   - component: {fileID: 114428358015738944}
   m_Layer: 8
-  m_Name: MoveTriggerPlatform
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
