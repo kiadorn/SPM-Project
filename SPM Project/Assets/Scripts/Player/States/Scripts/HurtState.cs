@@ -44,8 +44,7 @@ public class HurtState : State {
         {
             tempX = xVelocity;
         }
-        _controller.Velocity = new Vector2(0, 0);
-        _controller.Velocity += new Vector2(tempX, yVelocity);
+        _controller.Velocity = new Vector2(tempX, yVelocity);
     }
 
     private void GroundCheck(RaycastHit2D[] hits)
