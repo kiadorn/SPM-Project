@@ -43,8 +43,8 @@ public class AirState : State{
 		if (Mathf.Abs(input) > _controller.InputMagnitudeToMove)
 		{
 			Vector2 delta = Vector2.right * input * Acceleration * Time.deltaTime;
-			if (Mathf.Abs ((_controller.Velocity + delta).x) < _controller.MaxSpeed || Mathf.Abs (Velocity.x) > _controller.MaxSpeed && Vector2.Dot (Velocity.normalized, delta) < 0.0f) {
-				_controller.Velocity += delta;
+			if (Mathf.Abs ((Velocity + delta).x) < _controller.MaxSpeed || Mathf.Abs (Velocity.x) > _controller.MaxSpeed && Vector2.Dot (Velocity.normalized, delta) < 0.0f) {
+				Velocity += delta;
 			} else {
 				_controller.Velocity.x = MathHelper.Sign (input) * _controller.MaxSpeed;
 			}
@@ -52,8 +52,7 @@ public class AirState : State{
 		else
 		{
 			Vector2 currentDirection = Vector2.right * MathHelper.Sign(Velocity.x);
-			float horizontalVelocity = Vector2.Dot(Velocity.normalized, currentDirection) *
-				Velocity.magnitude;
+			float horizontalVelocity = Vector2.Dot(Velocity.normalized, currentDirection) * Velocity.magnitude;
 			Velocity -= currentDirection * horizontalVelocity * Friction * Time.deltaTime;
 		}
 	}
