@@ -36,9 +36,16 @@ public class PatrolPassiveState : State {
     {
         _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
 
+		//audio
+		_controller.source.clip = _controller.Skitter;
+		_controller.source.loop = true;
+		_controller.source.Play();
+
         RaycastHit2D groundInfo = Physics2D.Raycast(_controller.groundDetection.position, Vector2.down, _controller.groundCheckDistance);
         if (groundInfo.collider == false || groundInfo.collider.gameObject.layer != 8)
         {
+			//audio
+			_controller.source.Stop();
             if (movingRight)
             {
 
@@ -73,6 +80,10 @@ public class PatrolPassiveState : State {
         float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
         if (checkDistance < aggroRange)
         {
+			//audio
+			_controller.source.loop = false;
+			_controller.source.Stop();
+
             _controller.TransitionTo<PatrolAggressiveState>();
         }
     }

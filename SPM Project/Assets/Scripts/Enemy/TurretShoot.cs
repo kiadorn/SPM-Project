@@ -14,6 +14,10 @@ public class TurretShoot : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
+			//audio
+			AI.source.clip = AI.Alerted;
+			AI.source.Play ();
+
             _shooting = true;
             AI.awake = true;
         }
@@ -21,6 +25,10 @@ public class TurretShoot : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
+			//audio
+			AI.source.clip = AI.Retract;
+			AI.source.Play ();
+
             _shooting = false;
             AI.awake = false;
         }

@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class BirdEnemyAttackTrigger : MonoBehaviour {
 
+	private BirdEnemyBehaviour Behaviour;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+			//audio
+			Behaviour.source.clip = Behaviour.Alerted;
+			Behaviour.source.Play ();
+
             transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>().BirdAttackPlayer(collision.transform.position);
         }
     }

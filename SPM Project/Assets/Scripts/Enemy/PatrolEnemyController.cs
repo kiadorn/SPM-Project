@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PatrolEnemyController : Controller
 {
-
-    public Transform player;
+	public Transform player;
     public PlayerStats playerStats;
     [Header("Patrol State")]
     public Transform groundDetection;
@@ -14,7 +13,17 @@ public class PatrolEnemyController : Controller
     public float speed;
     [SerializeField]
     private float currentSpeed;
+	//audio
+	[HideInInspector] 
+	public AudioSource source;
+	[Header ("Audio Clips")]
+	public AudioClip Skitter;
+	public AudioClip Alerted;
+	public AudioClip Death; //inte använd än
 
+	private void Start (){
+		source = GetComponent<AudioSource> ();
+	}
     private void Update()
     {
         CurrentState.Update();

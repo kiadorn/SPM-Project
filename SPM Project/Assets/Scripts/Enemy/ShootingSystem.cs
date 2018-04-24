@@ -28,6 +28,15 @@ public class ShootingSystem : MonoBehaviour {
     public float moveSpeed = 0.2f;
     public bool CanShoot;
 
+	//audio
+	[HideInInspector] 
+	public AudioSource source;
+	[Header ("Audio Clips")]
+	public AudioClip Alerted;
+	public AudioClip Retract;
+	public AudioClip Fire;
+	public AudioClip Death; //inte använd än
+
     void Start() {
         AggroPos = transform.GetChild(1).gameObject;
         PassivePos = transform.GetChild(2).gameObject;
@@ -35,6 +44,8 @@ public class ShootingSystem : MonoBehaviour {
         Muzzle = transform.GetChild(0).gameObject;
         ShootingArea = transform.parent.GetChild(1).GetComponent<Transform>();
         Target = GameObject.FindGameObjectWithTag("Player").transform;
+		//audio
+		source = GetComponent<AudioSource>();
     }
 
     void Update () {
@@ -73,6 +84,10 @@ public class ShootingSystem : MonoBehaviour {
             GameObject bulletClone;
             bulletClone = Instantiate(Bullet, ShootSpot.transform.position, ShootingArea.transform.rotation);
             bulletClone.GetComponent<Rigidbody2D>().velocity = dir * BulletSpeed;
+
+			//audio
+			source.clip = Fire;
+			source.Play ();
 
             BulletTimer = 0;
         }

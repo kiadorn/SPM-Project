@@ -28,6 +28,13 @@ public class BirdEnemyBehaviour : MonoBehaviour {
     public Vector2 OGPos;
     public Vector2 AttackPos;
 
+	//audio
+	[HideInInspector] 
+	public AudioSource source;
+	[Header ("Audio Clips")]
+	public AudioClip Impact;
+	public AudioClip Alerted;
+
     //TEST
     /*public Vector2 Velocity;
     public Vector2 dirToPlayer;
@@ -40,6 +47,9 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 
     private void Start()
     {
+		//audio
+		source = GetComponent<AudioSource>();
+
         OGPos = transform.position;
     }
 
@@ -54,6 +64,10 @@ public class BirdEnemyBehaviour : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+			//audio
+			source.clip = Impact;
+			source.Play ();
+
             Vector2 dir = collision.transform.position - transform.position;
             collision.transform.GetComponent<PlayerController>().Velocity = dir.normalized * KnockbackPlayer;
             //transform.position += (Vector3)(dir.normalized * -1 * KnockbackDistance / KnockbackModifier);
