@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public int Currency = 0;
     public bool HasSword;
     public bool HasShield;
+    public bool[] KeyCollected;
 
     [Header("UI element")]
     public GameObject SwordIcon;

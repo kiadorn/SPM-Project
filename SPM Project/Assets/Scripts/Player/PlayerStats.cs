@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour {
     public Text CurrencyUI;
 
     [Header("Objektinstanser")]
-    public GameObject Player;
+    public GameObject Player; 
     public GameObject stats;
     private GameManager manager;
 

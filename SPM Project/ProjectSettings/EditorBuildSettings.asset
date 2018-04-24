@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Hub.unity
     guid: 89d0f2f0e8e7d2545afcca01eed7a022
   - enabled: 1
-    path: Assets/_Scenes/PlayScene.unity
-    guid: 767dde5888b3dd84e9099eeaf459239c
+    path: Assets/_Scenes/_GameManager Test.unity
+    guid: ac131517adb35f84f83623a287862c54

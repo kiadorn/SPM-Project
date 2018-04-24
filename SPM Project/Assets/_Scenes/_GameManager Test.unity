@@ -709,7 +709,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db229fd11b8146a4c991ffd8225c3690, type: 2}
   - {fileID: 11400000, guid: b9b18d4203c10864cb4f6808e5140ad4, type: 2}
   - {fileID: 11400000, guid: 687275181b8df234caa2fda21663d67a, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c501bf4692c602945ab2001b5ff393b4, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
   MaxSpeed: 30

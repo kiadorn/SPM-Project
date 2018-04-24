@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: AirState
   m_EditorClassIdentifier: 
   Acceleration: 30
-  Friction: 50
+  Friction: 2
   CanCancelJump: 0
   canDash: 0
