@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8420ce4254aae429687f49303d90c6, type: 3}
   m_Name: AggressiveState
   m_EditorClassIdentifier: 
-  aggroRange: 5
+  aggroRange: 10
   somethingInfront: 1

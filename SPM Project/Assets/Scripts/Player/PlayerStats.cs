@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour {
     {
         if (Input.GetKeyDown("u"))
         {
+            Debug.Log("Laddat från GameManager");
             CurrentHealth = manager.HealthPoints;
             Currency = manager.Currency;
         }
@@ -76,47 +77,17 @@ public class PlayerStats : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        /*
+        
 
 
     //Update is called once per frame
     void Update()
     {
         LoadStats();
-
-        //Testing Health
-        if (Input.GetKeyDown("o"))
-        {
-            ChangeHealth(1);
-        }
-<<<<<<< HEAD:SPM Project/Assets/Scripts/Player/PlayerStats.cs
-        if (Input.GetKeyDown("u")) {
-=======
-        if (Input.GetKeyDown("p"))
-        {
->>>>>>> origin/Zake:SPM Project/Assets/Scripts/PlayerStats.cs
-            ChangeHealth(-1);
-        }
-        //Testing Health
-        if (Input.GetKeyDown("k"))
-        {
-            ChangeCurrency(1);
-        }
-        if (Input.GetKeyDown("l"))
-        {
-            ChangeCurrency(-1);
-<<<<<<< HEAD:SPM Project/Assets/Scripts/Player/PlayerStats.cs
-        }
-        if (Input.GetKeyDown("m")) {
-            if (Current)
-                Player.transform.position = Current.transform.position;
-        }*/
         if (Input.GetKeyDown("n"))
         {
             SavePlayerStats();
         }
-       
     }
 }
 
