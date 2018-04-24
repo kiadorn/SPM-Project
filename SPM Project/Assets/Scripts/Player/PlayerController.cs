@@ -20,7 +20,7 @@ public class PlayerController : Controller{
 	{
 		CurrentState.Update();
 		if (Input.GetKeyDown (KeyCode.R)) {
-			SceneManager.LoadScene(0);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit();

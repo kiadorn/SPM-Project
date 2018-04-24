@@ -25,9 +25,9 @@ public class PatrolEnemyController : Controller
         transform.eulerAngles = (startMovingRight == true) ? new Vector3(0, 0, 0) : new Vector3(0, -180, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             playerStats.ChangeHealth(-1);
             player.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();

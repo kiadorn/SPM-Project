@@ -11,7 +11,7 @@ public class AirState : State{
 
 	public bool CanCancelJump;
 	public bool canDash;
-	private float FastFallModifier = 2f;
+	private float FastFallModifier = 1.2f;
 	private PlayerController _controller;
 	private Transform transform { get { return _controller.transform; }}
 	private Vector2 Velocity { get { return _controller.Velocity; }
@@ -26,7 +26,8 @@ public class AirState : State{
 	{
 		UpdateMovement ();
 		if(Input.GetButtonDown("Jump") && canDash){
-			_controller.TransitionTo<DashState>();
+			//_controller.TransitionTo<DashState>();
+            _controller.TransitionTo<DashVelocityState>();
 			canDash = false;
 		}
         UpdateMovement();

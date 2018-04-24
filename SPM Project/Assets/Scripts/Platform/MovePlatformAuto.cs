@@ -68,7 +68,10 @@ public class MovePlatformAuto : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.SetParent(transform);
-            GameObject pos = transform.GetChild(1).gameObject;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.transform.SetParent(transform);
         }
     }
 

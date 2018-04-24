@@ -41,7 +41,7 @@ public class DashState : State{
 			dashTime += Time.deltaTime;
 			CheckSurrounding ();
 		if (dashTime >= dashTimeTarget) {
-			MonoBehaviour.print ("Time out");
+			//MonoBehaviour.print ("Time out");
 			RaycastHit2D[] hits = _controller.DetectHits ();
 			UpdateNormalForce (hits);
 		} else{
@@ -59,7 +59,7 @@ public class DashState : State{
 	{
 		_controller.Velocity = new Vector2(0f,0f);
 		if (hits.Length == 0) { 
-			MonoBehaviour.print("I luften");																//Debug rad, ta bort.
+			//MonoBehaviour.print("I luften");																//Debug rad, ta bort.
 			_controller.TransitionTo<AirState> ();
 			return;
 		} else {
@@ -68,13 +68,13 @@ public class DashState : State{
 			{
 				_controller.Velocity += MathHelper.GetNormalForce(_controller.Velocity, hit.normal);
 				if (MathHelper.CheckAllowedSlope (_controller.SlopeAngles, hit.normal)) {
-					MonoBehaviour.print("På marken");														//Debug rad, ta bort.
+					//MonoBehaviour.print("På marken");														//Debug rad, ta bort.
 					_controller.TransitionTo<GroundState> ();
 				}
 				if (MathHelper.GetWallAngleDelta (hit.normal) < _controller.MaxWallAngleDelta
 				    && Vector2.Dot ((hit.point - (Vector2)transform.position).normalized,
 					    _controller.Velocity.normalized) > 0.0f) {
-					MonoBehaviour.print("På vägg");															//Debug rad, ta bort.
+					//MonoBehaviour.print("På vägg");															//Debug rad, ta bort.
 					_controller.TransitionTo<WallState> ();
 				}
 			}
@@ -91,13 +91,13 @@ public class DashState : State{
 			Vector2 dir = new Vector3 (x, y);
 			Debug.DrawRay (this.transform.position, dir, Color.red, 2f); // Debug rad, ta bort när denna metod fungerar som intended.
 			RaycastHit2D[] hit = Physics2D.RaycastAll (this.transform.position, dir, 1f);
-			MonoBehaviour.print ("" + hit.Length);
+			//MonoBehaviour.print ("" + hit.Length);
 			if (hit.Length >= 2) {
 				if (hit[1] != null && hit[1].collider != null) {
-					MonoBehaviour.print ("" + hit[1].transform.tag);
+					//MonoBehaviour.print ("" + hit[1].transform.tag);
 				}
 				if (hit != null && hit [1].collider != null && hit [1].transform.tag == "Geometry") {
-					MonoBehaviour.print ("CheckSurrounding tiggered");//Debug rad, ta bort.
+					//MonoBehaviour.print ("CheckSurrounding tiggered");//Debug rad, ta bort.
 					RaycastHit2D[] hits = _controller.DetectHits ();
 					UpdateNormalForce (hits);
 				}
