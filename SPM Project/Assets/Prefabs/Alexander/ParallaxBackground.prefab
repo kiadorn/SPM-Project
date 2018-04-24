@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4295904666474176}
   - component: {fileID: 114593003886980522}
   m_Layer: 0
-  m_Name: Background
+  m_Name: ParallaxBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

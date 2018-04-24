@@ -45,7 +45,8 @@ public class DashVelocityState : State
         {
             magnitude = _controller.MaxSpeed;
         }
-        Velocity = Velocity.normalized * magnitude;
+        //Velocity = Velocity.normalized * magnitude;
+        Velocity = Vector2.zero;
         //Velocity = new Vector2(xDir, yDir).normalized * speed;
     }
 
