@@ -74,18 +74,17 @@ public class PlayerStats : MonoBehaviour {
             UpdateHealth();
         }
     }
-<<<<<<< HEAD:SPM Project/Assets/Scripts/Player/PlayerStats.cs
 	
 	// Update is called once per frame
 	void Update () {
         /*
-=======
+
 
     //Update is called once per frame
     void Update()
     {
         LoadStats();
->>>>>>> origin/Zake:SPM Project/Assets/Scripts/PlayerStats.cs
+
         //Testing Health
         if (Input.GetKeyDown("o"))
         {
@@ -108,16 +107,14 @@ public class PlayerStats : MonoBehaviour {
         {
             ChangeCurrency(-1);
 <<<<<<< HEAD:SPM Project/Assets/Scripts/Player/PlayerStats.cs
-        }*/
+        }
         if (Input.GetKeyDown("m")) {
             if (Current)
                 Player.transform.position = Current.transform.position;
-=======
-        }
+        }*/
         if (Input.GetKeyDown("n"))
         {
             SavePlayerStats();
->>>>>>> origin/Zake:SPM Project/Assets/Scripts/PlayerStats.cs
         }
        
     }
