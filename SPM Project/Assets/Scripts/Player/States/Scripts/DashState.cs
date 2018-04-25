@@ -37,10 +37,10 @@ public class DashState : State{
 
 	}
 	public override void Update(){
-		if (xDir != 0) {
+		if (xDir == 0 && yDir == 0) {
+			xDir = _controller.GetLastXDirection ();
 			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
 		} else {
-			xDir = _controller.GetLastXDirection ();
 			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
 		}
 			dashTime += Time.deltaTime;
