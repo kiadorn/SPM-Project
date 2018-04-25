@@ -11,18 +11,24 @@ public class BreakingPlatform : MonoBehaviour {
     private Collider2D _collider;
     private bool _colapsing = false;
 
+    private Vector3 OGPos;
 
-	// Use this for initialization
-	void Start () {
+
+
+
+    void Awake() {
         _renderer = GetComponent<MeshRenderer>();
         _collider = GetComponent<Collider2D>();
-        //_collider2 = GetComponentInChildren<Collider2D>();
+        OGPos = transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void OnEnable () {
+        transform.position = OGPos;
+        _renderer.enabled = true;
+        _collider.enabled = true;
+        _colapsing = false;
+    }
 
     private IEnumerator Colapse(int colapseTime, int resetTime) {
         _colapsing = true;

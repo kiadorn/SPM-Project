@@ -9,16 +9,36 @@ public class CheckPoint : MonoBehaviour {
 
     public PlayerStats Stats;
 
+    public GameObject[] ObjectsToReset;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        Stats = GameObject.Find("UI").GetComponent<PlayerStats>();
 	}
+
+
+    public void EnableEnemies() {
+        foreach(GameObject resetObject in ObjectsToReset) {
+            resetObject.SetActive(false);
+            resetObject.SetActive(true);
+           // if (resetObject.GetComponent<TurretController>()) {
+  
+                    //   Debug.Log("Test2");
+                   // resetObject.transform.GetComponent<TurretController>().Reset();
+
+
+           // }
+   //         Debug.Log("Test3");
+        }
+    }
     
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             if (Latest) {
-                Stats.Current = this;
+                Stats.CurrentCheckPoint = this;
                 Latest = false;
+
+
             }
                 
                 

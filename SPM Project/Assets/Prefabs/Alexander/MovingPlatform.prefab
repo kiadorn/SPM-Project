@@ -71,6 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4933344199238000}
+  - component: {fileID: 114855244580538622}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -292,3 +293,14 @@ MonoBehaviour:
   moveBackSpeed: 2
   waitTime: 2.71
   shouldIMove: 0
+--- !u!114 &114855244580538622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1885684172801384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9665e2f4b6681ed47a5d0b56375c4c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

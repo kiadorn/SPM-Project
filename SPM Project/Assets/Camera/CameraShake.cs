@@ -13,7 +13,7 @@ public class CameraShake : MonoBehaviour
 
     private static float _intensity;
 
-    private void LateUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown("p")) CameraShake.AddIntensity(1);
         _intensity -= Time.deltaTime / MaxDuration;

@@ -15,6 +15,8 @@ public class PatrolEnemyController : Controller
     [SerializeField]
     private float currentSpeed;
 
+    private Vector3 OGPos;
+
     private void Update()
     {
         CurrentState.Update();
@@ -23,6 +25,15 @@ public class PatrolEnemyController : Controller
     private void OnValidate()
     {
         transform.eulerAngles = (startMovingRight == true) ? new Vector3(0, 0, 0) : new Vector3(0, -180, 0);
+    }
+
+    void Awake() {
+        base.Awake();
+        OGPos = transform.position;
+    }
+
+    private void OnEnable() {
+        transform.position = OGPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

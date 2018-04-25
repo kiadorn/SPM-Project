@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour {
     public bool HasSword;
     public bool HasShield;
 
-    public CheckPoint Current;
+    public CheckPoint CurrentCheckPoint;
     
     public void ChangeHealth(int i) {
         HealthPoints += i;
@@ -82,8 +82,13 @@ public class PlayerStats : MonoBehaviour {
             ChangeCurrency(-1);
         }*/
         if (Input.GetKeyDown("m")) {
-            if (Current)
-                Player.transform.position = Current.transform.position;
+            if (CurrentCheckPoint) {
+                Player.transform.position = CurrentCheckPoint.transform.position;
+                CurrentCheckPoint.EnableEnemies();
+            }
+                
         }
+
+        
     }
 }

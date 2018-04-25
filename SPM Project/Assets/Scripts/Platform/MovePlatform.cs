@@ -16,7 +16,7 @@ public class MovePlatform : MonoBehaviour {
     private bool isDone = false;
     private bool isWaiting;
 
-    private void Start()
+    private void Awake()
     {
         originalPos = transform.position;
     }
@@ -63,6 +63,12 @@ public class MovePlatform : MonoBehaviour {
         isWaiting = false;
     }
 
-
+    public void Reset() {
+        isDone = false;
+        shouldIMove = false;
+        transform.position = originalPos;
+        isWaiting = false;
+        
+    }
 
 }

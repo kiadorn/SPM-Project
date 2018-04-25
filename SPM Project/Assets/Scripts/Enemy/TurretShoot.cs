@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class TurretShoot : MonoBehaviour {
 
-    private ShootingSystem AI;
-    private bool _shooting;
 
+    public TurretController Controller;
 	
-	void Start () {
-        AI = transform.parent.GetChild(0).GetComponent<ShootingSystem>();
-	}
+
+
+    void Awake() {
+        Controller = transform.parent.GetComponent<TurretController>();
+    }
+
+
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
-            _shooting = true;
-            AI.awake = true;
+            Controller.EnteredZone();
         }
     }
 
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
-            _shooting = false;
-            AI.awake = false;
+            Controller.ExitedZone();
         }
     }
 
-    void Update () {
-        if (_shooting && AI.CanShoot) {
-            AI.Shoot();
-        }
-    }
+
 }
