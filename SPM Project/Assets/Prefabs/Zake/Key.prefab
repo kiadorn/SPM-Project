@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf37d6c23c5d74e8cb7e4758d7564e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  LevelThatHasBeenCompleted: 
 --- !u!212 &212016324384119410
 SpriteRenderer:
   m_ObjectHideFlags: 1
