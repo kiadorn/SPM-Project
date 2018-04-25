@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(menuName = "Player/States/DashVelocity")]
 public class DashVelocityState : State
 {
     public float waitTime = 1f;
     public float speed;
+    public float exitSpeed;
     private float timer;
     private Vector2 Velocity { get { return _controller.Velocity; }
         set { _controller.Velocity = value; } }
@@ -14,7 +16,7 @@ public class DashVelocityState : State
     private PlayerController _controller;
     private float xDir;
     private float yDir; 
-    private float magnitude;
+    private List<Collider2D> _ignoredPlatforms = new List<Collider2D>();
 
     public override void Initialize(Controller owner)
     {
@@ -23,7 +25,6 @@ public class DashVelocityState : State
 
     public override void Enter()
     {
-        magnitude = Velocity.magnitude;
         xDir = Input.GetAxisRaw("Horizontal");
         yDir = Input.GetAxisRaw("Vertical");
         Velocity = Vector2.zero;
@@ -39,13 +40,8 @@ public class DashVelocityState : State
     
     public override void Exit()
     {
-        if (magnitude > _controller.MaxSpeed)
-        {
-            magnitude = _controller.MaxSpeed;
-        }
-        //Velocity = Velocity.normalized * magnitude;
-        Velocity = Vector2.zero;
-        //Velocity = new Vector2(xDir, yDir).normalized * speed;
+       // Velocity = Vector2.zero;
+        Velocity = new Vector2(xDir, yDir).normalized * exitSpeed;
     }
 
     public void Dash2()
@@ -63,9 +59,17 @@ public class DashVelocityState : State
     private void UpdateNormalForce(RaycastHit2D[] hits)
     {
         if (hits.Length == 0) return;
-        _controller.SnapToHit(hits[0]);
+        RaycastHit2D snapHit = hits.FirstOrDefault(h => !h.collider.CompareTag("OneWay"));
+        if (snapHit.collider != null) _controller.SnapToHit(snapHit);
         foreach (RaycastHit2D hit in hits)
         {
+            if (hit.collider.CompareTag("OneWay") && Velocity.y > 0.0f && !_ignoredPlatforms.Contains(hit.collider))
+            {
+                _ignoredPlatforms.Add(hit.collider);
+            }
+            if (_ignoredPlatforms.Contains(hit.collider))
+                continue;
+
             Velocity += MathHelper.GetNormalForce(Velocity, hit.normal);
             if (MathHelper.CheckAllowedSlope(_controller.SlopeAngles, hit.normal))
                 _controller.TransitionTo<GroundState>();
@@ -73,7 +77,18 @@ public class DashVelocityState : State
             if (MathHelper.GetWallAngleDelta(hit.normal) < _controller.MaxWallAngleDelta
                 && Vector2.Dot((hit.point - (Vector2)transform.position).normalized,
                     Velocity.normalized) > 0.0f)
-                _controller.TransitionTo<WallState>();
+                if (!hit.collider.CompareTag("Unclimbable Wall"))
+                {
+                    _controller.TransitionTo<WallState>();
+                }
+        }
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + (Vector3)_controller.Collider.offset, _controller.Collider.size, 0.0f, _controller.CollisionLayers);
+        for (int i = _ignoredPlatforms.Count - 1; i >= 0; i--)
+        {
+            if (!colliders.Contains(_ignoredPlatforms[i]))
+            {
+                _ignoredPlatforms.Remove(_ignoredPlatforms[i]);
+            }
         }
 
     }

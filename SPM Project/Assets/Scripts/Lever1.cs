@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitEventObject : MonoBehaviour {
+public class Lever1 : HitEventObject {
 
-    public HitEvent hitEvent;
-
-	public void Action()
+    public override void Action()
     {
         
     }
