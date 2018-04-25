@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4650301979213956}
   - component: {fileID: 33896921725660244}
   - component: {fileID: 23974626598178950}
-  - component: {fileID: 50013558911905752}
   - component: {fileID: 114310235743184382}
   - component: {fileID: 61789556500762526}
+  - component: {fileID: 50262172729349138}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707431197270178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.76, y: 0, z: 0}
+  m_LocalPosition: {x: 1.01, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707431197270178}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!50 &50013558911905752
+--- !u!50 &50262172729349138
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.020026803, y: 0.18024635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.9212606, y: 2.6422472}
   m_EdgeRadius: 0
 --- !u!114 &114310235743184382
 MonoBehaviour:
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 0}
+  ObjectsToReset: []

@@ -122,4 +122,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColapseTime: 3
   ResetTime: 5
-  _collider2: {fileID: 0}

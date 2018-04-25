@@ -21,13 +21,13 @@ public class CheckPoint : MonoBehaviour {
         foreach(GameObject resetObject in ObjectsToReset) {
             resetObject.SetActive(false);
             resetObject.SetActive(true);
-           // if (resetObject.GetComponent<TurretController>()) {
+          //  if (resetObject.GetComponent("TurretController") as TurretController) {
   
-                    //   Debug.Log("Test2");
+                       Debug.Log("Test2");
                    // resetObject.transform.GetComponent<TurretController>().Reset();
 
 
-           // }
+         //   }
    //         Debug.Log("Test3");
         }
     }

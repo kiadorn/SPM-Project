@@ -15,16 +15,18 @@ public class MovePlatform : MonoBehaviour {
     private Vector3 originalPos;
     private bool isDone = false;
     private bool isWaiting;
+    private bool SaveMove = true;
 
     private void Awake()
     {
-        originalPos = transform.position;
+        originalPos = transform.localPosition;
+        SaveMove = moveBack;
     }
 
     public void Move()
     {
         
-        if (transform.position == transform.parent.GetChild(1).transform.position)
+        if (transform.localPosition == transform.parent.GetChild(1).transform.localPosition)
         {
             isDone = true;
             if (!isWaiting && moveBack)
@@ -32,13 +34,13 @@ public class MovePlatform : MonoBehaviour {
         }
         if (!isDone)
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.parent.GetChild(1).transform.position, moveForwardSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, transform.parent.GetChild(1).transform.localPosition, moveForwardSpeed * Time.deltaTime);
         } else if (moveBack)
         {
-            transform.position = Vector3.MoveTowards(transform.position, originalPos, moveBackSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, originalPos, moveBackSpeed * Time.deltaTime);
         }
 
-        if (transform.position == originalPos)
+        if (transform.localPosition == originalPos)
         {
             shouldIMove = false;
             isDone = false;
@@ -66,9 +68,10 @@ public class MovePlatform : MonoBehaviour {
     public void Reset() {
         isDone = false;
         shouldIMove = false;
-        transform.position = originalPos;
+        transform.localPosition = originalPos;
         isWaiting = false;
-        
+        moveBack = SaveMove;
+
     }
 
 }
