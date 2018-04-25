@@ -40,7 +40,8 @@ public class DashState : State{
 		if (xDir != 0) {
 			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
 		} else {
-			targetPos = new Vector3 (this.transform.position.x + _controller.GetLastXDirection() * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
+			xDir = _controller.GetLastXDirection ();
+			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
 		}
 			dashTime += Time.deltaTime;
 			CheckSurrounding ();

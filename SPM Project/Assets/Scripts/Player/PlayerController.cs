@@ -21,18 +21,14 @@ public class PlayerController : Controller{
 	{
 		CurrentState.Update();
 
-		while(Input.GetAxisRaw("Horizontal") != 0){
-			lastXDir = Input.GetAxisRaw ("Horizontal");
+		if(Input.GetAxisRaw("Horizontal") > 0){
+			lastXDir = 1f;
+		}else if(Input.GetAxisRaw("Horizontal") < 0){
+			lastXDir = -1f;
 		}
 	}
 	public float GetLastXDirection(){
-		if (lastXDir > 0) {
-			return 1f;
-		} else if (lastXDir < 0) {
-			return -1f;
-		} else {
-			return 0;
-		}
+		return lastXDir;
 	}
 
 	public RaycastHit2D[] DetectHits(bool addGroundCheck = false)
