@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: DashVelocityState
   m_EditorClassIdentifier: 
   waitTime: 0.1
-  speed: 50
+  speed: 75

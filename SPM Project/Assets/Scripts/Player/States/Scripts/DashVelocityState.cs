@@ -31,8 +31,6 @@ public class DashVelocityState : State
     public override void Update()
     {
         Velocity = new Vector2(xDir, yDir).normalized * speed;
-        
-        Debug.Log(Velocity);
         RaycastHit2D[] hits = _controller.DetectHits();
         UpdateNormalForce(hits);
         Dash2();
