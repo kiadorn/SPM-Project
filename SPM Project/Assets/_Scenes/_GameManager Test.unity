@@ -187,6 +187,46 @@ Prefab:
       propertyPath: stats
       value: 
       objectReference: {fileID: 1842428538}
+    - target: {fileID: 114986975745431340, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 114221387258450290, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 224413820921035112, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -327
+      objectReference: {fileID: 0}
+    - target: {fileID: 224659743654987216, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 253
+      objectReference: {fileID: 0}
+    - target: {fileID: 224659743654987216, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -327
+      objectReference: {fileID: 0}
+    - target: {fileID: 224413820921035112, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 206
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090218424216002, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: Currency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090218424216002, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: CurrentHealth
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6cd3c7e02cf55c40b865ffc005f7c4d, type: 2}
   m_IsPrefabParent: 0
@@ -603,7 +643,7 @@ Transform:
   - {fileID: 1568910722}
   - {fileID: 1260123204}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689740223
 GameObject:
@@ -717,7 +757,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &689740228
 MonoBehaviour:
@@ -884,7 +924,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4115264121437770, guid: 8f290a892adc66e449238ab13fe6339b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114048682326998888, guid: 8f290a892adc66e449238ab13fe6339b,
         type: 2}
