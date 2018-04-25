@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
-  MaxSpeed: 20
+  MaxSpeed: 25
   CollisionLayers:
     serializedVersion: 2
     m_Bits: 256
