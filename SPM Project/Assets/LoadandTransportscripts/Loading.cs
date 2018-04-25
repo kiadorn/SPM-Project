@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour {
-    public int portalNum;
     public string leveltoload;
-
+    public string portalName;
     private void Update()
     {
-        if (portalNum != GameManager.instance.LevelsDone) {
+        if (GameManager.instance.Level1Done == false && portalName == "portal2") {
             this.gameObject.SetActive(false);
                 }
     }
