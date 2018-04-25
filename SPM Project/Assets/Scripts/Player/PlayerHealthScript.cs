@@ -6,6 +6,7 @@ public class PlayerHealthScript : MonoBehaviour {
 	public int playerHealth;
 	public float invulnTime;
 	private float invulnTimer;
+    public PlayerHealthScript PlayerHealth;
 
 	private void Start(){
 		playerHealth = 2;
@@ -25,11 +26,14 @@ public class PlayerHealthScript : MonoBehaviour {
 			}
 		}
 	}
-	public void RestoreHealth(){
-		if(playerHealth != 2){
-			playerHealth = playerHealth + 1;
-		}
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Health")){
+            if (playerHealth != 2)
+            {
+                playerHealth = playerHealth + 1;
+            }
+        }
 	}
 	public void PlayerDeath(){
 		//Vad händer när spelaren dör?
