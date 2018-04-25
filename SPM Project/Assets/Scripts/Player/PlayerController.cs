@@ -15,15 +15,23 @@ public class PlayerController : Controller{
 	public float InputMagnitudeToMove;
 	public MinMaxFloat SlopeAngles;
 	public SpriteRenderer spriteRenderer;
+	private float lastXDir;
 
 	private void Update()
 	{
 		CurrentState.Update();
-		if (Input.GetKeyDown (KeyCode.R)) {
-			SceneManager.LoadScene(0);
+
+		while(Input.GetAxisRaw("Horizontal") != 0){
+			lastXDir = Input.GetAxisRaw ("Horizontal");
 		}
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.Quit();
+	}
+	public float GetLastXDirection(){
+		if (lastXDir > 0) {
+			return 1f;
+		} else if (lastXDir < 0) {
+			return -1f;
+		} else {
+			return 0;
 		}
 	}
 

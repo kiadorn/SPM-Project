@@ -23,8 +23,6 @@ public class DashState : State{
 	private float angle;
 	RaycastHit2D[] hits;
 	private bool stopDash;
-
-
 	public override void Initialize(Controller owner){
 		_controller = (PlayerController)owner;
 	}
@@ -39,7 +37,11 @@ public class DashState : State{
 
 	}
 	public override void Update(){
+		if (xDir != 0) {
 			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
+		} else {
+			targetPos = new Vector3 (this.transform.position.x + _controller.GetLastXDirection() * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
+		}
 			dashTime += Time.deltaTime;
 			CheckSurrounding ();
 			Dash ();
@@ -63,7 +65,7 @@ public class DashState : State{
 			if (hits.Length >= 2) {
 				if (hits != null && hits [1].collider != null && hits [1].transform.tag == "Geometry") {
 					stopDash = false;
-					if (hits [1].transform.rotation.z > 45) {
+					if (hits [1].transform.rotation.z > 45) {  //Eventuellt problem här, kan behövas bättre uträkning istället för att endast kolla vinkeln.
 						_controller.SnapToHit(hits[1]);
 						_controller.TransitionTo<WallState> ();
 					} else if (hits [1].transform.rotation.z < 45) {
