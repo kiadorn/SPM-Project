@@ -12,8 +12,6 @@ public class PlayerStats : MonoBehaviour {
 
     [Header("Objektinstanser")]
     public GameObject Player; 
-    public GameObject stats;
-    private GameManager manager;
 
     [Header("Stats och unlocks")]
     public bool HasSword;
@@ -38,34 +36,13 @@ public class PlayerStats : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        manager = stats.GetComponent<GameManager>();
         CurrentHealth = LoadedHealthPoints;
         UpdateHealth();
         ChangeCurrency(Currency);
-        LoadStats();
-
-    }
-
-
-    public void SavePlayerStats()
-    {
-        GameManager.SavePlayer(this);
-    }
-
-
-    public void LoadStats()
-    {
- 
-            Debug.Log("Laddat från GameManager");
-            CurrentHealth = manager.HealthPoints;
-            Currency = manager.Currency;
         
 
     }
-    private void Awake()
-    {
-        stats = GameObject.Find("GameManager");
-    }
+    
 
     private void UpdateHealth()
     {
@@ -92,10 +69,6 @@ public class PlayerStats : MonoBehaviour {
     //Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("n"))
-        {
-            SavePlayerStats();
-        }
         
     }
 }

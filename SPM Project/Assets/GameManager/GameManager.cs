@@ -65,26 +65,44 @@ public class GameManager : MonoBehaviour {
         }
         if (Input.GetKeyDown("escape"))
         {
+            SavePlayer();
         }
         currentLevel = currentScene.name;
     }
-        public void LoadPlayerStats()
+    public void LoadPlayerStats()
         {
             LoadPlayer();
 
 
         }
+    public void ChangeHealth(int i)
+    {
+        HealthPoints += i;
+        CheckIfDead();
+    }
+    private void CheckIfDead()
+    {
+        if (HealthPoints < 1)
+        {
+            //Kill player-move to respawn;
+           // this.HealthUI.text = "Dead";
+        }
+        else
+        {
+           // UpdateHealth();
+        }
+    }
     private void OnApplicationQuit()
     {
     }
-    public static void SavePlayer(PlayerStats player) //Sparfunktion
+    public static void SavePlayer() //Sparfunktion
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/player.sav", FileMode.Create);
-            PlayerData data = new PlayerData(player);
-            data.HealthPoints = player.CurrentHealth;
-            data.Currency = player.Currency;
-            data.HasSword = player.HasSword;
+            PlayerData data = new PlayerData(instance);
+            data.HealthPoints = instance.HealthPoints;
+            data.Currency = instance.Currency;
+            data.HasSword = instance.HasSword;
             //data.HasShield = instance.HasShield;
             bf.Serialize(stream, data);
             stream.Close();
@@ -121,10 +139,10 @@ public class PlayerData //Serializerbara egenskaper (De som går att föra över
     public int Currency = 0;
     public bool HasSword;
     public bool HasShield;
-    public PlayerData(PlayerStats player) {
-     HealthPoints = player.CurrentHealth;
-     Currency = player.Currency;
-    HasSword = player.HasSword;
+    public PlayerData(GameManager instance) {
+     HealthPoints = instance.HealthPoints;
+     Currency = instance.Currency;
+    HasSword = instance.HasSword;
     //public bool HasShield;
     }
 }
