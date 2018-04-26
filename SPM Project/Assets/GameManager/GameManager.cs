@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public bool HasShield;
     public bool Level1Done;
     public bool Level2Done;
+    public bool hasKey;
     public string currentLevel;
     Scene currentScene;
     [Header("UI element")]
