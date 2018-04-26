@@ -7,6 +7,7 @@ public class Pickups : MonoBehaviour {
 	void Start () {
 		
 	}
+    
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +19,13 @@ public class Pickups : MonoBehaviour {
         {
             this.gameObject.SetActive(false);
             GameObject.Find("UI").GetComponent<PlayerStats>().ChangeHealth(1);
+        }
+        
+        if (collision.gameObject.CompareTag("Player") && gameObject.name == "Sword" )
+        {
+            this.gameObject.SetActive(false);
+            GameObject.Find("UI").GetComponent<PlayerStats>().HasSword = true;
+            Debug.Log(GameObject.Find("UI").GetComponent<PlayerStats>().HasSword);
         }
         //Set item inaktiv
     }
