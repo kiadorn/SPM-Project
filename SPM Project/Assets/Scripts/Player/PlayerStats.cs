@@ -56,8 +56,7 @@ public class PlayerStats : MonoBehaviour {
 
     private void CheckIfDead() {
         if (HealthPoints < 1) {
-            //Kill player-move to respawn;
-            HealthUI.text = "Dead";
+            Death();
         }
         else {
             UpdateHealth();
@@ -83,12 +82,18 @@ public class PlayerStats : MonoBehaviour {
         }*/
         if (Input.GetKeyDown("m")) {
             if (CurrentCheckPoint) {
-                Player.transform.position = CurrentCheckPoint.transform.position;
-                CurrentCheckPoint.EnableEnemies();
+                Death();
             }
                 
         }
 
         
+    }
+
+    public void Death() {
+        Player.transform.position = CurrentCheckPoint.transform.position;
+        CurrentCheckPoint.EnableEnemies();
+        HealthPoints = StartingHealth;
+        UpdateHealth();
     }
 }
