@@ -6,7 +6,6 @@ public class PlayerHealthScript : MonoBehaviour {
 	public int playerHealth;
 	public float invulnTime;
 	private float invulnTimer;
-    public PlayerHealthScript PlayerHealth;
 
 	private void Start(){
 		playerHealth = 2;
@@ -32,6 +31,7 @@ public class PlayerHealthScript : MonoBehaviour {
             if (playerHealth != 2)
             {
                 playerHealth = playerHealth + 1;
+                Debug.Log("Helade spelaren");
             }
         }
 	}

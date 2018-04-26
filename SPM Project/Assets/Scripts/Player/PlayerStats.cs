@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour {
         CheckIfDead();
     }
 
+    
     public void ChangeCurrency(int i)
     {
         Currency += i;

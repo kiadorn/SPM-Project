@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pickups : MonoBehaviour {
-
 	// Use this for initialization
 	void Start () {
 		
@@ -13,8 +12,13 @@ public class Pickups : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player") && GameObject.Find("UI").GetComponent<PlayerStats>().CurrentHealth <= 2 )
+        {
+            this.gameObject.SetActive(false);
+            GameObject.Find("UI").GetComponent<PlayerStats>().ChangeHealth(1);
+        }
         //Set item inaktiv
     }
 }
