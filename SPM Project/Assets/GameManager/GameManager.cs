@@ -5,6 +5,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour {
     public bool HasShield;
     public bool Level1Done;
     public bool Level2Done;
-
-
+    public string currentLevel;
+    Scene currentScene;
     [Header("UI element")]
     public GameObject SwordIcon;
 
@@ -36,14 +37,7 @@ public class GameManager : MonoBehaviour {
     //    ShieldIcon.SetActive(true);
     //    HasShield = true;
     //}
-    private void LoadStats()
-    {
-        if (Input.GetKeyDown("u"))
-        {
-            
-        }
-
-    }
+    
     private void Awake()
     {
         if (instance == null)
@@ -55,18 +49,16 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        LoadPlayer();
     }
     // Use this for initialization
     void Start() {
+     currentScene = SceneManager.GetActiveScene();
 
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown("n"))
-        {
-            SavePlayerStats();
-        }
         if (Input.GetKeyDown("b"))
         {
             LoadPlayerStats();
@@ -74,10 +66,8 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown("escape"))
         {
         }
+        currentLevel = currentScene.name;
     }
-        public void SavePlayerStats()
-        {
-        }
         public void LoadPlayerStats()
         {
             LoadPlayer();

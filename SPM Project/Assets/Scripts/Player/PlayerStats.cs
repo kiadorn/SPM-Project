@@ -42,21 +42,29 @@ public class PlayerStats : MonoBehaviour {
         CurrentHealth = LoadedHealthPoints;
         UpdateHealth();
         ChangeCurrency(Currency);
-        
+        LoadStats();
+
     }
+
+
     public void SavePlayerStats()
     {
         GameManager.SavePlayer(this);
     }
-    private void LoadStats()
+
+
+    public void LoadStats()
     {
-        if (Input.GetKeyDown("u"))
-        {
+ 
             Debug.Log("Laddat från GameManager");
             CurrentHealth = manager.HealthPoints;
             Currency = manager.Currency;
-        }
+        
 
+    }
+    private void Awake()
+    {
+        stats = GameObject.Find("GameManager");
     }
 
     private void UpdateHealth()
@@ -84,11 +92,11 @@ public class PlayerStats : MonoBehaviour {
     //Update is called once per frame
     void Update()
     {
-        LoadStats();
         if (Input.GetKeyDown("n"))
         {
             SavePlayerStats();
         }
+        
     }
 }
 

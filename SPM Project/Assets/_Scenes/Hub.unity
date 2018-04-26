@@ -458,6 +458,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114916912816234912, guid: dcc28985207a51149b9186348365b2f4,
+        type: 2}
+      propertyPath: Currency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916912816234912, guid: dcc28985207a51149b9186348365b2f4,
+        type: 2}
+      propertyPath: HealthPoints
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcc28985207a51149b9186348365b2f4, type: 2}
   m_IsPrefabParent: 0
@@ -621,6 +631,11 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 427713980}
+    - target: {fileID: 114090218424216002, guid: c6cd3c7e02cf55c40b865ffc005f7c4d,
+        type: 2}
+      propertyPath: CurrentHealth
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6cd3c7e02cf55c40b865ffc005f7c4d, type: 2}
   m_IsPrefabParent: 0
