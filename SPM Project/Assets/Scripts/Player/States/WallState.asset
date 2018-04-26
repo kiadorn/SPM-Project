@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlideSpeed: 1.5
   WallCheckDistance: 0.15
-  WallJumpSpeed: {x: 10, y: 12}
+  WallJumpSpeed: {x: 15, y: 17}
   FallOffSpeed: 0.5
   InitialJumpDistance: 0.16
