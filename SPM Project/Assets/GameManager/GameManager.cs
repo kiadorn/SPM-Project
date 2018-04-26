@@ -102,7 +102,6 @@ public class GameManager : MonoBehaviour {
             PlayerData data = new PlayerData(instance);
             data.HealthPoints = instance.HealthPoints;
             data.Currency = instance.Currency;
-            data.HasSword = instance.HasSword;
             //data.HasShield = instance.HasShield;
             bf.Serialize(stream, data);
             stream.Close();
@@ -123,7 +122,6 @@ public class GameManager : MonoBehaviour {
                 stream.Close();
                 instance.Currency = data.Currency;
                 instance.HealthPoints = data.HealthPoints;
-                instance.HasSword = data.HasSword;
                 //instance.HasShield = data.HasShield;
                 Debug.Log("Loaded");
         }
@@ -142,7 +140,6 @@ public class PlayerData //Serializerbara egenskaper (De som går att föra över
     public PlayerData(GameManager instance) {
      HealthPoints = instance.HealthPoints;
      Currency = instance.Currency;
-    HasSword = instance.HasSword;
     //public bool HasShield;
     }
 }
