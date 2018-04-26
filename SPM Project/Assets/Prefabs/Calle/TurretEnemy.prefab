@@ -468,11 +468,11 @@ MonoBehaviour:
   Distance: 0
   WakeRange: 8
   ShootInterval: 1
-  BulletSpeed: 6
+  BulletSpeed: 22
   BulletTimer: 0
   awake: 0
   Bullet: {fileID: 1888600415765958, guid: 2fd05add2e30f9f4c8dff7348666aed0, type: 2}
-  speed: 50
+  speed: 100
   hiddenPos: {x: 0, y: 0, z: 0}
   moveSpeed: 1
   CanShoot: 0
