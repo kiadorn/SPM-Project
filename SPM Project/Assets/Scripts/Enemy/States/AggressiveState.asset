@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: AggressiveState
   m_EditorClassIdentifier: 
   aggroRange: 10
-  somethingInfront: 1
+  somethingInfront: 0.2

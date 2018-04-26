@@ -46,26 +46,27 @@ public class PatrolAggressiveState : State {
         RaycastHit2D groundInfoForward = Physics2D.Raycast(_controller.groundDetection.position, direction, somethingInfront);
         //Raycast under sig
         RaycastHit2D groundInfoDown = Physics2D.Raycast(_controller.groundDetection.position, Vector2.down, _controller.groundCheckDistance);
-        if (groundInfoDown.collider == false || groundInfoDown.collider.gameObject.layer != 8)
+        //Stannar om det är ingenting under
+        if (groundInfoDown.collider == false || groundInfoDown.collider.gameObject.layer != 8 && !groundInfoForward.collider.gameObject.CompareTag("Player"))
         {
-            //Stannar om det är ingenting under
             _controller.speed = 0;
         }
         else
         {
-            if (groundInfoForward.collider == true && groundInfoForward.collider.gameObject.layer == 8)
+            //Stannar om det är något framför och det är Geometry
+            if (groundInfoForward.collider == true && groundInfoForward.collider.gameObject.layer == 8 && !groundInfoForward.collider.gameObject.CompareTag("Player"))
             {
-                //Stannar om det är något framför och det är Geometry
                 _controller.speed = 0;
             }
+            //Annars fortsätter
             else
             {
-                //Annars fortsätter
+
                 _controller.speed = 3;
             }
         }
 
-        //Rör sig
+        //Rörelse
         _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
     }
 

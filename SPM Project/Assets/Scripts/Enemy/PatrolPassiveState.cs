@@ -5,11 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/States/Passive")]
 public class PatrolPassiveState : State {
 
+    public float waitingTime = 2f;
+    public float aggroRange = 5f;
+    public float somethingInfront = 0.1f;
     private bool movingRight;
     private float timer = 0f;
     private float saveSpeed;
-    public float waitingTime = 2f;
-    public float aggroRange = 5f;
+    private Vector2 direction;
 
     private PatrolEnemyController _controller;
 
@@ -34,38 +36,82 @@ public class PatrolPassiveState : State {
 
     private void UpdatePatrolMovement()
     {
-        _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
 
-        RaycastHit2D groundInfo = Physics2D.Raycast(_controller.groundDetection.position, Vector2.down, _controller.groundCheckDistance);
-        if (groundInfo.collider == false || groundInfo.collider.gameObject.layer != 8)
+        if (movingRight)
         {
-            if (movingRight)
+            direction = Vector2.right;
+        } else
+        {
+            direction = Vector2.left;
+        }
+
+        //Raycast framför sig
+        RaycastHit2D groundInfoForward = Physics2D.Raycast(_controller.groundDetection.position, direction, somethingInfront);
+        //Raycast under sig
+        RaycastHit2D[] groundInfoDownHits = Physics2D.RaycastAll(_controller.groundDetection.position, Vector2.down, _controller.groundCheckDistance);
+
+        bool foundInfront = false;
+        bool foundGround = false;
+
+        //Om det är något framför som är Geometry
+        if (groundInfoForward.collider == true && groundInfoForward.collider.gameObject.layer == 8)
+        {
+            foundInfront = true;
+        }
+        else
+        {   
+            //Om det är något under som är Geometry
+            foreach (RaycastHit2D hit in groundInfoDownHits)
+            {
+                if (hit.collider == true && hit.collider.gameObject.layer == 8)
+                {
+                    foundGround = true;
+                }
+            }
+            
+        }
+
+        _controller.speed = saveSpeed; //"I'm a genius" - Calle 26/04/2018 11:58
+
+        //Väntar ifall den hittade något framför
+        if (foundInfront)
+        {
+            WaitBeforeTurning();
+        } else
+        {
+            //Väntar ifall den INTE hittade något under
+            if (!foundGround)
             {
 
-                _controller.speed = 0;
-                timer += Time.deltaTime;
-                if (timer > waitingTime)
-                {
-                    _controller.transform.eulerAngles = new Vector3(0, -180, 0);
-                    movingRight = false;
-                    timer = 0f;
-                    _controller.speed = saveSpeed;
-                }
+                WaitBeforeTurning();
+            }
+        }
+
+        //Rörelse
+        _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
+    }
+
+    private void WaitBeforeTurning()
+    {
+        _controller.speed = 0;
+
+        timer += Time.deltaTime;
+        if (timer > waitingTime)
+        {
+            timer = 0f;
+            _controller.speed = saveSpeed;
+
+            if (movingRight)
+            {
+                movingRight = false;
+                _controller.transform.eulerAngles = new Vector3(0, -180, 0);
             }
             else
             {
-                _controller.speed = 0;
-                timer += Time.deltaTime;
-
-                if (timer > waitingTime)
-                {
-                    _controller.transform.eulerAngles = new Vector3(0, 0, 0);
-                    movingRight = true;
-                    timer = 0f;
-                    _controller.speed = saveSpeed;
-                }
+                movingRight = true;
+                _controller.transform.eulerAngles = new Vector3(0, 0, 0);
             }
-        }
+        } 
     }
 
     private void CheckForPlayer()
