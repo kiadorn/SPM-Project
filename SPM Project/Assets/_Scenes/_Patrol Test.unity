@@ -362,7 +362,6 @@ MonoBehaviour:
   handSize: 3.5
   shadow: {fileID: 1065689126}
   hand: {fileID: 52140856}
-  collider: {fileID: 1764962398}
   player: {fileID: 185268031}
   shadowModifier: 0.4
   OpacityModifier: 0.1
@@ -374,12 +373,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe,
     type: 2}
   m_PrefabInternal: {fileID: 974130176}
---- !u!114 &154897511 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
-    type: 2}
-  m_PrefabInternal: {fileID: 586841319}
-  m_Script: {fileID: 11500000, guid: 82ca1bf08406f9849bab4e1dbecbbd20, type: 3}
 --- !u!1 &169548209
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +489,27 @@ GameObject:
   m_PrefabParentObject: {fileID: 1352385346751974, guid: 5fcd74677157e8147935310c88f4ae5f,
     type: 2}
   m_PrefabInternal: {fileID: 394197264}
+--- !u!114 &185268032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 185268031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ed14d9cd8f896459bca15f60b38d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 355947452}
+  CurrencyUI: {fileID: 212208366}
+  manager: {fileID: 0}
+  HasSword: 0
+  Currency: 0
+  CurrentHealth: 0
+  StartingHealth: 0
+  LoadedHealthPoints: 0
+  CurrentCheckPoint: {fileID: 0}
+  InvulnerableTime: 0
 --- !u!4 &185268035 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4214497252333742, guid: 5fcd74677157e8147935310c88f4ae5f,
@@ -623,7 +637,7 @@ Prefab:
         type: 2}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 1594413059}
+      objectReference: {fileID: 0}
     - target: {fileID: 1212584177637970, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_Name
       value: PatrolEnemy (1)
@@ -673,7 +687,7 @@ GameObject:
   - component: {fileID: 230726395}
   m_Layer: 8
   m_Name: Platform (3)
-  m_TagString: Untagged
+  m_TagString: Geometry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -980,11 +994,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4214497252333742, guid: 5fcd74677157e8147935310c88f4ae5f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 6.84
       objectReference: {fileID: 0}
     - target: {fileID: 4214497252333742, guid: 5fcd74677157e8147935310c88f4ae5f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.2
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4214497252333742, guid: 5fcd74677157e8147935310c88f4ae5f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1035,7 +1049,8 @@ Prefab:
       propertyPath: m_Name
       value: Sprite_Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114261927954286390, guid: 5fcd74677157e8147935310c88f4ae5f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5fcd74677157e8147935310c88f4ae5f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &398366644
@@ -2186,7 +2201,7 @@ Prefab:
         type: 2}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 1594413059}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
   m_IsPrefabParent: 0
@@ -2203,7 +2218,7 @@ GameObject:
   - component: {fileID: 998843279}
   m_Layer: 8
   m_Name: Platform (2)
-  m_TagString: Untagged
+  m_TagString: Geometry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2464,7 +2479,7 @@ Prefab:
         type: 2}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 1594413059}
+      objectReference: {fileID: 0}
     - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
         type: 2}
       propertyPath: source
@@ -2552,6 +2567,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1955779476371990, guid: 9df43b8dafdaadb42b10fe93e6a3bebc, type: 2}
+      propertyPath: m_TagString
+      value: Geometry
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9df43b8dafdaadb42b10fe93e6a3bebc, type: 2}
   m_IsPrefabParent: 0
@@ -2568,7 +2587,7 @@ GameObject:
   - component: {fileID: 1230384568}
   m_Layer: 8
   m_Name: Platform (1)
-  m_TagString: Untagged
+  m_TagString: Geometry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3056,11 +3075,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1494919137 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1283195993320388, guid: dcc28985207a51149b9186348365b2f4,
-    type: 2}
-  m_PrefabInternal: {fileID: 427392667}
 --- !u!4 &1562789379 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601959357469500, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
@@ -3077,7 +3091,6 @@ GameObject:
   - component: {fileID: 1594413062}
   - component: {fileID: 1594413061}
   - component: {fileID: 1594413060}
-  - component: {fileID: 1594413059}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3085,27 +3098,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1594413059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594413058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ed14d9cd8f896459bca15f60b38d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthUI: {fileID: 355947452}
-  CurrencyUI: {fileID: 212208366}
-  Player: {fileID: 185268031}
-  stats: {fileID: 1494919137}
-  HasSword: 0
-  Currency: 0
-  CurrentHealth: 0
-  StartingHealth: 2
-  LoadedHealthPoints: 0
-  CurrentCheckPoint: {fileID: 154897511}
 --- !u!114 &1594413060
 MonoBehaviour:
   m_ObjectHideFlags: 0

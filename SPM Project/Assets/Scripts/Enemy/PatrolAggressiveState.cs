@@ -19,7 +19,7 @@ public class PatrolAggressiveState : State {
     {
 		_controller.source.clip = _controller.Alerted;
 		_controller.source.Play();
-        _controller.speed = 3;
+        _controller.speed = _controller.saveSpeed;
         _controller.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
 
@@ -63,7 +63,7 @@ public class PatrolAggressiveState : State {
             //Annars fortsätter
             else
             {
-                _controller.speed = 3;
+                _controller.speed = _controller.saveSpeed;
             }
         }
 

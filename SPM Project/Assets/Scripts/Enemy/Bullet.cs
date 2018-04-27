@@ -13,8 +13,7 @@ public class Bullet : MonoBehaviour {
 			//audio
 			source.Play();
 
-            PlayerStats stats = GameObject.Find("UI").GetComponent<PlayerStats>();
-            stats.ChangeHealth(-1);
+            coll.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1);
         }
         Destroy(gameObject);
         

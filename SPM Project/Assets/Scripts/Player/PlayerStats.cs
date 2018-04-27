@@ -7,15 +7,13 @@ using System.IO;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
+
+    [Header("References")]
     public Text HealthUI;
     public Text CurrencyUI;
+    public GameManager manager;
 
-    [Header("Objektinstanser")]
-    public GameObject Player;
-    public GameObject stats;
-    private GameManager manager;
-
-    [Header("Stats och unlocks")]
+    [Header("Stats")]
     public bool HasSword;
     public int Currency = 0;
     public int CurrentHealth;
@@ -23,13 +21,17 @@ public class PlayerStats : MonoBehaviour {
     public int LoadedHealthPoints;
     public CheckPoint CurrentCheckPoint;
 
+    public float InvulnerableTime;
+    private bool _invulnerable = false;
+    private float timer;
+    private float colorSwapTimer;
+    private bool swapping;
+
     void Start()
     {
-        manager = stats.GetComponent<GameManager>();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
-        
     }
 
     void Update()
@@ -47,12 +49,48 @@ public class PlayerStats : MonoBehaviour {
             }
 
         }
+
+        if (_invulnerable)
+        {
+            if (!swapping)
+            {
+                StartCoroutine(SwapColors());
+            }
+            timer += Time.deltaTime;
+            if(timer >= InvulnerableTime)
+            {
+                Debug.Log("Jag är INTE invulnerable");
+                _invulnerable = false;
+                timer = 0;
+            }
+            
+        }
+    }
+
+    private IEnumerator SwapColors()
+    {
+        swapping = true;
+        for (float i = 0; i <= timer; i += 0.1f)
+        { 
+        GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        yield return new WaitForSeconds(0.1f);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        }
+        swapping = false;
+        yield return 0;
     }
 
     public void ChangeHealth(int i)
     {
-        CurrentHealth += i;
-        CheckIfDead();
+        if (!_invulnerable || i > 0)
+        {
+            gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
+            CurrentHealth += i;
+            _invulnerable = true;
+            Debug.Log("Jag är invulnerable");
+            CheckIfDead();
+        }
     }
 
     public void ChangeCurrency(int i)
@@ -94,11 +132,12 @@ public class PlayerStats : MonoBehaviour {
     }
 
     public void Death() {
-        Player.GetComponent<PlayerController>().TransitionTo<AirState>();
-        Player.transform.position = CurrentCheckPoint.transform.position;
+        transform.position = CurrentCheckPoint.transform.position;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
+        _invulnerable = false;
+        GetComponent<PlayerController>().TransitionTo<AirState>();
     }
 }
 
