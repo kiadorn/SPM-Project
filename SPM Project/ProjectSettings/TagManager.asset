@@ -9,6 +9,7 @@ TagManager:
   - Unclimbable Wall
   - OneWay
   - Turret
+  - UntaggedFromParent
   layers:
   - Default
   - TransparentFX

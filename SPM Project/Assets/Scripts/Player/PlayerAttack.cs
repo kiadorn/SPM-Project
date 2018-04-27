@@ -31,19 +31,22 @@ public class PlayerAttack : MonoBehaviour {
 		}
 
 		if(Input.GetButtonDown("Fire1") && attackTimeStamp >= attackCooldown){
+			attackArc.enabled = true;
 			attackTimeStamp = 0;
 			PlayerAtk();
 		}
 		
 	}
-	//När spelkaraktären har en sprite och storlek måste 0.16f ändras till något mer passande värde. Nuvarande värde är endast temporärt för testning.
+	//När spelkaraktären har en sprite och storlek måste 1.5f ändras till något mer passande värde. Nuvarande värde är endast temporärt för testning.
 	private void UpdateColliderPosition(){
+		if(attackArc.enabled == true){
+		attackArc.enabled = false;
+		}
 		xDir = Input.GetAxisRaw ("Horizontal");
-
 		if(xDir > 0){
-			attackArc.transform.localPosition = new Vector2 (0.16f, 0f);
+			attackArc.transform.localPosition = new Vector2 (1.5f, 0f);
 		}else if(xDir < 0){
-			attackArc.transform.localPosition = new Vector2 (-0.16f, 0f);
+			attackArc.transform.localPosition = new Vector2 (-1.5f, 0f);
 		}else if(xDir == 0){
 			return;
 		}
@@ -51,19 +54,11 @@ public class PlayerAttack : MonoBehaviour {
 
 	private void PlayerAtk(){
 		/*Här behövs en ForEach stats som går igenom objectsInRange listan och applicerar skada på varje object som finns i listan. (Kan ej göras för tillfället då jag ej vet hur eller var hälsan på fiender kommer att se ut) /Joakim */
-		
 	}
 	//Lägger till fiender som är i collidern attackArc.
-	void OnTriggerStay(Collider other){
-		if (other.gameObject.tag == "Enemy" && !objectsInRange.Contains (other.gameObject)) {
-			objectsInRange.Add (other.gameObject);
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.tag == "Enemy"){
+			other.SendMessage ("TakeDamage", null, SendMessageOptions.DontRequireReceiver);
 		}
-	}
-	//Tar bort fiender som försvinner ur collidern attackArc.
-	void OnTriggerExit(Collider other){
-		if (other.gameObject.tag == "Enemy" && objectsInRange.Contains (other.gameObject)) {
-			objectsInRange.Remove (other.gameObject);
-		}
-			
 	}
 }
