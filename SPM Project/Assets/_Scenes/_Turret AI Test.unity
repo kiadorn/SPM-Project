@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -488,14 +488,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 487400844}
   CurrencyUI: {fileID: 385733653}
-  SwordIcon: {fileID: 938874070}
-  ShieldIcon: {fileID: 59100915}
   Player: {fileID: 689740223}
-  StartingHealth: 2
-  HealthPoints: 0
-  Currency: 0
+  stats: {fileID: 0}
   HasSword: 0
-  HasShield: 0
+  Currency: 0
+  CurrentHealth: 0
+  StartingHealth: 2
+  LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
 --- !u!4 &417133636
 Transform:
@@ -983,7 +982,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db229fd11b8146a4c991ffd8225c3690, type: 2}
   - {fileID: 11400000, guid: b9b18d4203c10864cb4f6808e5140ad4, type: 2}
   - {fileID: 11400000, guid: 687275181b8df234caa2fda21663d67a, type: 2}
-  - {fileID: 11400000, guid: c501bf4692c602945ab2001b5ff393b4, type: 2}
+  - {fileID: 11400000, guid: 5609d07f8157a5246b657732f934548f, type: 2}
   - {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90

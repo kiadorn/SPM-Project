@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102525329
 Transform:
   m_ObjectHideFlags: 0
@@ -674,6 +674,7 @@ MonoBehaviour:
   CurrentHealth: 0
   StartingHealth: 2
   LoadedHealthPoints: 0
+  CurrentCheckPoint: {fileID: 0}
 --- !u!4 &417133636
 Transform:
   m_ObjectHideFlags: 0
@@ -988,7 +989,6 @@ GameObject:
   - component: {fileID: 689740224}
   - component: {fileID: 689740228}
   - component: {fileID: 689740225}
-  - component: {fileID: 689740226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1065,19 +1065,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &689740226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689740223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560c32bb56b6bad479f73531330c7bca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: 0
-  invulnTime: 0
 --- !u!4 &689740227
 Transform:
   m_ObjectHideFlags: 0
@@ -1530,6 +1517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1134780111
 Rigidbody2D:
   serializedVersion: 4
@@ -1953,6 +1941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1260123201
 Rigidbody2D:
   serializedVersion: 4
@@ -2550,6 +2539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1568910719
 Rigidbody2D:
   serializedVersion: 4
