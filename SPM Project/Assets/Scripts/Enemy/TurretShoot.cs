@@ -18,12 +18,24 @@ public class TurretShoot : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
             Controller.EnteredZone();
+			//audio
+			AI.source.clip = AI.Alerted;
+			AI.source.Play ();
+
+            _shooting = true;
+            AI.awake = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
             Controller.ExitedZone();
+			//audio
+			AI.source.clip = AI.Retract;
+			AI.source.Play ();
+
+            _shooting = false;
+            AI.awake = false;
         }
     }
 

@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335a7bdd020780d47849ba4a0703b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColapseTime: 3
+  ColapseTime: 1
   ResetTime: 5
