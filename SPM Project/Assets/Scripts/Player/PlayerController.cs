@@ -15,6 +15,7 @@ public class PlayerController : Controller{
 	public float InputMagnitudeToMove;
 	public MinMaxFloat SlopeAngles;
 	public SpriteRenderer spriteRenderer;
+	private float lastXDir;
 
 	private void Update()
 	{
@@ -24,7 +25,15 @@ public class PlayerController : Controller{
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit();
+
+		if(Input.GetAxisRaw("Horizontal") > 0){
+			lastXDir = 1f;
+		}else if(Input.GetAxisRaw("Horizontal") < 0){
+			lastXDir = -1f;
 		}
+	}
+	public float GetLastXDirection(){
+		return lastXDir;
 	}
 
 	public RaycastHit2D[] DetectHits(bool addGroundCheck = false)
