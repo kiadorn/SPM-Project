@@ -8,6 +8,7 @@ TagManager:
   - Geometry
   - Unclimbable Wall
   - OneWay
+  - Turret
   layers:
   - Default
   - TransparentFX

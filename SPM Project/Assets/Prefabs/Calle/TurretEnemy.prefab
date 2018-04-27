@@ -70,6 +70,11 @@ GameObject:
   m_Layer: 0
   m_Name: ShootThing
   m_TagString: Untagged
+  - component: {fileID: 4678282963269474}
+  - component: {fileID: 114896400335112794}
+  m_Layer: 0
+  m_Name: Turret
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,3 +400,27 @@ MonoBehaviour:
   hiddenPos: {x: 0, y: 0, z: 0}
   moveSpeed: 1
   CanShoot: 0
+=======
+--- !u!114 &114896400335112794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506925667251694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a8c4a399f27d245838230a2eaf0f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114961630268235264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986739992822844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aec76a8b458a6b4a8cdd26c41b03e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
