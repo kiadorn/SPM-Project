@@ -11,7 +11,7 @@ public class Hazard : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().ChangeHealth(-1 * damageValue);
+			collision.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1 * damageValue);
         }
     }
 
