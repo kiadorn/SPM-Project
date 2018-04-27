@@ -26,12 +26,16 @@ public class PatrolPassiveState : State {
     {
         _controller.speed = 3f;
         _controller.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        _controller.source.clip = _controller.Skitter;
+        _controller.source.loop = true;
+        _controller.source.Play();
     }
 
     public override void Update()
     {
         UpdatePatrolMovement();
         CheckForPlayer();
+        UpdateAudio();
     }
 
     private void UpdatePatrolMovement()
@@ -44,12 +48,6 @@ public class PatrolPassiveState : State {
         {
             direction = Vector2.left;
         }
-		//audio
-		_controller.source.clip = _controller.Skitter;
-		_controller.source.loop = true;
-		_controller.source.Play();
-			//audio
-			_controller.source.Stop();
 
         //Raycast framför sig
         RaycastHit2D groundInfoForward = Physics2D.Raycast(_controller.groundDetection.position, direction, somethingInfront);
@@ -74,7 +72,6 @@ public class PatrolPassiveState : State {
                     foundGround = true;
                 }
             }
-            
         }
 
         _controller.speed = saveSpeed; //"I'm a genius" - Calle 26/04/2018 11:58
@@ -106,7 +103,6 @@ public class PatrolPassiveState : State {
         {
             timer = 0f;
             _controller.speed = saveSpeed;
-
             if (movingRight)
             {
                 movingRight = false;
@@ -120,14 +116,27 @@ public class PatrolPassiveState : State {
         } 
     }
 
+    private void UpdateAudio()
+    {
+        if (_controller.speed > 0 && !_controller.source.isPlaying)
+        {
+            _controller.source.Play();
+        } else if (_controller.speed == 0 && _controller.source.isPlaying)
+        {
+            _controller.source.Stop();
+
+        }
+    }
+
     private void CheckForPlayer()
     {
         float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
         if (checkDistance < aggroRange)
         {
-			//audio
+			//Audio
 			_controller.source.loop = false;
 			_controller.source.Stop();
+
             _controller.TransitionTo<PatrolAggressiveState>();
         }
     }

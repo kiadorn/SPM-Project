@@ -30,11 +30,19 @@ public class TurretController : MonoBehaviour {
     public void EnteredZone() {
         _shooting = true;
         AI.awake = true;
+
+        //Audio
+        AI.source.clip = AI.Alerted;
+        AI.source.Play();
     }
 
     public void ExitedZone() {
         _shooting = false;
         AI.awake = false;
+
+        //Audio
+        AI.source.clip = AI.Retract;
+        AI.source.Play();
     }
 
     // Use this for initialization

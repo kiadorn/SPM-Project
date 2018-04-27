@@ -63,7 +63,6 @@ public class PatrolAggressiveState : State {
             //Annars fortsätter
             else
             {
-
                 _controller.speed = 3;
             }
         }
@@ -71,13 +70,13 @@ public class PatrolAggressiveState : State {
         //Rörelse
         _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
 
-		//audio
+		//Audio. Byt till två audiosources
 		_controller.source.clip = _controller.Skitter;
 		_controller.source.loop = true;
 		if (_controller.speed > 0 && !_controller.source.isPlaying) {
 			_controller.source.Play ();
-		} else {
-			_controller.source.Stop ();
+		} else if (_controller.speed == 0 && _controller.source.isPlaying) {
+            _controller.source.Stop ();
 		}
     }
 

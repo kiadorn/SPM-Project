@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class BirdEnemyAttackTrigger : MonoBehaviour {
 
-	private BirdEnemyBehaviour Behaviour;
+    private BirdEnemyBehaviour behaviour;
+
+    private void Awake()
+    {
+        behaviour = transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>();
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-			//audio
-			Behaviour.source.clip = Behaviour.Alerted;
-			Behaviour.source.Play ();
+            //Audio
+            behaviour.source.clip = behaviour.Alerted;
+            behaviour.source.Play ();
 
-            transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>().BirdAttackPlayer(collision.transform.position);
+            behaviour.BirdAttackPlayer(collision.transform.position);
         }
     }
 
@@ -22,9 +27,8 @@ public class BirdEnemyAttackTrigger : MonoBehaviour {
     {
        if (collision.gameObject.CompareTag("Player"))
         {
-            transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>()._canAttack = false;
-            transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>()._attacking = false;
-            //transform.parent.GetChild(0).GetComponent<BirdEnemyBehaviour>().towardsPlayer = false;
+            behaviour._canAttack = false;
+            behaviour._attacking = false;
         }
     }
 }
