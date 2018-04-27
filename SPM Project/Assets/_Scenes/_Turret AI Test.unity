@@ -488,14 +488,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 487400844}
   CurrencyUI: {fileID: 385733653}
-  SwordIcon: {fileID: 938874070}
-  ShieldIcon: {fileID: 59100915}
   Player: {fileID: 689740223}
-  StartingHealth: 2
-  HealthPoints: 0
-  Currency: 0
+  stats: {fileID: 0}
   HasSword: 0
-  HasShield: 0
+  Currency: 0
+  CurrentHealth: 0
+  StartingHealth: 2
+  LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
 --- !u!4 &417133636
 Transform:
@@ -774,6 +773,11 @@ Prefab:
     - target: {fileID: 4933344199238000, guid: 679359e9888f0224cb8c36c423c38601, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114480122803376972, guid: 679359e9888f0224cb8c36c423c38601,
+        type: 2}
+      propertyPath: moveBack
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 679359e9888f0224cb8c36c423c38601, type: 2}
@@ -1533,6 +1537,10 @@ Prefab:
     - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
         type: 2}
       propertyPath: startMovingRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212584177637970, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3162,6 +3170,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
+        type: 2}
+      propertyPath: ObjectsToReset.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4650301979213956, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.01
@@ -3198,7 +3211,7 @@ Prefab:
         type: 2}
       propertyPath: ObjectsToReset.Array.data[0]
       value: 
-      objectReference: {fileID: 237621145}
+      objectReference: {fileID: 1882758650}
     - target: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
         type: 2}
       propertyPath: ObjectsToReset.Array.data[1]
