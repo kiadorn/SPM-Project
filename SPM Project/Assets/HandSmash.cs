@@ -10,7 +10,7 @@ public class HandSmash : MonoBehaviour {
     [Header("References")]
     public GameObject shadow;
     public GameObject hand;
-    public PolygonCollider2D collider;
+    //public PolygonCollider2D collider;
     public GameObject player;
     [Header("Modifiers")]
     public float shadowModifier;
