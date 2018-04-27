@@ -16,6 +16,13 @@ public class PatrolEnemyController : Controller
     private float currentSpeed;
 
     private Vector3 OGPos;
+
+    void Awake()
+    {
+        base.Awake();
+        OGPos = transform.position;
+    }
+
     private void Update()
     {
         CurrentState.Update();
@@ -27,21 +34,15 @@ public class PatrolEnemyController : Controller
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    void Awake() {
-        base.Awake();
-        OGPos = transform.position;
-    }
-
-    private void OnEnable() {
-        transform.position = OGPos;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerStats.ChangeHealth(-1);
             player.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
         }
+    }
+
+    private void OnEnable() {
+        transform.position = OGPos;
     }
 }

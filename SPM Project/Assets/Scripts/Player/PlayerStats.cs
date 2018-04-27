@@ -21,14 +21,37 @@ public class PlayerStats : MonoBehaviour {
     public int CurrentHealth;
     public int StartingHealth;
     public int LoadedHealthPoints;
+    public CheckPoint CurrentCheckPoint;
+
+    void Start()
+    {
+        manager = stats.GetComponent<GameManager>();
+        CurrentHealth = StartingHealth;
+        UpdateHealth();
+        ChangeCurrency(Currency);
+        
+    }
+
+    void Update()
+    {
+        LoadStats();
+        if (Input.GetKeyDown("n"))
+        {
+            SavePlayerStats();
+        }
+        if (Input.GetKeyDown("m"))
+        {
+            if (CurrentCheckPoint)
+            {
+                Death();
+            }
+
+        }
+    }
 
     public void ChangeHealth(int i)
     {
         CurrentHealth += i;
-    public CheckPoint CurrentCheckPoint;
-    
-    public void ChangeHealth(int i) {
-        HealthPoints += i;
         CheckIfDead();
     }
 
@@ -38,19 +61,11 @@ public class PlayerStats : MonoBehaviour {
         CurrencyUI.text = Currency.ToString();
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        manager = stats.GetComponent<GameManager>();
-        CurrentHealth = LoadedHealthPoints;
-        UpdateHealth();
-        ChangeCurrency(Currency);
-        
-    }
     public void SavePlayerStats()
     {
         GameManager.SavePlayer(this);
     }
+
     private void LoadStats()
     {
         if (Input.GetKeyDown("u"))
@@ -59,7 +74,6 @@ public class PlayerStats : MonoBehaviour {
             CurrentHealth = manager.HealthPoints;
             Currency = manager.Currency;
         }
-
     }
 
     private void UpdateHealth()
@@ -71,10 +85,6 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
-            //Kill player-move to respawn;
-            this.HealthUI.text = "Dead";
-    private void CheckIfDead() {
-        if (HealthPoints < 1) {
             Death();
         }
         else
@@ -82,34 +92,12 @@ public class PlayerStats : MonoBehaviour {
             UpdateHealth();
         }
     }
-	
-	// Update is called once per frame
-        
-
-
-    //Update is called once per frame
-    void Update()
-    {
-        LoadStats();
-        if (Input.GetKeyDown("n"))
-        {
-            SavePlayerStats();
-	void Update () {
-        }
-        if (Input.GetKeyDown("m")) {
-            if (CurrentCheckPoint) {
-                Death();
-            }
-                
-        }
-
-        
-    }
 
     public void Death() {
+        Player.GetComponent<PlayerController>().TransitionTo<AirState>();
         Player.transform.position = CurrentCheckPoint.transform.position;
         CurrentCheckPoint.EnableEnemies();
-        HealthPoints = StartingHealth;
+        CurrentHealth = StartingHealth;
         UpdateHealth();
     }
 }
