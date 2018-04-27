@@ -22,11 +22,12 @@ public class PatrolEnemyController : Controller
 
     private Vector3 OGPos;
 
-    void Awake()
+    new void Awake()
     {
         source = GetComponent<AudioSource>();
-        base.Awake();
         OGPos = transform.position;
+        base.Awake();
+        
     }
 
     private void Update()

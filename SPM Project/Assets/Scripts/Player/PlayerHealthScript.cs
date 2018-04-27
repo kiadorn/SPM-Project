@@ -9,7 +9,6 @@ public class PlayerHealthScript : MonoBehaviour {
 
 	private void Start(){
 		playerHealth = 2;
-		Debug.Log ("Spelarhälsa satt till 2 i kod.");
 	}
 
 	void Update(){

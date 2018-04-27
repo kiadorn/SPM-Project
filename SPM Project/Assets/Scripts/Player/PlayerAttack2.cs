@@ -7,7 +7,7 @@ public class PlayerAttack2 : MonoBehaviour
 {
     public float attackCooldown;
     public float offset;
-    private PolygonCollider2D attackArc;
+    //private PolygonCollider2D attackArc;
     private PlayerController _controller;
     private List<GameObject> objectsInRange;
     private float attackTimeStamp;
@@ -17,7 +17,7 @@ public class PlayerAttack2 : MonoBehaviour
     { 
         attackTimeStamp = attackCooldown;
         objectsInRange = new List<GameObject>();
-        attackArc = this.GetComponentInChildren<PolygonCollider2D>();
+        //attackArc = this.GetComponentInChildren<PolygonCollider2D>();
     }
 
     void Awake()

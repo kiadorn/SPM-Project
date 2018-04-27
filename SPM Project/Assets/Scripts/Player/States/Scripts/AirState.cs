@@ -27,7 +27,7 @@ public class AirState : State{
 	{
 		UpdateMovement ();
 		if(Input.GetButtonDown("Jump") && canDash){
-			//_controller.TransitionTo<DashState>();
+            //_controller.TransitionTo<DashState>();
             _controller.TransitionTo<DashVelocityState>();
 			canDash = false;
 		}

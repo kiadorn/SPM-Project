@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 	public float attackCooldown;
 	private BoxCollider2D attackArc;
-	private PlayerController _controller;
+	//private PlayerController _controller;
 	private List<GameObject> objectsInRange;
 	private float attackTimeStamp;
 	private float xDir;
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	public void Initialize(Controller owner)
 	{
-		_controller = (PlayerController)owner;
+		//_controller = (PlayerController)owner;
 	}
 
 	void Update () {
