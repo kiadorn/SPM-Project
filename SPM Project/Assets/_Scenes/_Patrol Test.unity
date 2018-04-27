@@ -210,6 +210,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17682303}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &31187336 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
+    type: 2}
+  m_PrefabInternal: {fileID: 1350090717}
+  m_Script: {fileID: 11500000, guid: 82ca1bf08406f9849bab4e1dbecbbd20, type: 3}
 --- !u!1 &31489396
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +495,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1352385346751974, guid: 5fcd74677157e8147935310c88f4ae5f,
     type: 2}
   m_PrefabInternal: {fileID: 394197264}
---- !u!114 &185268032
+--- !u!114 &185268034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -506,10 +512,10 @@ MonoBehaviour:
   HasSword: 0
   Currency: 0
   CurrentHealth: 0
-  StartingHealth: 0
+  StartingHealth: 4
   LoadedHealthPoints: 0
-  CurrentCheckPoint: {fileID: 0}
-  InvulnerableTime: 0
+  CurrentCheckPoint: {fileID: 31187336}
+  InvulnerableTime: 3
 --- !u!4 &185268035 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4214497252333742, guid: 5fcd74677157e8147935310c88f4ae5f,
@@ -1865,11 +1871,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 941850746}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!82 &942733320 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82758582937227324, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 1139185535}
 --- !u!1 &948548483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,12 +2480,7 @@ Prefab:
         type: 2}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: source
-      value: 
-      objectReference: {fileID: 942733320}
+      objectReference: {fileID: 185268034}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
   m_IsPrefabParent: 0
@@ -2756,6 +2752,11 @@ Prefab:
     - target: {fileID: 4577243149536396, guid: 27e6c132d4e3f134180d51ac01a75406, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246758137306942, guid: 27e6c132d4e3f134180d51ac01a75406,
+        type: 2}
+      propertyPath: damageValue
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27e6c132d4e3f134180d51ac01a75406, type: 2}
