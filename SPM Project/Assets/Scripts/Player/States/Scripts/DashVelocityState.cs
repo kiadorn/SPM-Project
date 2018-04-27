@@ -15,7 +15,7 @@ public class DashVelocityState : State
     private Transform transform { get { return _controller.transform; } }
     private PlayerController _controller;
     private float xDir;
-    private float yDir; 
+    private float yDir;
     private List<Collider2D> _ignoredPlatforms = new List<Collider2D>();
 
     public override void Initialize(Controller owner)
@@ -25,12 +25,16 @@ public class DashVelocityState : State
 
     public override void Enter()
     {
+		timer = 0;
         xDir = Input.GetAxisRaw("Horizontal");
         yDir = Input.GetAxisRaw("Vertical");
         Velocity = Vector2.zero;
     }
     public override void Update()
     {
+		if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0){
+			xDir = _controller.GetLastXDirection();
+		}
         Velocity = new Vector2(xDir, yDir).normalized * speed;
         RaycastHit2D[] hits = _controller.DetectHits();
         UpdateNormalForce(hits);
@@ -51,7 +55,6 @@ public class DashVelocityState : State
         {
             return;
         }
-        timer = 0;
         _controller.TransitionTo<AirState>();
     }
 
