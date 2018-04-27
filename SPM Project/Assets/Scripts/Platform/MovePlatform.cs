@@ -86,10 +86,10 @@ public class MovePlatform : MonoBehaviour {
     public void Reset() {
         isDone = false;
         shouldIMove = false;
-        transform.localPosition = originalPos;
         isWaiting = false;
         if (!firstTime) {
             moveBack = SaveMove;
+            transform.localPosition = originalPos;
         }
 
 
