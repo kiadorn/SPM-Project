@@ -13,7 +13,7 @@ public class CheckPoint : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        Stats = GameObject.Find("UI").GetComponent<PlayerStats>();
+        Stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 	}
 
 

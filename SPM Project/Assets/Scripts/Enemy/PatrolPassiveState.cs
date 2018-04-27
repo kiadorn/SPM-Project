@@ -9,8 +9,7 @@ public class PatrolPassiveState : State {
     public float aggroRange = 5f;
     public float somethingInfront = 0.1f;
     private bool movingRight;
-    private float timer = 0f;
-    private float saveSpeed;
+    private float timer;
     private Vector2 direction;
 
     private PatrolEnemyController _controller;
@@ -19,12 +18,12 @@ public class PatrolPassiveState : State {
     {
         _controller = (PatrolEnemyController)owner;
         movingRight = _controller.startMovingRight;
-        saveSpeed = _controller.speed;
     }
 
     public override void Enter()
     {
-        _controller.speed = 3f;
+        timer = 0f;
+        _controller.speed = _controller.saveSpeed;
         _controller.GetComponentInChildren<SpriteRenderer>().color = Color.black;
         _controller.source.clip = _controller.Skitter;
         _controller.source.loop = true;
@@ -74,7 +73,7 @@ public class PatrolPassiveState : State {
             }
         }
 
-        _controller.speed = saveSpeed; //"I'm a genius" - Calle 26/04/2018 11:58
+        _controller.speed = _controller.saveSpeed; //"I'm a genius" - Calle 26/04/2018 11:58
 
         //Väntar ifall den hittade något framför
         if (foundInfront)
@@ -102,7 +101,7 @@ public class PatrolPassiveState : State {
         if (timer > waitingTime)
         {
             timer = 0f;
-            _controller.speed = saveSpeed;
+            _controller.speed = _controller.saveSpeed;
             if (movingRight)
             {
                 movingRight = false;

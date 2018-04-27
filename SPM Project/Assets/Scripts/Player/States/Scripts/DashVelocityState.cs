@@ -40,7 +40,6 @@ public class DashVelocityState : State
     
     public override void Exit()
     {
-       // Velocity = Vector2.zero;
         Velocity = new Vector2(xDir, yDir).normalized * exitSpeed;
     }
 

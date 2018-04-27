@@ -248,8 +248,9 @@ MonoBehaviour:
   startMovingRight: 1
   groundCheckDistance: 0.2
   speed: 3
-  currentSpeed: 1
-  source: {fileID: 0}
+  saveSpeed: 0
+  startingHealth: 0
+  source: {fileID: 82758582937227324}
   Skitter: {fileID: 8300000, guid: bee3b9e44155c284292c65283741c6dd, type: 3}
   Alerted: {fileID: 8300000, guid: bee3b9e44155c284292c65283741c6dd, type: 3}
   Death: {fileID: 8300000, guid: bee3b9e44155c284292c65283741c6dd, type: 3}
