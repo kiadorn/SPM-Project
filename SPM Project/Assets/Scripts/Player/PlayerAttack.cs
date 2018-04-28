@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Följande script måste hängas på på en child till spelaren som innehåller en BoxCollider2D.
 public class PlayerAttack : MonoBehaviour {
 	public float attackCooldown;
 	private BoxCollider2D attackArc;
-	//private PlayerController _controller;
 	private List<GameObject> objectsInRange;
 	private float attackTimeStamp;
 	private float xDir;
+	public GameObject spriteObject; //Testrad ta bort när spelaren har animation
 
-	void Start () { /*Behövs Start när man har Initialize???*/
+	private Transform spriteTransform; //Testrad ta bort när spelaren har animation
+	private Color originalColor; //Testrad ta bort när spelaren har animation
+
+	void Start () {
 		attackTimeStamp = attackCooldown;
 		objectsInRange = new List<GameObject>();
 		attackArc = this.GetComponent<BoxCollider2D>();
-	}
-
-	public void Initialize(Controller owner)
-	{
-		//_controller = (PlayerController)owner;
+		originalColor = spriteObject.GetComponent<SpriteRenderer> ().color; //Testrad ta bort när spelaren har animation
 	}
 
 	void Update () {
@@ -28,12 +26,16 @@ public class PlayerAttack : MonoBehaviour {
 
 		if (attackTimeStamp <= attackCooldown) {
 			attackTimeStamp += Time.deltaTime;
+			spriteObject.GetComponent<SpriteRenderer> ().color = Color.red;  //Testrad ta bort när spelaren har animation
+		} else {
+			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
-
-		if(Input.GetButtonDown("Fire1") && attackTimeStamp >= attackCooldown){
+		this.GetComponent<SpriteRenderer> ().enabled = false;
+		if (Input.GetButtonDown ("Fire1") && attackTimeStamp >= attackCooldown) {
 			attackArc.enabled = true;
+			this.GetComponent<SpriteRenderer> ().enabled = true;
 			attackTimeStamp = 0;
-			PlayerAtk();
+			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
 		
 	}
@@ -51,11 +53,7 @@ public class PlayerAttack : MonoBehaviour {
 			return;
 		}
 	}
-
-	private void PlayerAtk(){
-		/*Här behövs en ForEach stats som går igenom objectsInRange listan och applicerar skada på varje object som finns i listan. (Kan ej göras för tillfället då jag ej vet hur eller var hälsan på fiender kommer att se ut) /Joakim */
-	}
-	//Lägger till fiender som är i collidern attackArc.
+	//Kallar på TakeDamage() för varje fiendeobject i collidern när den aktiveras.
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Enemy"){
 			other.SendMessage ("TakeDamage", null, SendMessageOptions.DontRequireReceiver);
