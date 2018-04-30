@@ -709,7 +709,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db229fd11b8146a4c991ffd8225c3690, type: 2}
   - {fileID: 11400000, guid: b9b18d4203c10864cb4f6808e5140ad4, type: 2}
   - {fileID: 11400000, guid: 687275181b8df234caa2fda21663d67a, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5609d07f8157a5246b657732f934548f, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
   MaxSpeed: 30
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1134780111
 Rigidbody2D:
   serializedVersion: 4
@@ -1486,6 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1260123201
 Rigidbody2D:
   serializedVersion: 4
@@ -2090,6 +2092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 417133635}
+  ObjectsToReset: []
 --- !u!50 &1568910719
 Rigidbody2D:
   serializedVersion: 4
