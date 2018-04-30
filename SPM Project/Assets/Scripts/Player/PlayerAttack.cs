@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 	public float attackCooldown;
 	private BoxCollider2D attackArc;
-	private List<GameObject> objectsInRange;
 	private float attackTimeStamp;
 	private float xDir;
 	public GameObject spriteObject; //Testrad ta bort när spelaren har animation
@@ -15,7 +14,6 @@ public class PlayerAttack : MonoBehaviour {
 
 	void Start () {
 		attackTimeStamp = attackCooldown;
-		objectsInRange = new List<GameObject>();
 		attackArc = this.GetComponent<BoxCollider2D>();
 		originalColor = spriteObject.GetComponent<SpriteRenderer> ().color; //Testrad ta bort när spelaren har animation
 	}
@@ -53,10 +51,13 @@ public class PlayerAttack : MonoBehaviour {
 			return;
 		}
 	}
-	//Kallar på TakeDamage() för varje fiendeobject i collidern när den aktiveras.
+	//Kallar på metoder för varje object i attackArc collidern när den aktiveras.
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Enemy"){
 			other.SendMessage ("TakeDamage", null, SendMessageOptions.DontRequireReceiver);
+		}if (other.tag == "Interactable") {
+			other.SendMessage ("Action", null, SendMessageOptions.DontRequireReceiver);
 		}
+			
 	}
 }

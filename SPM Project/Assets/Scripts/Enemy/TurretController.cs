@@ -57,10 +57,10 @@ public class TurretController : MonoBehaviour {
 
 	}
 	private IEnumerator OnDeath(){
-		source.PlayOneShot (Death);
+//		source.PlayOneShot (Death);
 //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
 //		yield return WaitForSeconds(0f); // sätt värde till tiden dödsanimaton tar.
-		gameObject.SetActive(false);
+		this.gameObject.SetActive(false);
 		yield return 0;
 	}
 
