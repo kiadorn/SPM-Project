@@ -26,9 +26,17 @@ public class HandDamage : MonoBehaviour {
 
     }
 
-    //public void Update() {
-    //    if (Input.GetKeyDown("v")) {
-    //        TakeDamage();
-    //    }
-    //}
+    public void Update()
+    {
+        if (Input.GetKeyDown("v"))
+        {
+            TakeDamage();
+        } else if (Input.GetKeyDown("1")) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<PauseState>();
+
+        } else if (Input.GetKeyDown("2")) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<AirState>();
+
+        }
+    }
 }

@@ -13,7 +13,7 @@ public class BossStage1 : State {
 
     public override void Update() {
         if (Input.GetKey("j")) {
-            _controller.TransitionTo<BossStage2>();
+            _controller.TransitionTo<BossStage2Intro>();
         }
     }
 

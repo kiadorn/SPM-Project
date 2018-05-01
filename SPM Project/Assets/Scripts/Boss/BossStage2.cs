@@ -17,4 +17,11 @@ public class BossStage2 : State {
         }
     }
 
+    public override void Enter()
+    {
+    }
+
+    public override void Exit()
+    {
+    }
 }
