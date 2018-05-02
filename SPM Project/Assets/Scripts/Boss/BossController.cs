@@ -27,6 +27,12 @@ public class BossController : Controller {
         CurrentState.Update();
     }
 
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        base.Awake();
+    }
+
     public void RotateBossRoom(float targetAngle, int direction)
     {
         Quaternion q = Quaternion.Euler(0, 0, targetAngle);

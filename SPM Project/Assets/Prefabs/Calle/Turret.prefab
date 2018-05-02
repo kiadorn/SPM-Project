@@ -70,9 +70,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4678282963269474}
   - component: {fileID: 114896400335112794}
+  - component: {fileID: 61593481504636342}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Turret
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,8 +177,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1506925667251694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.6489134, y: 2.1072764, z: -0.1102207}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.45, y: 5.6899996, z: -0.1102207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4085598891736572}
@@ -238,7 +239,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -272,7 +273,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -330,12 +331,35 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.37082353, y: 0.10890496}
-      - {x: -1.2966292, y: -1.1116614}
-      - {x: -1.8853492, y: -3.7475858}
-      - {x: 2.110037, y: -3.7593417}
-      - {x: 1.4325147, y: -1.0777941}
-      - {x: 0.16894512, y: 0.13431585}
+    - - {x: 15.096062, y: 6.3146267}
+      - {x: -8.956542, y: 6.2868996}
+      - {x: -9.078259, y: -10.755983}
+      - {x: 14.918706, y: -10.694532}
+--- !u!61 &61593481504636342
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506925667251694}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.13363266, y: 0.13398743}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.72509, y: 2.1426697}
+  m_EdgeRadius: 0
 --- !u!64 &64462793279875490
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -482,6 +506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a8c4a399f27d245838230a2eaf0f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalHeath: 2
+  invulnerable: 0
+  invulnerableTime: 0
+  Alerted: {fileID: 0}
+  Death: {fileID: 0}
 --- !u!114 &114961630268235264
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,6 +12,9 @@ public class PlayerStats : MonoBehaviour {
     [Header("References")]
     public Text HealthUI;
     public Text CurrencyUI;
+    public GameObject KeyIcon;
+    public GameObject SwordIcon;
+    public GameObject AtttackControl;
     public GameManager manager;
 
     [Header("Stats")]
@@ -144,12 +147,25 @@ public class PlayerStats : MonoBehaviour {
     }
 
     public void Death() {
+        ChangeKeyStatus(false);
         transform.position = CurrentCheckPoint.transform.position;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         _invulnerable = false;
         GetComponent<PlayerController>().TransitionTo<AirState>();
+    }
+
+    public void ChangeKeyStatus(bool change)
+    {
+        hasKey = change;
+        KeyIcon.SetActive(change);
+    }
+    
+    public void ObtainSword()
+    {
+        SwordIcon.SetActive(true);
+        AtttackControl.SetActive(true);
     }
 }
 

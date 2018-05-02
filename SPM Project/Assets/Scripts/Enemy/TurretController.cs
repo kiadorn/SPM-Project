@@ -44,6 +44,7 @@ public class TurretController : MonoBehaviour {
     }
 
 	public void TakeDamage(){
+        Debug.Log("Tar skada");
 		if (!invulnerable && invulnerableTime >= time) {
 			time = 0;
 			currentHealth -= 1;
