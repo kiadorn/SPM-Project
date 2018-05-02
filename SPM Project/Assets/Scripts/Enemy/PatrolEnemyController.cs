@@ -14,9 +14,7 @@ public class PatrolEnemyController : Controller
     public float speed;
     [HideInInspector]
     public float saveSpeed;
-    public int startingHealth;
-    private int currentHealth;
-    
+   
     [HideInInspector]
     public AudioSource source;
     [Header("Audio Clips")]
@@ -25,18 +23,19 @@ public class PatrolEnemyController : Controller
     public AudioClip Death;
 	[Header("Stats")]
 	public bool invulnerable;
-	public int originalHeath;
-	public float invulnerableTime;
+    public int startingHealth;
+    public float invulnerableTime;
+    private int currentHealth;
 
     private Vector3 OGPos;
-	private int currentHealth;
 	private float time;
 	private Animator animator;
 
 	private void OnEnable() {
-		transform.position = OGPos;
-		currentHealth = originalHeath;
-	}
+        GetComponent<BoxCollider2D>().enabled = true;
+        currentHealth = startingHealth;
+        transform.position = OGPos;
+    }
 
     new void Awake()
     {
@@ -93,23 +92,4 @@ public class PatrolEnemyController : Controller
             
         }
     }
-
-    private void OnEnable() {
-        GetComponent<BoxCollider2D>().enabled = true;
-        currentHealth = startingHealth;
-        transform.position = OGPos;
-    }
-
-    /* private void TakeDamage() //Alexanders påbörjad lösning
-    {
-        currentHealth--;
-        if (currentHealth == 0)
-        {
-            GetComponent<BoxCollider2D>().enabled = false;
-            while (!source.isPlaying)
-            {
-                gameObject.SetActive(false);
-            }
-        }
-    } */
 }

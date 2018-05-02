@@ -131,7 +131,11 @@ public class PlayerStats : MonoBehaviour {
             {
                 SceneManager.LoadScene("_Patrol Test");
             }
-            Death();
+            else
+            {
+                Death();
+            }
+
         }
         else
         {
