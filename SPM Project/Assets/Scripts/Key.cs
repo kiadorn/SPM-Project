@@ -5,7 +5,12 @@ using UnityEngine;
 public class Key : MonoBehaviour {
     public PlayerStats stats;
 
-	void OnTriggerEnter2D(Collider2D col) {
+    private void Awake()
+    {
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
 
         if (col.gameObject.CompareTag("Player")) {
             stats.hasKey = true;
