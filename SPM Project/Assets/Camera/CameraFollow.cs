@@ -28,7 +28,6 @@ public class CameraFollow : MonoBehaviour
 	private void Update(){
 		UpdateTargetPosition ();
 		UpdateLookAhead ();
-		UpdateLookAround ();
 	}
 	private void UpdateLookAhead()
 	{
@@ -39,18 +38,27 @@ public class CameraFollow : MonoBehaviour
 
 	private void UpdateTargetPosition()
 	{
-		_targetPosition = Player.transform.position;
+        _targetPosition = Player.transform.position;
 		_targetPosition += Offset;
 		_targetPosition += Vector3.right * _lookAhead;
 		_targetPosition += Vector3.up * _lookAroundAmount;
 	}
 	private void LateUpdate()
 	{
-		UpdateMovement();
-	}
-	private void UpdateMovement()
+        UpdateLookAround();
+        UpdateMovement();
+
+            
+
+    }
+    private void UpdateMovement()
 	{
-		transform.position = Vector3.SmoothDamp(transform.position, _targetPosition,
+        if (_lookAroundAmount == 0) {
+            transform.position += new Vector3(0, Player.transform.position.y - transform.position.y, 0);
+            //Vector3 moveToPos = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
+            //transform.position = Vector3.MoveTowards(transform.position, moveToPos, 50 * Time.deltaTime);
+        }
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition,
 			ref _currentVelocity, SmoothingTime);
 	}
 	private void UpdateLookAround()
@@ -62,7 +70,7 @@ public class CameraFollow : MonoBehaviour
 			return;
 		}
 		_playerStillTime += Time.deltaTime;
-		if (_playerStillTime < TimeBeforeLookAround) return;
-		_lookAroundAmount = Input.GetAxisRaw("Vertical") * MaxLookAroundAmount;
+        if (_playerStillTime < TimeBeforeLookAround) return;
+        _lookAroundAmount = Input.GetAxisRaw("Vertical") * MaxLookAroundAmount;
 	}
 }

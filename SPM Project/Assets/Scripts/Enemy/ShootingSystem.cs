@@ -71,12 +71,12 @@ public class ShootingSystem : MonoBehaviour {
         }
         if (!awake) {
             Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
+            BulletTimer = ShootInterval;
         }
     }
 
     public void Shoot() {
         BulletTimer += Time.deltaTime;
-        
         if (BulletTimer >= ShootInterval) {
             Vector2 dir = Target.transform.position - transform.position;
             dir.Normalize();

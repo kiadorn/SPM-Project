@@ -15,12 +15,15 @@ public class MovePlatform : MonoBehaviour {
     private Vector3 originalPos;
     private bool isDone = false;
     private bool isWaiting;
-    private bool SaveMove = true;
+    private bool SaveMove;
+
+    bool firstTime = true;
 
     private void Awake()
     {
         originalPos = transform.localPosition;
         SaveMove = moveBack;
+        firstTime = false;
     }
 
     public void Move()
@@ -83,9 +86,12 @@ public class MovePlatform : MonoBehaviour {
     public void Reset() {
         isDone = false;
         shouldIMove = false;
-        transform.localPosition = originalPos;
         isWaiting = false;
-        moveBack = SaveMove;
+        if (!firstTime) {
+            moveBack = SaveMove;
+            transform.localPosition = originalPos;
+        }
+
 
     }
 
