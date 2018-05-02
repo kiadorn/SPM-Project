@@ -47,17 +47,18 @@ public class CameraFollow : MonoBehaviour
 	{
         UpdateLookAround();
         UpdateMovement();
-        if(_lookAroundAmount == 0) {
-            //transform.position = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
-            Vector3 moveToPos = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, moveToPos, 50 * Time.deltaTime);
-        }
+
             
 
     }
     private void UpdateMovement()
 	{
-		transform.position = Vector3.SmoothDamp(transform.position, _targetPosition,
+        if (_lookAroundAmount == 0) {
+            transform.position += new Vector3(0, Player.transform.position.y - transform.position.y, 0);
+            //Vector3 moveToPos = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
+            //transform.position = Vector3.MoveTowards(transform.position, moveToPos, 50 * Time.deltaTime);
+        }
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition,
 			ref _currentVelocity, SmoothingTime);
 	}
 	private void UpdateLookAround()
