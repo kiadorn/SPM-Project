@@ -13,9 +13,13 @@ public class BossStage2Intro : State {
     }
 
     public override void Update()
-    {
-        //Gör minus ett
-        _controller.RotateBossRoom(1, -1);
+    { 
+
+        foreach (GameObject b in GameObject.FindGameObjectsWithTag("Bullet")) {
+            Destroy(b);
+        }
+        //Gör minus ett till höger
+        _controller.RotateBossRoom(90, 1);
         if (_controller.done)
         {
             _controller.done = false;
@@ -26,11 +30,16 @@ public class BossStage2Intro : State {
     public override void Enter()
     {
         _controller.Player.TransitionTo<PauseState>();
+        _controller.Player.gameObject.transform.SetParent(_controller.BossRoom.transform);
+        _controller.rightWall.transform.tag = "Unclimbable Wall";
     }
 
     public override void Exit()
     {
         _controller.Player.TransitionTo<AirState>();
+        _controller.Player.gameObject.transform.SetParent(null);
+        _controller.Player.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        CameraShake.AddIntensity(10);
     }
 
 }

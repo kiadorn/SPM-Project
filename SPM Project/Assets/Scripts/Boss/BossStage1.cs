@@ -17,4 +17,12 @@ public class BossStage1 : State {
         }
     }
 
+    public override void Exit()
+    {
+        foreach (GameObject go in _controller.stage1Objects)
+        {
+            go.SetActive(false);
+        }
+    }
+
 }

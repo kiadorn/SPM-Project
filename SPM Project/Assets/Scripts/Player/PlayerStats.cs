@@ -5,6 +5,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
 
@@ -27,11 +28,16 @@ public class PlayerStats : MonoBehaviour {
     private float colorSwapTimer;
     private bool swapping;
 
+    public bool hasKey = false;
+
+    private String currentScene;
+
     void Start()
     {
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
     void Update()
@@ -59,7 +65,6 @@ public class PlayerStats : MonoBehaviour {
             timer += Time.deltaTime;
             if(timer >= InvulnerableTime)
             {
-                Debug.Log("Jag är INTE invulnerable");
                 _invulnerable = false;
                 timer = 0;
             }
@@ -88,7 +93,6 @@ public class PlayerStats : MonoBehaviour {
             gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
             CurrentHealth += i;
             _invulnerable = true;
-            Debug.Log("Jag är invulnerable");
             CheckIfDead();
         }
     }
@@ -123,6 +127,10 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
+            if(currentScene == "_Patrol Test")
+            {
+                SceneManager.LoadScene("_Patrol Test");
+            }
             Death();
         }
         else

@@ -15,7 +15,10 @@ public class Bullet : MonoBehaviour {
 
             coll.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1);
         }
-        Destroy(gameObject);
+        //if (!coll.gameObject.CompareTag("Bullet"))
+        //{
+            Destroy(gameObject);
+        //}
         
     }
 

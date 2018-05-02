@@ -30,11 +30,11 @@ public class BossStage3 : State {
 
     public override void Update() {
         if (Input.GetKey("l")) {
-            _controller.TransitionTo<BossStage4>();
+            _controller.TransitionTo<BossStage4Intro>();
         }
 
         if(hand.GetComponent<HandSmash>().CurrentHealth == 0) {
-            _controller.TransitionTo<BossStage4>();
+            _controller.TransitionTo<BossStage4Intro>();
         }
     }
 

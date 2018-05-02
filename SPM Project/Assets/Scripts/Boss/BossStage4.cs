@@ -11,6 +11,8 @@ public class BossStage4 : State {
     public float Stage4FollowSpeed;
     public float Stage4AttackCooldown;
     public float Stage4ResetCooldown;
+    public float Stage4TimeToAttack;
+    public float Stage4TimeToStop;
 
     public override void Initialize(Controller owner) {
         _controller = (BossController)owner;
@@ -22,19 +24,18 @@ public class BossStage4 : State {
         hand.GetComponent<HandSmash>().followSpeed = Stage4FollowSpeed;
         hand.GetComponent<HandSmash>().AttackCooldown = Stage4AttackCooldown;
         hand.GetComponent<HandSmash>().resetCooldown = Stage4ResetCooldown;
-        hand.GetComponent<HandSmash>().timeToAttack /= 2;
-        hand.GetComponent<HandSmash>().timeToStop /= 2;
-
+        hand.GetComponent<HandSmash>().timeToAttack = Stage4TimeToAttack;
+        hand.GetComponent<HandSmash>().timeToStop = Stage4TimeToStop;
     }
 
     public override void Exit() {
         hand.SetActive(false);
     }
 
-    //public override void Update() {
-    //    if (Input.GetKey("b")) {
-    //        _controller.TransitionTo<BossStage1>();
-    //    }
-    //}
+    public override void Update() {
+        if (Input.GetKey("b")) {
+            _controller.TransitionTo<BossStage5>();
+        }
+    }
 
 }
