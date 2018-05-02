@@ -34,46 +34,36 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 	[Header ("Audio Clips")]
 	public AudioClip Impact;
 	public AudioClip Alerted;
+	public AudioClip Death;
 
-    //TEST
-    /*public Vector2 Velocity;
-    public Vector2 dirToPlayer;
-    public Vector2 currentDirection;
-    public float Acceleration;
-    public bool towardsPlayer = false;
-    public Vector2 playerPos;*/
+	//Stats
+	[Header ("Enemy Stats")]
+	public float invulnerableTime;
+	public int health;
 
+	private bool invulnerable;
+	private float time;
+	private int currentHealth;
 
+	private void Active(){
+		currentHealth = health;
+	}
 
     private void Start()
     {
 		//audio
+//		animator = GetComponent <Animator>();  //Används för animatoner
 		source = GetComponent<AudioSource>();
-
         OGPos = transform.position;
     }
 
     void Update()
     {
-        //SetDirection();
+		if (time < invulnerableTime) {
+			time += Time.deltaTime;
+		}
+
         UpdateMovement();
-        //transform.Translate(Velocity * Time.deltaTime);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-			//audio
-			source.clip = Impact;
-			source.Play ();
-
-            Vector2 dir = collision.transform.position - transform.position;
-            collision.transform.GetComponent<PlayerController>().Velocity = dir.normalized * KnockbackPlayer;
-            //transform.position += (Vector3)(dir.normalized * -1 * KnockbackDistance / KnockbackModifier);
-            beingPushed = true;
-            //dirToPlayer = collision.transform.position - transform.position;
-        }
     }
 
     public void BirdAttackPlayer(Vector2 Player)
@@ -84,21 +74,44 @@ public class BirdEnemyBehaviour : MonoBehaviour {
             AttackPos = Player;
             
         }
-        //playerPos = Player;
-        //towardsPlayer = true;
     }
 
-    /*public void SetDirection()
-    {
-        if (towardsPlayer)
-        {
-            currentDirection = playerPos - (Vector2)transform.position;
-        } else
-        {
-            currentDirection = OGPos - (Vector2)transform.position;
-        }
+	public void TakeDamage(){
+		if (!invulnerable && invulnerableTime >= time) {
+			time = 0;
+			currentHealth -= 1;
+//			animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för skadeanimation.
+			if(currentHealth <= 0){
+				StartCoroutine(OnDeath());
+			}
+		} else {
+			return;
+		}
+	}
 
-    }*/
+	private IEnumerator OnDeath(){
+		source.PlayOneShot (Death);
+		gameObject.SetActive(false);
+		yield return 0;
+	}
+
+	public void SwitchInvulnerableState(){
+		invulnerable = !invulnerable;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			//audio
+			source.clip = Impact;
+			source.Play ();
+
+			Vector2 dir = collision.transform.position - transform.position;
+			collision.transform.GetComponent<PlayerController>().Velocity = dir.normalized * KnockbackPlayer;
+			beingPushed = true;
+		}
+	}
 
     private void UpdateMovement()
     {
@@ -135,19 +148,6 @@ public class BirdEnemyBehaviour : MonoBehaviour {
                 transform.position = Vector3.MoveTowards(transform.position, OGPos, GoingBackSpeed * Time.deltaTime);
             }
         }
-
-        /*Vector2 delta = currentDirection.normalized * Acceleration * Time.deltaTime;
-        Debug.Log("currentDirection: " + currentDirection);
-        Debug.Log("delta: " + delta);
-        if (Mathf.Abs((Velocity + delta).x) < MaxAttackSpeed || (Mathf.Abs(Velocity.x) > MaxAttackSpeed && Vector2.Dot(Velocity.normalized, delta) < 0.0f))
-        {
-            Velocity += delta;
-        }
-        else
-        {
-            Velocity.x = MathHelper.Sign(currentDirection.x) * MaxAttackSpeed;
-            //Velocity.y = MathHelper.Sign(currentDirection.y) * MaxAttackSpeed;
-        }*/
     }
     
 

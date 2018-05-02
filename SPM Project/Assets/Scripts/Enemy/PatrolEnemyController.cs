@@ -22,13 +22,26 @@ public class PatrolEnemyController : Controller
     [Header("Audio Clips")]
     public AudioClip Skitter;
     public AudioClip Alerted;
-    public AudioClip Death; //inte använd än
+    public AudioClip Death;
+	[Header("Stats")]
+	public bool invulnerable;
+	public int originalHeath;
+	public float invulnerableTime;
 
     private Vector3 OGPos;
+	private int currentHealth;
+	private float time;
+	private Animator animator;
+
+	private void OnEnable() {
+		transform.position = OGPos;
+		currentHealth = originalHeath;
+	}
 
     new void Awake()
     {
         saveSpeed = speed;
+//		animator = GetComponent <Animator>();  //Används för animatoner
         source = GetComponent<AudioSource>();
         OGPos = transform.position;
         base.Awake();
@@ -36,8 +49,36 @@ public class PatrolEnemyController : Controller
 
     private void Update()
     {
+		if (time < invulnerableTime) {
+			time += Time.deltaTime;
+		}
         CurrentState.Update();
     }
+
+	public void TakeDamage(){
+		if (!invulnerable && invulnerableTime >= time) {
+			time = 0;
+			currentHealth -= 1;
+//			animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för skadeanimation.
+			if(currentHealth <= 0){
+				StartCoroutine(OnDeath());
+			}
+		} else {
+			return;
+		}
+
+	}
+	private IEnumerator OnDeath(){
+		source.PlayOneShot (Death);
+//		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
+//		yield return WaitForSeconds(0f); // sätt värde till tiden dödsanimaton tar.
+		gameObject.SetActive(false);
+		yield return 0;
+	}
+
+	public void SwitchInvulnerableState(){
+		invulnerable = !invulnerable;
+	}
 
     private void OnValidate()
     {

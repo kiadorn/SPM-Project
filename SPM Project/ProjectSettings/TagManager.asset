@@ -10,6 +10,8 @@ TagManager:
   - OneWay
   - Turret
   - Bullet
+  - UntaggedFromParent
+  - Interactable
   layers:
   - Default
   - TransparentFX
