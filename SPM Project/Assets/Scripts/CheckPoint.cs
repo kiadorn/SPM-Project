@@ -22,11 +22,8 @@ public class CheckPoint : MonoBehaviour {
             resetObject.SetActive(false);
             resetObject.SetActive(true);
           //  if (resetObject.GetComponent("TurretController") as TurretController) {
-  
-                       Debug.Log("Test2");
                    // resetObject.transform.GetComponent<TurretController>().Reset();
          //   }
-   //         Debug.Log("Test3");
         }
     }
     
@@ -35,6 +32,7 @@ public class CheckPoint : MonoBehaviour {
             if (Latest) {
                 //Stats.Current = this;
                 Stats.CurrentCheckPoint = this;
+                Stats.SavedCurrency = Stats.Currency;
                 Latest = false;
             }
                 

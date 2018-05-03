@@ -35,6 +35,8 @@ public class PlayerStats : MonoBehaviour {
 
     public String BosstageName;
     private String currentScene;
+    //[HideInInspector]
+    public int SavedCurrency = 0;
 
     void Start()
     {
@@ -92,18 +94,26 @@ public class PlayerStats : MonoBehaviour {
 
     public void ChangeHealth(int i)
     {
-        if (!_invulnerable || i > 0)
+        if (!_invulnerable && i < 0)
         {
             gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
             CurrentHealth += i;
             _invulnerable = true;
-            CheckIfDead();
         }
+
+        else if(i > 0) {
+            CurrentHealth += i;
+        }
+        CheckIfDead();
     }
 
     public void ChangeCurrency(int i)
     {
         Currency += i;
+        UpdateCurrency();
+    }
+
+    private void UpdateCurrency() {
         CurrencyUI.text = Currency.ToString();
     }
 
@@ -149,6 +159,8 @@ public class PlayerStats : MonoBehaviour {
 
     public void Death() {
         ChangeKeyStatus(false);
+        Currency = SavedCurrency;
+        UpdateCurrency();
         transform.position = CurrentCheckPoint.transform.position;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
