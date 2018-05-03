@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - UntaggedFromParent
   - Interactable
+  - Hazard
   layers:
   - Default
   - TransparentFX

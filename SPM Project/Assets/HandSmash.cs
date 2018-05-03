@@ -41,6 +41,8 @@ public class HandSmash : MonoBehaviour {
 
     private void Awake() {
         CurrentHealth = StartingHealth;
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     private void OnEnable()

@@ -28,6 +28,8 @@ public class BossStage2 : State {
 
     public override void Enter()
     {
+        turret1.GetComponent<TurretController>().SwitchInvulnerableState();
+        turret2.GetComponent<TurretController>().SwitchInvulnerableState();
     }
 
     public override void Exit()

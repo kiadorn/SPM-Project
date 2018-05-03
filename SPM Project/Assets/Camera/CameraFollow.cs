@@ -24,8 +24,14 @@ public class CameraFollow : MonoBehaviour
 	public PlayerController Player;
 	public Vector3 Offset;
 	private Vector3 _targetPosition;
-    
-	private void Update(){
+
+    private GameObject Target;
+
+    private void Awake() {
+        Target = Player.gameObject;
+    }
+
+    private void Update(){
 		UpdateTargetPosition ();
 		UpdateLookAhead ();
 	}
@@ -38,13 +44,14 @@ public class CameraFollow : MonoBehaviour
 
 	private void UpdateTargetPosition()
 	{
-        _targetPosition = Player.transform.position;
+        _targetPosition = Target.transform.position;
 		_targetPosition += Offset;
 		_targetPosition += Vector3.right * _lookAhead;
 		_targetPosition += Vector3.up * _lookAroundAmount;
 	}
 	private void LateUpdate()
 	{
+        UpdateLookAhead();
         UpdateLookAround();
         UpdateMovement();
 
@@ -54,7 +61,7 @@ public class CameraFollow : MonoBehaviour
     private void UpdateMovement()
 	{
         if (_lookAroundAmount == 0) {
-            transform.position += new Vector3(0, Player.transform.position.y - transform.position.y, 0);
+            transform.position += new Vector3(0, Target.transform.position.y - transform.position.y, 0);
             //Vector3 moveToPos = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
             //transform.position = Vector3.MoveTowards(transform.position, moveToPos, 50 * Time.deltaTime);
         }
@@ -73,4 +80,26 @@ public class CameraFollow : MonoBehaviour
         if (_playerStillTime < TimeBeforeLookAround) return;
         _lookAroundAmount = Input.GetAxisRaw("Vertical") * MaxLookAroundAmount;
 	}
+
+    //public static void ChangeTargetFocus(GameObject focusTarget, float time) 
+    //{
+    //    ByPassStatic(
+    //}
+
+    //private void ByPassStatic(GameObject focusTarget, float time) {
+    //    StartCoroutine(ChangeTarget(focusTarget, time));
+    //}
+
+    public IEnumerator ChangeTarget(GameObject focusTarget, float time, bool freezePlayer) 
+    {
+        Target = focusTarget;
+        if(freezePlayer)
+            Player.TransitionTo<PauseState>();
+        yield return new WaitForSeconds(time);
+        if (freezePlayer)
+            Player.TransitionTo<AirState>();
+        Target = Player.gameObject;
+
+        yield return 0;
+    }
 }

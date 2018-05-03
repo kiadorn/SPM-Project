@@ -13,10 +13,14 @@ public class HandDamage : MonoBehaviour {
         {
             collision.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
 
-           // stats.CurrentHealth -= 1;
+            stats.ChangeHealth(-1);
             //
 
         }
+    }
+
+    private void Awake() {
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 
     public void TakeDamage() {

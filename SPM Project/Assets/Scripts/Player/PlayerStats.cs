@@ -33,6 +33,7 @@ public class PlayerStats : MonoBehaviour {
 
     public bool hasKey = false;
 
+    public String BosstageName;
     private String currentScene;
 
     void Start()
@@ -130,9 +131,9 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
-            if(currentScene == "_Patrol Test")
+            if(BosstageName != null && currentScene == BosstageName)
             {
-                SceneManager.LoadScene("_Patrol Test");
+                SceneManager.LoadScene(currentScene);
             }
             else
             {

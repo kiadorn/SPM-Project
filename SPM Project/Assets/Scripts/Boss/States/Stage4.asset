@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Stage4
   m_EditorClassIdentifier: 
   Stage4FollowSpeed: 0.64
-  Stage4AttackCooldown: 0.5
-  Stage4ResetCooldown: 0.5
-  Stage4TimeToAttack: 1
+  Stage4AttackCooldown: 1
+  Stage4ResetCooldown: 1
+  Stage4TimeToAttack: 2
   Stage4TimeToStop: 1
