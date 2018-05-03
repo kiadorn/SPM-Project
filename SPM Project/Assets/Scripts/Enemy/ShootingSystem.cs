@@ -30,7 +30,7 @@ public class ShootingSystem : MonoBehaviour {
 
 	//audio
 	[HideInInspector] 
-	public AudioSource source;
+	public AudioSource[] source;
 	[Header ("Audio Clips")]
 	public AudioClip Alerted;
 	public AudioClip Retract;
@@ -45,7 +45,7 @@ public class ShootingSystem : MonoBehaviour {
         ShootingArea = transform.parent.GetChild(1).GetComponent<Transform>();
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 		//audio
-		source = GetComponent<AudioSource>();
+		source = GetComponents<AudioSource>();
     }
 
     void Update () {
@@ -86,8 +86,8 @@ public class ShootingSystem : MonoBehaviour {
             bulletClone.GetComponent<Rigidbody2D>().velocity = dir * BulletSpeed;
 
 			//audio
-			source.clip = Fire;
-			source.Play ();
+			source[1].clip = Fire;
+			source[1].Play ();
 
             BulletTimer = 0;
         }

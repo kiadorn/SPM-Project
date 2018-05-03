@@ -17,8 +17,8 @@ public class PatrolAggressiveState : State {
 
     public override void Enter()
     {
-		_controller.source.clip = _controller.Alerted;
-		_controller.source.Play();
+		_controller.source[1].clip = _controller.Alerted;
+		_controller.source[1].Play();
         _controller.speed = _controller.saveSpeed;
         _controller.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
@@ -71,12 +71,12 @@ public class PatrolAggressiveState : State {
         _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
 
 		//Audio. Byt till två audiosources
-		_controller.source.clip = _controller.Skitter;
-		_controller.source.loop = true;
-		if (_controller.speed > 0 && !_controller.source.isPlaying) {
-			_controller.source.Play ();
-		} else if (_controller.speed == 0 && _controller.source.isPlaying) {
-            _controller.source.Stop ();
+		_controller.source[0].clip = _controller.Skitter;
+		_controller.source[0].loop = true;
+		if (_controller.speed > 0 && !_controller.source[0].isPlaying) {
+			_controller.source[0].Play ();
+		} else if (_controller.speed == 0 && _controller.source[0].isPlaying) {
+            _controller.source[0].Stop ();
 		}
     }
 

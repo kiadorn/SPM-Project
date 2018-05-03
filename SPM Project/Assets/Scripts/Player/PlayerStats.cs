@@ -33,10 +33,17 @@ public class PlayerStats : MonoBehaviour {
 
     public bool hasKey = false;
 
+	//audio
+	[HideInInspector] 
+	public AudioSource[] source;
+	[Header ("Audio Clips")]
+	public AudioClip[] BulletImpact;
+
     private String currentScene;
 
     void Start()
     {
+		source = GetComponents<AudioSource> ();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
@@ -167,5 +174,14 @@ public class PlayerStats : MonoBehaviour {
         SwordIcon.SetActive(true);
         AtttackControl.SetActive(true);
     }
+
+	public void BulletHit(){
+		source [0].clip = BulletImpact[UnityEngine.Random.Range(0, BulletImpact.Length)];
+		if (!_invulnerable) {
+			Debug.Log ("hejhej");
+			source [0].Play ();
+		}
+	}
+
 }
 

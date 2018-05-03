@@ -25,9 +25,9 @@ public class PatrolPassiveState : State {
         timer = 0f;
         _controller.speed = _controller.saveSpeed;
         _controller.GetComponentInChildren<SpriteRenderer>().color = Color.black;
-        _controller.source.clip = _controller.Skitter;
-        _controller.source.loop = true;
-        _controller.source.Play();
+        _controller.source[0].clip = _controller.Skitter;
+        _controller.source[0].loop = true;
+        _controller.source[0].Play();
     }
 
     public override void Update()
@@ -117,12 +117,12 @@ public class PatrolPassiveState : State {
 
     private void UpdateAudio()
     {
-        if (_controller.speed > 0 && !_controller.source.isPlaying)
+        if (_controller.speed > 0 && !_controller.source[0].isPlaying)
         {
-            _controller.source.Play();
-        } else if (_controller.speed == 0 && _controller.source.isPlaying)
+            _controller.source[0].Play();
+        } else if (_controller.speed == 0 && _controller.source[0].isPlaying)
         {
-            _controller.source.Stop();
+            _controller.source[0].Stop();
 
         }
     }
@@ -133,8 +133,8 @@ public class PatrolPassiveState : State {
         if (checkDistance < aggroRange)
         {
 			//Audio
-			_controller.source.loop = false;
-			_controller.source.Stop();
+			_controller.source[0].loop = false;
+			_controller.source[0].Stop();
 
             _controller.TransitionTo<PatrolAggressiveState>();
         }

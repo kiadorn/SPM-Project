@@ -16,11 +16,11 @@ public class PatrolEnemyController : Controller
     public float saveSpeed;
    
     [HideInInspector]
-    public AudioSource source;
+    public AudioSource [] source;
     [Header("Audio Clips")]
     public AudioClip Skitter;
     public AudioClip Alerted;
-    public AudioClip Death;
+    public AudioClip [] Death;
 	[Header("Stats")]
 	public bool invulnerable;
     public int startingHealth;
@@ -42,7 +42,7 @@ public class PatrolEnemyController : Controller
         player = GameObject.FindGameObjectWithTag("Player").transform;
         saveSpeed = speed;
 //		animator = GetComponent <Animator>();  //Används för animatoner
-        source = GetComponent<AudioSource>();
+        source = GetComponents<AudioSource>();
         OGPos = transform.position;
         base.Awake();
     }
@@ -69,7 +69,8 @@ public class PatrolEnemyController : Controller
 
 	}
 	private IEnumerator OnDeath(){
-		source.PlayOneShot (Death);
+		source [1].clip = Death [Random.Range (0, Death.Length)];
+		source [1].Play ();
 //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
 //		yield return WaitForSeconds(0f); // sätt värde till tiden dödsanimaton tar.
 		gameObject.SetActive(false);
