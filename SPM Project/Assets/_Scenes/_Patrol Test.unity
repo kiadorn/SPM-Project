@@ -987,7 +987,7 @@ MonoBehaviour:
   HasSword: 1
   Currency: 0
   CurrentHealth: 0
-  StartingHealth: 5
+  StartingHealth: 1
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
   InvulnerableTime: 3
@@ -3473,7 +3473,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4350675247986148, guid: dfda87f00801b2b478d7c399be4a12f8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -35.3
+      value: -19.6
       objectReference: {fileID: 0}
     - target: {fileID: 4350675247986148, guid: dfda87f00801b2b478d7c399be4a12f8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3507,7 +3507,7 @@ Prefab:
         type: 2}
       propertyPath: Focus
       value: 
-      objectReference: {fileID: 2102505844}
+      objectReference: {fileID: 1677687639}
     - target: {fileID: 61797772058058732, guid: dfda87f00801b2b478d7c399be4a12f8,
         type: 2}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -4468,6 +4468,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f90bfcb21978f4e448e602ce95bccbbd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1677687639 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1407976604372528, guid: 98c4bc06970829d429830f1074b1a4b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1094818843}
 --- !u!1 &1679183850 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1943783382485386, guid: f1c9e54cbe4d82649876e8d9476ef504,
@@ -5906,11 +5911,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086197202}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2102505844 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1212584177637970, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 1139185535}
 --- !u!1 &2108277555
 GameObject:
   m_ObjectHideFlags: 0

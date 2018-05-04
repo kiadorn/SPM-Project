@@ -20,4 +20,9 @@ public class CollectCollectable : MonoBehaviour {
         gameObject.SetActive(false);
         yield return 0;
     }
+
+    private void OnEnable() {
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
+    }
 }
