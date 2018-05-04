@@ -30,9 +30,9 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 
 	//audio
 	[HideInInspector] 
-	public AudioSource source;
+	public AudioSource [] source;
 	[Header ("Audio Clips")]
-	public AudioClip Impact;
+	public AudioClip [] Impact;
 	public AudioClip Alerted;
 	public AudioClip Death;
 
@@ -53,7 +53,7 @@ public class BirdEnemyBehaviour : MonoBehaviour {
     {
 		//audio
 //		animator = GetComponent <Animator>();  //Används för animatoner
-		source = GetComponent<AudioSource>();
+		source = GetComponents<AudioSource>();
         OGPos = transform.position;
     }
 
@@ -90,7 +90,8 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 	}
 
 	private IEnumerator OnDeath(){
-		source.PlayOneShot (Death);
+		source [0].clip = Death;
+		source [0].Play ();
 		gameObject.SetActive(false);
 		yield return 0;
 	}
@@ -104,8 +105,8 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 		if (collision.gameObject.CompareTag("Player"))
 		{
 			//audio
-			source.clip = Impact;
-			source.Play ();
+			source[1].clip = Impact[Random.Range(0, Impact.Length)];
+			source[1].Play ();
 
 			Vector2 dir = collision.transform.position - transform.position;
 			collision.transform.GetComponent<PlayerController>().Velocity = dir.normalized * KnockbackPlayer;

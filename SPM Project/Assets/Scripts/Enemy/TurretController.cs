@@ -8,9 +8,6 @@ public class TurretController : MonoBehaviour {
 	public int originalHeath;
 	public bool invulnerable;
 	public float invulnerableTime;
-	[Header("Audio Clips")]
-	public AudioClip Alerted;
-	public AudioClip Death;
 
 	private ShootingSystem AI;
     private bool _shooting;
@@ -74,8 +71,8 @@ public class TurretController : MonoBehaviour {
         AI.awake = true;
 
         //Audio
-        AI.source.clip = AI.Alerted;
-        AI.source.Play();
+        AI.source[0].clip = AI.Alerted;
+        AI.source[0].Play();
     }
 
     public void ExitedZone() {
@@ -83,8 +80,8 @@ public class TurretController : MonoBehaviour {
         AI.awake = false;
 
         //Audio
-        AI.source.clip = AI.Retract;
-        AI.source.Play();
+		AI.source[0].clip = AI.Retract;
+		AI.source[0].Play();
     }
 
     // Use this for initialization
