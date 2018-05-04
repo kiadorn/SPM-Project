@@ -73,7 +73,7 @@ public class PatrolEnemyController : Controller
 		source [1].Play ();
 //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
 //		yield return WaitForSeconds(0f); // sätt värde till tiden dödsanimaton tar.
-		gameObject.SetActive(false);
+//		gameObject.SetActive(false);
 		yield return 0;
 	}
 
