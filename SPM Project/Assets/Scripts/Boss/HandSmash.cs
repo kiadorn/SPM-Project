@@ -18,7 +18,7 @@ public class HandSmash : MonoBehaviour {
     public float timeToAttack;
     public float timeToStop;
     public float followSpeed;
-
+	[Header("Health")]
     public int StartingHealth;
     public int CurrentHealth;
 

@@ -27,7 +27,7 @@ public class TurretController : MonoBehaviour {
 
     void OnEnable() {
         _shooting = false;
-        transform.transform.position = OGPos;
+        transform.position = OGPos;
 		currentHealth = originalHeath;
     }
 

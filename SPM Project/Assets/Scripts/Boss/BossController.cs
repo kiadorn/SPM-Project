@@ -17,6 +17,7 @@ public class BossController : Controller {
     public GameObject[] stage1Objects;
     public GameObject[] stage2Objects;
     public GameObject[] stage4Objects;
+	public GameObject[] stage4GoalObjects;
     public GameObject turret1;
     public GameObject turret2;
     public GameObject leftWall;

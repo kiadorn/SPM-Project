@@ -26,6 +26,9 @@ public class BossStage4 : State {
         hand.GetComponent<HandSmash>().resetCooldown = Stage4ResetCooldown;
         hand.GetComponent<HandSmash>().timeToAttack = Stage4TimeToAttack;
         hand.GetComponent<HandSmash>().timeToStop = Stage4TimeToStop;
+		hand.GetComponent<HandSmash> ().CurrentHealth = 5;
+		_controller.turret1.SetActive (true);
+		_controller.turret2.SetActive (true);
     }
 
     public override void Exit() {
@@ -33,9 +36,18 @@ public class BossStage4 : State {
     }
 
     public override void Update() {
+		ShowGoal ();
         if (Input.GetKey("b")) {
             _controller.TransitionTo<BossStage5>();
         }
     }
+
+	public void ShowGoal(){
+		if (hand.GetComponent<HandSmash>().CurrentHealth == 0 && (!_controller.turret1.activeSelf) && (!_controller.turret2.activeSelf)){
+			foreach (GameObject g in _controller.stage4GoalObjects) {
+				g.SetActive (true);
+			}
+		}
+	}
 
 }
