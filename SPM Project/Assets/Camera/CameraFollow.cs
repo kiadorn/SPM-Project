@@ -92,6 +92,8 @@ public class CameraFollow : MonoBehaviour
 
     public IEnumerator ChangeTarget(GameObject focusTarget, float time, bool freezePlayer) 
     {
+        float temp = SmoothingTime;
+        SmoothingTime = 0.7f;
         Target = focusTarget;
         if(freezePlayer)
             Player.TransitionTo<PauseState>();
@@ -99,7 +101,7 @@ public class CameraFollow : MonoBehaviour
         if (freezePlayer)
             Player.TransitionTo<AirState>();
         Target = Player.gameObject;
-
+        SmoothingTime = temp;
         yield return 0;
     }
 }
