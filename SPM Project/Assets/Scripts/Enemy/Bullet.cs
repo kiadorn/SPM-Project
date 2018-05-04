@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	private PlayerStats Stats;
     void OnCollisionEnter2D(Collision2D coll) {
 
         if (coll.gameObject.CompareTag("Player")) {
 			//audio
-			Stats.BulletHit();
             coll.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1);
         }
         //if (!coll.gameObject.CompareTag("Bullet"))
