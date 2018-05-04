@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour {
 
-    [Range(0, 2)]
+    [Range(0, 10)]
     public int damageValue;
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -40,6 +40,7 @@ public class PatrolEnemyController : Controller
     new void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerStats = player.GetComponent<PlayerStats>();
         saveSpeed = speed;
 //		animator = GetComponent <Animator>();  //Används för animatoner
         source = GetComponent<AudioSource>();

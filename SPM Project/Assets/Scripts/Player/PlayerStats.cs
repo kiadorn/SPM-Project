@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour {
     public Text CurrencyUI;
     public GameObject KeyIcon;
     public GameObject SwordIcon;
-    public GameObject AtttackControl;
+    public GameObject AttackControl;
     public GameManager manager;
 
     [Header("Stats")]
@@ -161,12 +161,16 @@ public class PlayerStats : MonoBehaviour {
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
+        GetComponentInChildren<TrailRenderer>().enabled = false;
         transform.position = CurrentCheckPoint.transform.position;
+        GetComponentInChildren<TrailRenderer>().enabled = true;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         _invulnerable = false;
         GetComponent<PlayerController>().TransitionTo<AirState>();
+        GetComponent<PlayerController>().Velocity = Vector2.zero;
+
     }
 
     public void ChangeKeyStatus(bool change)
@@ -178,7 +182,7 @@ public class PlayerStats : MonoBehaviour {
     public void ObtainSword()
     {
         SwordIcon.SetActive(true);
-        AtttackControl.SetActive(true);
+        AttackControl.SetActive(true);
     }
 }
 

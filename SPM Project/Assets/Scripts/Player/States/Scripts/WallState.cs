@@ -52,8 +52,12 @@ public class WallState : State
 		{
 			if (MathHelper.CheckAllowedSlope(_controller.SlopeAngles, hit.normal))
 				_controller.TransitionTo<GroundState>();
-			if (MathHelper.GetWallAngleDelta(hit.normal) >
-				_controller.MaxWallAngleDelta) _controller.TransitionTo<AirState>();
+			if (MathHelper.GetWallAngleDelta(hit.normal) > _controller.MaxWallAngleDelta)
+                _controller.TransitionTo<AirState>();
+            if (hit.collider.CompareTag("Unclimbable Wall"))
+                {
+                    _controller.TransitionTo<AirState>();
+                }
 			_wallNormal += hit.normal;
 			_wallHitPoint += hit.point;
 		}

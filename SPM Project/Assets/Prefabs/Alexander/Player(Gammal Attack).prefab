@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 50344010809119362}
   - component: {fileID: 114488519687946602}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player(Gammal Attack)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,6 +565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 0}
   CurrencyUI: {fileID: 0}
+  KeyIcon: {fileID: 0}
+  SwordIcon: {fileID: 0}
+  AttackControl: {fileID: 0}
   manager: {fileID: 0}
   HasSword: 0
   Currency: 0
@@ -573,6 +576,9 @@ MonoBehaviour:
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
   InvulnerableTime: 3
+  hasKey: 0
+  BosstageName: 
+  SavedCurrency: 0
 --- !u!114 &114832433923225804
 MonoBehaviour:
   m_ObjectHideFlags: 1
