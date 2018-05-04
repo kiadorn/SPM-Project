@@ -7,6 +7,7 @@ public class CameraFocusByHit : MonoBehaviour {
     public GameObject Focus;
     public GameObject DisableObject;
     public float TimeToDisable;
+    public float TimeCameraStay = 3f;
     public bool FreezePlayer;
     private CameraFollow Cam;
 
@@ -15,7 +16,7 @@ public class CameraFocusByHit : MonoBehaviour {
     }
 
     public void Action() {
-        StartCoroutine(Cam.ChangeTarget(Focus, 3f, FreezePlayer));
+        StartCoroutine(Cam.ChangeTarget(Focus, TimeCameraStay, FreezePlayer));
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(WaitForDisable());
     }

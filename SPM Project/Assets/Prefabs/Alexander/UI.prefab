@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222841306292530642}
   - component: {fileID: 114854646703845340}
   m_Layer: 5
-  m_Name: Key
+  m_Name: KeyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 222342317481305430}
   - component: {fileID: 114164996077195342}
   m_Layer: 5
-  m_Name: Sword
+  m_Name: SwordIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

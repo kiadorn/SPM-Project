@@ -6,15 +6,11 @@ public class BreakingPlatform : MonoBehaviour {
     public int ColapseTime = 3;
     public int ResetTime = 5;
 
-
     private MeshRenderer _renderer;
     private Collider2D _collider;
-    private bool _colapsing = false;
+    private bool _collapsing = false;
 
     private Vector3 OGPos;
-
-
-
 
     void Awake() {
         _renderer = GetComponent<MeshRenderer>();
@@ -27,28 +23,22 @@ public class BreakingPlatform : MonoBehaviour {
         transform.position = OGPos;
         _renderer.enabled = true;
         _collider.enabled = true;
-        _colapsing = false;
+        _collapsing = false;
     }
 
     private IEnumerator Colapse(int colapseTime, int resetTime) {
-        _colapsing = true;
+        _collapsing = true;
         yield return new WaitForSeconds(colapseTime);
         _collider.enabled = false;
         _renderer.enabled = false;
         yield return new WaitForSeconds(resetTime);
         _renderer.enabled = true;
         _collider.enabled = true;
-        _colapsing = false; 
+        _collapsing = false; 
     }
 
-    /*private void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.gameObject.tag == "Player" && !_colapsing){
-            StartCoroutine(Colapse(ColapseTime, ResetTime));
-        }
-    }*/
-
     private void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.gameObject.tag == "Player" && !_colapsing) {
+        if (coll.gameObject.tag == "Player" && !_collapsing) {
             StartCoroutine(Colapse(ColapseTime, ResetTime));
         }
     }

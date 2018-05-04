@@ -21,7 +21,8 @@ public class PatrolEnemyController : Controller
     public AudioClip Skitter;
     public AudioClip Alerted;
     public AudioClip [] Death;
-	[Header("Stats")]
+    public float waitBeforeDeath = 3f;
+    [Header("Stats")]
 	public bool invulnerable;
     public int startingHealth;
     public float invulnerableTime;
@@ -32,9 +33,11 @@ public class PatrolEnemyController : Controller
 	private Animator animator;
 
 	private void OnEnable() {
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
         currentHealth = startingHealth;
         transform.position = OGPos;
+        transform.SetParent(null);
     }
 
     new void Awake()
@@ -72,9 +75,11 @@ public class PatrolEnemyController : Controller
 	private IEnumerator OnDeath(){
 		source [1].clip = Death [Random.Range (0, Death.Length)];
 		source [1].Play ();
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
 //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
-//		yield return WaitForSeconds(0f); // sätt värde till tiden dödsanimaton tar.
-//		gameObject.SetActive(false);
+		yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
+		gameObject.SetActive(false);
 		yield return 0;
 	}
 

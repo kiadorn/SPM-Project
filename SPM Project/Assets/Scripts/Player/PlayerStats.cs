@@ -34,19 +34,12 @@ public class PlayerStats : MonoBehaviour {
     public bool hasKey = false;
 
     public String BosstageName;
-	//audio
-//	[HideInInspector] 
-	public AudioSource[] source;
-//	[Header ("Audio Clips")]
-//	public AudioClip[] BulletImpact;
-
     private String currentScene;
     //[HideInInspector]
     public int SavedCurrency = 0;
 
     void Start()
     {
-		source = GetComponents<AudioSource> ();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
@@ -169,6 +162,7 @@ public class PlayerStats : MonoBehaviour {
         Currency = SavedCurrency;
         UpdateCurrency();
         GetComponentInChildren<TrailRenderer>().enabled = false;
+        transform.SetParent(null);
         transform.position = CurrentCheckPoint.transform.position;
         GetComponentInChildren<TrailRenderer>().enabled = true;
         CurrentCheckPoint.EnableEnemies();

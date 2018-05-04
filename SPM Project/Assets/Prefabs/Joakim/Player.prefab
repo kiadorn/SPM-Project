@@ -37,8 +37,8 @@ GameObject:
   - component: {fileID: 4435675321451716}
   - component: {fileID: 61659455118752814}
   - component: {fileID: 114784860799802398}
-  - component: {fileID: 114924760846282732}
   - component: {fileID: 50614637315447170}
+  - component: {fileID: 114273927635583522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -100,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558011471400882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.338, y: -0.125, z: 0}
-  m_LocalScale: {x: 5.2819004, y: 5.1556716, z: 2}
+  m_LocalPosition: {x: 1.411, y: 0.006, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 2}
   m_Children: []
   m_Father: {fileID: 4435675321451716}
   m_RootOrder: 2
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.5, y: -0.2, z: 0}
+  m_LocalPosition: {x: -218.97, y: 224.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027239129, y: 0.030231416}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21914521, y: 0.34420812}
+  m_Size: {x: 0.14, y: 0.15}
   m_EdgeRadius: 0
 --- !u!61 &61659455118752814
 BoxCollider2D:
@@ -309,8 +309,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff4bf5d5aea1bd45abb34666e354775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0.5
+  attackCooldown: 0.2
   spriteObject: {fileID: 1830060267180468}
+--- !u!114 &114273927635583522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221584985449912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ed14d9cd8f896459bca15f60b38d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 0}
+  CurrencyUI: {fileID: 0}
+  KeyIcon: {fileID: 0}
+  SwordIcon: {fileID: 0}
+  AttackControl: {fileID: 1558011471400882}
+  manager: {fileID: 0}
+  HasSword: 0
+  Currency: 0
+  CurrentHealth: 0
+  StartingHealth: 999
+  LoadedHealthPoints: 0
+  CurrentCheckPoint: {fileID: 0}
+  InvulnerableTime: 2
+  hasKey: 0
+  BosstageName: 
+  SavedCurrency: 0
 --- !u!114 &114784860799802398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,6 +355,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 687275181b8df234caa2fda21663d67a, type: 2}
   - {fileID: 11400000, guid: 5609d07f8157a5246b657732f934548f, type: 2}
   - {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428, type: 2}
+  - {fileID: 11400000, guid: 7da510c66bfa89b449a7529bf4c697b5, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
   MaxSpeed: 15
@@ -343,19 +371,6 @@ MonoBehaviour:
     Min: -45
     Max: 45
   spriteRenderer: {fileID: 0}
---- !u!114 &114924760846282732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1221584985449912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560c32bb56b6bad479f73531330c7bca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: 0
-  invulnTime: 0
 --- !u!212 &212123163134877298
 SpriteRenderer:
   m_ObjectHideFlags: 1
