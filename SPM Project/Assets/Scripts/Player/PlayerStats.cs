@@ -171,7 +171,6 @@ public class PlayerStats : MonoBehaviour {
         _invulnerable = false;
         GetComponent<PlayerController>().TransitionTo<AirState>();
         GetComponent<PlayerController>().Velocity = Vector2.zero;
-
     }
 
     public void ChangeKeyStatus(bool change)

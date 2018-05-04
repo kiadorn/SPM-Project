@@ -12,6 +12,8 @@ public class CameraFocus : MonoBehaviour {
         Cam = GameObject.Find("Camera").GetComponent<CameraFollow>();
     }
 
+
+
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
             StartCoroutine(Cam.ChangeTarget(Focus, 3f, FreezePlayer));
