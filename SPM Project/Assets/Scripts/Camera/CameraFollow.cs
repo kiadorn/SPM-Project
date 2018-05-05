@@ -33,13 +33,12 @@ public class CameraFollow : MonoBehaviour
 
     private void Update(){
 		UpdateTargetPosition ();
-		UpdateLookAhead ();
 	}
+
 	private void UpdateLookAhead()
 	{
 		float targetLookAhead = MathHelper.Sign(Player.Velocity.x) * MaxLookAhead;
-		_lookAhead = Mathf.SmoothDamp(_lookAhead, targetLookAhead,
-			ref _lookAheadSpeed, LookAheadAccelerationTime);
+        _lookAhead = Mathf.SmoothDamp(_lookAhead, targetLookAhead, ref _lookAheadSpeed, LookAheadAccelerationTime);
 	}
 
 	private void UpdateTargetPosition()
