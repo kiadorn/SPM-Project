@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class CameraFollow : MonoBehaviour
 	private float _lookAhead;
 
 	[Header("Look around")]
-	public float MaxLookAroundAmount;
+    public float MaxLookAroundAmount;
 	public float TimeBeforeLookAround;
 	public float PlayerMaximumSpeedForLookAround;
 	private float _playerStillTime;
@@ -28,11 +29,13 @@ public class CameraFollow : MonoBehaviour
     private GameObject Target;
 
     private void Awake() {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         Target = Player.gameObject;
     }
 
     private void Update(){
 		UpdateTargetPosition ();
+        UpdateLookAhead();
 	}
 
 	private void UpdateLookAhead()
@@ -53,9 +56,6 @@ public class CameraFollow : MonoBehaviour
         UpdateLookAhead();
         UpdateLookAround();
         UpdateMovement();
-
-            
-
     }
     private void UpdateMovement()
 	{
@@ -64,8 +64,7 @@ public class CameraFollow : MonoBehaviour
             //Vector3 moveToPos = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
             //transform.position = Vector3.MoveTowards(transform.position, moveToPos, 50 * Time.deltaTime);
         }
-        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition,
-			ref _currentVelocity, SmoothingTime);
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _currentVelocity, SmoothingTime);
 	}
 	private void UpdateLookAround()
 	{
@@ -80,27 +79,14 @@ public class CameraFollow : MonoBehaviour
         _lookAroundAmount = Input.GetAxisRaw("Vertical") * MaxLookAroundAmount;
 	}
 
-    //public static void ChangeTargetFocus(GameObject focusTarget, float time) 
-    //{
-    //    ByPassStatic(
-    //}
-
-    //private void ByPassStatic(GameObject focusTarget, float time) {
-    //    StartCoroutine(ChangeTarget(focusTarget, time));
-    //}
-
-    public IEnumerator ChangeTarget(GameObject focusTarget, float time, bool freezePlayer) 
+    public void switchToCameraFocus(Vector3 focus, bool freeze)
     {
-        float temp = SmoothingTime;
-        SmoothingTime = 0.7f;
-        Target = focusTarget;
-        if(freezePlayer)
-            Player.TransitionTo<PauseState>();
-        yield return new WaitForSeconds(time);
-        if (freezePlayer)
-            Player.TransitionTo<AirState>();
-        Target = Player.gameObject;
-        SmoothingTime = temp;
-        yield return 0;
+        if (freeze)
+        {
+            Player.TransitionTo<PauseNoVelocityState>();
+        }
+        this.GetComponent<CameraFocus>().endPos = focus;
+        this.GetComponent<CameraFocus>().enabled = true;
+        this.GetComponent<CameraFollow>().enabled = false;
     }
 }

@@ -4,53 +4,46 @@ using UnityEngine;
 
 public class HandSmash : MonoBehaviour {
 
-    [Header("Sizes")]
-    [Range(1, 20)]
-    public float handSize;
     [Header("References")]
     public GameObject shadow;
     public GameObject hand;
-    //public PolygonCollider2D collider;
-    public GameObject player;
+    [ReadOnly] public GameObject player;
     [Header("Modifiers")]
     public float shadowModifier;
     public float OpacityModifier;
-    public float timeToAttack;
-    public float timeToStop;
     public float followSpeed;
-
+    public float cameraShakeModifier = 1f;
+    [Range(1, 20)]
+    public float handSize;
+    [Header("Health")]
     public int StartingHealth;
     public int CurrentHealth;
-
-    private bool smashing;
-    private bool _coolDown = false;
+    [Header("Attack Timer")]
+    public float timeToAttack;
+    public float timeToStop;
     private float timer = 0f;
-
-    [Header("Cooldown between attacks")]
+    [Header("Attack Cooldown")]
     public float AttackCooldown;
     private bool _canAttack;
     private float _cooldownTimer;
-
-    [Header("Time before reset")]
+    [Header("Reset Timer")]
     public float resetCooldown;
     private bool _waitingToReset;
     private float resetTimer;
-
-    [Header("Time before first attack")]
+    [Header("First Attack Timer")]
     public float TimeBeforeFirstAttack;
+
+    private bool smashing;
 
     private void Awake() {
         CurrentHealth = StartingHealth;
         player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     private void OnEnable()
     {
         shadow.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-        //shadow.SetActive(false);
         hand.SetActive(false);
-        //timer = -5;
         ResetAttack();
         _cooldownTimer -= TimeBeforeFirstAttack;
         transform.position = player.transform.position;
@@ -69,25 +62,14 @@ public class HandSmash : MonoBehaviour {
             ResetAttack();
             Cooldown();
         }
-
-        else if (_waitingToReset) {
+        else if (_waitingToReset)
+        {
             WaitToReset();
         }
-
-        else {
+        else
+        {
             SmashHand();
         }
-
-        //if (smashing)
-        //{
-        //    SmashHand();
-        //}
-
-        //if (Input.GetKey("k")) {
-        //    smashing = true;
-        //}
-
-
     }
 
     private void SmashHand()
@@ -95,22 +77,19 @@ public class HandSmash : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer < timeToAttack)
         {
-
             if (timer < timeToStop)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, followSpeed);
             }
             shadow.transform.localScale = shadow.transform.localScale * (-(shadowModifier) * Time.deltaTime + 1);
-            shadow.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, timer * OpacityModifier);
-            
-        } else if (timer >= timeToAttack)
+            shadow.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, timer * OpacityModifier);    
+        }
+        else if (timer >= timeToAttack)
         {
             hand.transform.localScale = shadow.transform.localScale;
             hand.SetActive(true);
             shadow.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            //shadow.SetActive(false);
-            CameraShake.AddIntensity(1);
-            //smashing = false;
+            CameraShake.AddIntensity(cameraShakeModifier);
             _waitingToReset = true;
         }
     }

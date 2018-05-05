@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class PatrolEnemyController : Controller
 {
-
-    public Transform player;
-    public PlayerStats playerStats;
-    [Header("Patrol State")]
+    [Header("References")]
+    [ReadOnly] public Transform player;
+    [ReadOnly] public PlayerStats playerStats;
+    [Header("Movement")]
     public Transform groundDetection;
     public bool startMovingRight;
     public float groundCheckDistance;
     public float speed;
-    [HideInInspector]
-    public float saveSpeed;
-   
-    [HideInInspector]
-    public AudioSource [] source;
+    [ReadOnly] public float saveSpeed;
+    public float Gravity = 30f;
     [Header("Audio Clips")]
+    [ReadOnly] public AudioSource[] source;
     public AudioClip Skitter;
     public AudioClip Alerted;
     public AudioClip [] Death;
     public float waitBeforeDeath = 3f;
-    [Header("Stats")]
+    [Header("Health")]
 	public bool invulnerable;
     public int startingHealth;
     public float invulnerableTime;
@@ -57,6 +55,7 @@ public class PatrolEnemyController : Controller
 			time += Time.deltaTime;
 		}
         CurrentState.Update();
+
     }
 
 	public void TakeDamage(){

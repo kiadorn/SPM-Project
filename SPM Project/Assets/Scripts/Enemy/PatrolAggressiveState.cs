@@ -25,11 +25,22 @@ public class PatrolAggressiveState : State {
 
     public override void Update()
     {
-        UpdateMovement();
         CheckForPlayer();
+        UpdateHorizontalMovement();
+        UpdateGravity();
+        UpdateAudio();
     }
 
-    private void UpdateMovement()
+    private void CheckForPlayer()
+    {
+        float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
+        if (checkDistance > aggroRange)
+        {
+            _controller.TransitionTo<PatrolPassiveState>();
+        }
+    }
+
+    private void UpdateHorizontalMovement()
     {
         //Vänder sig mot spelaren
         float distance = _controller.player.transform.position.x - _controller.transform.position.x;
@@ -69,29 +80,6 @@ public class PatrolAggressiveState : State {
             }
         }
 
-
-
-
-
-        ////Stannar om det är ingenting under
-        //if (groundInfoDown.collider == false || groundInfoDown.collider.gameObject.layer != 8 && !groundInfoForward.collider.gameObject.CompareTag("Player"))
-        //{
-        //    _controller.speed = 0;
-        //}
-        //else
-        //{
-        //    //Stannar om det är något framför och det är Geometry
-        //    if (groundInfoForward.collider == true && groundInfoForward.collider.gameObject.layer == 8 && !groundInfoForward.collider.gameObject.CompareTag("Player"))
-        //    {
-        //        _controller.speed = 0;
-        //    }
-        //    //Annars fortsätter
-        //    else
-        //    {
-        //        _controller.speed = _controller.saveSpeed;
-        //    }
-        //}
-
         _controller.speed = _controller.saveSpeed; //"I'm a genius" - Calle 26/04/2018 11:58
 
         //Väntar ifall den hittade något framför
@@ -111,22 +99,42 @@ public class PatrolAggressiveState : State {
         //Rörelse
         _controller.transform.Translate(Vector2.right * _controller.speed * Time.deltaTime);
 
-		//Audio. Byt till två audiosources
-		_controller.source[0].clip = _controller.Skitter;
-		_controller.source[0].loop = true;
-		if (_controller.speed > 0 && !_controller.source[0].isPlaying) {
-			_controller.source[0].Play ();
-		} else if (_controller.speed == 0 && _controller.source[0].isPlaying) {
-            _controller.source[0].Stop ();
-		}
     }
 
-    private void CheckForPlayer()
+    private void UpdateGravity()
     {
-        float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
-        if (checkDistance > aggroRange)
+        //Raycast under sig
+        RaycastHit2D[] groundInfoDownHits = Physics2D.RaycastAll(_controller.transform.position, Vector2.down, 0.1f + _controller.gameObject.GetComponent<BoxCollider2D>().size.y);
+
+        bool foundGround = false;
+
+        //Om det ingen Geometry under en
+        foreach (RaycastHit2D hit in groundInfoDownHits)
         {
-            _controller.TransitionTo<PatrolPassiveState>();
+            if (hit.collider == true && hit.collider.gameObject.layer == 8)
+            {
+                foundGround = true;
+            }
+        }
+
+        if (!foundGround)
+        {
+            _controller.transform.Translate(Vector2.down * _controller.Gravity * Time.deltaTime);
+        }
+    }
+
+    private void UpdateAudio()
+    {
+        //Audio. Byt till två audiosources
+        _controller.source[0].clip = _controller.Skitter;
+        _controller.source[0].loop = true;
+        if (_controller.speed > 0 && !_controller.source[0].isPlaying)
+        {
+            _controller.source[0].Play();
+        }
+        else if (_controller.speed == 0 && _controller.source[0].isPlaying)
+        {
+            _controller.source[0].Stop();
         }
     }
 }

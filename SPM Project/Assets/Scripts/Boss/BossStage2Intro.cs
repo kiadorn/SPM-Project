@@ -29,7 +29,7 @@ public class BossStage2Intro : State {
 
     public override void Enter()
     {
-        _controller.Player.TransitionTo<PauseState>();
+        _controller.Player.TransitionTo<PauseNoVelocityState>();
         _controller.Player.gameObject.transform.SetParent(_controller.BossRoom.transform);
         _controller.rightWall.transform.tag = "Unclimbable Wall";
     }

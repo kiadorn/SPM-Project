@@ -25,7 +25,7 @@ public class BossStage3Intro : State
 
     public override void Enter()
     {
-        _controller.Player.TransitionTo<PauseState>();
+        _controller.Player.TransitionTo<PauseNoVelocityState>();
         _controller.Player.gameObject.transform.SetParent(_controller.BossRoom.transform);
         _controller.rightWall.transform.tag = "Untagged";
         _controller.turret1.SetActive(false); _controller.turret2.SetActive(false);

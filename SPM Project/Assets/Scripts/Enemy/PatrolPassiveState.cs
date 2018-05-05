@@ -32,12 +32,27 @@ public class PatrolPassiveState : State {
 
     public override void Update()
     {
-        UpdatePatrolMovement();
         CheckForPlayer();
+        UpdateHorizontalMovement();
+        UpdateGravity();
         UpdateAudio();
     }
 
-    private void UpdatePatrolMovement()
+
+    private void CheckForPlayer()
+    {
+        float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
+        if (checkDistance < aggroRange)
+        {
+            //Audio
+            _controller.source[0].loop = false;
+            _controller.source[0].Stop();
+
+            _controller.TransitionTo<PatrolAggressiveState>();
+        }
+    }
+
+    private void UpdateHorizontalMovement()
     {
 
         if (movingRight)
@@ -115,28 +130,41 @@ public class PatrolPassiveState : State {
         } 
     }
 
+    private void UpdateGravity()
+    {
+        //Raycast under sig
+        RaycastHit2D[] groundInfoDownHits = Physics2D.RaycastAll(_controller.transform.position, Vector2.down, _controller.gameObject.GetComponent<BoxCollider2D>().size.y);
+        Debug.Log("Min size är " + _controller.gameObject.GetComponent<BoxCollider2D>().size.y);
+
+        Debug.DrawRay(_controller.transform.position, Vector2.down * (_controller.gameObject.GetComponent<BoxCollider2D>().size.y));
+
+        bool foundGround = false;
+
+        //Om det ingen Geometry under en
+        foreach (RaycastHit2D hit in groundInfoDownHits)
+        {
+            if (hit.collider == true && hit.collider.gameObject.layer == 8)
+            {
+                foundGround = true;
+            }
+        }
+
+        if (!foundGround)
+        {
+            _controller.transform.Translate(Vector2.down * _controller.Gravity * Time.deltaTime);
+        }
+    }
+
     private void UpdateAudio()
     {
         if (_controller.speed > 0 && !_controller.source[0].isPlaying)
         {
             _controller.source[0].Play();
-        } else if (_controller.speed == 0 && _controller.source[0].isPlaying)
+        }
+        else if (_controller.speed == 0 && _controller.source[0].isPlaying)
         {
             _controller.source[0].Stop();
 
-        }
-    }
-
-    private void CheckForPlayer()
-    {
-        float checkDistance = Vector3.Distance(_controller.transform.position, _controller.player.transform.position);
-        if (checkDistance < aggroRange)
-        {
-			//Audio
-			_controller.source[0].loop = false;
-			_controller.source[0].Stop();
-
-            _controller.TransitionTo<PatrolAggressiveState>();
         }
     }
 

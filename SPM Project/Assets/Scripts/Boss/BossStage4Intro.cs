@@ -25,7 +25,7 @@ public class BossStage4Intro : State
 
     public override void Enter()
     {
-        _controller.Player.TransitionTo<PauseState>();
+        _controller.Player.TransitionTo<PauseNoVelocityState>();
         _controller.Player.gameObject.transform.SetParent(_controller.BossRoom.transform);
         _controller.leftWall.transform.tag = "Unclimbable Wall";
         foreach (GameObject go in _controller.stage4Objects)

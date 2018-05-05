@@ -24,6 +24,6 @@ public class BossStage5 : State {
 
     public override void Enter()
     {
-        _controller.Player.TransitionTo<PauseState>();
+        _controller.Player.TransitionTo<PauseNoVelocityState>();
     }
 }

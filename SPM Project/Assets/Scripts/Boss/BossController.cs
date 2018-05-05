@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : Controller {
 
-    public PlayerController Player;
+    [ReadOnly] public PlayerController Player;
     public float angleSpeed;
 
     public bool done = false;
@@ -27,7 +27,7 @@ public class BossController : Controller {
         CurrentState.Update();
     }
 
-    private void Awake()
+    private  new void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         base.Awake();

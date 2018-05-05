@@ -16,7 +16,7 @@ public class CameraFocusByHit : MonoBehaviour {
     }
 
     public void Action() {
-        StartCoroutine(Cam.ChangeTarget(Focus, TimeCameraStay, FreezePlayer));
+        Cam.switchToCameraFocus(Focus.transform.position, FreezePlayer);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(WaitForDisable());
     }

@@ -141,7 +141,6 @@ public class BirdEnemyBehaviour : MonoBehaviour {
             {
                 if (AttackSpeed < MaxAttackSpeed) AttackSpeed += Time.deltaTime * AttackAcceleration;
                 transform.position = Vector3.MoveTowards(transform.position, AttackPos, AttackSpeed * Time.deltaTime);
-
             }
             else
             {

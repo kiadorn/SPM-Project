@@ -36,7 +36,7 @@ public class HandDamage : MonoBehaviour {
         {
             TakeDamage();
         } else if (Input.GetKeyDown("1")) {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<PauseState>();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<PauseNoVelocityState>();
 
         } else if (Input.GetKeyDown("2")) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<AirState>();

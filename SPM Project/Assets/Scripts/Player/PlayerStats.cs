@@ -26,17 +26,16 @@ public class PlayerStats : MonoBehaviour {
     public CheckPoint CurrentCheckPoint;
 
     public float InvulnerableTime;
+    [ReadOnly] public bool paused;
     private bool _invulnerable = false;
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
-
     public bool hasKey = false;
 
-    public String BosstageName;
+    public String BossStageName;
     private String currentScene;
-    //[HideInInspector]
-    public int SavedCurrency = 0;
+    [ReadOnly] public int SavedCurrency = 0;
 
     void Start()
     {
@@ -94,6 +93,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void ChangeHealth(int i)
     {
+        if (paused) { return; }
         if (!_invulnerable && i < 0)
         {
             gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
@@ -101,7 +101,8 @@ public class PlayerStats : MonoBehaviour {
             _invulnerable = true;
         }
 
-        else if(i > 0) {
+        else if (i > 0)
+        {
             CurrentHealth += i;
         }
         CheckIfDead();
@@ -141,7 +142,7 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
-            if(BosstageName != null && currentScene == BosstageName)
+            if(BossStageName != null && currentScene == BossStageName)
             {
                 SceneManager.LoadScene(currentScene);
             }
@@ -158,6 +159,7 @@ public class PlayerStats : MonoBehaviour {
     }
 
     public void Death() {
+        GetComponent<PlayerController>().Velocity = Vector2.zero;
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
@@ -170,7 +172,6 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         _invulnerable = false;
         GetComponent<PlayerController>().TransitionTo<AirState>();
-        GetComponent<PlayerController>().Velocity = Vector2.zero;
     }
 
     public void ChangeKeyStatus(bool change)
