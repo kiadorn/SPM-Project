@@ -16,6 +16,11 @@ public class PlayerController : Controller{
 	public MinMaxFloat SlopeAngles;
 	public SpriteRenderer spriteRenderer;
 	private float lastXDir;
+	private GameObject pauseScreen;
+
+	private void Start(){
+		pauseScreen = Getcomp
+	}
 
 	private void Update()
 	{
@@ -31,6 +36,9 @@ public class PlayerController : Controller{
 			lastXDir = 1f;
 		}else if(Input.GetAxisRaw("Horizontal") < 0){
 			lastXDir = -1f;
+		}
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause)) {
+
 		}
 	}
 
