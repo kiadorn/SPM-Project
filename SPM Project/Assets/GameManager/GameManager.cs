@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour {
     public bool Level1Done;
     public bool Level2Done;
     Scene currentScene;
-    [Header("UI element")]
-    public GameObject SwordIcon;
 
     public CheckPoint Current;
     
@@ -33,7 +31,6 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        LoadPlayer();
     }
     // Use this for initialization
     void Start() {
@@ -85,7 +82,8 @@ public class GameManager : MonoBehaviour {
             PlayerData data = new PlayerData(instance);
             data.HealthPoints = instance.HealthPoints;
             data.Currency = instance.Currency;
-            //data.HasShield = instance.HasShield;
+            data.Level1Done = instance.Level1Done;
+            data.Level2Done = instance.Level2Done;
             bf.Serialize(stream, data);
             stream.Close();
             Debug.Log("Saved");
@@ -105,7 +103,8 @@ public class GameManager : MonoBehaviour {
                 stream.Close();
                 instance.Currency = data.Currency;
                 instance.HealthPoints = data.HealthPoints;
-                //instance.HasShield = data.HasShield;
+                instance.Level1Done = data.Level1Done;
+                instance.Level2Done = data.Level2Done;
                 Debug.Log("Loaded");
         }
 
@@ -118,11 +117,12 @@ public class PlayerData //Serializerbara egenskaper (De som går att föra över
 {
     public int HealthPoints;
     public int Currency = 0;
-    public bool HasSword;
-    public bool HasShield;
+    public bool Level1Done;
+    public bool Level2Done;
     public PlayerData(GameManager instance) {
      HealthPoints = instance.HealthPoints;
      Currency = instance.Currency;
-    //public bool HasShield;
+     Level1Done = instance.Level1Done;
+     Level2Done = instance.Level2Done;
     }
 }

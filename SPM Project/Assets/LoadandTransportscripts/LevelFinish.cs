@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using UnityEngine.SceneManagement;
+
 
 public class LevelFinish : MonoBehaviour {
+    public string leveltoload;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerEnter2D(Collider2D lookforplayer)
+    {
+        if (lookforplayer.gameObject.tag == "Player")
+        {
+
+            SceneManager.LoadScene(leveltoload);
+
+
+
+        }
+        Debug.Log("Colliding");
+    }
 }
