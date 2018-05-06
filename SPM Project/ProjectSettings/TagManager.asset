@@ -13,6 +13,7 @@ TagManager:
   - UntaggedFromParent
   - Interactable
   - Hazard
+  - Key
   layers:
   - Default
   - TransparentFX

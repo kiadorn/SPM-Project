@@ -9,10 +9,16 @@ public class CameraFocusByHit : MonoBehaviour {
     public float TimeToDisable;
     public float TimeCameraStay = 3f;
     public bool FreezePlayer;
+
+	//Audio
+	private AudioSource source;
+	[Header("Audio Clips")]
+	public AudioClip Open;
     private CameraFollow Cam;
 
     private void Awake() {
         Cam = GameObject.Find("Camera").GetComponent<CameraFollow>();
+		source = GetComponent<AudioSource> ();
     }
 
     public void Action() {
@@ -24,6 +30,8 @@ public class CameraFocusByHit : MonoBehaviour {
     public IEnumerator WaitForDisable() {
 
         yield return new WaitForSeconds(TimeToDisable);
+		source.clip = Open;
+		source.Play ();
         DisableObject.SetActive(false);
         yield return 0;
     }

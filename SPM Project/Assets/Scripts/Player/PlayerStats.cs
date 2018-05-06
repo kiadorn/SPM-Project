@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour {
     public CheckPoint CurrentCheckPoint;
 
     public float InvulnerableTime;
-    private bool _invulnerable = false;
+    public bool _invulnerable = false;
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
@@ -38,12 +38,25 @@ public class PlayerStats : MonoBehaviour {
     //[HideInInspector]
     public int SavedCurrency = 0;
 
+	//Audio
+	[HideInInspector]
+	public AudioSource source1;
+	public AudioSource source2;
+	[Header("Audioclips")]
+	public AudioClip Footsteps;
+	public AudioClip SwordSwing;
+	public AudioClip Jump;
+	public AudioClip Dash;
+	public AudioClip DeathSound;
+
     void Start()
     {
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
         currentScene = SceneManager.GetActiveScene().name;
+		source1 = GetComponent<AudioSource> ();
+		source2 = GetComponent<AudioSource> ();
     }
 
     void Update()
@@ -158,6 +171,10 @@ public class PlayerStats : MonoBehaviour {
     }
 
     public void Death() {
+		//Audio
+		source2.clip = DeathSound;
+		source2.Play ();
+
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();

@@ -12,10 +12,15 @@ public class PlayerAttack : MonoBehaviour {
 	private Transform spriteTransform; //Testrad ta bort när spelaren har animation
 	private Color originalColor; //Testrad ta bort när spelaren har animation
 
+	private AudioSource source;
+	[Header("AudioClips")]
+	public AudioClip Swing;
+
 	void Start () {
 		attackTimeStamp = attackCooldown;
 		attackArc = this.GetComponent<BoxCollider2D>();
 		originalColor = spriteObject.GetComponent<SpriteRenderer> ().color; //Testrad ta bort när spelaren har animation
+		source = GetComponent<AudioSource>();
 	}
 
 	void Update () {
@@ -33,6 +38,8 @@ public class PlayerAttack : MonoBehaviour {
 			attackArc.enabled = true;
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 			attackTimeStamp = 0;
+			source.clip = Swing;
+			source.Play ();
 			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
 		

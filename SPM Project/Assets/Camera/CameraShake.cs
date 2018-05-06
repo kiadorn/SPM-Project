@@ -11,11 +11,20 @@ public class CameraShake : MonoBehaviour
     public float RollSpeed;
     public float MaxRoll;
 
+	//Audio
+	private AudioSource source;
+	[Header("AudioClips")]
+	public AudioClip Shake;
+
     private static float _intensity;
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown("p")) CameraShake.AddIntensity(1);
+		if (Input.GetKeyDown ("p")) {
+			CameraShake.AddIntensity(1);
+			source.clip = Shake;
+			source.Play ();
+		} 
         _intensity -= Time.deltaTime / MaxDuration;
         _intensity = Mathf.Clamp01(_intensity);
         float magnitude = IntensityToMagnitudeCurve.Evaluate(_intensity);
@@ -31,4 +40,8 @@ public class CameraShake : MonoBehaviour
     {
         _intensity += intensity;
     }
+
+	void Start(){
+		source = GetComponent<AudioSource> ();
+	}
 }
