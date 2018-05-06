@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class PersistentData : MonoBehaviour {
+public class LevelFinish : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

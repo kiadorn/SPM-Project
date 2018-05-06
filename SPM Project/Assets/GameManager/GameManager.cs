@@ -5,6 +5,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,34 +14,14 @@ public class GameManager : MonoBehaviour {
     [Header("Spelarstats")] //Spelarens stats
     public int HealthPoints;
     public int Currency = 0;
-    public bool HasSword;
-    public bool HasShield;
-
+    public bool Level1Done;
+    public bool Level2Done;
+    Scene currentScene;
     [Header("UI element")]
     public GameObject SwordIcon;
 
-
     public CheckPoint Current;
-
-    public void SwordObtain()
-    {
-        SwordIcon.SetActive(true);
-        HasSword = true;
-    }
-
-    //public void ShieldObtain()
-    //{
-    //    ShieldIcon.SetActive(true);
-    //    HasShield = true;
-    //}
-    private void LoadStats()
-    {
-        if (Input.GetKeyDown("u"))
-        {
-            
-        }
-
-    }
+    
     private void Awake()
     {
         if (instance == null)
@@ -52,46 +33,58 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        LoadPlayer();
     }
     // Use this for initialization
     void Start() {
+     currentScene = SceneManager.GetActiveScene();
 
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown("n"))
-        {
-            SavePlayerStats();
-        }
         if (Input.GetKeyDown("b"))
         {
             LoadPlayerStats();
         }
         if (Input.GetKeyDown("escape"))
         {
+            SavePlayer();
         }
     }
-        public void SavePlayerStats()
-        {
-        }
-        public void LoadPlayerStats()
+    public void LoadPlayerStats()
         {
             LoadPlayer();
 
 
         }
+    public void ChangeHealth(int i)
+    {
+        HealthPoints += i;
+        CheckIfDead();
+    }
+    private void CheckIfDead()
+    {
+        if (HealthPoints < 1)
+        {
+            //Kill player-move to respawn;
+           // this.HealthUI.text = "Dead";
+        }
+        else
+        {
+           // UpdateHealth();
+        }
+    }
     private void OnApplicationQuit()
     {
     }
-    public static void SavePlayer(PlayerStats player) //Sparfunktion
+    public static void SavePlayer() //Sparfunktion
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/player.sav", FileMode.Create);
-            PlayerData data = new PlayerData(player);
-            data.HealthPoints = player.CurrentHealth;
-            data.Currency = player.Currency;
-            data.HasSword = player.HasSword;
+            PlayerData data = new PlayerData(instance);
+            data.HealthPoints = instance.HealthPoints;
+            data.Currency = instance.Currency;
             //data.HasShield = instance.HasShield;
             bf.Serialize(stream, data);
             stream.Close();
@@ -112,7 +105,6 @@ public class GameManager : MonoBehaviour {
                 stream.Close();
                 instance.Currency = data.Currency;
                 instance.HealthPoints = data.HealthPoints;
-                instance.HasSword = data.HasSword;
                 //instance.HasShield = data.HasShield;
                 Debug.Log("Loaded");
         }
@@ -128,10 +120,9 @@ public class PlayerData //Serializerbara egenskaper (De som går att föra över
     public int Currency = 0;
     public bool HasSword;
     public bool HasShield;
-    public PlayerData(PlayerStats player) {
-     HealthPoints = player.CurrentHealth;
-     Currency = player.Currency;
-    HasSword = player.HasSword;
+    public PlayerData(GameManager instance) {
+     HealthPoints = instance.HealthPoints;
+     Currency = instance.Currency;
     //public bool HasShield;
     }
 }

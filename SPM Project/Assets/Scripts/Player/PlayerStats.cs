@@ -119,7 +119,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void SavePlayerStats()
     {
-        GameManager.SavePlayer(this);
+        GameManager.SavePlayer();
     }
 
     private void LoadStats()
@@ -134,7 +134,6 @@ public class PlayerStats : MonoBehaviour {
 
     private void UpdateHealth()
     {
-        this.HealthUI.text = CurrentHealth.ToString();
     }
 
     private void CheckIfDead()
