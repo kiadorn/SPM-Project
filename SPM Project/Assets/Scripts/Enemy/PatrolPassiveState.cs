@@ -134,9 +134,6 @@ public class PatrolPassiveState : State {
     {
         //Raycast under sig
         RaycastHit2D[] groundInfoDownHits = Physics2D.RaycastAll(_controller.transform.position, Vector2.down, _controller.gameObject.GetComponent<BoxCollider2D>().size.y);
-        Debug.Log("Min size är " + _controller.gameObject.GetComponent<BoxCollider2D>().size.y);
-
-        Debug.DrawRay(_controller.transform.position, Vector2.down * (_controller.gameObject.GetComponent<BoxCollider2D>().size.y));
 
         bool foundGround = false;
 

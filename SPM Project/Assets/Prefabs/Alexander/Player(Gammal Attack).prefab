@@ -326,7 +326,8 @@ MonoBehaviour:
   CurrencyUI: {fileID: 0}
   KeyIcon: {fileID: 0}
   SwordIcon: {fileID: 0}
-  AttackControl: {fileID: 0}
+  DashIcon: {fileID: 0}
+  AttackControl: {fileID: 1428329198659856}
   manager: {fileID: 0}
   HasSword: 1
   Currency: 0
@@ -335,8 +336,9 @@ MonoBehaviour:
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
   InvulnerableTime: 3
+  paused: 0
   hasKey: 0
-  BosstageName: _Patrol Test
+  BossStageName: 
   SavedCurrency: 0
 --- !u!114 &114832433923225804
 MonoBehaviour:

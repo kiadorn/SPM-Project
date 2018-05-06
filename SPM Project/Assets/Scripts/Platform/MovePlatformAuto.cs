@@ -20,14 +20,20 @@ public class MovePlatformAuto : MonoBehaviour {
         originalPos = transform.position;
     }
 
+
+    private void Update()
+    {
+        Move();
+    }
+
     public void Move()
     {
 
-        //Timer
+        //Om man anländer till målpunkten.
         if (transform.position == transform.parent.GetChild(1).transform.position)
         {
             goingUp = true;
-
+            //Timer
             timer += Time.deltaTime;
             if (timer < waitTime)
             {
@@ -35,10 +41,11 @@ public class MovePlatformAuto : MonoBehaviour {
             }
             timer = 0;
         }
+        //Om man anländer till ursprungspunkten.
         else if (transform.position == originalPos)
         {
             goingUp = false;
-
+            //Timer
             timer += Time.deltaTime;
             if (timer < waitTime)
             {
@@ -58,10 +65,6 @@ public class MovePlatformAuto : MonoBehaviour {
         }
     }
 
-    private void Update()
-    {
-        Move();
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -73,7 +76,7 @@ public class MovePlatformAuto : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.transform.SetParent(null);
         }

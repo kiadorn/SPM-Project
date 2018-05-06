@@ -14,8 +14,10 @@ public class PlayerStats : MonoBehaviour {
     public Text CurrencyUI;
     public GameObject KeyIcon;
     public GameObject SwordIcon;
+    public GameObject DashIcon;
     public GameObject AttackControl;
     public GameManager manager;
+    private PlayerController _controller;
 
     [Header("Stats")]
     public bool HasSword;
@@ -39,6 +41,7 @@ public class PlayerStats : MonoBehaviour {
 
     void Start()
     {
+        _controller = GetComponent<PlayerController>();
         CurrentHealth = StartingHealth;
         UpdateHealth();
         ChangeCurrency(Currency);
@@ -73,8 +76,9 @@ public class PlayerStats : MonoBehaviour {
                 _invulnerable = false;
                 timer = 0;
             }
-            
         }
+
+        changeDashIcon();
     }
 
     private IEnumerator SwapColors()
@@ -159,7 +163,7 @@ public class PlayerStats : MonoBehaviour {
     }
 
     public void Death() {
-        GetComponent<PlayerController>().Velocity = Vector2.zero;
+        _controller.Velocity = Vector2.zero;
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
@@ -171,7 +175,7 @@ public class PlayerStats : MonoBehaviour {
         CurrentHealth = StartingHealth;
         UpdateHealth();
         _invulnerable = false;
-        GetComponent<PlayerController>().TransitionTo<AirState>();
+        _controller.TransitionTo<AirState>();
     }
 
     public void ChangeKeyStatus(bool change)
@@ -185,7 +189,16 @@ public class PlayerStats : MonoBehaviour {
         SwordIcon.SetActive(true);
         AttackControl.SetActive(true);
     }
-		
 
+    private void changeDashIcon()
+    {
+        if (_controller.GetState<AirState>().canDash)
+        {
+            DashIcon.GetComponent<Image>().color = Color.white;
+        } else
+        {
+            DashIcon.GetComponent<Image>().color = Color.black;
+        }
+    }
 }
 

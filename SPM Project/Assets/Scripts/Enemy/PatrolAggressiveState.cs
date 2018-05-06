@@ -63,14 +63,14 @@ public class PatrolAggressiveState : State {
         bool foundInfront = false;
         bool foundGround = false;
 
-        //Om det är något framför som är Geometry
+        //Om det finns Geometry framför
         if (groundInfoForward.collider == true && groundInfoForward.collider.gameObject.layer == 8)
         {
             foundInfront = true;
         }
         else
         {
-            //Om det är något under som är Geometry
+            //Om det finns Geometry under
             foreach (RaycastHit2D hit in groundInfoDownHits)
             {
                 if (hit.collider == true && hit.collider.gameObject.layer == 8)
@@ -108,7 +108,7 @@ public class PatrolAggressiveState : State {
 
         bool foundGround = false;
 
-        //Om det ingen Geometry under en
+        //Om det finns Geometry under en
         foreach (RaycastHit2D hit in groundInfoDownHits)
         {
             if (hit.collider == true && hit.collider.gameObject.layer == 8)
