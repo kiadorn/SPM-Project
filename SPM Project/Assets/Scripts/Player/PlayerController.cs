@@ -16,10 +16,9 @@ public class PlayerController : Controller{
 	public MinMaxFloat SlopeAngles;
 	public SpriteRenderer spriteRenderer;
 	private float lastXDir;
-	private GameObject pauseScreen;
+	public GameObject pauseScreen;
 
 	private void Start(){
-		pauseScreen = Getcomp
 	}
 
 	private void Update()
@@ -38,7 +37,8 @@ public class PlayerController : Controller{
 			lastXDir = -1f;
 		}
 		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause)) {
-
+			pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame ();
+			//player transition till pause state?
 		}
 	}
 
