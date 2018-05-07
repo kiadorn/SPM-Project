@@ -45,11 +45,13 @@ public class GroundState : State{
 		UpdateGravity();
 		RaycastHit2D[] hits = _controller.DetectHits(true);
 		if (hits.Length == 0){
+			_controller.sources[1].Stop ();
 			_controller.TransitionTo<AirState>();
 			return;
 		}
 		UpdateGroundNormal(hits);
 		UpdateMovement();
+		CheckVelocity ();
 		UpdateNormalForce(hits);
 		transform.Translate(Velocity * Time.deltaTime);
 		UpdateJump();
@@ -60,6 +62,9 @@ public class GroundState : State{
 		transform.position += Vector3.up * InitialJumpDistance;
 		_controller.Velocity.y = JumpVelocity.Max;
 		_jumps--;
+		_controller.sources [1].Stop ();
+		_controller.sources [0].clip = _controller.Jump;
+		_controller.sources [0].Play ();
 		_controller.GetState<AirState>().CanCancelJump = true;
 		if(!(_controller.CurrentState is AirState)) _controller.TransitionTo<AirState>();
 	}
@@ -129,4 +134,14 @@ public class GroundState : State{
         //Incomplete
         _controller.TransitionTo<HurtState>();
     }
+
+	public void CheckVelocity(){
+		if ((_controller.Velocity.x > 5 || _controller.Velocity.x < -5) && !_controller.sources[1].isPlaying) {
+			_controller.sources[1].clip = _controller.Footsteps;
+			_controller.sources[1].Play ();
+		}
+		if ((_controller.Velocity.x == 0) && _controller.sources[1].isPlaying) {
+			_controller.sources[1].Stop ();
+		}
+	}
 }

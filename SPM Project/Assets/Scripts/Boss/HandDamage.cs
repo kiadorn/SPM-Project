@@ -7,6 +7,8 @@ public class HandDamage : MonoBehaviour {
     public HandSmash HealthInfo;
     public PlayerStats stats;
 
+	private GameObject BossSound;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -21,11 +23,14 @@ public class HandDamage : MonoBehaviour {
 
     private void Awake() {
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		BossSound = GameObject.Find("BossGetHit");
     }
 
     public void TakeDamage() {
         if(HealthInfo.CurrentHealth > 0) {
             HealthInfo.CurrentHealth -= 1;
+			BossSound.GetComponent<BossHitSound> ().TakeDamage ();
+
         }
 
     }

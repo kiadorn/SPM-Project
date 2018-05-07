@@ -12,7 +12,7 @@ public class CameraShake : MonoBehaviour
     public float MaxRoll;
 
 	//Audio
-	private AudioSource source;
+	private static AudioSource source;
 	[Header("AudioClips")]
 	public AudioClip Shake;
 
@@ -22,8 +22,6 @@ public class CameraShake : MonoBehaviour
     {
 		if (Input.GetKeyDown ("p")) {
 			CameraShake.AddIntensity(1);
-			source.clip = Shake;
-			source.Play ();
 		} 
         _intensity -= Time.deltaTime / MaxDuration;
         _intensity = Mathf.Clamp01(_intensity);
@@ -39,9 +37,14 @@ public class CameraShake : MonoBehaviour
     public static void AddIntensity(float intensity)
     {
         _intensity += intensity;
+		if (!source.isPlaying) {
+			source.Play ();			
+		}
+
     }
 
 	void Start(){
 		source = GetComponent<AudioSource> ();
+		source.clip = Shake;
 	}
 }

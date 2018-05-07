@@ -115,8 +115,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -118.6, y: 134, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -101.46, y: 7.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -576,6 +576,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5609d07f8157a5246b657732f934548f, type: 2}
   - {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428, type: 2}
   - {fileID: 11400000, guid: 7da510c66bfa89b449a7529bf4c697b5, type: 2}
+  - {fileID: 11400000, guid: e4e4838fc5fcda54596c66ce1ec53a73, type: 2}
+  - {fileID: 11400000, guid: 853458abdf323364f9a39e12f3b8b6f6, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
   MaxSpeed: 15
@@ -591,13 +593,13 @@ MonoBehaviour:
     Min: -45
     Max: 45
   spriteRenderer: {fileID: 0}
-  source1: {fileID: 0}
-  source2: {fileID: 0}
-  Footsteps: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  sources: []
+  Footsteps: {fileID: 8300000, guid: f45b784a41a6c78418dc81df7f5b32a2, type: 3}
   SwordSwing: {fileID: 8300000, guid: 8efe37497180cdc46beb5a86a785f860, type: 3}
-  Jump: {fileID: 0}
-  Dash: {fileID: 0}
-  DeathSound: {fileID: 8300000, guid: 786a380506e0fc44589896454b4f5db6, type: 3}
+  Jump: {fileID: 8300000, guid: 86493c34eaa49b3439043c4b5bcbf4ef, type: 3}
+  Dash: {fileID: 8300000, guid: c33f3d2a8e16e764ab243a4334b9a02c, type: 3}
+  DeathSound: {fileID: 8300000, guid: 30399ec0258c7e9468c80d16e9229067, type: 3}
 --- !u!114 &114952717160300178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -613,6 +615,7 @@ MonoBehaviour:
   CurrencyUI: {fileID: 0}
   KeyIcon: {fileID: 0}
   SwordIcon: {fileID: 0}
+  DashIcon: {fileID: 0}
   AttackControl: {fileID: 1558011471400882}
   manager: {fileID: 0}
   HasSword: 0
@@ -621,10 +624,12 @@ MonoBehaviour:
   StartingHealth: 2
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
+  TimeUntilDead: 2
   InvulnerableTime: 3
+  paused: 0
   _invulnerable: 0
   hasKey: 0
-  BosstageName: 
+  BossStageName: 
   SavedCurrency: 0
 --- !u!212 &212123163134877298
 SpriteRenderer:

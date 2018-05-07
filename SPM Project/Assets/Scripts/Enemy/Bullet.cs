@@ -12,11 +12,7 @@ public class Bullet : MonoBehaviour {
             coll.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1);
 
         }
-        //if (!coll.gameObject.CompareTag("Bullet"))
-        //{
             Destroy(gameObject);
-        //}
-        
     }
 
 	// Use this for initialization

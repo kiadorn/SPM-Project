@@ -732,6 +732,11 @@ Prefab:
       propertyPath: MaxDistance
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
   m_IsPrefabParent: 0
@@ -1598,6 +1603,11 @@ Prefab:
         type: 2}
       propertyPath: MaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
@@ -3837,6 +3847,11 @@ Prefab:
         type: 2}
       propertyPath: MaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
@@ -8247,11 +8262,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -64.6
+      value: -220.2
       objectReference: {fileID: 0}
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 275.8
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8299,6 +8314,11 @@ Prefab:
       objectReference: {fileID: 973408409}
     - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
+      propertyPath: DashIcon
+      value: 
+      objectReference: {fileID: 973408408}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
       propertyPath: manager
       value: 
       objectReference: {fileID: 1779369365}
@@ -8307,11 +8327,6 @@ Prefab:
       propertyPath: CurrentCheckPoint
       value: 
       objectReference: {fileID: 2058006661}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: DashIcon
-      value: 
-      objectReference: {fileID: 973408408}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
@@ -10091,6 +10106,11 @@ Prefab:
       propertyPath: MaxDistance
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
   m_IsPrefabParent: 0
@@ -10319,6 +10339,11 @@ Prefab:
         type: 2}
       propertyPath: MaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
@@ -12357,6 +12382,11 @@ Prefab:
       propertyPath: MaxDistance
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
   m_IsPrefabParent: 0
@@ -13367,6 +13397,11 @@ Prefab:
         type: 2}
       propertyPath: MaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}

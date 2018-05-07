@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 124127185583136856}
   - component: {fileID: 81140838321819750}
   - component: {fileID: 114512398257674472}
+  - component: {fileID: 82045548016639226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865644573796752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -103.4, y: 22.8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4469452484851094}
@@ -93,7 +94,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -116,6 +117,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449094798841870}
   m_Enabled: 1
+--- !u!82 &82045548016639226
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449094798841870}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114512398257674472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,11 +226,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  MaxDuration: 2
-  PerlinSpeed: {x: 3, y: 3}
-  MaxShake: {x: 3, y: 3}
+  MaxDuration: 1
+  PerlinSpeed: {x: 5, y: 5}
+  MaxShake: {x: 5, y: 5}
   RollSpeed: 10
   MaxRoll: 5
+  Shake: {fileID: 8300000, guid: 3fe2975aceda2434a80885f4747ba252, type: 3}
 --- !u!114 &114697196789343630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmoothingTime: 0.05
   MaxLookAhead: 2
-  LookAheadAccelerationTime: 1
+  LookAheadAccelerationTime: 10
   MaxLookAroundAmount: 3
   TimeBeforeLookAround: 0.2
   PlayerMaximumSpeedForLookAround: 7.5

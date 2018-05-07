@@ -18,6 +18,7 @@ public class PatrolEnemyController : Controller
     [ReadOnly] public AudioSource[] source;
     public AudioClip Skitter;
     public AudioClip Alerted;
+	public AudioClip [] PlayerCollision;
     public AudioClip [] Death;
     public float waitBeforeDeath = 3f;
     [Header("Health")]
@@ -94,9 +95,20 @@ public class PatrolEnemyController : Controller
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            playerStats.ChangeHealth(-1);
+		{
             
+
+//			source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
+//			source[1].Play ();
+
+			if (!playerStats._invulnerable) {
+				source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
+				source[1].Play ();
+			}
+
+			playerStats.ChangeHealth(-1);
         }
+
+
     }
 }
