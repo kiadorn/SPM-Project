@@ -317,7 +317,7 @@ MonoBehaviour:
   CurrentHealth: 0
   timeToAttack: 3
   timeToStop: 2
-  AttackCooldown: 1
+  AttackCooldown: 2
   resetCooldown: 1
   TimeBeforeFirstAttack: 2
 --- !u!1 &146614367
@@ -1091,9 +1091,9 @@ Transform:
   m_PrefabParentObject: {fileID: 4601959357469500, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
     type: 2}
   m_PrefabInternal: {fileID: 693963207}
---- !u!114 &695875699 stripped
+--- !u!114 &706692271 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114694627012833060, guid: f948825038ac2e14a8a3d94c441eb9c8,
+  m_PrefabParentObject: {fileID: 114954581858108414, guid: f948825038ac2e14a8a3d94c441eb9c8,
     type: 2}
   m_PrefabInternal: {fileID: 1045680971}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1216,6 +1216,12 @@ Transform:
   m_Father: {fileID: 1368444006}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779687050 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114458584643831234, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045680971}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &782600334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2434,7 @@ Prefab:
     - target: {fileID: 114037343628337834, guid: 5af93f816cf947642a2b44c3f2819fd5,
         type: 2}
       propertyPath: ShootInterval
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4678282963269474, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -2437,6 +2443,11 @@ Prefab:
     - target: {fileID: 4678282963269474, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114037343628337834, guid: 5af93f816cf947642a2b44c3f2819fd5,
+        type: 2}
+      propertyPath: BulletSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}
@@ -2587,12 +2598,12 @@ Prefab:
         type: 2}
       propertyPath: HealthUI
       value: 
-      objectReference: {fileID: 695875699}
+      objectReference: {fileID: 706692271}
     - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
       propertyPath: CurrencyUI
       value: 
-      objectReference: {fileID: 1928599680}
+      objectReference: {fileID: 779687050}
     - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
       propertyPath: KeyIcon
@@ -2613,6 +2624,11 @@ Prefab:
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 564059897}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: BossStageName
+      value: BossLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
@@ -3375,12 +3391,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1928599680 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114834384128712938, guid: f948825038ac2e14a8a3d94c441eb9c8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1045680971}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1960838247 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1955779476371990, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
@@ -3556,7 +3566,7 @@ Prefab:
     - target: {fileID: 114037343628337834, guid: 5af93f816cf947642a2b44c3f2819fd5,
         type: 2}
       propertyPath: ShootInterval
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4678282963269474, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -3565,6 +3575,11 @@ Prefab:
     - target: {fileID: 4678282963269474, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114037343628337834, guid: 5af93f816cf947642a2b44c3f2819fd5,
+        type: 2}
+      propertyPath: BulletSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5af93f816cf947642a2b44c3f2819fd5, type: 2}

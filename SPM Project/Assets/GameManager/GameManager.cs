@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public int Currency = 0;
     public bool Level1Done;
     public bool Level2Done;
-    Scene currentScene;
+
     public void setLevelDone(string levelName)
     {
 
@@ -34,11 +34,6 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-    }
-    // Use this for initialization
-    void Start() {
-     currentScene = SceneManager.GetActiveScene();
-
     }
 
     public void LoadPlayerStats()
