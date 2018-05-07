@@ -5585,6 +5585,7 @@ MonoBehaviour:
   stage2Objects: []
   stage4Objects:
   - {fileID: 714594311}
+  stage4GoalObjects: []
   turret1: {fileID: 1803634646}
   turret2: {fileID: 1352292027}
   leftWall: {fileID: 1629621496}

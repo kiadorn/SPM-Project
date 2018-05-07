@@ -8562,8 +8562,29 @@ Prefab:
       propertyPath: HealthUI
       value: 
       objectReference: {fileID: 1715368017}
+    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: KeyIcon
+      value: 
+      objectReference: {fileID: 1274722351}
+    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: SwordIcon
+      value: 
+      objectReference: {fileID: 973408409}
+    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: DashIcon
+      value: 
+      objectReference: {fileID: 973408408}
+    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1779369365}
     m_RemovedComponents:
     - {fileID: 114924760846282732, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
+    - {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &876869032 stripped
@@ -8591,6 +8612,7 @@ MonoBehaviour:
   CurrencyUI: {fileID: 1102325547}
   KeyIcon: {fileID: 1274722351}
   SwordIcon: {fileID: 973408409}
+  DashIcon: {fileID: 973408408}
   AttackControl: {fileID: 876869033}
   manager: {fileID: 1779369365}
   HasSword: 0
@@ -8600,8 +8622,9 @@ MonoBehaviour:
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 2058006661}
   InvulnerableTime: 3
+  paused: 0
   hasKey: 0
-  BosstageName: 
+  BossStageName: 
   SavedCurrency: 0
 --- !u!114 &876869040 stripped
 MonoBehaviour:
@@ -9153,6 +9176,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &973408408 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1767058512639328, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 973408407}
 --- !u!1 &973408409 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1158527350916168, guid: f948825038ac2e14a8a3d94c441eb9c8,
