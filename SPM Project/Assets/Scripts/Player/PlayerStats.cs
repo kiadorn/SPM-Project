@@ -82,7 +82,6 @@ public class PlayerStats : MonoBehaviour {
         }
 
         changeDashIcon();
-        Debug.Log(manager.GetDeathCounter().ToString());
     }
 
     private IEnumerator SwapColors()
