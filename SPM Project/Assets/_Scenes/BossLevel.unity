@@ -305,17 +305,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead6b39ad6849ac48a5d939bdc745d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 13
   shadow: {fileID: 1065689126}
   hand: {fileID: 52140856}
   player: {fileID: 0}
   shadowModifier: 0.4
   OpacityModifier: 0.1
-  timeToAttack: 3
-  timeToStop: 2
   followSpeed: 0.44
+  cameraShakeModifier: 1
+  handSize: 13
   StartingHealth: 6
   CurrentHealth: 0
+  timeToAttack: 3
+  timeToStop: 2
   AttackCooldown: 1
   resetCooldown: 1
   TimeBeforeFirstAttack: 2
@@ -1085,12 +1086,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4601959357469500, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
     type: 2}
   m_PrefabInternal: {fileID: 693963207}
---- !u!114 &695875699 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114694627012833060, guid: f948825038ac2e14a8a3d94c441eb9c8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1045680971}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &714594311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1309,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4601959357469500, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
     type: 2}
   m_PrefabInternal: {fileID: 819620300}
+--- !u!114 &843023933 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114458584643831234, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045680971}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &869990676
 Prefab:
   m_ObjectHideFlags: 0
@@ -1607,6 +1608,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1158527350916168, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114164996077195342, guid: f948825038ac2e14a8a3d94c441eb9c8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a75917fc17204894db92a2c9817143c2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
   m_IsPrefabParent: 0
@@ -2499,6 +2510,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1600074648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1767058512639328, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045680971}
 --- !u!1001 &1695720184
 Prefab:
   m_ObjectHideFlags: 0
@@ -2508,11 +2524,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -97
+      value: -101
       objectReference: {fileID: 0}
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2567,12 +2583,12 @@ Prefab:
         type: 2}
       propertyPath: HealthUI
       value: 
-      objectReference: {fileID: 695875699}
+      objectReference: {fileID: 1799169752}
     - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
       propertyPath: CurrencyUI
       value: 
-      objectReference: {fileID: 1928599680}
+      objectReference: {fileID: 843023933}
     - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
       propertyPath: KeyIcon
@@ -2588,6 +2604,21 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 590220562}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: DashIcon
+      value: 
+      objectReference: {fileID: 1600074648}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: BossStageName
+      value: BossLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: StartingHealth
+      value: 999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
@@ -2966,6 +2997,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthInfo: {fileID: 101835607}
   stats: {fileID: 0}
+--- !u!114 &1799169752 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114954581858108414, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1045680971}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1803634646 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1506925667251694, guid: 5af93f816cf947642a2b44c3f2819fd5,
@@ -3174,7 +3211,7 @@ Prefab:
     - target: {fileID: 20801225657629478, guid: 8afee8856c14a8049a631f46aedbb2b6,
         type: 2}
       propertyPath: orthographic size
-      value: 14
+      value: 18.7
       objectReference: {fileID: 0}
     - target: {fileID: 114512398257674472, guid: 8afee8856c14a8049a631f46aedbb2b6,
         type: 2}
@@ -3345,12 +3382,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1928599680 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114834384128712938, guid: f948825038ac2e14a8a3d94c441eb9c8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1045680971}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1960838247 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1955779476371990, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class LevelFinish : MonoBehaviour {
+public class LevelFinish : MonoBehaviour
+{
     public string leveltoload;
     public bool level1finish;
     public bool level2finish;
@@ -17,11 +18,16 @@ public class LevelFinish : MonoBehaviour {
             {
 
                 GameManager.instance.Level1Done = true;
+                GameManager.SavePlayer();
+                Debug.Log("Spelaren sparad");
             }
-            if (level2finish == true) { 
+            if (level2finish == true)
+            {
                 GameManager.instance.Level2Done = true;
+                GameManager.SavePlayer();
+                Debug.Log("Spelaren sparad");
 
-        }
+            }
             SceneManager.LoadScene(leveltoload);
 
 

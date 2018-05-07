@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4879305096032736}
-  - component: {fileID: 114681717352434996}
   - component: {fileID: 61153337622438918}
+  - component: {fileID: 114575016179289140}
   m_Layer: 0
   m_Name: StageFinish
   m_TagString: Untagged
@@ -66,7 +66,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3}
   m_EdgeRadius: 0
---- !u!114 &114681717352434996
+--- !u!114 &114575016179289140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,9 +74,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616083592275742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc1f36f6c20fa749873453bd23566d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 80f7d433a1c558d4181203cd93496a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leveltoload: NewLevel2
-  level1finish: 1
+  leveltoload: 
+  level1finish: 0
   level2finish: 0

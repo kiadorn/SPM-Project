@@ -26,7 +26,7 @@ public class AirState : State{
 	public override void Update()
 	{
 		UpdateMovement ();
-		if(Input.GetButtonDown("Dash") && canDash){
+		if((Input.GetButtonDown("Dash") || Input.GetAxis("Dash") != 0) && canDash){
             //_controller.TransitionTo<DashState>();
             _controller.TransitionTo<DashVelocityState>();
 			canDash = false;

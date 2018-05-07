@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4667048536391762}
   - component: {fileID: 114697196789343630}
+  - component: {fileID: 114796172647809952}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   MaxShake: {x: 3, y: 3}
   RollSpeed: 10
   MaxRoll: 5
+  Shake: {fileID: 0}
 --- !u!114 &114697196789343630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +171,21 @@ MonoBehaviour:
   PlayerMaximumSpeedForLookAround: 7.5
   Player: {fileID: 0}
   Offset: {x: 0, y: 0, z: -1}
+--- !u!114 &114796172647809952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865644573796752}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b97f14309be4647a40b4202fd9b079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmoothingTime: 0.05
+  waitTime: 2
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
 --- !u!124 &124127185583136856
 Behaviour:
   m_ObjectHideFlags: 1

@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour {
 			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
 		this.GetComponent<SpriteRenderer> ().enabled = false;
-		if (Input.GetButtonDown ("Fire1") && attackTimeStamp >= attackCooldown) {
+        if ((Input.GetButtonDown("Fire1") || Input.GetAxis("Fire1") != 0) && attackTimeStamp >= attackCooldown) {
 			attackArc.enabled = true;
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 			attackTimeStamp = 0;
