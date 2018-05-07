@@ -16,6 +16,7 @@ public class HandSmash : MonoBehaviour {
     [Range(1, 20)]
     public float handSize;
     [Header("Health")]
+	[Header("Health")]
     public int StartingHealth;
     public int CurrentHealth;
     [Header("Attack Timer")]

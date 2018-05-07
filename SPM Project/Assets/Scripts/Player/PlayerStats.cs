@@ -124,7 +124,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void SavePlayerStats()
     {
-        GameManager.SavePlayer(this);
+        GameManager.SavePlayer();
     }
 
     private void LoadStats()
