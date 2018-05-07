@@ -21,7 +21,7 @@ public class PlayerController : Controller{
 	//Audio
 	[HideInInspector]
 	public AudioSource source1;
-	public AudioSource source2;
+	[ReadOnly] public AudioSource source2;
 	[Header("Audioclips")]
 	public AudioClip Footsteps;
 	public AudioClip SwordSwing;

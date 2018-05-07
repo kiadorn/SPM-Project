@@ -41,17 +41,6 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update() {
-        if (Input.GetKeyDown("b"))
-        {
-            LoadPlayerStats();
-        }
-        if (Input.GetKeyDown("escape"))
-        {
-            SavePlayer();
-        }
-    }
     public void LoadPlayerStats()
         {
             LoadPlayer();

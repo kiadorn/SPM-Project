@@ -9,6 +9,7 @@ public class CameraFocusByHit : MonoBehaviour {
     public float TimeToDisable;
     public float TimeCameraStay = 3f;
     public bool FreezePlayer;
+    public bool DontDisableObject;
 
 	//Audio
 	private AudioSource source;
@@ -24,7 +25,10 @@ public class CameraFocusByHit : MonoBehaviour {
     public void Action() {
         Cam.switchToCameraFocus(Focus.transform.position, FreezePlayer);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(WaitForDisable());
+        if (!DontDisableObject)
+        {
+            StartCoroutine(WaitForDisable());
+        }
     }
 
     public IEnumerator WaitForDisable() {

@@ -6,14 +6,17 @@ using UnityEngine;
 public class Loading : MonoBehaviour {
     public string leveltoload;
     public string portalName;
-    private void Update()
+    private void Start()
     {
         if (GameManager.instance.Level1Done == false && portalName == "portal2") {
             this.gameObject.SetActive(false);
-                }
+        }
+
+        if (GameManager.instance.Level2Done == false && portalName == "portal3")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D lookforplayer)
     {

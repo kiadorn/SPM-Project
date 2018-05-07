@@ -83,7 +83,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (freeze)
         {
-            Player.TransitionTo<PauseNoVelocityState>();
+            Player.TransitionTo<PauseWithVelocityState>();
         }
         this.GetComponent<CameraFocus>().endPos = focus;
         this.GetComponent<CameraFocus>().enabled = true;

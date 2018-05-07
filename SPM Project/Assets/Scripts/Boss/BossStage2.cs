@@ -34,5 +34,7 @@ public class BossStage2 : State {
 
     public override void Exit()
     {
+		_controller.turret1.SetActive(false);
+		_controller.turret2.SetActive(false);
     }
 }
