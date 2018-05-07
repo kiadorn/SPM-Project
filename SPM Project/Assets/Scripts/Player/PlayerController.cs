@@ -17,6 +17,17 @@ public class PlayerController : Controller{
 	public SpriteRenderer spriteRenderer;
 	private float lastXDir;
 
+	//Audio
+	[HideInInspector]
+	public AudioSource source1;
+	public AudioSource source2;
+	[Header("Audioclips")]
+	public AudioClip Footsteps;
+	public AudioClip SwordSwing;
+	public AudioClip Jump;
+	public AudioClip Dash;
+	public AudioClip DeathSound;
+
 	private void Update()
 	{
 		CurrentState.Update();
@@ -32,6 +43,11 @@ public class PlayerController : Controller{
 		}else if(Input.GetAxisRaw("Horizontal") < 0){
 			lastXDir = -1f;
 		}
+	}
+
+	private void Start(){
+		source1 = GetComponent<AudioSource> ();
+		source2 = GetComponent<AudioSource> ();
 	}
 
 	public float GetLastXDirection(){

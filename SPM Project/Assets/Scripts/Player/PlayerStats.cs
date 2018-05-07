@@ -38,16 +38,7 @@ public class PlayerStats : MonoBehaviour {
     //[HideInInspector]
     public int SavedCurrency = 0;
 
-	//Audio
-	[HideInInspector]
-	public AudioSource source1;
-	public AudioSource source2;
-	[Header("Audioclips")]
-	public AudioClip Footsteps;
-	public AudioClip SwordSwing;
-	public AudioClip Jump;
-	public AudioClip Dash;
-	public AudioClip DeathSound;
+	private PlayerController _controller;
 
     void Start()
     {
@@ -55,8 +46,8 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         ChangeCurrency(Currency);
         currentScene = SceneManager.GetActiveScene().name;
-		source1 = GetComponent<AudioSource> ();
-		source2 = GetComponent<AudioSource> ();
+		_controller = GetComponent<PlayerController> ();
+
     }
 
     void Update()
@@ -172,8 +163,8 @@ public class PlayerStats : MonoBehaviour {
 
     public void Death() {
 		//Audio
-		source2.clip = DeathSound;
-		source2.Play ();
+		_controller.source2.clip = _controller.DeathSound;
+		_controller.source2.Play ();
 
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
