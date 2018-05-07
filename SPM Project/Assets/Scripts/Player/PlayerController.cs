@@ -18,9 +18,6 @@ public class PlayerController : Controller{
 	private float lastXDir;
 	public GameObject pauseScreen;
 
-	private void Start(){
-	}
-
 	//Audio
 	[HideInInspector]
 	public AudioSource source1;
