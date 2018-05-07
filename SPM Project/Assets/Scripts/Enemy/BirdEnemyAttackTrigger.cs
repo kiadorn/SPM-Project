@@ -18,7 +18,7 @@ public class BirdEnemyAttackTrigger : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             //Audio
-			if (!played && behaviour._canAttack){
+			if (!played && !behaviour.source[0].isPlaying && behaviour._canAttack){
 				played = true;
 				behaviour.source[0].clip = behaviour.Alerted;
 				behaviour.source[0].Play ();
@@ -31,9 +31,9 @@ public class BirdEnemyAttackTrigger : MonoBehaviour {
     {
        if (collision.gameObject.CompareTag("Player"))
         {
+			played = false;
             behaviour._canAttack = false;
             behaviour._attacking = false;
-			played = false;
         }
     }
 }

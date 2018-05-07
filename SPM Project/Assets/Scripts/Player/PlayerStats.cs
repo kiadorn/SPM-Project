@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour {
     public float InvulnerableTime;
     [ReadOnly] public bool paused;
     private bool _invulnerable = false;
+    public bool _invulnerable = false;
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
@@ -39,6 +40,8 @@ public class PlayerStats : MonoBehaviour {
     private String currentScene;
     [ReadOnly] public int SavedCurrency = 0;
 
+	private PlayerController _controller;
+
     void Start()
     {
         _controller = GetComponent<PlayerController>();
@@ -46,6 +49,8 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         ChangeCurrency(Currency);
         currentScene = SceneManager.GetActiveScene().name;
+		_controller = GetComponent<PlayerController> ();
+
     }
 
     void Update()
@@ -164,6 +169,10 @@ public class PlayerStats : MonoBehaviour {
 
     public void Death() {
         _controller.Velocity = Vector2.zero;
+		//Audio
+		_controller.source2.clip = _controller.DeathSound;
+		_controller.source2.Play ();
+
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
