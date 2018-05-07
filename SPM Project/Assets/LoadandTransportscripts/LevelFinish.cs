@@ -6,14 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelFinish : MonoBehaviour {
     public string leveltoload;
-
+    public bool level1finish;
+    public bool level2finish;
     private void OnTriggerEnter2D(Collider2D lookforplayer)
     {
         if (lookforplayer.gameObject.tag == "Player")
         {
 
-            SceneManager.LoadScene(leveltoload);
+            if (level1finish == true)
+            {
 
+                GameManager.instance.Level1Done = true;
+            }
+            if (level2finish == true) { 
+                GameManager.instance.Level2Done = true;
+
+        }
+            SceneManager.LoadScene(leveltoload);
 
 
         }

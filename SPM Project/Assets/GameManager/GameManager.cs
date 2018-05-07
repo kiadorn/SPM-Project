@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour {
     public bool Level1Done;
     public bool Level2Done;
     Scene currentScene;
+    public void setLevelDone(string levelName)
+    {
 
+    }
     public CheckPoint Current;
     
     private void Awake()
