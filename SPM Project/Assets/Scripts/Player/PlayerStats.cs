@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour {
     public int StartingHealth;
     public int LoadedHealthPoints;
     public CheckPoint CurrentCheckPoint;
+	public float TimeUntilDead;
 
     public float InvulnerableTime;
     [ReadOnly] public bool paused;
@@ -34,10 +35,12 @@ public class PlayerStats : MonoBehaviour {
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
+	private bool dead = false;
     public bool hasKey = false;
 
     public String BossStageName;
     private String currentScene;
+
     [ReadOnly] public int SavedCurrency = 0;
 
     void Start()
@@ -164,7 +167,7 @@ public class PlayerStats : MonoBehaviour {
             }
             else
             {
-                Death();
+				if (!dead) StartCoroutine (DeathTimer ());
             }
         }
         else
@@ -173,12 +176,25 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
-    public void Death() {
-        _controller.Velocity = Vector2.zero;
+	public IEnumerator DeathTimer() {
+		dead = true;
 		//Audio
-		_controller.source2.clip = _controller.DeathSound;
-		_controller.source2.Play ();
+		_controller.sources[1].Stop();
+		_controller.sources[0].clip = _controller.DeathSound;
+		_controller.sources[0].Play ();
+		_controller.TransitionTo<DeathState> ();
+		yield return new WaitForSeconds (TimeUntilDead);
+		Death ();
+	}
 
+
+    public void Death() {
+//		_controller.TransitionTo<DeathState> ();
+//      _controller.Velocity = Vector2.zero;
+
+
+
+		//Teleport to Checkpoint
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
@@ -191,6 +207,7 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         _invulnerable = false;
         _controller.TransitionTo<AirState>();
+		dead = false;
     }
 
     public void ChangeKeyStatus(bool change)

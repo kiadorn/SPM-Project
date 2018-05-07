@@ -81,6 +81,8 @@ public class WallState : State
 	}
 	private void Jump(Vector2 speed)
 	{
+		_controller.sources [0].clip = _controller.Jump;
+		_controller.sources [0].Play ();
 		Velocity = new Vector2(MathHelper.Sign(_wallNormal.x) * speed.x, speed.y);
 		transform.position += (Vector3)_wallNormal * InitialJumpDistance;
 		_controller.TransitionTo<AirState>();

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour {
 
+	private GameObject SpikeHit;
+
     [Range(0, 10)]
     public int damageValue;
 
@@ -11,8 +13,16 @@ public class Hazard : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+			if (!SpikeHit.GetComponent<SpikeHit> ().played) {
+				SpikeHit.GetComponent<SpikeHit> ().PlayImpact ();
+			}
 			collision.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1 * damageValue);
+
         }
     }
+
+	public void Start(){
+		SpikeHit = GameObject.Find ("SpikeHitSound");
+	}
 
 }

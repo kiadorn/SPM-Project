@@ -29,6 +29,8 @@ public class DashVelocityState : State
         xDir = Input.GetAxisRaw("Horizontal");
         yDir = Input.GetAxisRaw("Vertical");
         Velocity = Vector2.zero;
+		_controller.sources[0].clip = _controller.Dash;
+		_controller.sources[0].Play ();
     }
     public override void Update()
     {

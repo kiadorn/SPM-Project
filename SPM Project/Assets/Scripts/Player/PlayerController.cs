@@ -22,6 +22,7 @@ public class PlayerController : Controller{
 	[HideInInspector]
 	public AudioSource source1;
 	[ReadOnly] public AudioSource source2;
+	public AudioSource[] sources;
 	[Header("Audioclips")]
 	public AudioClip Footsteps;
 	public AudioClip SwordSwing;
@@ -51,8 +52,7 @@ public class PlayerController : Controller{
 	}
 
 	private void Start(){
-		source1 = GetComponent<AudioSource> ();
-		source2 = GetComponent<AudioSource> ();
+		sources = GetComponents<AudioSource> ();
 	}
 
 	public float GetLastXDirection(){
