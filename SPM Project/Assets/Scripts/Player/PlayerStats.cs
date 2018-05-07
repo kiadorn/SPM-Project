@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour {
     [Header("References")]
     public Text HealthUI;
     public Text CurrencyUI;
+    public Text DeathCounterUI;
     public GameObject KeyIcon;
     public GameObject SwordIcon;
     public GameObject DashIcon;
@@ -46,6 +47,7 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         ChangeCurrency(Currency);
         currentScene = SceneManager.GetActiveScene().name;
+        DeathCounterUI.text = manager.GetDeathCounter().ToString();
 
     }
 
@@ -80,6 +82,7 @@ public class PlayerStats : MonoBehaviour {
         }
 
         changeDashIcon();
+        Debug.Log(manager.GetDeathCounter().ToString());
     }
 
     private IEnumerator SwapColors()
@@ -132,7 +135,6 @@ public class PlayerStats : MonoBehaviour {
     {
         if (Input.GetKeyDown("u"))
         {
-            Debug.Log("Laddat från GameManager");
             CurrentHealth = manager.HealthPoints;
             Currency = manager.Currency;
         }
@@ -141,13 +143,23 @@ public class PlayerStats : MonoBehaviour {
     private void UpdateHealth()
     {
         this.HealthUI.text = CurrentHealth.ToString();
+        
+    }
+
+    private void UpdateDeaths()
+    {
+        Debug.Log("Försöker uppdatera text");
+        this.DeathCounterUI.text = manager.GetDeathCounter().ToString();
     }
 
     private void CheckIfDead()
     {
         if (CurrentHealth < 1)
         {
-            if(BossStageName != null && currentScene == BossStageName)
+            manager.AddDeathToCounter();
+            Debug.Log(manager.deathCounter);
+            UpdateDeaths();
+            if (BossStageName != null && currentScene == BossStageName)
             {
                 SceneManager.LoadScene(currentScene);
             }
@@ -155,7 +167,6 @@ public class PlayerStats : MonoBehaviour {
             {
                 Death();
             }
-
         }
         else
         {

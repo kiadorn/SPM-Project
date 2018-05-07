@@ -16,12 +16,8 @@ public class GameManager : MonoBehaviour {
     public int Currency = 0;
     public bool Level1Done;
     public bool Level2Done;
+    public int deathCounter;
 
-    public void setLevelDone(string levelName)
-    {
-
-    }
-    public CheckPoint Current;
     
     private void Awake()
     {
@@ -34,19 +30,31 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        deathCounter = 4;
+    }
+
+    public void AddDeathToCounter()
+    {
+        deathCounter++;
+    }
+
+    public int GetDeathCounter()
+    {
+        return deathCounter;
     }
 
     public void LoadPlayerStats()
         {
             LoadPlayer();
-
-
         }
+
     public void ChangeHealth(int i)
     {
         HealthPoints += i;
         CheckIfDead();
     }
+
     private void CheckIfDead()
     {
         if (HealthPoints < 1)
@@ -59,9 +67,11 @@ public class GameManager : MonoBehaviour {
            // UpdateHealth();
         }
     }
+
     private void OnApplicationQuit()
     {
     }
+
     public static void SavePlayer() //Sparfunktion
         {
             BinaryFormatter bf = new BinaryFormatter();

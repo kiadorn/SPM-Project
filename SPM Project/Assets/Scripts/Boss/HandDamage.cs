@@ -25,8 +25,17 @@ public class HandDamage : MonoBehaviour {
 
     public void TakeDamage() {
         if(HealthInfo.CurrentHealth > 0) {
-            HealthInfo.CurrentHealth -= 1;
+            StartCoroutine(swappy());
         }
+    }
+
+    private IEnumerator swappy()
+    {
+        HealthInfo.hand.GetComponent<SpriteRenderer>().color = Color.red;
+        HealthInfo.CurrentHealth -= 1;
+        yield return new WaitForSeconds(0.1f);
+        HealthInfo.hand.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return 0;
 
     }
 

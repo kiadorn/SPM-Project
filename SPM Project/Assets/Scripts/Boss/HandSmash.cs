@@ -44,6 +44,7 @@ public class HandSmash : MonoBehaviour {
     private void OnEnable()
     {
         shadow.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        hand.GetComponent<SpriteRenderer>().color = Color.white;
         hand.SetActive(false);
         ResetAttack();
         _cooldownTimer -= TimeBeforeFirstAttack;

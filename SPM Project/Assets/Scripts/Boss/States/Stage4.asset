@@ -16,3 +16,5 @@ MonoBehaviour:
   Stage4ResetCooldown: 1
   Stage4TimeToAttack: 2
   Stage4TimeToStop: 1
+  HandHealth: 2
+  Stage4RestTimer: 10
