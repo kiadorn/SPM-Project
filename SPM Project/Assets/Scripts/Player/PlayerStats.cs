@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour {
     [Header("References")]
     public Text HealthUI;
     public Text CurrencyUI;
-    public Text DeathCounterUI;
+    //public Text DeathCounterUI;
     public GameObject KeyIcon;
     public GameObject SwordIcon;
     public GameObject DashIcon;
@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         ChangeCurrency(Currency);
         currentScene = SceneManager.GetActiveScene().name;
-        DeathCounterUI.text = manager.GetDeathCounter().ToString();
+        //DeathCounterUI.text = manager.GetDeathCounter().ToString();
 
     }
 
@@ -150,17 +150,15 @@ public class PlayerStats : MonoBehaviour {
 
     private void UpdateDeaths()
     {
-        Debug.Log("Försöker uppdatera text");
-        this.DeathCounterUI.text = manager.GetDeathCounter().ToString();
+        //this.DeathCounterUI.text = manager.GetDeathCounter().ToString();
     }
 
     private void CheckIfDead()
     {
         if (CurrentHealth < 1)
         {
-            manager.AddDeathToCounter();
-            Debug.Log(manager.deathCounter);
-            UpdateDeaths();
+            //manager.AddDeathToCounter();
+            //UpdateDeaths();
             if (BossStageName != null && currentScene == BossStageName)
             {
                 SceneManager.LoadScene(currentScene);

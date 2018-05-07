@@ -577,6 +577,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428, type: 2}
   - {fileID: 11400000, guid: 7da510c66bfa89b449a7529bf4c697b5, type: 2}
   - {fileID: 11400000, guid: e4e4838fc5fcda54596c66ce1ec53a73, type: 2}
+  - {fileID: 11400000, guid: 853458abdf323364f9a39e12f3b8b6f6, type: 2}
   CurrentState: {fileID: 0}
   MaxWallAngleDelta: 90
   MaxSpeed: 15
@@ -595,6 +596,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 0}
   source1: {fileID: 0}
   source2: {fileID: 0}
+  sources: []
   Footsteps: {fileID: 0}
   SwordSwing: {fileID: 8300000, guid: 8efe37497180cdc46beb5a86a785f860, type: 3}
   Jump: {fileID: 0}
@@ -613,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 0}
   CurrencyUI: {fileID: 0}
+  DeathCounterUI: {fileID: 0}
   KeyIcon: {fileID: 0}
   SwordIcon: {fileID: 0}
   DashIcon: {fileID: 0}
@@ -621,9 +624,10 @@ MonoBehaviour:
   HasSword: 0
   Currency: 0
   CurrentHealth: 0
-  StartingHealth: 2
+  StartingHealth: 3
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
+  TimeUntilDead: 0
   InvulnerableTime: 3
   paused: 0
   _invulnerable: 0

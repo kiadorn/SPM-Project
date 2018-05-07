@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        deathCounter = 4;
     }
 
     public void AddDeathToCounter()

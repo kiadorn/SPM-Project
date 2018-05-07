@@ -27,13 +27,11 @@ public class Loading : MonoBehaviour {
                 
             
                 GameManager.instance.HealthPoints = 2;
-                Debug.Log("Level1laddad och hp satt till 2");
                 
 
             
 
         }
-        Debug.Log("Colliding");
     }
  
 }
