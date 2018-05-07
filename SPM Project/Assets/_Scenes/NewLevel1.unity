@@ -8368,6 +8368,11 @@ Prefab:
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: TimeUntilDead
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0

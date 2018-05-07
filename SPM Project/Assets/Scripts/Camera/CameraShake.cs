@@ -14,7 +14,7 @@ public class CameraShake : MonoBehaviour
 	//Audio
 	private static AudioSource source;
 	[Header("AudioClips")]
-	public AudioClip Shake;
+	public AudioClip[] Shake;
 
     private static float _intensity;
 
@@ -45,6 +45,6 @@ public class CameraShake : MonoBehaviour
 
 	void Start(){
 		source = GetComponent<AudioSource> ();
-		source.clip = Shake;
+		source.clip = Shake[Random.Range(0,Shake.Length)];
 	}
 }

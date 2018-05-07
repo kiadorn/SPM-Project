@@ -157,16 +157,18 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
+
+            if (!dead) StartCoroutine(DeathTimer());
             //manager.AddDeathToCounter();
             //UpdateDeaths();
-            if (BossStageName != null && currentScene == BossStageName)
+            /*if (BossStageName != null && currentScene == BossStageName)
             {
                 SceneManager.LoadScene(currentScene);
             }
             else
             {
-				if (!dead) StartCoroutine (DeathTimer ());
-            }
+				
+            } */
         }
         else
         {
@@ -182,7 +184,13 @@ public class PlayerStats : MonoBehaviour {
 		_controller.sources[0].Play ();
 		_controller.TransitionTo<DeathState> ();
 		yield return new WaitForSeconds (TimeUntilDead);
-		Death ();
+        if (BossStageName != null && currentScene == BossStageName)
+        {
+            SceneManager.LoadScene(currentScene);
+            yield return 0;
+        }
+        Death ();
+        yield return 0;
 	}
 
 

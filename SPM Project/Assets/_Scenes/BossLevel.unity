@@ -866,6 +866,11 @@ Prefab:
       propertyPath: DeathCounterUI
       value: 
       objectReference: {fileID: 795657941}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
+        type: 2}
+      propertyPath: TimeUntilDead
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
@@ -3479,6 +3484,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114512398257674472, guid: 8afee8856c14a8049a631f46aedbb2b6,
+        type: 2}
+      propertyPath: Shake.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4667048536391762, guid: 8afee8856c14a8049a631f46aedbb2b6, type: 2}
       propertyPath: m_LocalPosition.x
       value: -101.2
@@ -3561,6 +3571,16 @@ Prefab:
       propertyPath: MaxLookAhead
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114512398257674472, guid: 8afee8856c14a8049a631f46aedbb2b6,
+        type: 2}
+      propertyPath: Shake.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c031dae7ce4f4543814e62e96a4c799, type: 3}
+    - target: {fileID: 114512398257674472, guid: 8afee8856c14a8049a631f46aedbb2b6,
+        type: 2}
+      propertyPath: Shake.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3fe2975aceda2434a80885f4747ba252, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8afee8856c14a8049a631f46aedbb2b6, type: 2}
   m_IsPrefabParent: 0

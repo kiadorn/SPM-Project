@@ -330,13 +330,18 @@ MonoBehaviour:
   groundCheckDistance: 0.2
   speed: 3
   saveSpeed: 0
+  Gravity: 30
   source: []
   Skitter: {fileID: 8300000, guid: f9a1c7bb69c1db3448613b4bece0b2f5, type: 3}
   Alerted: {fileID: 8300000, guid: 2575787bd3231c249b2ecb9a7b1f4e04, type: 3}
+  PlayerCollision:
+  - {fileID: 8300000, guid: 899307008297f674fa92afc854872995, type: 3}
+  - {fileID: 8300000, guid: 345e7d89464503841ab2a74e9e6d80fe, type: 3}
   Death:
   - {fileID: 8300000, guid: 7d2a9332122a35d4cb2ea0cd64da4212, type: 3}
   - {fileID: 8300000, guid: 5d8d58269ae3546408abdca41a3554ce, type: 3}
   - {fileID: 8300000, guid: c8f76939e295abf4395578f1d58c9a18, type: 3}
+  waitBeforeDeath: 3
   invulnerable: 0
   startingHealth: 0
   invulnerableTime: 0

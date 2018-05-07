@@ -19,19 +19,16 @@ public class LevelFinish : MonoBehaviour
 
                 GameManager.instance.Level1Done = true;
                 GameManager.SavePlayer();
-                Debug.Log("Spelaren sparad");
             }
             if (level2finish == true)
             {
                 GameManager.instance.Level2Done = true;
                 GameManager.SavePlayer();
-                Debug.Log("Spelaren sparad");
 
             }
             SceneManager.LoadScene(leveltoload);
 
 
         }
-        Debug.Log("Colliding");
     }
 }

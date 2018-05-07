@@ -597,10 +597,10 @@ MonoBehaviour:
   source1: {fileID: 0}
   source2: {fileID: 0}
   sources: []
-  Footsteps: {fileID: 0}
+  Footsteps: {fileID: 8300000, guid: f45b784a41a6c78418dc81df7f5b32a2, type: 3}
   SwordSwing: {fileID: 8300000, guid: 8efe37497180cdc46beb5a86a785f860, type: 3}
-  Jump: {fileID: 0}
-  Dash: {fileID: 0}
+  Jump: {fileID: 8300000, guid: 86493c34eaa49b3439043c4b5bcbf4ef, type: 3}
+  Dash: {fileID: 8300000, guid: c33f3d2a8e16e764ab243a4334b9a02c, type: 3}
   DeathSound: {fileID: 8300000, guid: 786a380506e0fc44589896454b4f5db6, type: 3}
 --- !u!114 &114952717160300178
 MonoBehaviour:
@@ -615,7 +615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUI: {fileID: 0}
   CurrencyUI: {fileID: 0}
-  DeathCounterUI: {fileID: 0}
   KeyIcon: {fileID: 0}
   SwordIcon: {fileID: 0}
   DashIcon: {fileID: 0}

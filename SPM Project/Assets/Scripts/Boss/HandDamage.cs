@@ -16,7 +16,6 @@ public class HandDamage : MonoBehaviour {
             collision.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
 
             stats.ChangeHealth(-1);
-            //
 
         }
     }

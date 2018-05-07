@@ -232,7 +232,9 @@ MonoBehaviour:
   MaxShake: {x: 3, y: 3}
   RollSpeed: 10
   MaxRoll: 5
-  Shake: {fileID: 0}
+  Shake:
+  - {fileID: 8300000, guid: 5c031dae7ce4f4543814e62e96a4c799, type: 3}
+  - {fileID: 8300000, guid: 3fe2975aceda2434a80885f4747ba252, type: 3}
 --- !u!114 &114697196789343630
 MonoBehaviour:
   m_ObjectHideFlags: 1
