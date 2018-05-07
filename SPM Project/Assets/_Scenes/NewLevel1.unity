@@ -8246,125 +8246,15 @@ Prefab:
         type: 2}
       propertyPath: CurrentCheckPoint
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[59]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[60]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[61]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[62]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[63]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: _states.Array.data[64]
-      value: 
-      objectReference: {fileID: 11400000, guid: 994ca5d29d7deb44a91ee100b2551428,
-        type: 2}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: CurrencyUI
-      value: 
-      objectReference: {fileID: 276107516}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: HealthUI
-      value: 
-      objectReference: {fileID: 1715368017}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: KeyIcon
-      value: 
-      objectReference: {fileID: 1274722351}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: SwordIcon
-      value: 
-      objectReference: {fileID: 973408409}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
+      objectReference: {fileID: 2058006661}
+    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
         type: 2}
       propertyPath: DashIcon
       value: 
       objectReference: {fileID: 973408408}
-    - target: {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1779369365}
-    m_RemovedComponents:
-    - {fileID: 114924760846282732, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-    - {fileID: 114273927635583522, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &876869032 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1221584985449912, guid: 2a631d87ff657984a96ac6343a896827,
-    type: 2}
-  m_PrefabInternal: {fileID: 876869031}
---- !u!1 &876869033 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1558011471400882, guid: 2a631d87ff657984a96ac6343a896827,
-    type: 2}
-  m_PrefabInternal: {fileID: 876869031}
---- !u!114 &876869034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 876869032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ed14d9cd8f896459bca15f60b38d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthUI: {fileID: 276107516}
-  CurrencyUI: {fileID: 1102325547}
-  KeyIcon: {fileID: 1274722351}
-  SwordIcon: {fileID: 973408409}
-  DashIcon: {fileID: 973408408}
-  AttackControl: {fileID: 876869033}
-  manager: {fileID: 1779369365}
-  HasSword: 0
-  Currency: 0
-  CurrentHealth: 0
-  StartingHealth: 4
-  LoadedHealthPoints: 0
-  CurrentCheckPoint: {fileID: 2058006661}
-  InvulnerableTime: 3
-  paused: 0
-  hasKey: 0
-  BossStageName: 
-  SavedCurrency: 0
-=======
-      objectReference: {fileID: 2058006661}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
->>>>>>> origin/Steven4
 --- !u!114 &876869040 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
@@ -13889,48 +13779,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4577243149536396, guid: 27e6c132d4e3f134180d51ac01a75406,
     type: 2}
   m_PrefabInternal: {fileID: 130428943}
---- !u!1001 &1649223033
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -77
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 285.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.45410156
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879305096032736, guid: f8c30506a735d744e96853c020083e21, type: 2}
-      propertyPath: m_RootOrder
-      value: 21
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f8c30506a735d744e96853c020083e21, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1651781423
 Prefab:
   m_ObjectHideFlags: 0
@@ -14594,12 +14442,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4268887196602408, guid: 999417796caa85049a8cf7b64bef6c0d,
     type: 2}
   m_PrefabInternal: {fileID: 114301221}
---- !u!114 &1715368017 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114694627012833060, guid: f948825038ac2e14a8a3d94c441eb9c8,
-    type: 2}
-  m_PrefabInternal: {fileID: 973408407}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1721712734
 Prefab:
   m_ObjectHideFlags: 0
