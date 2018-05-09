@@ -195,26 +195,26 @@ public class PlayerStats : MonoBehaviour {
 
 
     public void Death() {
-        //		_controller.TransitionTo<DeathState> ();
-        //      _controller.Velocity = Vector2.zero;
-
         foreach (GameObject b in GameObject.FindGameObjectsWithTag("Bullet"))
         {
             Destroy(b);
         }
 
         //Teleport to Checkpoint
+        StopAllCoroutines();
+        _invulnerable = false;
+        swapping = false;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
-        GetComponentInChildren<TrailRenderer>().enabled = false;
+        GetComponentInChildren<TrailRenderer>().time = 0f;
         transform.SetParent(null);
         transform.position = CurrentCheckPoint.transform.position;
-        GetComponentInChildren<TrailRenderer>().enabled = true;
+        GetComponentInChildren<TrailRenderer>().time = 0.1f;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
-        _invulnerable = false;
         _controller.TransitionTo<AirState>();
 		dead = false;
     }
