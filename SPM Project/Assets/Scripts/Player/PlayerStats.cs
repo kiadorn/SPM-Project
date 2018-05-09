@@ -195,12 +195,15 @@ public class PlayerStats : MonoBehaviour {
 
 
     public void Death() {
-//		_controller.TransitionTo<DeathState> ();
-//      _controller.Velocity = Vector2.zero;
+        //		_controller.TransitionTo<DeathState> ();
+        //      _controller.Velocity = Vector2.zero;
 
+        foreach (GameObject b in GameObject.FindGameObjectsWithTag("Bullet"))
+        {
+            Destroy(b);
+        }
 
-
-		//Teleport to Checkpoint
+        //Teleport to Checkpoint
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();

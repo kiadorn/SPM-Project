@@ -34,11 +34,12 @@ public class WallState : State
 	}
 	private void UpdateInput()
 	{
-		
 		float input = Input.GetAxisRaw ("Horizontal");
 		_inputDirection = Mathf.Abs(input) < _controller.InputMagnitudeToMove ? Vector2.zero :
 			input > 0.0f ? Vector2.right : -Vector2.right;
 	}
+
+
 	private void UpdateCollision()
 	{
 		RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position + (Vector3)
