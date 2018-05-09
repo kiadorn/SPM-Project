@@ -25,11 +25,16 @@ public class CameraFocusByHit : MonoBehaviour {
     public void Action() {
         Cam.switchToCameraFocus(Focus.transform.position, FreezePlayer);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Debug.Log("I am being hit");
         if (!DontDisableObject)
         {
             StartCoroutine(WaitForDisable());
         }
     }
+    private void OnEnable()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
 
     public IEnumerator WaitForDisable() {
 
