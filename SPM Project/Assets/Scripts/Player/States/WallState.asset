@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5b002f73c579e4ab398385380c5567, type: 3}
   m_Name: WallState
   m_EditorClassIdentifier: 
-  GlideSpeed: 1.5
+  GlideSpeed: 0
   WallCheckDistance: 0.15
   WallJumpSpeed: {x: 15, y: 17}
   FallOffSpeed: 0.5

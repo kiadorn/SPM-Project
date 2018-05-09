@@ -36,8 +36,15 @@ public class WallState : State
 	{
 		
 		float input = Input.GetAxisRaw ("Horizontal");
-		_inputDirection = Mathf.Abs(input) < _controller.InputMagnitudeToMove ? Vector2.zero :
-			input > 0.0f ? Vector2.right : -Vector2.right;
+		if (Mathf.Abs (input) < _controller.InputMagnitudeToMove) {
+			_inputDirection = Vector2.zero;
+		} else {
+			if (input > 0.0f) {
+				_inputDirection = Vector2.right;
+			} else {
+				_inputDirection = -Vector2.right;
+			}
+		}
 	}
 	private void UpdateCollision()
 	{

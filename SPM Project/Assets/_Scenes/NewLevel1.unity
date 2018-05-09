@@ -15344,6 +15344,11 @@ Prefab:
       propertyPath: waitTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114697196789343630, guid: 8afee8856c14a8049a631f46aedbb2b6,
+        type: 2}
+      propertyPath: MaxLookAroundAmount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8afee8856c14a8049a631f46aedbb2b6, type: 2}
   m_IsPrefabParent: 0

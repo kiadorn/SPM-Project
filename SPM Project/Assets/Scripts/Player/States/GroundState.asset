@@ -23,3 +23,4 @@ MonoBehaviour:
     Max: 4
   TimeToJumpApex: 0.5
   MaxJumps: 1
+  _jumps: 0
