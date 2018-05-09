@@ -22,6 +22,10 @@ public class CameraFocusByHit : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
     }
 
+	private void OnEnable(){
+		gameObject.GetComponent<BoxCollider2D> ().enabled = true;
+	}
+
     public void Action() {
         Cam.switchToCameraFocus(Focus.transform.position, FreezePlayer);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
