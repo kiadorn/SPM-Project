@@ -15,15 +15,20 @@ public class PlayerController : Controller{
 	public float InputMagnitudeToMove;
 	public MinMaxFloat SlopeAngles;
 	public SpriteRenderer spriteRenderer;
-	private float lastXDir;
 	public GameObject pauseScreen;
+    public GameObject centerPoint;
+
+    private float lastXDir;
+    private float inputX;
+    private float inputY;
 
 	//Audio
 	[HideInInspector]
 	public AudioSource source1;
-	[ReadOnly] public AudioSource source2;
+    [HideInInspector]
+	public AudioSource source2;
 	public AudioSource[] sources;
-	[Header("Audioclips")]
+	[Header("Audio Clips")]
 	public AudioClip Footsteps;
 	public AudioClip SwordSwing;
 	public AudioClip Jump;
@@ -33,31 +38,70 @@ public class PlayerController : Controller{
 	private void Update()
 	{
 		CurrentState.Update();
-		if (Input.GetKeyDown (KeyCode.R)) {
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		}
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-		if(Input.GetAxisRaw("Horizontal") > 0){
-			lastXDir = 1f;
-		}else if(Input.GetAxisRaw("Horizontal") < 0){
-			lastXDir = -1f;
-		}
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause)) {
-			pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame ();
-			//player transition till pause state?
-		}
+        MenuInput();
+        SetLastXDir();
+        MoveDashIndicator();
 	}
 
 	private void Start(){
 		sources = GetComponents<AudioSource> ();
-	}
+        if (gameObject.transform.GetChild(3) != null) centerPoint = gameObject.transform.GetChild(3).gameObject;
+    }
 
 	public float GetLastXDirection(){
 		return lastXDir;
 	}
+
+    private void SetLastXDir()
+    {
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            lastXDir = 1f;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            lastXDir = -1f;
+        }
+    }
+
+    private void MenuInput()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause))
+        {
+            pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame();
+            //player transition till pause state?
+        }
+    }
+
+    private void MoveDashIndicator()
+    {
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
+        if (inputX == 0 && inputY == 0)
+        {
+            if (lastXDir == 1f)
+            {
+                centerPoint.transform.rotation = Quaternion.Euler(0, 0, 0);
+            } else
+            {
+                centerPoint.transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
+        }
+        else
+        {
+            float angle = Mathf.Atan2(inputY, inputX);
+            Debug.Log("Input X: " + inputX + " Y: " + inputY + " angle: " + angle);
+            centerPoint.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+        }
+    }
 
 	public RaycastHit2D[] DetectHits(bool addGroundCheck = false)
 	{

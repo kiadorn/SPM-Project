@@ -21,28 +21,16 @@ public class CheckPoint : MonoBehaviour {
         foreach(GameObject resetObject in ObjectsToReset) {
             resetObject.SetActive(false);
             resetObject.SetActive(true);
-          //  if (resetObject.GetComponent("TurretController") as TurretController) {
-                   // resetObject.transform.GetComponent<TurretController>().Reset();
-         //   }
         }
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            if (Latest) {
-                //Stats.Current = this;
+            if (Latest && !other.gameObject.GetComponent<PlayerStats>().dead) {
                 Stats.CurrentCheckPoint = this;
                 Stats.SavedCurrency = Stats.Currency;
                 Latest = false;
             }
-                
-                
-
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour {
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
-	private bool dead = false;
+    [ReadOnly] public bool dead = false;
     public bool hasKey = false;
 
     public String BossStageName;
