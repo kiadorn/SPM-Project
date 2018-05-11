@@ -38,6 +38,7 @@ public class PauseScript : MonoBehaviour {
 	}
 
 	public void QuitApplicationFromPauseScreen(){
+        ResumeTime();
         SceneManager.LoadScene("Hub");
         //Application.Quit ();
     }
