@@ -27,7 +27,6 @@ public class AirState : State{
 	{
 		UpdateMovement ();
 		if((Input.GetButtonDown("Dash") || Input.GetAxis("Dash") != 0) && canDash){
-            //_controller.TransitionTo<DashState>();
             _controller.TransitionTo<DashVelocityState>();
 			canDash = false;
 		}
@@ -39,7 +38,7 @@ public class AirState : State{
 		CancelJump ();
 	}
 
-	private void UpdateMovement()
+    private void UpdateMovement()
 	{
 		float input = Input.GetAxisRaw("Horizontal");
 		if (Mathf.Abs(input) > _controller.InputMagnitudeToMove)

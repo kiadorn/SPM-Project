@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : Controller{
+    [Header("Movement")]
 	public float MaxWallAngleDelta;
 	public float MaxSpeed;
 	public LayerMask CollisionLayers;
@@ -14,9 +15,13 @@ public class PlayerController : Controller{
 	public float GroundCheckDistance;
 	public float InputMagnitudeToMove;
 	public MinMaxFloat SlopeAngles;
-	public SpriteRenderer spriteRenderer;
+	//public SpriteRenderer spriteRenderer;
 	public GameObject pauseScreen;
+
+    [Header("Dash Indicator")]
     public GameObject centerPoint;
+    public float dashIndicatorSpeed;
+    public float dashIndicatorFade;
 
     private float lastXDir;
     private float inputX;
@@ -98,8 +103,22 @@ public class PlayerController : Controller{
         else
         {
             float angle = Mathf.Atan2(inputY, inputX);
-            Debug.Log("Input X: " + inputX + " Y: " + inputY + " angle: " + angle);
-            centerPoint.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+            Quaternion currentAngle = centerPoint.transform.rotation;
+            Quaternion targetAngle = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+            centerPoint.transform.rotation = Quaternion.Lerp(currentAngle, targetAngle, dashIndicatorSpeed);
+        }
+        if (CurrentState is AirState)
+        {
+            if (centerPoint.GetComponentInChildren<SpriteRenderer>().color.a <= 1)
+            {
+                centerPoint.GetComponentInChildren<SpriteRenderer>().color += new Color(0, 0, 0, dashIndicatorFade);
+            }
+        } else
+        {
+            if (centerPoint.GetComponentInChildren<SpriteRenderer>().color.a >= 0)
+            {
+                centerPoint.GetComponentInChildren<SpriteRenderer>().color -= new Color(0, 0, 0, dashIndicatorFade);
+            }
         }
     }
 
@@ -119,14 +138,12 @@ public class PlayerController : Controller{
 		return hits.ToArray();
 	}
 
-	public void SnapToHit(RaycastHit2D hit)
-	{
-		Vector2 vectorToPoint = hit.point - (Vector2)transform.position;
-		vectorToPoint -= MathHelper.PointOnRectangle(vectorToPoint.normalized, Collider.size);
-		Vector3 movement = (Vector3) hit.normal * Vector2.Dot(hit.normal, vectorToPoint.normalized) * vectorToPoint.magnitude;
-		if (Vector2.Dot(Velocity.normalized, vectorToPoint.normalized) > 0.0f)
-			transform.position += movement;
-	}
-		
-	
+    public void SnapToHit(RaycastHit2D hit)
+    {
+        Vector2 vectorToPoint = hit.point - (Vector2)transform.position;
+        vectorToPoint -= MathHelper.PointOnRectangle(vectorToPoint.normalized, Collider.size);
+        Vector3 movement = (Vector3)hit.normal * Vector2.Dot(hit.normal, vectorToPoint.normalized) * vectorToPoint.magnitude;
+        if (Vector2.Dot(Velocity.normalized, vectorToPoint.normalized) > 0.0f)
+            transform.position += movement;
+    }
 }

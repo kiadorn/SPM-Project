@@ -161,7 +161,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.8, y: 13.2, z: 0}
+  m_LocalPosition: {x: -219.4, y: -2.260022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -651,9 +651,10 @@ MonoBehaviour:
   SlopeAngles:
     Min: -45
     Max: 45
-  spriteRenderer: {fileID: 0}
   pauseScreen: {fileID: 0}
   centerPoint: {fileID: 0}
+  dashIndicatorSpeed: 0.3
+  dashIndicatorFade: 0.1
   source1: {fileID: 0}
   source2: {fileID: 0}
   sources: []
@@ -686,7 +687,7 @@ MonoBehaviour:
   StartingHealth: 3
   LoadedHealthPoints: 0
   CurrentCheckPoint: {fileID: 0}
-  TimeUntilDead: 0
+  TimeUntilDead: 1.25
   InvulnerableTime: 3
   paused: 0
   _invulnerable: 0
