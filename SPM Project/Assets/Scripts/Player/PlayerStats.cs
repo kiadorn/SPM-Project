@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour {
         _controller = GetComponent<PlayerController>();
         CurrentHealth = StartingHealth;
         UpdateHealth();
-        ChangeCurrency(Currency);
+        ChangeCurrency(GameManager.instance.Currency);
         currentScene = SceneManager.GetActiveScene().name;
         //DeathCounterUI.text = manager.GetDeathCounter().ToString();
 
@@ -159,7 +159,7 @@ public class PlayerStats : MonoBehaviour {
         {
 
             if (!dead) StartCoroutine(DeathTimer());
-            //manager.AddDeathToCounter();
+
             //UpdateDeaths();
             /*if (BossStageName != null && currentScene == BossStageName)
             {
@@ -177,7 +177,7 @@ public class PlayerStats : MonoBehaviour {
     }
 
 	public IEnumerator DeathTimer() {
-		dead = true;
+        dead = true;
 		//Audio
 		_controller.sources[1].Stop();
 		_controller.sources[0].clip = _controller.DeathSound;
@@ -186,6 +186,8 @@ public class PlayerStats : MonoBehaviour {
 		yield return new WaitForSeconds (TimeUntilDead);
         if (BossStageName != null && currentScene == BossStageName)
         {
+            GameManager.instance.AddDeathToCounter();
+            GameManager.SavePlayer();
             SceneManager.LoadScene(currentScene);
             yield return 0;
         }
@@ -202,7 +204,8 @@ public class PlayerStats : MonoBehaviour {
         {
             Destroy(b);
         }
-
+        GameManager.instance.AddDeathToCounter();
+        GameManager.SavePlayer();
         //Teleport to Checkpoint
         ChangeKeyStatus(false);
         Currency = SavedCurrency;

@@ -18,11 +18,13 @@ public class LevelFinish : MonoBehaviour
             {
 
                 GameManager.instance.Level1Done = true;
+                GameManager.instance.Currency = lookforplayer.gameObject.GetComponent<PlayerStats>().Currency;
                 GameManager.SavePlayer();
             }
             if (level2finish == true)
             {
                 GameManager.instance.Level2Done = true;
+                GameManager.instance.Currency = lookforplayer.gameObject.GetComponent<PlayerStats>().Currency;
                 GameManager.SavePlayer();
 
             }

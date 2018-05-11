@@ -8,7 +8,7 @@ public class PatrolPassiveState : State {
     public float waitingTime = 2f;
     public float aggroRange = 5f;
     public float somethingInfront = 0.1f;
-    private bool movingRight;
+    public bool movingRight;
     private float timer;
     private Vector2 direction;
 
