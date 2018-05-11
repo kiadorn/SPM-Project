@@ -34,7 +34,13 @@ public class BossStage4 : State {
         hand.GetComponent<HandSmash>().timeToStop = Stage4TimeToStop;
         hand.GetComponent<HandSmash>().CurrentHealth = HandHealth;
 		_controller.turret1.SetActive (true);
+		_controller.turret1.GetComponentInChildren<MeshRenderer> ().enabled = true;
+		_controller.turret1.transform.GetChild(0).transform.GetChild(0).GetComponent<MeshRenderer> ().enabled = true;
+		_controller.turret1.GetComponent<BoxCollider2D>().enabled = true;
 		_controller.turret2.SetActive (true);
+		_controller.turret2.GetComponentInChildren<MeshRenderer> ().enabled = true;
+		_controller.turret2.transform.GetChild(0).transform.GetChild(0).GetComponent<MeshRenderer> ().enabled = true;
+		_controller.turret2.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public override void Exit() {

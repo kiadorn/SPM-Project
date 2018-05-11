@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -215.6, y: 29.6, z: 0}
+  m_LocalPosition: {x: -153.82733, y: -21.274609, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -220,7 +220,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -301,7 +301,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -382,7 +382,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -593,7 +593,8 @@ MonoBehaviour:
     Min: -45
     Max: 45
   spriteRenderer: {fileID: 0}
-  pauseScreen: {fileID: 0}
+  pauseScreen: {fileID: 1327319502077022, guid: 8ce4c4f9627f4084db39f4c1333230f7,
+    type: 2}
   source1: {fileID: 0}
   source2: {fileID: 0}
   sources: []

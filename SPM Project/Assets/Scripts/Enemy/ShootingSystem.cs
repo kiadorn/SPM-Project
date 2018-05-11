@@ -35,6 +35,7 @@ public class ShootingSystem : MonoBehaviour {
 	public AudioClip Alerted;
 	public AudioClip Retract;
 	public AudioClip Fire;
+	public AudioClip[] Hurt;
 	public AudioClip Death; //inte använd än
 
     void Start() {

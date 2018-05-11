@@ -19,6 +19,7 @@ public class PauseWithVelocityState : State
         _controller.gameObject.GetComponent<PlayerStats>().paused = true;
         exitVelocity = _controller.Velocity;
         _controller.Velocity = Vector2.zero;
+		_controller.sources[1].Stop ();
     }
 
     public override void Exit()

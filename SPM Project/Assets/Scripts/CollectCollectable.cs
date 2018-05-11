@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CollectCollectable : MonoBehaviour {
 
+	private AudioSource source;
+
+	[Header("Audio")]
+	public AudioClip []PickUpSounds;
+
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player")) {
             col.gameObject.GetComponent<PlayerStats>().ChangeCurrency(1);
@@ -14,9 +19,9 @@ public class CollectCollectable : MonoBehaviour {
     }
 
     private IEnumerator WaitForSound() {
+		source.clip = PickUpSounds [Random.Range (0, PickUpSounds.Length)];
+		source.Play ();
         yield return new WaitForSeconds(2f); //Ersätt tid med längd för ljudklipp
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<BoxCollider2D>().enabled = true;
         gameObject.SetActive(false);
         yield return 0;
     }
@@ -24,5 +29,6 @@ public class CollectCollectable : MonoBehaviour {
     private void OnEnable() {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
+		source = GetComponent<AudioSource> ();
     }
 }

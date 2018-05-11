@@ -16,6 +16,7 @@ public class PauseNoVelocityState : State {
     {
         _controller.gameObject.GetComponent<PlayerStats>().paused = true;
         _controller.Velocity = Vector2.zero;
+		_controller.sources[1].Stop ();
     }
 
     public override void Exit()

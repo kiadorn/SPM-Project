@@ -13,6 +13,7 @@ public class HandDamage : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+			BossSound.GetComponent<BossHitSound> ().DealDamage ();
             collision.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
 
             stats.ChangeHealth(-1);

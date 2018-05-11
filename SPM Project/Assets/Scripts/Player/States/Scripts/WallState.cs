@@ -75,15 +75,16 @@ public class WallState : State
 	private void WallJump()
 	{
 		Vector2 directionToWall = (_wallHitPoint - (Vector2)transform.position).normalized;
-		if (Vector2.Dot(directionToWall, _inputDirection) < 0.0f)
-			Jump(new Vector2(FallOffSpeed, Velocity.y));
-		else if (Input.GetButtonDown("Jump"))
+		if (Vector2.Dot (directionToWall, _inputDirection) < 0.0f)
+			Jump (new Vector2 (FallOffSpeed, Velocity.y));
+		else if (Input.GetButtonDown ("Jump")) {
 			Jump(WallJumpSpeed);
+			_controller.sources [0].clip = _controller.Jump;
+			_controller.sources [0].Play ();
+		}
 	}
 	private void Jump(Vector2 speed)
 	{
-		_controller.sources [0].clip = _controller.Jump;
-		_controller.sources [0].Play ();
 		Velocity = new Vector2(MathHelper.Sign(_wallNormal.x) * speed.x, speed.y);
 		transform.position += (Vector3)_wallNormal * InitialJumpDistance;
 		_controller.TransitionTo<AirState>();
