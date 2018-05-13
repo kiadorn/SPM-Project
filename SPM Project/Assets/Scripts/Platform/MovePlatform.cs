@@ -17,6 +17,10 @@ public class MovePlatform : MonoBehaviour {
     private bool isWaiting;
     private bool SaveMove;
 
+	[Header("Audio")]
+	private AudioSource source;
+	public AudioClip moving;
+
     bool firstTime = true;
 
     private void Awake()
@@ -24,6 +28,8 @@ public class MovePlatform : MonoBehaviour {
         originalPos = transform.localPosition;
         SaveMove = moveBack;
         firstTime = false;
+		source = GetComponent<AudioSource> ();
+		source.clip = moving;
     }
 
     public void Move()
@@ -54,6 +60,12 @@ public class MovePlatform : MonoBehaviour {
     {
         if (shouldIMove)
         {
+			if (!source.isPlaying && !isDone) {
+				source.Play ();
+			}
+			if (isDone) {
+				source.Stop ();
+			}
             Move();
         }
     }

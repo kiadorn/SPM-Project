@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1865644573796752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -101.2, y: 6.2, z: -1}
+  m_LocalPosition: {x: -257.41998, y: 5.610003, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4469452484851094}
@@ -269,7 +269,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -294,10 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundMusic:
-  - {fileID: 8300000, guid: b15c99e986f69404d9304eca0635fc06, type: 3}
-  - {fileID: 8300000, guid: b15c99e986f69404d9304eca0635fc06, type: 3}
-  - {fileID: 8300000, guid: b15c99e986f69404d9304eca0635fc06, type: 3}
-  - {fileID: 8300000, guid: b15c99e986f69404d9304eca0635fc06, type: 3}
+  - {fileID: 8300000, guid: 8b89f15ea6833524aad934db4b8d67a4, type: 3}
+  - {fileID: 8300000, guid: 8b89f15ea6833524aad934db4b8d67a4, type: 3}
+  - {fileID: 8300000, guid: 8b89f15ea6833524aad934db4b8d67a4, type: 3}
+  - {fileID: 8300000, guid: 8b89f15ea6833524aad934db4b8d67a4, type: 3}
 --- !u!114 &114512398257674472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
   SmoothingTime: 0.05
   MaxLookAhead: 2
   LookAheadAccelerationTime: 10
-  MaxLookAroundAmount: 3
+  MaxLookAroundAmount: 0
   TimeBeforeLookAround: 0.2
   PlayerMaximumSpeedForLookAround: 7.5
   Player: {fileID: 0}

@@ -27793,7 +27793,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -43249,6 +43249,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4614992676257410, guid: 0742b17b60e60ed478698c1188d32f1d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.3625017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0742b17b60e60ed478698c1188d32f1d, type: 2}
   m_IsPrefabParent: 0
@@ -44803,7 +44807,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4906162435056188, guid: 679359e9888f0224cb8c36c423c38601, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -19.48
+      value: -24.5
       objectReference: {fileID: 0}
     - target: {fileID: 61710025686701554, guid: 679359e9888f0224cb8c36c423c38601,
         type: 2}
@@ -45177,11 +45181,6 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 804532994}
-    - target: {fileID: 114697196789343630, guid: 8afee8856c14a8049a631f46aedbb2b6,
-        type: 2}
-      propertyPath: MaxLookAroundAmount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8afee8856c14a8049a631f46aedbb2b6, type: 2}
   m_IsPrefabParent: 0
