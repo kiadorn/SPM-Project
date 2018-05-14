@@ -7,7 +7,7 @@ public class BossHealthUI : MonoBehaviour {
 
     public GameObject Hand;
     public Slider HealthBar;
-    public int currentHealth;
+    private int currentHealth;
     public GameObject bar;
     // Use this for initialization
 	void Start () {

@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour {
 
     [Header("References")]
-    public Text HealthUI;
+    public Image HealthUI;
     public Text CurrencyUI;
     //public Text DeathCounterUI;
     public GameObject KeyIcon;
@@ -144,7 +144,6 @@ public class PlayerStats : MonoBehaviour {
 
     private void UpdateHealth()
     {
-        this.HealthUI.text = CurrentHealth.ToString();
         
     }
 
