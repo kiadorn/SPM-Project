@@ -12,7 +12,6 @@ public class TurretController : MonoBehaviour {
 	private ShootingSystem AI;
     private bool _shooting;
 
-    private Vector3 OGPos;
 	private float time;
 	private Animator animator;
 	private int currentHealth;
@@ -21,13 +20,11 @@ public class TurretController : MonoBehaviour {
 
     void Awake() {
         AI = transform.GetChild(0).GetComponent<ShootingSystem>();
-        OGPos = transform.position;
 //		animator = GetComponent <Animator>();  //Används för animatoner
     }
 
     void OnEnable() {
         _shooting = false;
-        //transform.position = OGPos;
 		currentHealth = originalHeath;
     }
 
