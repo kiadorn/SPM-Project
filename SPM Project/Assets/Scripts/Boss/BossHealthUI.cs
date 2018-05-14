@@ -19,7 +19,6 @@ public class BossHealthUI : MonoBehaviour {
 	private void HealthUpdate()
     {
         HealthBar.value = CalculateHealth();
-        Debug.Log(currentHealth);
     }
 	// Update is called once per frame
 	void Update () {
