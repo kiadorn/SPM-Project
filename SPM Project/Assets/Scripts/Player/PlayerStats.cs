@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour {
             }
         }
 
-        //changeDashIcon();
+        changeDashIcon();
     }
 
     private IEnumerator SwapColors()
