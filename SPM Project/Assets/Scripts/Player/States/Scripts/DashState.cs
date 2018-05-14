@@ -43,8 +43,8 @@ public class DashState : State{
 		} else {
 			targetPos = new Vector3 (this.transform.position.x + xDir * dashDistanceIncrement, this.transform.position.y + yDir * dashDistanceIncrement, 0f);
 		}
-			dashTime += Time.deltaTime;
-			CheckSurrounding ();
+		dashTime += Time.deltaTime;
+		CheckSurrounding ();
         if (dashTime >= dashTimeTarget)
         {
             //MonoBehaviour.print ("Time out");

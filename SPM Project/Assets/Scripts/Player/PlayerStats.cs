@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour {
     private float timer;
     private float colorSwapTimer;
     private bool swapping;
-	private bool dead = false;
+    [ReadOnly] public bool dead = false;
     public bool hasKey = false;
 
     public String BossStageName;
@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour {
 
         }
 
-        if (_invulnerable)
+        if (_invulnerable && !dead)
         {
             if (!swapping)
             {
@@ -157,18 +157,9 @@ public class PlayerStats : MonoBehaviour {
     {
         if (CurrentHealth < 1)
         {
-
             if (!dead) StartCoroutine(DeathTimer());
             //manager.AddDeathToCounter();
             //UpdateDeaths();
-            /*if (BossStageName != null && currentScene == BossStageName)
-            {
-                SceneManager.LoadScene(currentScene);
-            }
-            else
-            {
-				
-            } */
         }
         else
         {
@@ -178,8 +169,9 @@ public class PlayerStats : MonoBehaviour {
 
 	public IEnumerator DeathTimer() {
 		dead = true;
-		//Audio
-		_controller.sources[1].Stop();
+        GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        //Audio
+        _controller.sources[1].Stop();
 		_controller.sources[0].clip = _controller.DeathSound;
 		_controller.sources[0].Play ();
 		_controller.TransitionTo<DeathState> ();
@@ -195,26 +187,24 @@ public class PlayerStats : MonoBehaviour {
 
 
     public void Death() {
-        //		_controller.TransitionTo<DeathState> ();
-        //      _controller.Velocity = Vector2.zero;
-
         foreach (GameObject b in GameObject.FindGameObjectsWithTag("Bullet"))
         {
             Destroy(b);
         }
-
-        //Teleport to Checkpoint
+        StopAllCoroutines();
+        _invulnerable = false;
+        swapping = false;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
         ChangeKeyStatus(false);
         Currency = SavedCurrency;
         UpdateCurrency();
-        GetComponentInChildren<TrailRenderer>().enabled = false;
+        GetComponentInChildren<TrailRenderer>().time = 0f;
         transform.SetParent(null);
         transform.position = CurrentCheckPoint.transform.position;
-        GetComponentInChildren<TrailRenderer>().enabled = true;
+        GetComponentInChildren<TrailRenderer>().time = 0.1f;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
-        _invulnerable = false;
         _controller.TransitionTo<AirState>();
 		dead = false;
     }
@@ -236,6 +226,7 @@ public class PlayerStats : MonoBehaviour {
         if (_controller.GetState<AirState>().canDash)
         {
             DashIcon.GetComponent<Image>().color = Color.white;
+            
         } else
         {
             DashIcon.GetComponent<Image>().color = Color.black;

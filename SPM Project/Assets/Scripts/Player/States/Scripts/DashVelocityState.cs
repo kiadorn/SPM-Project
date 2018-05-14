@@ -40,7 +40,7 @@ public class DashVelocityState : State
         Velocity = new Vector2(xDir, yDir).normalized * speed;
         RaycastHit2D[] hits = _controller.DetectHits();
         UpdateNormalForce(hits);
-        Dash2();
+        Dash();
         transform.Translate(Velocity * Time.deltaTime);
     }
     
@@ -49,7 +49,7 @@ public class DashVelocityState : State
         Velocity = new Vector2(xDir, yDir).normalized * exitSpeed;
     }
 
-    public void Dash2()
+    public void Dash()
     {
         timer += Time.deltaTime;
         if (timer < waitTime)
