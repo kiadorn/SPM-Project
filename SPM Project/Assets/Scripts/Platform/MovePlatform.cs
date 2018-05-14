@@ -17,9 +17,17 @@ public class MovePlatform : MonoBehaviour {
     private bool isWaiting;
     private bool SaveMove;
 
+	[HideInInspector]
+	public AudioSource source;
 	[Header("Audio")]
-	private AudioSource source;
 	public AudioClip moving;
+
+	[ReadOnly]
+	public bool playArea = false;
+
+	public float fadeTime = 1f;
+	[ReadOnly] public bool fading = false;
+    private float timer;
 
     bool firstTime = true;
 
@@ -30,6 +38,23 @@ public class MovePlatform : MonoBehaviour {
         firstTime = false;
 		source = GetComponent<AudioSource> ();
 		source.clip = moving;
+        timer = 0;
+    }
+
+    private void Update()
+    {
+        if (isWaiting && fading) {
+            timer += Time.deltaTime;
+        }
+        if (fading)
+        {
+            FadeAudio();
+        }
+
+        if (shouldIMove)
+        {
+            Move();
+        }
     }
 
     public void Move()
@@ -38,7 +63,9 @@ public class MovePlatform : MonoBehaviour {
         if (transform.localPosition == transform.parent.GetChild(1).transform.localPosition)
         {
             isDone = true;
-			source.Stop ();
+            //fading = true;
+            timer += Time.deltaTime;
+            source.Stop ();
             if (!isWaiting && moveBack)
                 StartCoroutine(WaitToMoveBack(waitTime));
         }
@@ -60,17 +87,13 @@ public class MovePlatform : MonoBehaviour {
         {
             shouldIMove = false;
             isDone = false;
-			source.Stop ();
+            //fading = true;
+            timer += Time.deltaTime;
+            source.Stop ();
         }
     }
 
-    private void Update()
-    {
-        if (shouldIMove)
-        {
-            Move();
-        }
-    }
+
 
     private IEnumerator WaitToMoveBack(float time)
     {
@@ -80,6 +103,15 @@ public class MovePlatform : MonoBehaviour {
         moveBack = true;
         yield return new WaitForSeconds(time);
         isWaiting = false;
+    }
+
+    private void FadeAudio()
+    {
+        AudioHelper.FadeOut(source, fadeTime, timer);
+        if (source.volume == 0) {
+            fading = false;
+            timer = 0;
+        } 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

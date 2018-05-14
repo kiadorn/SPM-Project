@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class TriggerClimbableBySpike : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D col) {
+	private AudioSource source;
+	[Header("Audio")]
+	public AudioClip [] trigger;
+
+	public void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.CompareTag("Hazard")) {
+			source.clip = trigger [Random.Range (0, trigger.Length)];
+			source.Play ();
 			GameObject.Find("ChangeToClimb").tag = "Untagged";
 		}
+	}
 
-
+	public void Start(){
+		source = GetComponent<AudioSource> ();
 	}
 }
 

@@ -15,14 +15,31 @@ public class MovePlatformAuto : MonoBehaviour {
     private bool goingUp = false;
     private float timer;
 
+	[HideInInspector]
+	public AudioSource source;
+	[Header("Audio")]
+	public AudioClip moving;
+
+	[ReadOnly]
+	public bool playArea = false;
+
+	public float fadeTime = 1f;
+	[ReadOnly] public bool fading = false;
+
     private void Start()
     {
         originalPos = transform.position;
+		source = GetComponent<AudioSource> ();
+		source.clip = moving;
+		timer = 0;
     }
 
 
     private void Update()
     {
+		if (fading) {
+			FadeAudio ();
+		}
         Move();
     }
 
@@ -35,6 +52,7 @@ public class MovePlatformAuto : MonoBehaviour {
             goingUp = true;
             //Timer
             timer += Time.deltaTime;
+			if (playArea) fading = true;
             if (timer < waitTime)
             {
                 return;
@@ -47,6 +65,7 @@ public class MovePlatformAuto : MonoBehaviour {
             goingUp = false;
             //Timer
             timer += Time.deltaTime;
+			if (playArea) fading = true;
             if (timer < waitTime)
             {
                 return;
@@ -58,12 +77,27 @@ public class MovePlatformAuto : MonoBehaviour {
         if (!goingUp)
         {
             transform.position = Vector3.MoveTowards(transform.position, transform.parent.GetChild(1).transform.position, moveForwardSpeed * Time.deltaTime);
+			if (!source.isPlaying) source.Play ();
+			if (playArea) {
+				source.volume = 1;
+				fading = false;
+			}
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, originalPos, moveBackSpeed * Time.deltaTime);
+			if (!source.isPlaying) source.Play ();
+			if (playArea) {
+				source.volume = 1;
+				fading = false;
+			}
         }
     }
+
+	private void FadeAudio() {
+		AudioHelper.FadeOut (source, fadeTime, timer);
+		if (source.volume == 0) fading = false;
+	}
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,4 +115,5 @@ public class MovePlatformAuto : MonoBehaviour {
             collision.gameObject.transform.SetParent(null);
         }
     }
+		
 }
