@@ -8,6 +8,7 @@ public class BossHealthUI : MonoBehaviour {
     public GameObject Hand;
     public Slider HealthBar;
     public int currentHealth;
+    public GameObject bar;
     // Use this for initialization
 	void Start () {
 	}
@@ -23,5 +24,15 @@ public class BossHealthUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         HealthUpdate();
+        enableHealthBar();
 	}
+    public void enableHealthBar()
+    {
+        if (Hand.active == true)
+        {
+            bar.SetActive(true);
+        }
+        else bar.SetActive(false);
+        
+    }
 }
