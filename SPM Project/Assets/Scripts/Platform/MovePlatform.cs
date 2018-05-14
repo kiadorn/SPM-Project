@@ -38,21 +38,29 @@ public class MovePlatform : MonoBehaviour {
         if (transform.localPosition == transform.parent.GetChild(1).transform.localPosition)
         {
             isDone = true;
+			source.Stop ();
             if (!isWaiting && moveBack)
                 StartCoroutine(WaitToMoveBack(waitTime));
         }
         if (!isDone)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, transform.parent.GetChild(1).transform.localPosition, moveForwardSpeed * Time.deltaTime);
+			if (!source.isPlaying) {
+				source.Play ();
+			}
         } else if (moveBack)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, originalPos, moveBackSpeed * Time.deltaTime);
-        }
+			if (!source.isPlaying) {
+				source.Play ();
+			}
+		}
 
         if (transform.localPosition == originalPos)
         {
             shouldIMove = false;
             isDone = false;
+			source.Stop ();
         }
     }
 
@@ -60,12 +68,6 @@ public class MovePlatform : MonoBehaviour {
     {
         if (shouldIMove)
         {
-			if (!source.isPlaying && !isDone) {
-				source.Play ();
-			}
-			if (isDone) {
-				source.Stop ();
-			}
             Move();
         }
     }
