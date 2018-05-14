@@ -58,7 +58,7 @@ public class GroundState : State{
 	}
 	public void UpdateJump()
 	{
-		if (!Input.GetButtonDown("Jump") || _jumps <= 0) return;
+		if (!Input.GetButtonDown("Jump") || _jumps <= 0 || _controller.pauseScreen.activeSelf) return;
 		transform.position += Vector3.up * InitialJumpDistance;
 		_controller.Velocity.y = JumpVelocity.Max;
 		_jumps--;

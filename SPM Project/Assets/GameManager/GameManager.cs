@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Spelarstats")] //Spelarens stats
     public int HealthPoints;
-    [ReadOnly] public int Currency;
+    public int Currency;
     public bool Level1Done;
     public bool Level2Done;
     public int deathCounter;

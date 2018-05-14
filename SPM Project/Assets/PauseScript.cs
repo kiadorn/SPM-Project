@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
 	public GameObject quitConfirmPane;
-	private bool paused;
+    public GameObject DefaultMenu;
+
+    private bool paused;
 
 	// Use this for initialization
 	void Start () {
 		Cursor.visible = false;
 		paused = false;
 		quitConfirmPane.SetActive (false);
-		this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
 	}
 
 	public void PauseUnpauseGame(){
@@ -27,18 +29,30 @@ public class PauseScript : MonoBehaviour {
 		Time.timeScale = 0;
 		paused = true;
 		Cursor.visible = true;
-		this.gameObject.SetActive(true);
-	}
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (player.CurrentState is WallState || player.CurrentState is GroundState || player.CurrentState is AirState) {
+            player.TransitionTo<AirState>();
+        }
+        this.gameObject.SetActive(true);
+        DefaultMenu.SetActive(true);
+        quitConfirmPane.SetActive(false);
+    }
 
 	public void ResumeTime(){
 		Time.timeScale = 1;
 		paused = false;
 		Cursor.visible = false;
-		this.gameObject.SetActive(false);
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (player.CurrentState is WallState || player.CurrentState is GroundState || player.CurrentState is AirState) {
+            player.TransitionTo<AirState>();
+        }
+        quitConfirmPane.SetActive(false);
+        this.gameObject.SetActive(false);
 	}
 
 	public void QuitApplicationFromPauseScreen(){
-        SceneManager.LoadScene("Hub");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("_MainMenu");
         //Application.Quit ();
     }
 }

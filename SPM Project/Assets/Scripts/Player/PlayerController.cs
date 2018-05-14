@@ -45,7 +45,7 @@ public class PlayerController : Controller{
 		}else if(Input.GetAxisRaw("Horizontal") < 0){
 			lastXDir = -1f;
 		}
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause)) {
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) {
 			pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame ();
 			//player transition till pause state?
 		}
