@@ -3805,6 +3805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937825544}
   - component: {fileID: 1937825545}
+  - component: {fileID: 1937825546}
   m_Layer: 5
   m_Name: BossHealthBar
   m_TagString: Untagged
@@ -3881,6 +3882,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1937825546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937825543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdddae618fd79842a93ac9458489768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1960838247 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1955779476371990, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
@@ -4155,6 +4167,7 @@ MonoBehaviour:
   Hand: {fileID: 101835605}
   HealthBar: {fileID: 1937825545}
   currentHealth: 0
+  bar: {fileID: 1937825543}
 --- !u!1001 &2058442382
 Prefab:
   m_ObjectHideFlags: 0
