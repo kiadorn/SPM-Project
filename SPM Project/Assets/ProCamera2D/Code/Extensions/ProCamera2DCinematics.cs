@@ -80,7 +80,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			if (UseLetterbox)
 				SetupLetterbox();
 
-			ProCamera2D.AddPositionOverrider(this);
+
+            ProCamera2D.AddPositionOverrider(this);
 			ProCamera2D.AddSizeOverrider(this);
 		}
 
@@ -146,7 +147,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 				return;
 			}
 
-			_initialCameraSize = ProCamera2D.ScreenSizeInWorldCoordinates.y * .5f;
+
+            _initialCameraSize = ProCamera2D.ScreenSizeInWorldCoordinates.y * .5f;
 
 			if (UseNumericBoundaries && _numericBoundaries == null)
 				_numericBoundaries = ProCamera2D.GetComponentInChildren<ProCamera2DNumericBoundaries>();
@@ -412,8 +414,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 			_isPlaying = false;
 
-			// Ugly hack... but no way around it at the moment
-			if (ProCamera2D.CameraTargets.Count == 0)
+            // Ugly hack... but no way around it at the moment
+            if (ProCamera2D.CameraTargets.Count == 0)
 				ProCamera2D.Reset(true);
 		}
 

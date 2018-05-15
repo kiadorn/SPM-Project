@@ -143,4 +143,15 @@ public class PlayerController : Controller{
         if (Vector2.Dot(Velocity.normalized, vectorToPoint.normalized) > 0.0f)
             transform.position += movement;
     }
+
+    public void Trans(String name)
+    {
+        if (name == "PauseNoVelocityState")
+        {
+            TransitionTo<PauseNoVelocityState>();
+        }
+         else if (name == "AirState") {
+            TransitionTo<AirState>();
+        }
+    }
 }

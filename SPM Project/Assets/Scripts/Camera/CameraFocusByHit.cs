@@ -15,10 +15,8 @@ public class CameraFocusByHit : MonoBehaviour {
 	private AudioSource source;
 	[Header("Audio Clips")]
 	public AudioClip Open;
-    private CameraFollow Cam;
 
     private void Awake() {
-        Cam = GameObject.Find("Camera").GetComponent<CameraFollow>();
 		source = GetComponent<AudioSource> ();
     }
 
@@ -27,7 +25,7 @@ public class CameraFocusByHit : MonoBehaviour {
 	}
 
     public void Action() {
-        Cam.switchToCameraFocus(Focus.transform.position, FreezePlayer);
+        CameraHelper.switchToCameraFocus(Focus.transform.position, FreezePlayer);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         if (!DontDisableObject)
         {

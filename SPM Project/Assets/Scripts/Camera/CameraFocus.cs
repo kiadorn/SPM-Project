@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Com.LuisPedroFonseca.ProCamera2D;
 
 public class CameraFocus : MonoBehaviour {
 
@@ -58,8 +59,9 @@ public class CameraFocus : MonoBehaviour {
     public void switchToCameraFollow()
     {
         Player.TransitionTo<AirState>();
-        this.GetComponent<CameraFocus>().enabled = false;
-        this.GetComponent<CameraFollow>().enabled = true;
+        GetComponent<CameraFocus>().enabled = false;
+        GetComponent<ProCamera2D>().enabled = true;
+        //this.GetComponent<CameraFollow>().enabled = true;
     }
 
     private void UpdateMovement(Vector3 targetPos)
