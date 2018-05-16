@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Level1IntroController : MonoBehaviour {
+public class LevelIntroController : MonoBehaviour {
     //public int Screen1Time;  //Hårdkodning
     //public int Screen2Time;
     //public int Screen3Time;

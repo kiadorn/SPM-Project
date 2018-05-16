@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour {
             data.Deaths = instance.deathCounter;
             bf.Serialize(stream, data);
             stream.Close();
-            Debug.Log("Saved");
 
         }
 
@@ -102,7 +101,6 @@ public class GameManager : MonoBehaviour {
                 instance.Level1Done = data.Level1Done;
                 instance.Level2Done = data.Level2Done;
                 instance.deathCounter = data.Deaths;
-                Debug.Log("Loaded");
         }
 
 
