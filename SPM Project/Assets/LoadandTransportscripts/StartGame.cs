@@ -16,12 +16,15 @@ public class StartGame : MonoBehaviour {
 	}
    public void loadOnClick()
     {
-        Debug.Log("Pressing");
         if (loadgame == true)
         {
-            SceneManager.LoadScene("Hub");
             GameManager.LoadPlayer();
         }
-        else SceneManager.LoadScene("Hub");
+        GameManager.SavePlayer();
+        SceneManager.LoadScene("Hub");
+    }
+
+    public void QuitGame(){
+        Application.Quit();
     }
 }

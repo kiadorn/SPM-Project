@@ -12,7 +12,21 @@ public class VolumeSlider : MonoBehaviour {
 		mixer.SetFloat ("MasterVolume", slider.value);
 	}
 
-	private void Update(){
+    void Awake() {
+        mixer.SetFloat("MasterVolume", GetMasterLevel());
+    }
+    public float GetMasterLevel() {
+        float value;
+        bool result = mixer.GetFloat("MasterVolume", out value);
+        if (result) {
+            return value;
+        }
+        else {
+            return 0f;
+        }
+    }
+
+    private void Update(){
 		mixer.GetFloat ("MasterVolume", out currentVolume);
 		this.GetComponent<Slider> ().value = currentVolume;
 	}

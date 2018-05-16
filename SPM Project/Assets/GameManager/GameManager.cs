@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Spelarstats")] //Spelarens stats
     public int HealthPoints;
-    public int Currency = 0;
+    public int Currency;
     public bool Level1Done;
     public bool Level2Done;
     public int deathCounter;
@@ -79,9 +79,9 @@ public class GameManager : MonoBehaviour {
             data.Currency = instance.Currency;
             data.Level1Done = instance.Level1Done;
             data.Level2Done = instance.Level2Done;
+            data.Deaths = instance.deathCounter;
             bf.Serialize(stream, data);
             stream.Close();
-            Debug.Log("Saved");
 
         }
 
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
                 instance.HealthPoints = data.HealthPoints;
                 instance.Level1Done = data.Level1Done;
                 instance.Level2Done = data.Level2Done;
-                Debug.Log("Loaded");
+                instance.deathCounter = data.Deaths;
         }
 
 
@@ -114,10 +114,12 @@ public class PlayerData //Serializerbara egenskaper (De som går att föra över
     public int Currency = 0;
     public bool Level1Done;
     public bool Level2Done;
+    public int Deaths;
     public PlayerData(GameManager instance) {
      HealthPoints = instance.HealthPoints;
      Currency = instance.Currency;
      Level1Done = instance.Level1Done;
      Level2Done = instance.Level2Done;
+     Deaths = instance.deathCounter;
     }
 }

@@ -76,7 +76,7 @@ public class PlayerController : Controller{
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
             pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame();
             //player transition till pause state?
