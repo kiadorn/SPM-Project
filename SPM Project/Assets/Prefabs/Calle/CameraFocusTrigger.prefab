@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4350675247986148}
   - component: {fileID: 61797772058058732}
   - component: {fileID: 114843043030387986}
+  - component: {fileID: 114949254538271024}
   m_Layer: 0
   m_Name: CameraFocusTrigger
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Focus: {fileID: 0}
   FreezePlayer: 1
+--- !u!114 &114949254538271024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748764012061546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497a6667edaf54946aad775b7bf23c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisableObject: {fileID: 0}
+  Open: {fileID: 0}
