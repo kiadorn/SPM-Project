@@ -27,9 +27,11 @@ public class CheckPoint : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             if (Latest && !other.gameObject.GetComponent<PlayerStats>().dead) {
+                if (Stats.CurrentCheckPoint != null) Stats.CurrentCheckPoint.transform.GetChild(0).gameObject.SetActive(false);
                 Stats.CurrentCheckPoint = this;
                 Stats.SavedCurrency = Stats.Currency;
                 Latest = false;
+                transform.GetChild(0).gameObject.SetActive(true);
             }
         }
     }
