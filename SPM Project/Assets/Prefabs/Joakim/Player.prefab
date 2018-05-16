@@ -177,8 +177,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.4, y: -2.260022, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -219.11185, y: 50.691204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -466,7 +466,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558011471400882}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243623440274394760, guid: cde2ba83f272afe43beca72c797c00f8,
     type: 2}
@@ -764,7 +764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0.2
   spriteObject: {fileID: 1830060267180468}
-  Swing: {fileID: 8300000, guid: 8efe37497180cdc46beb5a86a785f860, type: 3}
+  Swing:
+  - {fileID: 8300000, guid: fa7626fce73272d4daa4d044cac2dc1a, type: 3}
+  - {fileID: 8300000, guid: 8531afea3ad28074c92ba035b515c38a, type: 3}
+  SwingJustPlayed: {fileID: 0}
 --- !u!114 &114784860799802398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -805,10 +808,25 @@ MonoBehaviour:
   dashIndicatorFade: 0.1
   sources: []
   Footsteps: {fileID: 8300000, guid: f45b784a41a6c78418dc81df7f5b32a2, type: 3}
-  SwordSwing: {fileID: 8300000, guid: 8efe37497180cdc46beb5a86a785f860, type: 3}
-  Jump: {fileID: 8300000, guid: 86493c34eaa49b3439043c4b5bcbf4ef, type: 3}
-  Dash: {fileID: 8300000, guid: c33f3d2a8e16e764ab243a4334b9a02c, type: 3}
-  DeathSound: {fileID: 8300000, guid: 786a380506e0fc44589896454b4f5db6, type: 3}
+  Jump:
+  - {fileID: 8300000, guid: 68fbb632ca9fb214287fcec58677bbce, type: 3}
+  - {fileID: 8300000, guid: 1491e8fa021305b4ea36e41cba20b598, type: 3}
+  - {fileID: 8300000, guid: 174b3d01869866248a66d0f9e358260d, type: 3}
+  - {fileID: 8300000, guid: 630530a985855ee49a0f2ef7edf9799a, type: 3}
+  JumpJustPlayed: {fileID: 0}
+  Dash:
+  - {fileID: 8300000, guid: eabb820590c745648b92ebd21ded5087, type: 3}
+  - {fileID: 8300000, guid: 13a911fc652f42547a5b88603b54b5f9, type: 3}
+  DashJustPlayed: {fileID: 0}
+  DeathSound:
+  - {fileID: 8300000, guid: 0b5f21cc0d31e3947a716e9e221845bf, type: 3}
+  - {fileID: 8300000, guid: b9e0a72dcc7f7694ca7ca50009b67e81, type: 3}
+  - {fileID: 8300000, guid: f618a377b0c4f7d4c9ed17e45713b9e0, type: 3}
+  DeathSoundJustPlayed: {fileID: 0}
+  Hurt:
+  - {fileID: 8300000, guid: 1d1f69d127b27ee4597141e6dd1d1dd7, type: 3}
+  - {fileID: 8300000, guid: 4b30dcce32788214e8c262b3998fbc28, type: 3}
+  HurtJustPlayed: {fileID: 0}
 --- !u!114 &114952717160300178
 MonoBehaviour:
   m_ObjectHideFlags: 1

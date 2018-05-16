@@ -32,10 +32,14 @@ public class PlayerController : Controller{
 	public AudioSource[] sources;
 	[Header("Audio Clips")]
 	public AudioClip Footsteps;
-	public AudioClip SwordSwing;
-	public AudioClip Jump;
-	public AudioClip Dash;
-	public AudioClip DeathSound;
+	public AudioClip[] Jump;
+	[ReadOnlyAttribute] public AudioClip JumpJustPlayed;
+	public AudioClip[] Dash;
+	[ReadOnlyAttribute] public AudioClip DashJustPlayed;
+	public AudioClip[] DeathSound;
+	[ReadOnlyAttribute] public AudioClip DeathSoundJustPlayed;
+	public AudioClip[] Hurt;
+	[ReadOnlyAttribute] public AudioClip HurtJustPlayed;
 
 	private void Update()
 	{

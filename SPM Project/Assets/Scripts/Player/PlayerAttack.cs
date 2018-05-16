@@ -14,7 +14,8 @@ public class PlayerAttack : MonoBehaviour {
 
 	private AudioSource source;
 	[Header("AudioClips")]
-	public AudioClip Swing;
+	public AudioClip [] Swing;
+	[ReadOnlyAttribute] public AudioClip SwingJustPlayed;
 
 	void Start () {
 		attackTimeStamp = attackCooldown;
@@ -38,8 +39,13 @@ public class PlayerAttack : MonoBehaviour {
 			attackArc.enabled = true;
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 			attackTimeStamp = 0;
-			source.clip = Swing;
+			int length = Swing.Length;
+			int replace = Random.Range (0, (length - 1));
+			source.clip = Swing[replace];
 			source.Play ();
+			SwingJustPlayed = Swing [replace];
+			Swing [replace] = Swing [length - 1];
+			Swing [length - 1] = SwingJustPlayed;
 			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
 		

@@ -109,6 +109,13 @@ public class PlayerStats : MonoBehaviour {
             gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
             CurrentHealth += i;
             _invulnerable = true;
+			int length = _controller.Hurt.Length;
+			int replace = UnityEngine.Random.Range (0, (length - 1));
+			_controller.sources [0].clip = _controller.Hurt[replace];
+			_controller.sources [0].Play ();
+			_controller.HurtJustPlayed = _controller.Hurt [replace];
+			_controller.Hurt [replace] = _controller.Hurt [length - 1];
+			_controller.Hurt [length - 1] = _controller.HurtJustPlayed;
         }
 
         else if (i > 0)
@@ -172,8 +179,13 @@ public class PlayerStats : MonoBehaviour {
         GetComponentInChildren<SpriteRenderer>().color = Color.black;
         //Audio
         _controller.sources[1].Stop();
-		_controller.sources[0].clip = _controller.DeathSound;
-		_controller.sources[0].Play ();
+		int length = _controller.DeathSound.Length;
+		int replace = UnityEngine.Random.Range (0, (length - 1));
+		_controller.sources [0].clip = _controller.DeathSound[replace];
+		_controller.sources [0].Play ();
+		_controller.DeathSoundJustPlayed = _controller.DeathSound [replace];
+		_controller.DeathSound [replace] = _controller.DeathSound [length - 1];
+		_controller.DeathSound [length - 1] = _controller.DeathSoundJustPlayed;
 		_controller.TransitionTo<DeathState> ();
 		yield return new WaitForSeconds (TimeUntilDead);
         if (BossStageName != null && currentScene == BossStageName)

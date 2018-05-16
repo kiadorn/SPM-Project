@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547029568982168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.73269, y: 68.302025, z: 0}
+  m_LocalPosition: {x: -176.74484, y: -21.675747, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2391bf6c31b3eea4fbf46a1a857211f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpKeySound: {fileID: 8300000, guid: 16d7f162320c5f14faff8cbbb78f6a12, type: 3}
+  PickUpKeySound: {fileID: 8300000, guid: f1d99d887d534e548a10124265c2a19a, type: 3}
   PickUpSwordSound: {fileID: 8300000, guid: 16d7f162320c5f14faff8cbbb78f6a12, type: 3}
-  OpenDoorSound: {fileID: 8300000, guid: b2c46378bc8d77b4ea48787a53e80b9e, type: 3}
-  StartTriggerSound: {fileID: 8300000, guid: b2c46378bc8d77b4ea48787a53e80b9e, type: 3}
+  OpenDoorSound: {fileID: 8300000, guid: b52832e357370394b896993d50ef6cec, type: 3}
+  StartTriggerSound: {fileID: 8300000, guid: 30b921b3854353843a5321923c1a3dcd, type: 3}

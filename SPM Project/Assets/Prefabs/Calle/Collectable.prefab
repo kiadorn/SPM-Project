@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426261956291154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -179.1079, y: 55.919197, z: 0}
+  m_LocalPosition: {x: -196.34244, y: 17.759424, z: 0}
   m_LocalScale: {x: 4.84, y: 4.92, z: 2.63}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,7 +136,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpSounds:
-  - {fileID: 8300000, guid: 16d7f162320c5f14faff8cbbb78f6a12, type: 3}
+  - {fileID: 8300000, guid: c70442c3206c5124a9822f8fbd79ff3b, type: 3}
 --- !u!212 &212519076875331432
 SpriteRenderer:
   m_ObjectHideFlags: 1

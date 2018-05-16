@@ -63,8 +63,14 @@ public class GroundState : State{
 		_controller.Velocity.y = JumpVelocity.Max;
 		_jumps--;
 		_controller.sources [1].Stop ();
-		_controller.sources [0].clip = _controller.Jump;
+		int length = _controller.Jump.Length;
+		int replace = Random.Range (0, (length - 1));
+		_controller.sources [0].clip = _controller.Jump[replace];
 		_controller.sources [0].Play ();
+		_controller.JumpJustPlayed = _controller.Jump [replace];
+		_controller.Jump [replace] = _controller.Jump [length - 1];
+		_controller.Jump [length - 1] = _controller.JumpJustPlayed;
+
 		_controller.GetState<AirState>().CanCancelJump = true;
 		if(!(_controller.CurrentState is AirState)) _controller.TransitionTo<AirState>();
 	}

@@ -17,8 +17,10 @@ public class PatrolEnemyController : Controller
     [Header("Audio Clips")]
     [ReadOnly] public AudioSource[] source;
     public AudioClip Skitter;
-    public AudioClip Alerted;
+    public AudioClip [] Alerted;
+	[ReadOnlyAttribute] public AudioClip AlertedLastPlayed;
 	public AudioClip [] PlayerCollision;
+	[ReadOnlyAttribute] public AudioClip PlayerCollisionLastPlayed;
     public AudioClip [] Death;
     public float waitBeforeDeath = 3f;
     [Header("Health")]

@@ -2264,6 +2264,11 @@ Prefab:
       propertyPath: m_Name
       value: CheckPoint (-1)
       objectReference: {fileID: 0}
+    - target: {fileID: 82504893302313916, guid: 6075251954ff5c2418dbe0425455bc38,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
   m_IsPrefabParent: 0
@@ -9271,11 +9276,6 @@ Prefab:
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 973408410}
-    - target: {fileID: 108722903732772462, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: m_Shadows.m_Type
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
   m_IsPrefabParent: 0
