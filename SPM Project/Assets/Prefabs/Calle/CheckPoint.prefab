@@ -68,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707431197270178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.58, y: -10.004246, z: 0.328125}
-  m_LocalScale: {x: 1, y: 4, z: 1}
+  m_LocalPosition: {x: -201.9, y: -85.7, z: 0.32550076}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 4195668060196468}
   m_Father: {fileID: 0}
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020026803, y: 0.85}
+  m_Offset: {x: 0.8669863, y: 1.7204792}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.88, y: 2.96}
+  m_Size: {x: 4.5739193, y: 4.7009587}
   m_EdgeRadius: 0
 --- !u!114 &114310235743184382
 MonoBehaviour:
@@ -174,21 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Latest: 1
   Stats: {fileID: 0}
-  ObjectsToReset:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ObjectsToReset: []
 --- !u!198 &198746084152594846
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -249,7 +235,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1192627972
+  randomSeed: 2126408739
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2769,7 +2755,7 @@ ParticleSystem:
       properties: 0
   LightsModule:
     enabled: 0
-    ratio: 0
+    ratio: 0.1
     light: {fileID: 0}
     randomDistribution: 1
     color: 1

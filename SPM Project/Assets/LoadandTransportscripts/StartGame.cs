@@ -6,14 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
     public bool loadgame;
-	// Use this for initialization
-	void Start () {
-	}
+    public FadeBlackScreen BlackScreen;
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
    public void loadOnClick()
     {
         if (loadgame == true)
@@ -21,7 +15,7 @@ public class StartGame : MonoBehaviour {
             GameManager.LoadPlayer();
         }
         GameManager.SavePlayer();
-        SceneManager.LoadScene("Hub");
+        BlackScreen.StartFadeIn("Hub");
     }
 
     public void QuitGame(){

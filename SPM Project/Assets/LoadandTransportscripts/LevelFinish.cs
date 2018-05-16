@@ -9,6 +9,7 @@ public class LevelFinish : MonoBehaviour
     public string leveltoload;
     public bool level1finish;
     public bool level2finish;
+    public FadeBlackScreen BlackScreen;
     private void OnTriggerEnter2D(Collider2D lookforplayer)
     {
         if (lookforplayer.gameObject.tag == "Player")
@@ -28,8 +29,7 @@ public class LevelFinish : MonoBehaviour
                 GameManager.SavePlayer();
 
             }
-            SceneManager.LoadScene(leveltoload);
-
+            BlackScreen.StartFadeIn(leveltoload);
 
         }
     }

@@ -18,6 +18,7 @@ public class LevelIntroController : MonoBehaviour {
     AsyncOperation asyncLoad;
 
     void Start () {
+        StartCoroutine(FadeOut());
         StartCoroutine(Cinematic());
         StartCoroutine(SkipTextAnimation());
 	}
@@ -55,6 +56,16 @@ public class LevelIntroController : MonoBehaviour {
             yield return null;
         }
         asyncLoad.allowSceneActivation = true;
+        yield return 0;
+    }
+
+    IEnumerator FadeOut()
+    {
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        {
+            BlackScreen.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
         yield return 0;
     }
 

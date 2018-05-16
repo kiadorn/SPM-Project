@@ -6,6 +6,7 @@ using UnityEngine;
 public class Loading : MonoBehaviour {
     public string leveltoload;
     public string portalName;
+    public FadeBlackScreen BlackScreen;
     private void Start()
     {
         if (GameManager.instance.Level1Done == false && portalName == "portal2") {
@@ -21,16 +22,9 @@ public class Loading : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D lookforplayer)
     {
         if(lookforplayer.gameObject.tag == "Player")
-            {
-
-                SceneManager.LoadScene(leveltoload);
-                
-            
-                GameManager.instance.HealthPoints = 2;
-                
-
-            
-
+        {
+            BlackScreen.StartFadeIn(leveltoload);
+            GameManager.instance.HealthPoints = 2;
         }
     }
  

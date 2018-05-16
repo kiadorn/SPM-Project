@@ -769,6 +769,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f290a892adc66e449238ab13fe6339b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &70399847 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114241999306477502, guid: f948825038ac2e14a8a3d94c441eb9c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 973408407}
+  m_Script: {fileID: 11500000, guid: 748c4705588f3a04eb43f301a0c08cb7, type: 3}
 --- !u!4 &78766649 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4601959357469500, guid: 9df43b8dafdaadb42b10fe93e6a3bebc,
@@ -1021,7 +1027,7 @@ Prefab:
         type: 2}
       propertyPath: ObjectsToReset.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1390945183}
     - target: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
         type: 2}
       propertyPath: ObjectsToReset.Array.data[2]
@@ -2070,38 +2076,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 23974626598178950, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650301979213956, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1707431197270178, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
       propertyPath: m_Name
       value: CheckPoint (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 61789556500762526, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 1.7204792
-      objectReference: {fileID: 0}
-    - target: {fileID: 61789556500762526, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 4.7009587
-      objectReference: {fileID: 0}
-    - target: {fileID: 61789556500762526, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 0.8669863
-      objectReference: {fileID: 0}
-    - target: {fileID: 61789556500762526, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 4.5739193
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
@@ -2278,46 +2255,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23974626598178950, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650301979213956, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707431197270178, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
-      propertyPath: m_Name
-      value: CheckPoint (-1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1239879026115674, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198746084152594846, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: LightsModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198746084152594846, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1192627972
-      objectReference: {fileID: 0}
-    - target: {fileID: 4195668060196468, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 198746084152594846, guid: 6075251954ff5c2418dbe0425455bc38,
         type: 2}
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 1743646539}
-    - target: {fileID: 198746084152594846, guid: 6075251954ff5c2418dbe0425455bc38,
-        type: 2}
-      propertyPath: LightsModule.ratio
-      value: 0.1
+    - target: {fileID: 1707431197270178, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
+      propertyPath: m_Name
+      value: CheckPoint (-1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
@@ -6140,6 +6085,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 300132595}
     m_Modifications:
+    - target: {fileID: 114310235743184382, guid: 6075251954ff5c2418dbe0425455bc38,
+        type: 2}
+      propertyPath: ObjectsToReset.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4650301979213956, guid: 6075251954ff5c2418dbe0425455bc38, type: 2}
       propertyPath: m_LocalPosition.x
       value: -86.9
@@ -9448,7 +9398,6 @@ GameObject:
   - component: {fileID: 920928196}
   - component: {fileID: 920928195}
   - component: {fileID: 920928194}
-  - component: {fileID: 920928202}
   m_Layer: 0
   m_Name: Camera Level 1
   m_TagString: MainCamera
@@ -9758,40 +9707,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &920928202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920928192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1eca57db7d394266ae024997acf4456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pc2D: {fileID: 1178331209}
-  TransitionShaderEnter: 0
-  DurationEnter: 0.5
-  DelayEnter: 0
-  EaseTypeEnter: 1
-  BackgroundColorEnter: {r: 0, g: 0, b: 0, a: 1}
-  SideEnter: 0
-  DirectionEnter: 0
-  BlindsEnter: 16
-  TextureEnter: {fileID: 0}
-  TextureSmoothingEnter: 0.2
-  TransitionShaderExit: 0
-  DurationExit: 0.5
-  DelayExit: 0
-  EaseTypeExit: 1
-  BackgroundColorExit: {r: 0, g: 0, b: 0, a: 1}
-  SideExit: 0
-  DirectionExit: 0
-  BlindsExit: 16
-  TextureExit: {fileID: 0}
-  TextureSmoothingExit: 0.2
-  StartSceneOnEnterState: 1
-  UseRealtime: 1
 --- !u!1001 &921027302
 Prefab:
   m_ObjectHideFlags: 0
@@ -9830,6 +9745,16 @@ Prefab:
     - target: {fileID: 4762608891013370, guid: dcc28985207a51149b9186348365b2f4, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916912816234912, guid: dcc28985207a51149b9186348365b2f4,
+        type: 2}
+      propertyPath: HealthPoints
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916912816234912, guid: dcc28985207a51149b9186348365b2f4,
+        type: 2}
+      propertyPath: Currency
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcc28985207a51149b9186348365b2f4, type: 2}
@@ -10198,18 +10123,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953215184012144, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082274473915076, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389190010039262, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f948825038ac2e14a8a3d94c441eb9c8, type: 2}
@@ -13981,6 +13894,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27e6c132d4e3f134180d51ac01a75406, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1390945183 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1024772898776954, guid: ab533d117df979140bb05828713adc98,
+    type: 2}
+  m_PrefabInternal: {fileID: 1575322543}
 --- !u!1001 &1395192316
 Prefab:
   m_ObjectHideFlags: 0
@@ -15813,6 +15731,11 @@ Prefab:
       propertyPath: leveltoload
       value: Level2Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 114575016179289140, guid: f8c30506a735d744e96853c020083e21,
+        type: 2}
+      propertyPath: BlackScreen
+      value: 
+      objectReference: {fileID: 70399847}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8c30506a735d744e96853c020083e21, type: 2}
   m_IsPrefabParent: 0
