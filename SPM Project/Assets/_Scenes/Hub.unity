@@ -348,7 +348,7 @@ Prefab:
     - target: {fileID: 114449474151170306, guid: fe6e1392171144a44aae398725bae72d,
         type: 2}
       propertyPath: leveltoload
-      value: NewLevel2
+      value: Level2Intro
       objectReference: {fileID: 0}
     - target: {fileID: 1072596841015356, guid: fe6e1392171144a44aae398725bae72d, type: 2}
       propertyPath: m_Name
@@ -738,7 +738,7 @@ Prefab:
     - target: {fileID: 114449474151170306, guid: fe6e1392171144a44aae398725bae72d,
         type: 2}
       propertyPath: leveltoload
-      value: NewLevel1
+      value: Level1Intro
       objectReference: {fileID: 0}
     - target: {fileID: 23422696771888192, guid: fe6e1392171144a44aae398725bae72d,
         type: 2}
@@ -799,7 +799,7 @@ Prefab:
     - target: {fileID: 114449474151170306, guid: fe6e1392171144a44aae398725bae72d,
         type: 2}
       propertyPath: leveltoload
-      value: BossLevel
+      value: LevelBossIntro
       objectReference: {fileID: 0}
     - target: {fileID: 1072596841015356, guid: fe6e1392171144a44aae398725bae72d, type: 2}
       propertyPath: m_Name

@@ -33,7 +33,7 @@ public class PauseScript : MonoBehaviour {
         if (player.CurrentState is WallState || player.CurrentState is GroundState || player.CurrentState is AirState) {
             player.TransitionTo<AirState>();
         }
-        this.gameObject.SetActive(true);
+        gameObject.SetActive(true);
         DefaultMenu.SetActive(true);
         quitConfirmPane.SetActive(false);
     }
@@ -47,12 +47,12 @@ public class PauseScript : MonoBehaviour {
             player.TransitionTo<AirState>();
         }
         quitConfirmPane.SetActive(false);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
 	}
 
 	public void QuitApplicationFromPauseScreen(){
         ResumeTime();
-        SceneManager.LoadScene("Hub");
+        SceneManager.LoadScene("MainMenu");
         //Application.Quit ();
     }
 }

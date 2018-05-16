@@ -24,7 +24,7 @@ public class LevelIntroController : MonoBehaviour {
 
     void Update() {
         if (Input.GetButtonDown("Pause")) {
-            asyncLoad.allowSceneActivation = true;
+            StartCoroutine(LoadScene());
         }
     }
 	
@@ -38,28 +38,33 @@ public class LevelIntroController : MonoBehaviour {
                 Screens[i + 1].SetActive(true);
             }
         }
-        for (float i = 0; i <= 1; i += Time.deltaTime) {
-            BlackScreen.color = new Color(0, 0, 0, i);
-            yield return null;
-        }
-
-
+        StartCoroutine(LoadScene());
         //yield return new WaitForSeconds(Screen1Time);         //Hårdkodning
         //Screen1Object.SetActive(false);
         //yield return new WaitForSeconds(Screen2Time);
         //Screen2Object.SetActive(false);
         //yield return new WaitForSeconds(Screen3Time);
+        yield return 0;
+    }
+
+    IEnumerator LoadScene()
+    {
+        for (float i = 0; i <= 1; i += Time.deltaTime)
+        {
+            BlackScreen.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
         asyncLoad.allowSceneActivation = true;
         yield return 0;
     }
 
     public IEnumerator SkipTextAnimation() {
         for (float i = 1; i >= 0; i -= Time.deltaTime) {
-            SkipText.color = new Color(0, 0, 0, i);
+            SkipText.color = new Color(1, 1, 1, i);
             yield return null;
         }
         for (float i = 0; i <= 1; i += Time.deltaTime) {
-            SkipText.color = new Color(0, 0, 0, i);
+            SkipText.color = new Color(1, 1, 1, i);
             yield return null;
         }
         StartCoroutine(SkipTextAnimation());
