@@ -13,8 +13,11 @@ public class CameraShake : MonoBehaviour {
 
     //Audio
     private static AudioSource source;
+    private static AudioClip[] ShakeSound;
+    private static AudioClip ShakeSoundLastPlayed;
     [Header("AudioClips")]
-    public AudioClip[] Shake;
+    public AudioClip[] ShakeSounds;
+    //[ReadOnly] public AudioClip ShakeSoundsLastPlayed;
 
     private static float _intensity;
 
@@ -38,16 +41,27 @@ public class CameraShake : MonoBehaviour {
     public static void AddIntensity(float intensity)
     {
         _intensity += intensity;
-        if (!source.isPlaying)
-        {
-            source.Play();
-        }
-
+        RandomSound();
     }
 
     void Start()
     {
+        int length = ShakeSounds.Length;
+        AudioClip[] shakeCopy = new AudioClip[length];
+        ShakeSound = shakeCopy;
         source = GetComponent<AudioSource>();
-        source.clip = Shake[Random.Range(0, Shake.Length)];
+        for (int i = (ShakeSounds.Length - 1); i >= 0; i--) {
+            ShakeSound[i] = ShakeSounds[i];
+        }
+    }
+
+    public static void RandomSound() {
+        int length = ShakeSound.Length;
+        int replace = Random.Range(0, (length - 1));
+        source.clip = ShakeSound[replace];
+        source.Play();
+        ShakeSoundLastPlayed = ShakeSound[replace];
+        ShakeSound[replace] = ShakeSound[length - 1];
+        ShakeSound[length - 1] = ShakeSoundLastPlayed;
     }
 }

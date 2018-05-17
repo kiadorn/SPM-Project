@@ -13,16 +13,17 @@ public class Hazard : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-			if (!SpikeHit.GetComponent<SpikeHit> ().played) {
+            SpikeHit.GetComponent<SpikeHit>().played = false;
+            if (!SpikeHit.GetComponent<SpikeHit> ().played) {
 				SpikeHit.GetComponent<SpikeHit> ().PlayImpact ();
-			}
+                SpikeHit.GetComponent<SpikeHit>().played = true;
+            }
 			collision.gameObject.GetComponent<PlayerStats>().ChangeHealth(-1 * damageValue);
-
         }
     }
 
 	public void Start(){
 		SpikeHit = GameObject.Find ("SpikeHitSound");
-	}
+    }
 
 }
