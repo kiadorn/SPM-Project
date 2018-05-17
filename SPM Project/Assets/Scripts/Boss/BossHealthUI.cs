@@ -24,10 +24,12 @@ public class BossHealthUI : MonoBehaviour {
             timer += Time.deltaTime;
 
             lerpedHealth = Mathf.Lerp(currentHealth, targetHealth, timer * lerpSpeed);
-
         }
-
-       // else currentHealth = targetHealth;
+        else timer = 0;
+        if (HealthBar.value == targetHealth)
+        {
+            currentHealth = targetHealth;
+        }
         
     }
     private float CalculateHealth()
@@ -44,21 +46,25 @@ public class BossHealthUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         enableHealthBar();
-        if (Hand.active == true)
+        if (Hand.active)
         {
             CalculateHealth();
             lerpHealth();
             HealthUpdate();
         }
+        lerpHealth();
+        HealthUpdate();
+
+
         Debug.Log(HealthBar.value);
 	}
     public void enableHealthBar()
     {
-        if (Hand.active == true)
+        if (Hand.active)
         {
             bar.SetActive(true);
         }
-        else bar.SetActive(false);
+        //else bar.SetActive(false);
         
     }
 }

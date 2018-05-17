@@ -4612,10 +4612,10 @@ MonoBehaviour:
   Hand: {fileID: 101835605}
   HealthBar: {fileID: 1937825545}
   bar: {fileID: 1937825543}
-  lerpSpeed: 0.1
+  lerpSpeed: 0.5
   lerpedHealth: 0
   targetHealth: 6
-  timething: 0
+  timer: 1
 --- !u!114 &2022913030
 MonoBehaviour:
   m_ObjectHideFlags: 0
