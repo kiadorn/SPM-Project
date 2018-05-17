@@ -35,14 +35,15 @@ public class WallState : State
 	private void UpdateInput()
 	{
 		
-		float input = Input.GetAxisRaw ("Horizontal");
-		if (Mathf.Abs (input) < _controller.InputMagnitudeToMove) {
+		float inputV = Input.GetAxisRaw("Vertical");
+		float inputH = Input.GetAxisRaw("Horizontal");
+		if (inputV >= 0f) {
 			_inputDirection = Vector2.zero;
 		} else {
-			if (input > 0.0f) {
+			if (Physics2D.Raycast(this.transform.position, Vector2.right, 1f) && inputV <= 0.1f && inputH <= 0f) {
+				_inputDirection = Vector2.left;
+			}else if(inputV <= 0.1f && inputH >= 0f){
 				_inputDirection = Vector2.right;
-			} else {
-				_inputDirection = -Vector2.right;
 			}
 		}
 	}

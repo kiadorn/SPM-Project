@@ -10,8 +10,6 @@ public class PlayerAttack : MonoBehaviour {
 	public GameObject spriteObject; //Testrad ta bort när spelaren har animation
 
 	private Transform spriteTransform; //Testrad ta bort när spelaren har animation
-	private Color originalColor; //Testrad ta bort när spelaren har animation
-
 	private AudioSource source;
 	[Header("AudioClips")]
 	public AudioClip Swing;
@@ -19,7 +17,6 @@ public class PlayerAttack : MonoBehaviour {
 	void Start () {
 		attackTimeStamp = attackCooldown;
 		attackArc = this.GetComponent<BoxCollider2D>();
-		originalColor = spriteObject.GetComponent<SpriteRenderer> ().color; //Testrad ta bort när spelaren har animation
 		source = GetComponent<AudioSource>();
 	}
 
@@ -29,21 +26,19 @@ public class PlayerAttack : MonoBehaviour {
 
 		if (attackTimeStamp <= attackCooldown) {
 			attackTimeStamp += Time.deltaTime;
-			spriteObject.GetComponent<SpriteRenderer> ().color = Color.red;  //Testrad ta bort när spelaren har animation
-		} else {
-			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
 		}
-		this.GetComponent<SpriteRenderer> ().enabled = false;
-        if ((Input.GetButtonDown("Fire1") || Input.GetAxis("Fire1") != 0) && attackTimeStamp >= attackCooldown) {
+		if (Input.GetButtonDown ("Fire1") && attackTimeStamp >= attackCooldown) {
 			attackArc.enabled = true;
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 			attackTimeStamp = 0;
 			source.clip = Swing;
 			source.Play ();
-			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
+		} else {
+			this.GetComponent<SpriteRenderer> ().enabled = false;
 		}
 		
 	}
+
 	//När spelkaraktären har en sprite och storlek måste 1.5f ändras till något mer passande värde. Nuvarande värde är endast temporärt för testning.
 	private void UpdateColliderPosition(){
 		if(attackArc.enabled == true){
@@ -58,6 +53,7 @@ public class PlayerAttack : MonoBehaviour {
 			return;
 		}
 	}
+
 	//Kallar på metoder för varje object i attackArc collidern när den aktiveras.
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Enemy"){

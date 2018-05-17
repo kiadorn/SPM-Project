@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 50528511574632420}
   - component: {fileID: 82758582937227324}
   - component: {fileID: 82705116522450428}
+  - component: {fileID: 95469791761321630}
   m_Layer: 0
   m_Name: PatrolEnemy
   m_TagString: Enemy
@@ -308,6 +309,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95469791761321630
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212584177637970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56d6c1c0f8870aa488d2227e3119b989, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114469058253466944
 MonoBehaviour:
   m_ObjectHideFlags: 1

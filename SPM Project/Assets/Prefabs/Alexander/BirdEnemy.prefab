@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 82617955699528488}
   - component: {fileID: 82189677507160440}
   - component: {fileID: 82416848160931782}
+  - component: {fileID: 95688415177048740}
   m_Layer: 0
   m_Name: BirdEnemyUnit
   m_TagString: Untagged
@@ -566,6 +567,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95688415177048740
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048401615375352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114479001477994634
 MonoBehaviour:
   m_ObjectHideFlags: 1

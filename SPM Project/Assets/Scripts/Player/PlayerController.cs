@@ -36,10 +36,6 @@ public class PlayerController : Controller{
 		if (Input.GetKeyDown (KeyCode.R)) {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
 		if(Input.GetAxisRaw("Horizontal") > 0){
 			lastXDir = 1f;
 		}else if(Input.GetAxisRaw("Horizontal") < 0){
