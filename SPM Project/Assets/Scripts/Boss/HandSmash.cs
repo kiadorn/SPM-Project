@@ -33,6 +33,11 @@ public class HandSmash : MonoBehaviour {
     private float resetTimer;
     [Header("First Attack Timer")]
     public float TimeBeforeFirstAttack;
+    [Header("Audio")]
+    public AudioClip [] SmashSound;
+    [ReadOnly] public AudioClip SmashSoundLastPlayed;
+    private AudioSource source;
+
 
     private bool smashing;
 

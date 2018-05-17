@@ -7,6 +7,7 @@ public class BossStage4 : State {
 
     private BossController _controller;
     private GameObject hand;
+    private GameObject BossHit;
 
     public float Stage4FollowSpeed;
     public float Stage4AttackCooldown;
@@ -18,6 +19,7 @@ public class BossStage4 : State {
 
     private float timer;
     private bool defeatedHand;
+    private bool audioPlayed = false;
 
     public override void Initialize(Controller owner) {
         _controller = (BossController)owner;
@@ -26,6 +28,7 @@ public class BossStage4 : State {
 
     public override void Enter() {
         timer = 0;
+        BossHit = GameObject.Find("BossGetHit");
         hand.SetActive(true);
         hand.GetComponent<HandSmash>().followSpeed = Stage4FollowSpeed;
         hand.GetComponent<HandSmash>().AttackCooldown = Stage4AttackCooldown;
@@ -64,10 +67,13 @@ public class BossStage4 : State {
             defeatedHand = true;
             hand.SetActive(false);
             timer += Time.deltaTime;
+            if (!audioPlayed) BossHit.GetComponent<BossHitSound>().Die();
+            audioPlayed = true;
             if (timer > Stage4RestTimer)
             {
                 hand.GetComponent<HandSmash>().CurrentHealth = HandHealth;
                 hand.SetActive(true);
+                audioPlayed = false;
                 timer = 0;
             }
         }
