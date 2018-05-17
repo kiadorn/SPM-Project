@@ -7,24 +7,50 @@ public class BossHealthUI : MonoBehaviour {
 
     public GameObject Hand;
     public Slider HealthBar;
-    private int currentHealth;
+    private float currentHealth;
     public GameObject bar;
+    public float lerpSpeed;
+    public float lerpedHealth;
+    public float targetHealth;
+    public float timething;
     // Use this for initialization
 	void Start () {
+        currentHealth = 6;
 	}
+    private void lerpHealth()
+    {
+        if (HealthBar.value != targetHealth)
+        {
+            timething += Time.deltaTime;
+
+            lerpedHealth = Mathf.Lerp(currentHealth, targetHealth, timething * lerpSpeed);
+
+        }
+
+       // else currentHealth = targetHealth;
+        
+    }
     private float CalculateHealth()
     {
-        currentHealth = Hand.gameObject.GetComponent<HandSmash>().CurrentHealth;
-        return currentHealth;
+        targetHealth = Hand.gameObject.GetComponent<HandSmash>().CurrentHealth;
+
+        return targetHealth;
     }
 	private void HealthUpdate()
     {
-        HealthBar.value = CalculateHealth();
+        
+        HealthBar.value = lerpedHealth;
     }
 	// Update is called once per frame
 	void Update () {
-        HealthUpdate();
         enableHealthBar();
+        if (Hand.active == true)
+        {
+            CalculateHealth();
+            lerpHealth();
+            HealthUpdate();
+        }
+        Debug.Log(HealthBar.value);
 	}
     public void enableHealthBar()
     {
