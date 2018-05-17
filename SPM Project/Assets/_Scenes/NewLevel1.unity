@@ -8989,7 +8989,8 @@ Prefab:
       propertyPath: Focus
       value: 
       objectReference: {fileID: 472014865}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114949254538271024, guid: dfda87f00801b2b478d7c399be4a12f8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: dfda87f00801b2b478d7c399be4a12f8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &848556798

@@ -41,7 +41,7 @@ public class CameraFocusByHit : MonoBehaviour {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         if (!DontDisableObject)
         {
-            CameraShake.AddIntensity(1);
+            CameraShake.AddIntensity(0.5f);
             StartCoroutine(WaitForDisable());
         }
     }

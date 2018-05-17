@@ -45,6 +45,7 @@ public class BossController : Controller {
                 BossRoom.transform.Rotate(new Vector3(0, 0, direction * angleSpeed));
             } else
             {
+                BossRoom.transform.rotation = q;
                 done = true;
             }
         } else if (direction <= -1)
@@ -55,9 +56,13 @@ public class BossController : Controller {
                 BossRoom.transform.Rotate(new Vector3(0, 0, direction * angleSpeed));
             } else
             {
+                BossRoom.transform.rotation = q;
                 done = true;
+                
             }
         }
+
+
     }
 
 }

@@ -15,7 +15,7 @@ public class BossStage4Intro : State
     public override void Update()
     {
         //Gör minus ett till höger
-        _controller.RotateBossRoom(-89, -1);
+        _controller.RotateBossRoom(-90, -1);
         if (_controller.done)
         {
             _controller.done = false;

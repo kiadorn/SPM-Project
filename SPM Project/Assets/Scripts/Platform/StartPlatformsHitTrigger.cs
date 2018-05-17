@@ -13,6 +13,7 @@ public class StartPlatformsHitTrigger : MonoBehaviour {
             mo.enabled = true;
 			obtain.GetComponent<ObjectObtain> ().StartTrigger ();
         }
+        CameraShake.AddIntensity(0.75f);
     }
 
 	void Start(){

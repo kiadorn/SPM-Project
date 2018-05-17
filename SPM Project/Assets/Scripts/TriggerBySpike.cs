@@ -53,7 +53,7 @@ public class TriggerBySpike : MonoBehaviour {
 
     private void Extreme()
     {
-        CameraShake.AddIntensity(20);
+        CameraShake.AddIntensity(1);
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().CurrentState is AirState)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<HurtState>();
@@ -68,7 +68,7 @@ public class TriggerBySpike : MonoBehaviour {
             //transform.parent.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
             _moveDoor = true;
             Aksjuk = true;
-            CameraShake.AddIntensity(3);
+            CameraShake.AddIntensity(1);
             foreach (MovePlatformAuto mo in platformScripts) {
 				mo.enabled = true;
 				obtain.GetComponent<ObjectObtain> ().StartTrigger ();

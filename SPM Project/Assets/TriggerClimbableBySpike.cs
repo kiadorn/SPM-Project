@@ -16,7 +16,7 @@ public class TriggerClimbableBySpike : MonoBehaviour {
 			source.Play ();
 			GameObject.Find("ChangeToClimb").tag = "Untagged";
             GameObject.Find("ChangeToClimb").GetComponent<Renderer>().material = ChangeMaterial;
-            CameraShake.AddIntensity(3);
+            CameraShake.AddIntensity(1);
         }
 	}
 

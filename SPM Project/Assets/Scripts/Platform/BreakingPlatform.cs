@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakingPlatform : MonoBehaviour {
-    public float ColapseTime = 3f;
+    public float CollapseTime = 3f;
     public float ResetTime = 5f;
 
     private MeshRenderer _renderer;
@@ -32,9 +32,9 @@ public class BreakingPlatform : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
     }
 
-    private IEnumerator Colapse(float colapseTime, float resetTime) {
+    private IEnumerator Collapse(float collapseTime, float resetTime) {
         _collapsing = true;
-        yield return new WaitForSeconds(colapseTime);
+        yield return new WaitForSeconds(collapseTime);
         _collider.enabled = false;
         _renderer.enabled = false;
 		source.clip = breaking;
@@ -49,7 +49,7 @@ public class BreakingPlatform : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.tag == "Player" && !_collapsing) {
-            StartCoroutine(Colapse(ColapseTime, ResetTime));
+            StartCoroutine(Collapse(CollapseTime, ResetTime));
         }
     }
 }
