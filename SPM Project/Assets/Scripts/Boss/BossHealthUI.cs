@@ -12,7 +12,7 @@ public class BossHealthUI : MonoBehaviour {
     public float lerpSpeed;
     public float lerpedHealth;
     public float targetHealth;
-    public float timething;
+    public float timer;
     // Use this for initialization
 	void Start () {
         currentHealth = 6;
@@ -21,9 +21,9 @@ public class BossHealthUI : MonoBehaviour {
     {
         if (HealthBar.value != targetHealth)
         {
-            timething += Time.deltaTime;
+            timer += Time.deltaTime;
 
-            lerpedHealth = Mathf.Lerp(currentHealth, targetHealth, timething * lerpSpeed);
+            lerpedHealth = Mathf.Lerp(currentHealth, targetHealth, timer * lerpSpeed);
 
         }
 
