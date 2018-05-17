@@ -35,6 +35,8 @@ public class HandSmash : MonoBehaviour {
     public float TimeBeforeFirstAttack;
 
     private bool smashing;
+    private bool randoming = true;
+    private int lastRandom = -1;
 
     private void Awake() {
         CurrentHealth = StartingHealth;
@@ -96,12 +98,30 @@ public class HandSmash : MonoBehaviour {
         }
     }
 
+    private void RotateHand()
+    {
+        int rotateModifier = 1;
+        randoming = true;
+        while (randoming)
+        {
+            rotateModifier = Random.Range(1, 5);
+            if (rotateModifier != lastRandom)
+            {
+                lastRandom = rotateModifier;
+                randoming = false;
+            }
+        }
+        Quaternion q = Quaternion.Euler(0, 0, 45+(rotateModifier * 90));
+        transform.rotation = q;
+    }
+
     private void Cooldown()
     {
         _cooldownTimer += Time.deltaTime;
         if(_cooldownTimer > AttackCooldown) {
             _canAttack = true;
             _cooldownTimer = 0;
+            RotateHand();
         }
     }
 

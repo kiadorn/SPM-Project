@@ -17,7 +17,6 @@ public class HandDamage : MonoBehaviour {
             collision.gameObject.GetComponent<PlayerController>().TransitionTo<HurtState>();
 
             stats.ChangeHealth(-1);
-
         }
     }
 
@@ -43,19 +42,5 @@ public class HandDamage : MonoBehaviour {
         HealthInfo.hand.GetComponent<SpriteRenderer>().color = Color.white;
         yield return 0;
 
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown("v"))
-        {
-            TakeDamage();
-        } else if (Input.GetKeyDown("1")) {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<PauseNoVelocityState>();
-
-        } else if (Input.GetKeyDown("2")) {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TransitionTo<AirState>();
-
-        }
     }
 }

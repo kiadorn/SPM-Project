@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakingPlatform : MonoBehaviour {
-    public float CollapseTime = 3f;
-    public float ResetTime = 5f;
+    public float CollapseTime;
+    public float ResetTime;
+    public float fadeOutTime;
+    public float fadeInTime;
 
-    private MeshRenderer _renderer;
+    private SpriteRenderer _renderer;
     private Collider2D _collider;
     private bool _collapsing = false;
 
@@ -18,7 +20,7 @@ public class BreakingPlatform : MonoBehaviour {
     private Vector3 OGPos;
 
     void Awake() {
-        _renderer = GetComponent<MeshRenderer>();
+        _renderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         OGPos = transform.position;
     }
@@ -26,7 +28,7 @@ public class BreakingPlatform : MonoBehaviour {
     // Update is called once per frame
     void OnEnable () {
         transform.position = OGPos;
-        _renderer.enabled = true;
+        _renderer.color = new Color(1, 1, 1, 1);
         _collider.enabled = true;
         _collapsing = false;
 		source = GetComponent<AudioSource> ();
@@ -35,16 +37,31 @@ public class BreakingPlatform : MonoBehaviour {
     private IEnumerator Collapse(float collapseTime, float resetTime) {
         _collapsing = true;
         yield return new WaitForSeconds(collapseTime);
+        Debug.Log("Börjar breaking");
+        source.clip = breaking;
+        source.Play();
+        for (float i = 1; i >= 0; i -= (1/ fadeOutTime) * Time.deltaTime)
+        {
+            _renderer.color = new Color(1, 1, 1, i);
+            Debug.Log(i);
+            if (i < 0.1f)
+            {
+                _renderer.color = new Color(1, 1, 1, 0);
+                break;
+            }
+            yield return null;
+        }
         _collider.enabled = false;
-        _renderer.enabled = false;
-		source.clip = breaking;
-		source.Play ();
         yield return new WaitForSeconds(resetTime);
-        _renderer.enabled = true;
+        source.clip = rebuilding;
+        source.Play();
+        for (float i = 0; i <= 1; i += (1 / fadeInTime) * Time.deltaTime)
+        {
+            _renderer.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
         _collider.enabled = true;
-        _collapsing = false; 
-		source.clip = rebuilding;
-		source.Play ();
+        _collapsing = false;
     }
 
     private void OnCollisionEnter2D(Collision2D coll) {
