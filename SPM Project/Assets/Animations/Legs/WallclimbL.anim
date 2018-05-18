@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RunningT
+  m_Name: WallclimbL
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,18 +19,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - time: 0.20833333
-      value: {fileID: 21300004, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - time: 0.375
-      value: {fileID: 21300006, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300006, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
+      value: {fileID: 21300018, guid: 6bd34ef154ef762479f80ba3343ad19f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 24
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,16 +39,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300002, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - {fileID: 21300004, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - {fileID: 21300006, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
-    - {fileID: 21300006, guid: b1c721f343817964fba0dcd3383e8b6b, type: 3}
+    - {fileID: 21300018, guid: 6bd34ef154ef762479f80ba3343ad19f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.625
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

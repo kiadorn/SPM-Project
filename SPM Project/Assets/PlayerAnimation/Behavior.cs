@@ -29,7 +29,7 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("IsIdle", false);
             Debug.Log("Hoppar");
         }
-        if (Player.CurrentState is GroundState && Player.Velocity.x >= 0.5 || Player.Velocity.x <= -0.5)
+        if ((Player.CurrentState is GroundState && Player.Velocity.x >= 0.5) || (Player.CurrentState is GroundState && Player.Velocity.x <= -0.5))
         {
             anim.SetBool("RunningState", true);
             anim.SetBool("WallState", false);
@@ -48,9 +48,22 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("RunningState", false);
             anim.SetBool("WallState", false);
             anim.SetBool("JumpingState", false);
-            anim.SetBool("IsIdle", false);
+            anim.SetBool("IsIdle", true);
             Debug.Log("Idle" + Player.CurrentState);
         }
+        if (Player.CurrentState is HurtState)
+        {
+
+        }
+        if (Player.CurrentState is PlayerAttack)
+        {
+
+        }
+        if (Player.GetComponent<PlayerStats>().dead)
+        {
+            anim.SetBool("Dead", true);
+        }
+        else anim.SetBool("Dead", false);
     }
     
     void OnCollisionEnter(Collision col)
