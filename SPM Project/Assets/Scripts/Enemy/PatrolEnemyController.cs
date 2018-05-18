@@ -45,10 +45,10 @@ public class PatrolEnemyController : Controller
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerStats = player.GetComponent<PlayerStats>();
         saveSpeed = speed;
-//		animator = GetComponent <Animator>();  //Används för animatoner
         source = GetComponents<AudioSource>();
         OGPos = transform.position;
         base.Awake();
+		animator = GetComponent<Animator> ();
     }
 
     private void Update()
@@ -57,14 +57,17 @@ public class PatrolEnemyController : Controller
 			time += Time.deltaTime;
 		}
         CurrentState.Update();
-
+		if (CurrentState is PatrolAggressiveState) {
+			animator.SetInteger ("Animation", 1);
+		} else {
+			animator.SetInteger ("Animation", 0);
+		}
     }
 
 	public void TakeDamage(){
 		if (!invulnerable && invulnerableTime >= time) {
 			time = 0;
 			currentHealth -= 1;
-//			animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för skadeanimation.
 			if(currentHealth <= 0){
 				StartCoroutine(OnDeath());
 			}
@@ -78,6 +81,7 @@ public class PatrolEnemyController : Controller
 		source [1].Play ();
         //GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
+<<<<<<< HEAD
         for (float i = 1; i >= 0; i -= 2*Time.deltaTime)
         {
             GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, i);
@@ -90,6 +94,10 @@ public class PatrolEnemyController : Controller
         }
         //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
         yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
+=======
+		animator.SetInteger ("Animation", 2);
+		yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
+>>>>>>> origin/Joakim4
 		gameObject.SetActive(false);
 		yield return 0;
 	}

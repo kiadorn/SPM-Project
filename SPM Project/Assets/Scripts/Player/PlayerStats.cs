@@ -218,7 +218,7 @@ public class PlayerStats : MonoBehaviour {
     public void ObtainSword()
     {
         SwordIcon.SetActive(true);
-        AttackControl.SetActive(true);
+		GetComponentInParent<PlayerAttack> ().attackUnlocked = true;
     }
 
     private void changeDashIcon()

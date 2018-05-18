@@ -40,9 +40,24 @@ public class PlayerController : Controller{
 	private void Update()
 	{
 		CurrentState.Update();
+<<<<<<< HEAD
         MenuInput();
         SetLastXDir();
         MoveDashIndicator();
+=======
+		if (Input.GetKeyDown (KeyCode.R)) {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+		if(Input.GetAxisRaw("Horizontal") > 0){
+			lastXDir = 1f;
+		}else if(Input.GetAxisRaw("Horizontal") < 0){
+			lastXDir = -1f;
+		}
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause)) {
+			pauseScreen.GetComponent<PauseScript>().PauseUnpauseGame ();
+			//player transition till pause state?
+		}
+>>>>>>> origin/Joakim4
 	}
 
 	private void Start(){

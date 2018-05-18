@@ -44,6 +44,7 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 	private bool invulnerable;
 	private float time;
 	private int currentHealth;
+	private Animator animator;
 
 	private void Active(){
 		currentHealth = health;
@@ -52,7 +53,7 @@ public class BirdEnemyBehaviour : MonoBehaviour {
     private void Start()
     {
 		//audio
-//		animator = GetComponent <Animator>();  //Används för animatoner
+		animator = GetComponent <Animator>();  //Används för animatoner
 		source = GetComponents<AudioSource>();
         OGPos = transform.position;
     }
@@ -80,7 +81,6 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 		if (!invulnerable && invulnerableTime >= time) {
 			time = 0;
 			currentHealth -= 1;
-//			animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för skadeanimation.
 			if(currentHealth <= 0){
 				StartCoroutine(OnDeath());
 			}
@@ -90,6 +90,7 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 	}
 
 	private IEnumerator OnDeath(){
+		animator.SetInteger ("Animation", 2);
 		source [0].clip = Death;
 		source [0].Play ();
 		gameObject.SetActive(false);
@@ -102,14 +103,14 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.CompareTag("Player"))
-		{
+		if (collision.gameObject.CompareTag ("Player")) {
 			//audio
-			source[1].clip = Impact[Random.Range(0, Impact.Length)];
-			source[1].Play ();
+
+			source [1].clip = Impact [Random.Range (0, Impact.Length)];
+			source [1].Play ();
 
 			Vector2 dir = collision.transform.position - transform.position;
-			collision.transform.GetComponent<PlayerController>().Velocity = dir.normalized * KnockbackPlayer;
+			collision.transform.GetComponent<PlayerController> ().Velocity = dir.normalized * KnockbackPlayer;
 			beingPushed = true;
 		}
 	}
@@ -139,11 +140,13 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 
             if (_attacking)
             {
+				animator.SetInteger ("Animation", 1);
                 if (AttackSpeed < MaxAttackSpeed) AttackSpeed += Time.deltaTime * AttackAcceleration;
                 transform.position = Vector3.MoveTowards(transform.position, AttackPos, AttackSpeed * Time.deltaTime);
             }
             else
             {
+				animator.SetInteger ("Animation", 0);
                 AttackSpeed = 0;
                 transform.position = Vector3.MoveTowards(transform.position, OGPos, GoingBackSpeed * Time.deltaTime);
             }

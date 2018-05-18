@@ -32,6 +32,7 @@ public class WallState : State
 		transform.position += (Vector3)Velocity * Time.deltaTime;
 		WallJump();
 	}
+<<<<<<< HEAD
 
     private void UpdateInput()
     {
@@ -56,6 +57,24 @@ public class WallState : State
 
 
     private void UpdateCollision()
+=======
+	private void UpdateInput()
+	{
+		
+		float inputV = Input.GetAxisRaw("Vertical");
+		float inputH = Input.GetAxisRaw("Horizontal");
+		if (inputV >= 0f) {
+			_inputDirection = Vector2.zero;
+		} else {
+			if (Physics2D.Raycast(this.transform.position, Vector2.right, 1f) && inputV <= 0.1f && inputH <= 0f) {
+				_inputDirection = Vector2.left;
+			}else if(inputV <= 0.1f && inputH >= 0f){
+				_inputDirection = Vector2.right;
+			}
+		}
+	}
+	private void UpdateCollision()
+>>>>>>> origin/Joakim4
 	{
 		RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position + (Vector3)
 			_controller.Collider.offset, _controller.Collider.size, 0.0f, _inputDirection,
