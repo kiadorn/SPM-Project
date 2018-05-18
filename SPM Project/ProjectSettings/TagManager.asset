@@ -54,3 +54,6 @@ TagManager:
   - name: BehindPlatform
     uniqueID: 1725687515
     locked: 0
+  - name: Torso in front
+    uniqueID: 3840259593
+    locked: 0

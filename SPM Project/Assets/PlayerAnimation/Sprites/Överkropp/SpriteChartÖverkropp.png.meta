@@ -118,7 +118,7 @@ TextureImporter:
         width: 1094
         height: 1182
       alignment: 9
-      pivot: {x: 0.54297566, y: 0.019888166}
+      pivot: {x: 0.5685536, y: 0.019993506}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,7 +174,7 @@ TextureImporter:
         width: 1085
         height: 1155
       alignment: 9
-      pivot: {x: 0.7852773, y: 0.021988299}
+      pivot: {x: 0.84011465, y: 0.030494537}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Attack1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 52
         y: 2565
         width: 2030
         height: 1182
       alignment: 9
-      pivot: {x: 0.2934876, y: 0.019888166}
+      pivot: {x: 0.31930935, y: 0.01655509}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,7 +202,7 @@ TextureImporter:
         width: 2201
         height: 1499
       alignment: 9
-      pivot: {x: 0.27393043, y: 0.22216503}
+      pivot: {x: 0.2902729, y: 0.22720404}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,7 +216,7 @@ TextureImporter:
         width: 2658
         height: 1789
       alignment: 9
-      pivot: {x: 0.22435826, y: 0.2890827}
+      pivot: {x: 0.23526081, y: 0.29026902}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,53 +236,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Death1
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 165
-        width: 1753
-        height: 1749
-      alignment: 9
-      pivot: {x: 0.47094506, y: 0.42562017}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Death2
-      rect:
-        serializedVersion: 2
-        x: 2375
-        y: 178
-        width: 1749
-        height: 1753
-      alignment: 9
-      pivot: {x: 0.46863848, y: 0.44699907}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Death3
-      rect:
-        serializedVersion: 2
-        x: 4513
-        y: 191
-        width: 1751
-        height: 1754
-      alignment: 9
-      pivot: {x: 0.49552488, y: 0.49141848}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: Dmgtaken
       rect:
         serializedVersion: 2
         x: 6594
-        y: 389
+        y: 394
         width: 1037
         height: 1266
       alignment: 9
@@ -300,7 +258,7 @@ TextureImporter:
         width: 1270
         height: 1152
       alignment: 9
-      pivot: {x: 0.73137456, y: 0.027208064}
+      pivot: {x: 0.7152997, y: 0.027208064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
