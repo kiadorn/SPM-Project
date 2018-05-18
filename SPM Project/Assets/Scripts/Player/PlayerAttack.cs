@@ -18,11 +18,8 @@ public class PlayerAttack : MonoBehaviour {
 	[Header("AudioClips")]
 	public AudioClip Swing;
 
-	public override void Initialize(Controller owner){
-		_controller = (PlayerController)owner;
-	}
-
 	void Start () {
+		_controller = GetComponentInParent<PlayerController>();
 		playerControllerScript = GetComponent<PlayerController>();
 		playerCollider = GetComponent<BoxCollider2D>();
 		attackSize = new Vector2 (playerCollider.size.x, playerCollider.size.y);
@@ -32,7 +29,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	void Update (){
 		if ((_controller.CurrentState is WallState)) {
-			xDir = -playerControllerScript.GetLastXDirection ();
+			xDir = playerControllerScript.GetLastXDirection () * -1;
 		} else {
 			xDir = playerControllerScript.GetLastXDirection ();
 		}
