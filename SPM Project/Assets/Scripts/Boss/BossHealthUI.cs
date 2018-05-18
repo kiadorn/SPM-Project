@@ -46,7 +46,7 @@ public class BossHealthUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         enableHealthBar();
-        if (Hand.active)
+        if (Hand.activeSelf)
         {
             CalculateHealth();
             lerpHealth();
@@ -57,7 +57,7 @@ public class BossHealthUI : MonoBehaviour {
 	}
     public void enableHealthBar()
     {
-        if (Hand.active)
+        if (Hand.activeSelf)
         {
             bar.SetActive(true);
         }

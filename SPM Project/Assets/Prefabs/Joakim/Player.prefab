@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4786715273236024}
   - component: {fileID: 96260541543800528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 82614085680747892}
   - component: {fileID: 114952717160300178}
   - component: {fileID: 82115835900317876}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 61151739925990070}
   - component: {fileID: 212123163134877298}
   - component: {fileID: 82522217063414096}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackArc
   m_TagString: UntaggedFromParent
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4672497437326412}
   - component: {fileID: 212393559165285568}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DashIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582536548672588}
   - component: {fileID: 108722903732772462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086368542623914}
   - component: {fileID: 212614325228587446}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4167476520335350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221584985449912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.4, y: -2.260022, z: 0}
+  m_LocalPosition: {x: -21.848852, y: -3.2652297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4086368542623914}
@@ -786,7 +786,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4e4838fc5fcda54596c66ce1ec53a73, type: 2}
   - {fileID: 11400000, guid: 853458abdf323364f9a39e12f3b8b6f6, type: 2}
   CurrentState: {fileID: 0}
-  MaxWallAngleDelta: 90
+  MaxWallAngleDelta: 85
   MaxSpeed: 15
   CollisionLayers:
     serializedVersion: 2

@@ -37,13 +37,11 @@ public class BreakingPlatform : MonoBehaviour {
     private IEnumerator Collapse(float collapseTime, float resetTime) {
         _collapsing = true;
         yield return new WaitForSeconds(collapseTime);
-        Debug.Log("Börjar breaking");
         source.clip = breaking;
         source.Play();
         for (float i = 1; i >= 0; i -= (1/ fadeOutTime) * Time.deltaTime)
         {
             _renderer.color = new Color(1, 1, 1, i);
-            Debug.Log(i);
             if (i < 0.1f)
             {
                 _renderer.color = new Color(1, 1, 1, 0);

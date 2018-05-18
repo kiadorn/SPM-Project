@@ -20,7 +20,8 @@ public class PatrolAggressiveState : State {
 		_controller.source[1].clip = _controller.Alerted;
 		_controller.source[1].Play();
         _controller.speed = _controller.saveSpeed;
-        _controller.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        Color c = _controller.GetComponentInChildren<SpriteRenderer>().color;
+        _controller.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, c.a);
     }
 
     public override void Update()

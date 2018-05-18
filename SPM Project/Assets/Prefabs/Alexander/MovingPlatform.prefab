@@ -362,7 +362,11 @@ MonoBehaviour:
   moveBackSpeed: 2
   waitTime: 2.71
   shouldIMove: 0
+  source: {fileID: 0}
   moving: {fileID: 8300000, guid: 3801360e95e32874ab589844affb7821, type: 3}
+  playArea: 0
+  fadeTime: 1
+  fading: 0
 --- !u!114 &114855244580538622
 MonoBehaviour:
   m_ObjectHideFlags: 1

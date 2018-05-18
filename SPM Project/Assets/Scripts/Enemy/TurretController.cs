@@ -26,6 +26,10 @@ public class TurretController : MonoBehaviour {
     void OnEnable() {
         _shooting = false;
 		currentHealth = originalHeath;
+        Color c = new Color(1, 1, 1, 1);
+        transform.GetChild(1).gameObject.SetActive(true);
+        GetComponentInChildren<SpriteRenderer>().color = c;
+        transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().color = c;
     }
 
     void Update() {
@@ -55,13 +59,21 @@ public class TurretController : MonoBehaviour {
 	private IEnumerator OnDeath(){
 		AI.source[0].clip = AI.Death;
 		AI.source [0].Play();
-		GetComponentInChildren<MeshRenderer> ().enabled = false;
-		transform.GetChild(0).transform.GetChild(0).GetComponent<MeshRenderer> ().enabled = false;
-		GetComponent<BoxCollider2D>().enabled = false;
-//		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
-		yield return new WaitForSeconds(2f); // sätt värde till tiden dödsanimaton tar.
-		this.gameObject.SetActive(false);
-		yield return 0;
+        //GetComponentInChildren<SpriteRenderer> ().enabled = false;
+        //transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer> ().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        transform.GetChild(1).gameObject.SetActive(false);
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        {
+            Color c = new Color(1, 1, 1, i);
+            GetComponentInChildren<SpriteRenderer>().color = c;
+            transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().color = c;
+            yield return null;
+        }
+        //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
+        yield return new WaitForSeconds(1f); // sätt värde till tiden dödsanimaton tar.
+        gameObject.SetActive(false);
+        yield return 0;
 	}
 
 	public void SwitchInvulnerableState(){

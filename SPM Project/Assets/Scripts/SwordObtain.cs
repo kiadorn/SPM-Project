@@ -25,7 +25,7 @@ public class SwordObtain : MonoBehaviour {
             //DoorTrigger.GetComponent<MeshRenderer> ().enabled = true;
             moving = true;
 			ExitTrigger.GetComponent<BoxCollider2D> ().enabled = true;
-			ExitTriggerSprite.GetComponent<MeshRenderer> ().enabled = true;
+			ExitTriggerSprite.GetComponent<SpriteRenderer> ().enabled = true;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<PolygonCollider2D>().enabled = false;
         }

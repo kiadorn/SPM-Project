@@ -32,7 +32,8 @@ public class PatrolEnemyController : Controller
 	private Animator animator;
 
 	private void OnEnable() {
-        GetComponentInChildren<SpriteRenderer>().enabled = true;
+        //GetComponentInChildren<SpriteRenderer>().enabled = true;
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1); ;
         GetComponent<BoxCollider2D>().enabled = true;
         currentHealth = startingHealth;
         transform.position = OGPos;
@@ -75,10 +76,20 @@ public class PatrolEnemyController : Controller
 	private IEnumerator OnDeath(){
 		source [1].clip = Death [Random.Range (0, Death.Length)];
 		source [1].Play ();
-        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        //GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
-//		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
-		yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
+        for (float i = 1; i >= 0; i -= 2*Time.deltaTime)
+        {
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, i);
+            if (i < 0.1f)
+            {
+                GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                break;
+            }
+            yield return null;
+        }
+        //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
+        yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
 		gameObject.SetActive(false);
 		yield return 0;
 	}

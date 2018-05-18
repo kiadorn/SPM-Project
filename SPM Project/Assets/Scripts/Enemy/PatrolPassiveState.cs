@@ -24,7 +24,8 @@ public class PatrolPassiveState : State {
     {
         timer = 0f;
         _controller.speed = _controller.saveSpeed;
-        _controller.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        Color c = _controller.GetComponentInChildren<SpriteRenderer>().color;
+        _controller.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, c.a);
         _controller.source[0].clip = _controller.Skitter;
         _controller.source[0].loop = true;
         _controller.source[0].Play();
