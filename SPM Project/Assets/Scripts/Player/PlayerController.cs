@@ -104,7 +104,7 @@ public class PlayerController : Controller{
             Quaternion targetAngle = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
             centerPoint.transform.rotation = Quaternion.Lerp(currentAngle, targetAngle, dashIndicatorSpeed);
         }
-        if (CurrentState is AirState)
+        if (CurrentState is AirState || CurrentState is WallState)
         {
             if (centerPoint.GetComponentInChildren<SpriteRenderer>().color.a <= 1)
             {

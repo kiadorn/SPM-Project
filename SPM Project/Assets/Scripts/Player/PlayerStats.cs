@@ -148,23 +148,18 @@ public class PlayerStats : MonoBehaviour {
         
     }
 
-    private void UpdateDeaths()
-    {
-        //this.DeathCounterUI.text = manager.GetDeathCounter().ToString();
-    }
-
     private void CheckIfDead()
     {
         if (CurrentHealth < 1)
         {
-            if (!dead) StartCoroutine(DeathTimer());
+            if (!dead)
+            {
+                StartCoroutine(DeathTimer());
+                CurrentHealth = 0;
+            }
 
-            //UpdateDeaths();
         }
-        else
-        {
-            UpdateHealth();
-        }
+        UpdateHealth();
     }
 
 	public IEnumerator DeathTimer() {

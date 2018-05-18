@@ -18,6 +18,7 @@ public class LevelIntroController : MonoBehaviour {
     AsyncOperation asyncLoad;
 
     void Start () {
+
         StartCoroutine(FadeOut());
         StartCoroutine(Cinematic());
         StartCoroutine(SkipTextAnimation());
@@ -34,17 +35,9 @@ public class LevelIntroController : MonoBehaviour {
         asyncLoad.allowSceneActivation = false;
         for(int i = 0; i<Screens.Length; i++) {
             yield return new WaitForSeconds(ScreenTime);
-            if ((i+1 < Screens.Length)) {
-                Screens[i].SetActive(false);
-                Screens[i + 1].SetActive(true);
-            }
+            StartCoroutine(FadeInAndOut(i));
         }
         StartCoroutine(LoadScene());
-        //yield return new WaitForSeconds(Screen1Time);         //Hårdkodning
-        //Screen1Object.SetActive(false);
-        //yield return new WaitForSeconds(Screen2Time);
-        //Screen2Object.SetActive(false);
-        //yield return new WaitForSeconds(Screen3Time);
         yield return 0;
     }
 
@@ -56,6 +49,22 @@ public class LevelIntroController : MonoBehaviour {
             yield return null;
         }
         asyncLoad.allowSceneActivation = true;
+        yield return 0;
+    }
+
+    IEnumerator FadeInAndOut(int image)
+    {
+        for (float i = 0; i <= 1; i += Time.deltaTime)
+        {
+            BlackScreen.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
+        if ((image + 1 < Screens.Length))
+        {
+            Screens[image].SetActive(false);
+            Screens[image + 1].SetActive(true);
+        }
+        StartCoroutine(FadeOut());
         yield return 0;
     }
 
