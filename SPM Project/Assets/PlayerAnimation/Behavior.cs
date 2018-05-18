@@ -27,7 +27,8 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("WallState", false);
             anim.SetBool("JumpingState", true);
             anim.SetBool("IsIdle", false);
-            Debug.Log("Hoppar");
+            anim.SetBool("Dashing", false);
+
         }
         if ((Player.CurrentState is GroundState && Player.Velocity.x >= 0.5) || (Player.CurrentState is GroundState && Player.Velocity.x <= -0.5))
         {
@@ -35,6 +36,8 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("WallState", false);
             anim.SetBool("JumpingState", false);
             anim.SetBool("IsIdle", false);
+            anim.SetBool("Dashing", false);
+
         }
         if (Player.CurrentState is WallState)
         {
@@ -42,6 +45,8 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("WallState", true);
             anim.SetBool("JumpingState", false);
             anim.SetBool("IsIdle", false);
+            anim.SetBool("Dashing", false);
+
         }
         if (Player.CurrentState is GroundState && Player.Velocity.x == 0)
         {
@@ -49,7 +54,17 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("WallState", false);
             anim.SetBool("JumpingState", false);
             anim.SetBool("IsIdle", true);
-            Debug.Log("Idle" + Player.CurrentState);
+            anim.SetBool("Dashing", false);
+
+        }
+        if (Player.CurrentState is DashVelocityState)
+        {
+
+            anim.SetBool("RunningState", false);
+            anim.SetBool("WallState", false);
+            anim.SetBool("JumpingState", false);
+            anim.SetBool("IsIdle", true);
+            anim.SetBool("Dashing", true);
         }
         if (Player.CurrentState is HurtState)
         {
