@@ -32,32 +32,29 @@ public class WallState : State
 		transform.position += (Vector3)Velocity * Time.deltaTime;
 		WallJump();
 	}
-<<<<<<< HEAD
 
-    private void UpdateInput()
-    {
-        float input = Input.GetAxisRaw("Vertical");
-        if (input >= -0.3f)
-        {
-            _inputDirection = Vector2.zero;
-        }
-        else
-        {
+    //Första versionen av Detach WallClimb
+    //private void UpdateInput()
+    //{
+    //    float input = Input.GetAxisRaw("Vertical");
+    //    if (input >= -0.3f)
+    //    {
+    //        _inputDirection = Vector2.zero;
+    //    }
+    //    else
+    //    {
 
-            if (Physics2D.Raycast(this.transform.position, Vector2.right, (_controller.transform.GetComponent<BoxCollider2D>().bounds.size.x / 2) + 0.1f))
-            {
-                _inputDirection = Vector2.left;
-            }
-            else
-            {
-                _inputDirection = Vector2.right;
-            }
-        }
-    }
+    //        if (Physics2D.Raycast(this.transform.position, Vector2.right, (_controller.transform.GetComponent<BoxCollider2D>().bounds.size.x / 2) + 0.1f))
+    //        {
+    //            _inputDirection = Vector2.left;
+    //        }
+    //        else
+    //        {
+    //            _inputDirection = Vector2.right;
+    //        }
+    //    }
+    //}
 
-
-    private void UpdateCollision()
-=======
 	private void UpdateInput()
 	{
 		
@@ -74,7 +71,6 @@ public class WallState : State
 		}
 	}
 	private void UpdateCollision()
->>>>>>> origin/Joakim4
 	{
 		RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position + (Vector3)
 			_controller.Collider.offset, _controller.Collider.size, 0.0f, _inputDirection,

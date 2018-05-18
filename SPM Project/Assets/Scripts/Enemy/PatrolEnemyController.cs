@@ -32,7 +32,7 @@ public class PatrolEnemyController : Controller
 	private Animator animator;
 
 	private void OnEnable() {
-        //GetComponentInChildren<SpriteRenderer>().enabled = true;
+        //GetComponentInChildren<SpriteRenderer>().enabled = true; //Gammal, användes innan FadeOut animation
         GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1); ;
         GetComponent<BoxCollider2D>().enabled = true;
         currentHealth = startingHealth;
@@ -79,9 +79,8 @@ public class PatrolEnemyController : Controller
 	private IEnumerator OnDeath(){
 		source [1].clip = Death [Random.Range (0, Death.Length)];
 		source [1].Play ();
-        //GetComponentInChildren<SpriteRenderer>().enabled = false;
+        //GetComponentInChildren<SpriteRenderer>().enabled = false; //Gammal, användes innan FadeOut animation
         GetComponent<BoxCollider2D>().enabled = false;
-<<<<<<< HEAD
         for (float i = 1; i >= 0; i -= 2*Time.deltaTime)
         {
             GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, i);
@@ -92,12 +91,8 @@ public class PatrolEnemyController : Controller
             }
             yield return null;
         }
-        //		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
-        yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
-=======
-		animator.SetInteger ("Animation", 2);
-		yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar.
->>>>>>> origin/Joakim4
+		animator.SetInteger ("Animation", 2); //Används för animationer, sätt korrekt datatyp och värden för dödsanimaton.
+        yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar
 		gameObject.SetActive(false);
 		yield return 0;
 	}
