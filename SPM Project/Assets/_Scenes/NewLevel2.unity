@@ -41734,22 +41734,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 603521669}
     m_Modifications:
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Death.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.71556
+      value: 22.99
       objectReference: {fileID: 0}
     - target: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.170479
+      value: -7.16
       objectReference: {fileID: 0}
     - target: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.5203891
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_LocalRotation.x
@@ -41770,80 +41765,6 @@ Prefab:
     - target: {fileID: 4538892931567430, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Skitter
-      value: 
-      objectReference: {fileID: 8300000, guid: f9a1c7bb69c1db3448613b4bece0b2f5, type: 3}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Alerted
-      value: 
-      objectReference: {fileID: 8300000, guid: 2575787bd3231c249b2ecb9a7b1f4e04, type: 3}
-    - target: {fileID: 82758582937227324, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82758582937227324, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: MaxDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 82758582937227324, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82758582937227324, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Death.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 7d2a9332122a35d4cb2ea0cd64da4212, type: 3}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Death.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5d8d58269ae3546408abdca41a3554ce, type: 3}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: Death.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: c8f76939e295abf4395578f1d58c9a18, type: 3}
-    - target: {fileID: 1212584177637970, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: startingHealth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114469058253466944, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: waitBeforeDeath
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 82705116522450428, guid: d023fcc3fb299f44b8e575d2bda30dbe,
-        type: 2}
-      propertyPath: MaxDistance
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d023fcc3fb299f44b8e575d2bda30dbe, type: 2}

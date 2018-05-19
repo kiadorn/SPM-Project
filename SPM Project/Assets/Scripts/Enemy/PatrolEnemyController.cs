@@ -48,7 +48,7 @@ public class PatrolEnemyController : Controller
         source = GetComponents<AudioSource>();
         OGPos = transform.position;
         base.Awake();
-		animator = GetComponent<Animator> ();
+		animator = GetComponentInChildren<Animator> ();
     }
 
     private void Update()
@@ -58,9 +58,9 @@ public class PatrolEnemyController : Controller
 		}
         CurrentState.Update();
 		if (CurrentState is PatrolAggressiveState) {
-			animator.SetInteger ("Animation", 1);
+			animator.SetBool ("Aggro", true);
 		} else {
-			animator.SetInteger ("Animation", 0);
+			animator.SetBool ("Aggro", false);
 		}
     }
 
@@ -91,7 +91,6 @@ public class PatrolEnemyController : Controller
             }
             yield return null;
         }
-		animator.SetInteger ("Animation", 2); //Används för animationer, sätt korrekt datatyp och värden för dödsanimaton.
         yield return new WaitForSeconds(waitBeforeDeath); // sätt värde till tiden dödsanimaton tar
 		gameObject.SetActive(false);
 		yield return 0;
