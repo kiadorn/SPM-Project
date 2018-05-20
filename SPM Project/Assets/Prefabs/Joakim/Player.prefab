@@ -807,7 +807,7 @@ MonoBehaviour:
   dashIndicatorSpeed: 0.3
   dashIndicatorFade: 0.1
   sources: []
-  Footsteps: {fileID: 8300000, guid: f45b784a41a6c78418dc81df7f5b32a2, type: 3}
+  Footsteps: {fileID: 8300000, guid: 8b09e61a4447fde4a9a5b230041308eb, type: 3}
   Jump:
   - {fileID: 8300000, guid: 68fbb632ca9fb214287fcec58677bbce, type: 3}
   - {fileID: 8300000, guid: 1491e8fa021305b4ea36e41cba20b598, type: 3}
@@ -820,12 +820,10 @@ MonoBehaviour:
   DashJustPlayed: {fileID: 0}
   DeathSound:
   - {fileID: 8300000, guid: 0b5f21cc0d31e3947a716e9e221845bf, type: 3}
-  - {fileID: 8300000, guid: b9e0a72dcc7f7694ca7ca50009b67e81, type: 3}
   - {fileID: 8300000, guid: f618a377b0c4f7d4c9ed17e45713b9e0, type: 3}
   DeathSoundJustPlayed: {fileID: 0}
   Hurt:
-  - {fileID: 8300000, guid: 1d1f69d127b27ee4597141e6dd1d1dd7, type: 3}
-  - {fileID: 8300000, guid: 4b30dcce32788214e8c262b3998fbc28, type: 3}
+  - {fileID: 8300000, guid: ce4357efac360b34e82b8c4603fa7e92, type: 3}
   HurtJustPlayed: {fileID: 0}
 --- !u!114 &114952717160300178
 MonoBehaviour:

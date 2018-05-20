@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707431197270178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -153.30359, y: 51.748943, z: 0.32550076}
+  m_LocalPosition: {x: -164.90802, y: 28.91008, z: 0.32550076}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 4195668060196468}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ca1bf08406f9849bab4e1dbecbbd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoint: {fileID: 8300000, guid: c8d14e2b85ea2fb468ab6b05e1e78ec6, type: 3}
+  Checkpoint: {fileID: 8300000, guid: 1757fb1b6b570384ab15b3026ea23c05, type: 3}
   Latest: 1
   Stats: {fileID: 0}
   ObjectsToReset: []

@@ -92,6 +92,7 @@ public class ShootingSystem : MonoBehaviour {
 			int length = Fire.Length;
 			int replace = Random.Range (0, (length - 1));
 			source [1].clip = Fire[replace];
+			source [1].volume = 1f;
 			source [1].Play ();
 			FireJustPlayed = Fire [replace];
 			Fire [replace] = Fire [length - 1];

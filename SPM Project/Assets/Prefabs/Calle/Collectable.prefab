@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpSounds:
-  - {fileID: 8300000, guid: c70442c3206c5124a9822f8fbd79ff3b, type: 3}
+  - {fileID: 8300000, guid: adf3cb717fac62c46a7dafbaa8ed0be6, type: 3}
 --- !u!212 &212519076875331432
 SpriteRenderer:
   m_ObjectHideFlags: 1

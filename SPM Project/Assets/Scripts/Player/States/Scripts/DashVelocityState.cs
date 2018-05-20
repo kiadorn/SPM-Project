@@ -17,10 +17,12 @@ public class DashVelocityState : State
     private float xDir;
     private float yDir;
     private List<Collider2D> _ignoredPlatforms = new List<Collider2D>();
+	private GameObject pitch;
 
     public override void Initialize(Controller owner)
     {
         _controller = (PlayerController)owner;
+		pitch = GameObject.Find ("AudioPitchController");
     }
 
     public override void Enter()
@@ -32,6 +34,7 @@ public class DashVelocityState : State
 		int length = _controller.Dash.Length;
 		int replace = Random.Range (0, (length - 1));
 		_controller.sources [2].clip = _controller.Dash[replace];
+		pitch.GetComponent<PitchController> ().Pichter (_controller.sources [2]);
 		_controller.sources [2].Play ();
 		_controller.DashJustPlayed = _controller.Dash [replace];
 		_controller.Dash [replace] = _controller.Dash [length - 1];

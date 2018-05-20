@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/States/Ground")]
 public class GroundState : State{
 	private PlayerController _controller;
+	private GameObject pitch;
 
 	[Header("Movement")]
 	public float Acceleration;
@@ -33,12 +34,15 @@ public class GroundState : State{
 		_controller.Gravity = (2 * JumpHeight.Max) / Mathf.Pow(TimeToJumpApex, 2);
 		JumpVelocity.Max = _controller.Gravity * TimeToJumpApex;
 		JumpVelocity.Min = Mathf.Sqrt(2 * _controller.Gravity * JumpHeight.Min);
+		pitch = GameObject.Find ("AudioPitchController");
 	}
 
 	public override void Enter()
 	{
 		_controller.GetState<AirState> ().canDash = true;
 		_jumps = MaxJumps;
+		_controller.sources [1].pitch = 1f;
+		_controller.sources [1].volume = 0.6f;
 	}
 	public override void Update()
 	{
@@ -62,11 +66,13 @@ public class GroundState : State{
 		transform.position += Vector3.up * InitialJumpDistance;
 		_controller.Velocity.y = JumpVelocity.Max;
 		_jumps--;
+		_controller.sources [1].loop = false;
 		_controller.sources [1].Stop ();
 		int length = _controller.Jump.Length;
 		int replace = Random.Range (0, (length - 1));
-		_controller.sources [0].clip = _controller.Jump[replace];
-		_controller.sources [0].Play ();
+		_controller.sources [1].clip = _controller.Jump[replace];
+		pitch.GetComponent<PitchController> ().Pichter (_controller.sources [1]);
+		_controller.sources [1].Play ();
 		_controller.JumpJustPlayed = _controller.Jump [replace];
 		_controller.Jump [replace] = _controller.Jump [length - 1];
 		_controller.Jump [length - 1] = _controller.JumpJustPlayed;
@@ -144,9 +150,11 @@ public class GroundState : State{
 	public void CheckVelocity(){
 		if ((_controller.Velocity.x > 5 || _controller.Velocity.x < -5) && !_controller.sources[1].isPlaying) {
 			_controller.sources[1].clip = _controller.Footsteps;
+			_controller.sources [1].loop = true;
 			_controller.sources[1].Play ();
 		}
 		if ((_controller.Velocity.x == 0) && _controller.sources[1].isPlaying) {
+			_controller.sources [1].loop = false;
 			_controller.sources[1].Stop ();
 		}
 	}

@@ -21,7 +21,7 @@ public class CollectCollectable : MonoBehaviour {
     private IEnumerator WaitForSound() {
 		source.clip = PickUpSounds [Random.Range (0, PickUpSounds.Length)];
 		source.Play ();
-        yield return new WaitForSeconds(2f); //Ersätt tid med längd för ljudklipp
+        yield return new WaitForSeconds(3f); //Ersätt tid med längd för ljudklipp
         gameObject.SetActive(false);
         yield return 0;
     }

@@ -21,6 +21,7 @@ public class BossHitSound : MonoBehaviour {
         int length = TakeDamageSound.Length;
         int replace = Random.Range(0, (length - 1));
         source[0].clip = TakeDamageSound [replace];
+		source [0].volume = 1f;
 		source[0].Play ();
         TakeDamageSoundLastPlayed = TakeDamageSound[replace];
         TakeDamageSound[replace] = TakeDamageSound[length - 1];
@@ -31,6 +32,7 @@ public class BossHitSound : MonoBehaviour {
         int length = DealDamageSound.Length;
         int replace = Random.Range(0, (length - 1));
         source[0].clip = DealDamageSound[replace];
+		source [0].volume = 0.6f;
         source[0].Play();
         DealDamageSoundLastPlayed = DealDamageSound[replace];
         DealDamageSound[replace] = DealDamageSound[length - 1];

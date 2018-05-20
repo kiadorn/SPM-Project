@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour {
     public GameObject AttackControl;
     public GameManager manager;
     private PlayerController _controller;
+	private GameObject pitch;
 
     [Header("Stats")]
     public bool HasSword;
@@ -50,6 +51,7 @@ public class PlayerStats : MonoBehaviour {
         UpdateHealth();
         ChangeCurrency(GameManager.instance.Currency);
         currentScene = SceneManager.GetActiveScene().name;
+		pitch = GameObject.Find("AudioPitchController");
         //DeathCounterUI.text = manager.GetDeathCounter().ToString();
 
     }
@@ -112,6 +114,7 @@ public class PlayerStats : MonoBehaviour {
 			int length = _controller.Hurt.Length;
 			int replace = UnityEngine.Random.Range (0, (length - 1));
 			_controller.sources [0].clip = _controller.Hurt[replace];
+			pitch.GetComponent<PitchController> ().Pichter (_controller.sources [0]);
 			_controller.sources [0].Play ();
 			_controller.HurtJustPlayed = _controller.Hurt [replace];
 			_controller.Hurt [replace] = _controller.Hurt [length - 1];
@@ -182,6 +185,7 @@ public class PlayerStats : MonoBehaviour {
 		int length = _controller.DeathSound.Length;
 		int replace = UnityEngine.Random.Range (0, (length - 1));
 		_controller.sources [0].clip = _controller.DeathSound[replace];
+		pitch.GetComponent<PitchController> ().Pichter (_controller.sources [0]);
 		_controller.sources [0].Play ();
 		_controller.DeathSoundJustPlayed = _controller.DeathSound [replace];
 		_controller.DeathSound [replace] = _controller.DeathSound [length - 1];

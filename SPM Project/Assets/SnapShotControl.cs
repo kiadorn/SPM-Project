@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class SnapShotControl : MonoBehaviour {
     public AudioMixerSnapshot Snapshot;
 	public void Start () {
-        Snapshot.TransitionTo(1f);
+        Snapshot.TransitionTo(0f);
 	}
 
 }

@@ -13,7 +13,6 @@ public class BackgroundMusicManager : MonoBehaviour {
 	public void Start () {
 		currentScene = SceneManager.GetActiveScene ().name;
 		source = GetComponents<AudioSource> ();
-		source [1].loop = true;
 		checkCurrentLevel ();
 	}
 	
@@ -24,20 +23,20 @@ public class BackgroundMusicManager : MonoBehaviour {
 
 	public void checkCurrentLevel(){
 		if (currentScene == "_MainMenu") {
-			source[1].clip = BackgroundMusic [0];
-			source[1].Play ();
+			source[0].clip = BackgroundMusic [0];
+			source[0].Play ();
 		}
 		if (currentScene == "NewLevel1"){
 			source[1].clip = BackgroundMusic [1];
 			source[1].Play ();
 		}
 		if (currentScene == "NewLevel2"){
-			source[1].clip = BackgroundMusic [2];
-			source[1].Play ();
+			source[2].clip = BackgroundMusic [2];
+			source[2].Play ();
 		}
 		if (currentScene == "BossLevel"){
-			source[1].clip = BackgroundMusic [3];
-			source[1].Play ();
+			source[3].clip = BackgroundMusic [3];
+			source[3].Play ();
 		}
 	}
 }

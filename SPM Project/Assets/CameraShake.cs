@@ -56,12 +56,15 @@ public class CameraShake : MonoBehaviour {
     }
 
     public static void RandomSound() {
-        int length = ShakeSound.Length;
-        int replace = Random.Range(0, (length - 1));
-        source.clip = ShakeSound[replace];
-        source.Play();
-        ShakeSoundLastPlayed = ShakeSound[replace];
-        ShakeSound[replace] = ShakeSound[length - 1];
-        ShakeSound[length - 1] = ShakeSoundLastPlayed;
+		if (!source.isPlaying) {
+			int length = ShakeSound.Length;
+			int replace = Random.Range(0, (length - 1));
+			source.clip = ShakeSound[replace];
+			source.Play();
+			ShakeSoundLastPlayed = ShakeSound[replace];
+			ShakeSound[replace] = ShakeSound[length - 1];
+			ShakeSound[length - 1] = ShakeSoundLastPlayed;
+		}
+        
     }
 }
