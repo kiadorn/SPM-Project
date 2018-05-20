@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour {
         {
             if (!swapping)
             {
-                StartCoroutine(SwapColors());
+               // StartCoroutine(SwapColors());
             }
             timer += Time.deltaTime;
             if(timer >= InvulnerableTime)
@@ -169,7 +169,7 @@ public class PlayerStats : MonoBehaviour {
 
 	public IEnumerator DeathTimer() {
 		dead = true;
-        GetComponentInChildren<SpriteRenderer>().color = Color.black;
+        //GetComponentInChildren<SpriteRenderer>().color = Color.black;
         //Audio
         _controller.sources[1].Stop();
 		_controller.sources[0].clip = _controller.DeathSound;
@@ -196,7 +196,7 @@ public class PlayerStats : MonoBehaviour {
         StopAllCoroutines();
         _invulnerable = false;
         swapping = false;
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        //GetComponentInChildren<SpriteRenderer>().color = Color.white;
         GameManager.instance.AddDeathToCounter();
         GameManager.SavePlayer();
         //Teleport to Checkpoint

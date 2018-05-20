@@ -19,6 +19,7 @@ TextureImporter:
     21300024: Death3
     21300026: Dmgtaken
     21300028: Jump1
+    21300030: EmptySprite
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -60,9 +61,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -259,6 +259,20 @@ TextureImporter:
         height: 1152
       alignment: 9
       pivot: {x: 0.7152997, y: 0.027208064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EmptySprite
+      rect:
+        serializedVersion: 2
+        x: 7720
+        y: 4350
+        width: 872
+        height: 1159
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

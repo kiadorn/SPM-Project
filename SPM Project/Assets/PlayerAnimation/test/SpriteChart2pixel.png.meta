@@ -1,0 +1,447 @@
+fileFormatVersion: 2
+guid: 839c89ebd47903f4f821cf3c3e95c034
+timeCreated: 1526808879
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SpriteChart2pixel_0
+    21300002: SpriteChart2pixel_1
+    21300004: SpriteChart2pixel_2
+    21300006: SpriteChart2pixel_3
+    21300008: SpriteChart2pixel_4
+    21300010: SpriteChart2pixel_5
+    21300012: SpriteChart2pixel_6
+    21300014: SpriteChart2pixel_7
+    21300016: SpriteChart2pixel_8
+    21300018: SpriteChart2pixel_9
+    21300020: SpriteChart2pixel_10
+    21300022: SpriteChart2pixel_11
+    21300024: SpriteChart2pixel_12
+    21300026: SpriteChart2pixel_13
+    21300028: SpriteChart2pixel_14
+    21300030: SpriteChart2pixel_15
+    21300032: SpriteChart2pixel_16
+    21300034: SpriteChart2pixel_17
+    21300036: SpriteChart2pixel_18
+    21300038: SpriteChart2pixel_19
+    21300040: SpriteChart2pixel_20
+    21300042: SpriteChart2pixel_21
+    21300044: SpriteChart2pixel_22
+    21300046: SpriteChart2pixel_23
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteChart2pixel_0
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 4140
+        width: 768
+        height: 1860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_1
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 4240
+        width: 1163
+        height: 1723
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_2
+      rect:
+        serializedVersion: 2
+        x: 2894
+        y: 4178
+        width: 1142
+        height: 1741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_3
+      rect:
+        serializedVersion: 2
+        x: 4166
+        y: 4183
+        width: 1145
+        height: 1736
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_4
+      rect:
+        serializedVersion: 2
+        x: 5871
+        y: 4147
+        width: 1289
+        height: 1683
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_5
+      rect:
+        serializedVersion: 2
+        x: 7254
+        y: 4249
+        width: 1466
+        height: 1542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2011
+        width: 2050
+        height: 1739
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_7
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 1985
+        width: 2223
+        height: 1736
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_8
+      rect:
+        serializedVersion: 2
+        x: 4367
+        y: 1967
+        width: 2661
+        height: 1846
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_9
+      rect:
+        serializedVersion: 2
+        x: 7499
+        y: 1796
+        width: 1432
+        height: 1868
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 108
+        width: 1856
+        height: 1771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_11
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 1396
+        width: 123
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_12
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 108
+        width: 1858
+        height: 1773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_13
+      rect:
+        serializedVersion: 2
+        x: 3927
+        y: 1396
+        width: 123
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_14
+      rect:
+        serializedVersion: 2
+        x: 4199
+        y: 108
+        width: 1859
+        height: 1773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_15
+      rect:
+        serializedVersion: 2
+        x: 6018
+        y: 1396
+        width: 123
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_16
+      rect:
+        serializedVersion: 2
+        x: 6384
+        y: 68
+        width: 1089
+        height: 1556
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_17
+      rect:
+        serializedVersion: 2
+        x: 7697
+        y: 68
+        width: 1072
+        height: 1595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_18
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 206
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_19
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 218
+        width: 290
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_20
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 0
+        width: 206
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_21
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 218
+        width: 290
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_22
+      rect:
+        serializedVersion: 2
+        x: 4283
+        y: 0
+        width: 206
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteChart2pixel_23
+      rect:
+        serializedVersion: 2
+        x: 5935
+        y: 218
+        width: 290
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
