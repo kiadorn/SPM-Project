@@ -10,7 +10,7 @@ public class TurretController : MonoBehaviour {
 	public float invulnerableTime;
 
 	private ShootingSystem AI;
-    private bool _shooting;
+    public bool _shooting;
 
 	private float time;
 	private Animator animator;

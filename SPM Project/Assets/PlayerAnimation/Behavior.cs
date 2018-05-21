@@ -13,7 +13,7 @@ public class Behavior : MonoBehaviour {
     {
         Player = GameObject.Find("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
-        Torso = GetComponent<SpriteRenderer>(); ;
+        Torso = GetComponent<SpriteRenderer>(); 
         Legs = GetComponent<SpriteRenderer>();
 
 
@@ -25,7 +25,7 @@ public class Behavior : MonoBehaviour {
         SetAnimation();
 
     }
-    public void SetAnimation()
+    private void SetAnimation()
     {
         if (Player.Velocity.x >= 0.2)
         {
