@@ -859,7 +859,6 @@ MonoBehaviour:
   - {fileID: 2066766681}
   - {fileID: 217835343}
   - {fileID: 82913156}
-  - {fileID: 0}
   SceneToLoad: NewLevel1
   SkipText: {fileID: 301404334}
   BlackScreen: {fileID: 1591497626}

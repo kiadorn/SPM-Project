@@ -581,8 +581,6 @@ MonoBehaviour:
   ScreenTime: 3
   Screens:
   - {fileID: 2066766681}
-  - {fileID: 0}
-  - {fileID: 0}
   SceneToLoad: NewLevel2
   SkipText: {fileID: 301404334}
   BlackScreen: {fileID: 1591497626}

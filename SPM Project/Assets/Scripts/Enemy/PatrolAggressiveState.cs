@@ -25,6 +25,9 @@ public class PatrolAggressiveState : State {
 		_controller.Alerted [replace] = _controller.Alerted [length - 1];
 		_controller.Alerted [length - 1] = _controller.AlertedLastPlayed;
         _controller.speed = _controller.saveSpeed;
+        //Gammalt, innan animation
+        //Color c = _controller.GetComponentInChildren<SpriteRenderer>().color;
+        //_controller.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, c.a);
     }
 
     public override void Update()

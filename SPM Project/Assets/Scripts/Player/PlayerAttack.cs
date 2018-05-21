@@ -6,9 +6,9 @@ public class PlayerAttack : MonoBehaviour {
 	public float attackCooldown;
 	public bool attackUnlocked;
 
+    private Animator animator;
     private SpriteRenderer torso;
 	private PlayerController _controller;
-    private Animator animator;
 	private float attackTimeStamp;
 	private float xDir;
 	private Vector2 attackSize;
@@ -22,9 +22,9 @@ public class PlayerAttack : MonoBehaviour {
 	[ReadOnlyAttribute] public AudioClip SwingJustPlayed;
 
 	void Start () {
-        torso = GetComponentInChildren<SpriteRenderer>();
 		_controller = GetComponentInParent<PlayerController>();
         animator = GetComponentInChildren<Animator>();
+        torso = GetComponentInChildren<SpriteRenderer>();
 		playerControllerScript = GetComponent<PlayerController>();
 		playerCollider = GetComponent<BoxCollider2D>();
 		attackSize = new Vector2 (playerCollider.size.x, playerCollider.size.y);
@@ -55,8 +55,7 @@ public class PlayerAttack : MonoBehaviour {
 	}
 
 	private void Attack(){
-
-        if(_controller.CurrentState is WallState)
+        if (_controller.CurrentState is WallState)
         {
             torso.flipX = true;
         }

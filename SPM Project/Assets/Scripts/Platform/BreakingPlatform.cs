@@ -21,7 +21,6 @@ public class BreakingPlatform : MonoBehaviour {
     private Vector3 OGPos;
 
     void Awake() {
-        //_renderer = GetComponent<SpriteRenderer>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         OGPos = transform.position;
@@ -30,7 +29,7 @@ public class BreakingPlatform : MonoBehaviour {
 
     void OnEnable () {
         transform.position = OGPos;
-        _renderer.color = GetComponentInChildren<SpriteRenderer>().color;
+        _renderer.color = Color.red;
         _collider.enabled = true;
         _collapsing = false;
     }
@@ -38,14 +37,12 @@ public class BreakingPlatform : MonoBehaviour {
     private IEnumerator Collapse(float collapseTime, float resetTime) {
         _collapsing = true;
         yield return new WaitForSeconds(collapseTime);
-        Color c = _renderer.color;
-        Debug.Log(_renderer.ToString());
         for (float i = 1; i >= 0; i -= (1/ fadeOutTime) * Time.deltaTime)
         {
-            _renderer.color = new Color(c.r, c.b, c.g, i);
+            _renderer.color = new Color(1, 0, 0, i);
             if (i < 0.1f)
             {
-                _renderer.color = new Color(c.r, c.b, c.g, 0);
+                _renderer.color = new Color(1, 0, 0, 0);
                 break;
             }
             yield return null;
@@ -64,7 +61,7 @@ public class BreakingPlatform : MonoBehaviour {
         yield return new WaitForSeconds(resetTime);
         for (float i = 0; i <= 1; i += (1 / fadeInTime) * Time.deltaTime)
         {
-            _renderer.color = new Color(c.r, c.b, c.g, i);
+            _renderer.color = new Color(1, 0, 0, i);
             yield return null;
         }
         _collider.enabled = true;

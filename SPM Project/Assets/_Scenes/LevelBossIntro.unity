@@ -675,10 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenTime: 3
-  Screens:
-  - {fileID: 2066766681}
-  - {fileID: 217835343}
-  - {fileID: 82913156}
+  Screens: []
   SceneToLoad: BossLevel
   SkipText: {fileID: 301404334}
   BlackScreen: {fileID: 1591497626}
