@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 535bd9facec39cb4fbb4ddf51265d6ed
-timeCreated: 1526898101
+guid: 4f630f3a72ab1ca4991dbce4ccfeaf65
+timeCreated: 1526905170
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Acension_platforms_Hazard_0
-    21300002: Acension_platforms_Hazard_1
-    21300004: Acension_platforms_Hazard_2
-    21300006: Acension_platforms_Hazard_3
-    21300008: Acension_platforms_Hazard_4
-    21300010: Acension_platforms_Hazard_5
-    21300012: Acension_platforms_Hazard_6
-    21300014: Acension_platforms_Hazard_7
+    21300000: BossLeveroff
+    21300002: Bosslevelon
+    21300004: Heart
+    21300006: Wound
+    21300008: Key
+    21300010: Weapon
+    21300012: Collectible
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -89,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_0
+      name: BossLeveroff
       rect:
         serializedVersion: 2
-        x: 319
-        y: 2686
-        width: 1434
-        height: 706
+        x: 310
+        y: 3649
+        width: 1290
+        height: 1187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,13 +102,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_1
+      name: Bosslevelon
       rect:
         serializedVersion: 2
-        x: 2325
-        y: 2711
-        width: 1436
-        height: 692
+        x: 1926
+        y: 3081
+        width: 1291
+        height: 1193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,13 +116,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_2
+      name: Heart
       rect:
         serializedVersion: 2
-        x: 341
-        y: 1894
-        width: 1393
-        height: 666
+        x: 469
+        y: 2458
+        width: 1100
+        height: 922
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,13 +130,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_3
+      name: Wound
       rect:
         serializedVersion: 2
-        x: 2325
-        y: 1906
-        width: 1436
-        height: 674
+        x: 1651
+        y: 1879
+        width: 1841
+        height: 1046
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,13 +144,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_4
+      name: Key
       rect:
         serializedVersion: 2
-        x: 329
-        y: 1065
-        width: 1416
-        height: 700
+        x: 105
+        y: 1086
+        width: 1272
+        height: 1119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,13 +158,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_5
+      name: Weapon
       rect:
         serializedVersion: 2
-        x: 2347
-        y: 1080
-        width: 1392
-        height: 697
+        x: 1128
+        y: 207
+        width: 1056
+        height: 1198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,27 +172,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Acension_platforms_Hazard_6
+      name: Collectible
       rect:
         serializedVersion: 2
-        x: 341
-        y: 243
-        width: 1393
-        height: 720
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Acension_platforms_Hazard_7
-      rect:
-        serializedVersion: 2
-        x: 2347
-        y: 256
-        width: 1392
-        height: 728
+        x: 2381
+        y: 876
+        width: 1021
+        height: 1053
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
