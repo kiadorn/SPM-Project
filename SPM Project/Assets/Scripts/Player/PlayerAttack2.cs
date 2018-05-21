@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Följande script måste hängas på på en child till spelaren som innehåller en BoxCollider2D.
 public class PlayerAttack2 : MonoBehaviour
 {
     public float attackCooldown;

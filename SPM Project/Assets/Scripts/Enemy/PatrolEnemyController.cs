@@ -79,9 +79,9 @@ public class PatrolEnemyController : Controller
 
 	}
 	private IEnumerator OnDeath(){
+		animator.SetBool ("Death", true);
 		source [1].clip = Death [Random.Range (0, Death.Length)];
 		source [1].Play ();
-        //GetComponentInChildren<SpriteRenderer>().enabled = false; //Gammal, användes innan FadeOut animation
         GetComponent<BoxCollider2D>().enabled = false;
         for (float i = 1; i >= 0; i -= 2*Time.deltaTime)
         {
@@ -109,17 +109,11 @@ public class PatrolEnemyController : Controller
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-		{
-           
-//			source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
-//			source[1].Play ();
-
+        if (collision.gameObject.CompareTag("Player")){
 			if (!playerStats._invulnerable) {
 				source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
 				source[1].Play ();
 			}
-
 			playerStats.ChangeHealth(-1);
         }
 

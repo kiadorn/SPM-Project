@@ -52,8 +52,7 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 
     private void Start()
     {
-		//audio
-		animator = GetComponent <Animator>();  //Används för animatoner
+		animator = GetComponentInChildren<Animator>();  //Används för animatoner
 		source = GetComponents<AudioSource>();
         OGPos = transform.position;
     }
@@ -90,7 +89,6 @@ public class BirdEnemyBehaviour : MonoBehaviour {
 	}
 
 	private IEnumerator OnDeath(){
-		animator.SetInteger ("Animation", 2);
 		source [0].clip = Death;
 		source [0].Play ();
 		gameObject.SetActive(false);
@@ -136,17 +134,16 @@ public class BirdEnemyBehaviour : MonoBehaviour {
             if ((Vector2)transform.position == OGPos)
             {
                 _canAttack = true;
+				animator.SetBool ("Aggro", false);
             }
 
             if (_attacking)
             {
-				animator.SetInteger ("Animation", 1);
+				animator.SetBool ("Aggro", true);
                 if (AttackSpeed < MaxAttackSpeed) AttackSpeed += Time.deltaTime * AttackAcceleration;
                 transform.position = Vector3.MoveTowards(transform.position, AttackPos, AttackSpeed * Time.deltaTime);
             }
-            else
-            {
-				animator.SetInteger ("Animation", 0);
+			else{
                 AttackSpeed = 0;
                 transform.position = Vector3.MoveTowards(transform.position, OGPos, GoingBackSpeed * Time.deltaTime);
             }

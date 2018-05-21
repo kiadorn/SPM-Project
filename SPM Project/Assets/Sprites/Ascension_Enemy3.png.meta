@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: f3f8e19796b402b41b091e008c295797
+timeCreated: 1526918153
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ascension_Enemy3_0
+    21300002: Ascension_Enemy3_1
+    21300004: Ascension_Enemy3_2
+    21300006: Ascension_Enemy3_3
+    21300008: Ascension_Enemy3_4
+    21300010: Ascension_Enemy3_5
+    21300012: Ascension_Enemy3_6
+    21300014: Ascension_Enemy3_7
+    21300016: Ascension_Enemy3_8
+    21300018: Ascension_Enemy3_9
+    21300020: Ascension_Enemy3_10
+    21300022: Ascension_Enemy3_11
+    21300024: Ascension_Enemy3_12
+    21300026: Ascension_Enemy3_13
+    21300028: Ascension_Enemy3_14
+    21300030: Ascension_Enemy3_15
+    21300032: Ascension_Enemy3_16
+    21300034: Ascension_Enemy3_17
+    21300036: Ascension_Enemy3_18
+    21300038: Ascension_Enemy3_19
+    21300040: Ascension_Enemy3_20
+    21300042: Ascension_Enemy3_21
+    21300044: Ascension_Enemy3_22
+    21300046: Ascension_Enemy3_23
+    21300048: Ascension_Enemy3_24
+    21300050: Ascension_Enemy3_25
+    21300052: Ascension_Enemy3_26
+    21300054: Ascension_Enemy3_27
+    21300056: Ascension_Enemy3_28
+    21300058: Ascension_Enemy3_29
+    21300060: Ascension_Enemy3_30
+    21300062: Ascension_Enemy3_31
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ascension_Enemy3_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1564
+        width: 891
+        height: 968
+      alignment: 9
+      pivot: {x: 0.5057184, y: 0.5526358}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_1
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1099
+        width: 886
+        height: 1424
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.70037055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_2
+      rect:
+        serializedVersion: 2
+        x: 2005
+        y: 834
+        width: 888
+        height: 1698
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7550569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_5
+      rect:
+        serializedVersion: 2
+        x: 2998
+        y: 743
+        width: 886
+        height: 1806
+      alignment: 9
+      pivot: {x: 0.50575083, y: 0.7680165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_6
+      rect:
+        serializedVersion: 2
+        x: 4030
+        y: 809
+        width: 886
+        height: 1704
+      alignment: 9
+      pivot: {x: 0.52875346, y: 0.763129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_8
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 1442
+        width: 6
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_15
+      rect:
+        serializedVersion: 2
+        x: 3789
+        y: 1306
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_25
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 920
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ascension_Enemy3_30
+      rect:
+        serializedVersion: 2
+        x: 3393
+        y: 889
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

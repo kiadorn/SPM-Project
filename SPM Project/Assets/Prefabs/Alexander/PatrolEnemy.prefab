@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212584177637970}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -165.68192, y: -29.16319, z: 0.32550076}
+  m_LocalPosition: {x: 22.99, y: -7.16, z: 0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4360131047669030}
@@ -355,7 +355,7 @@ MonoBehaviour:
   Skitter: {fileID: 8300000, guid: f9a1c7bb69c1db3448613b4bece0b2f5, type: 3}
   Alerted:
   - {fileID: 8300000, guid: 2575787bd3231c249b2ecb9a7b1f4e04, type: 3}
-  - {fileID: 8300000, guid: ff3f573f55fb5f94980ad1eafb6a1c11, type: 3}
+  - {fileID: 0}
   AlertedLastPlayed: {fileID: 0}
   PlayerCollision:
   - {fileID: 8300000, guid: 899307008297f674fa92afc854872995, type: 3}
