@@ -51,7 +51,7 @@ public class BreakingPlatform : MonoBehaviour {
             yield return null;
         }
         _collider.enabled = false;
-        _renderer.enabled = false;
+        //_renderer.enabled = false;
         int length = breaking.Length;
         int replace = UnityEngine.Random.Range(0, (length - 1));
         source[0].clip = breaking[replace];

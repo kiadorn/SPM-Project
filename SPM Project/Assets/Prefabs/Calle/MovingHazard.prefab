@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114743087770375364}
   - component: {fileID: 114587868377091920}
   - component: {fileID: 82528693753276820}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4766127523125200}
   - component: {fileID: 212290921383243920}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076594032514158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.82, y: -10, z: 0}
+  m_LocalPosition: {x: -1.92, y: -11.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4810861437888528}
@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407477055255094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -26.9, z: 0}
+  m_LocalPosition: {x: 0, y: -32.079998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4293041436901526}
@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897395714807638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.519382, y: 291.3085, z: 0}
+  m_LocalPosition: {x: -53.94, y: 285.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4810861437888528}
@@ -142,8 +142,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1785193344214674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 2, z: 2.4597468}
+  m_LocalPosition: {x: 0.07, y: -1.007, z: 0}
+  m_LocalScale: {x: 0.19085985, y: 0.119945474, z: 0.29503548}
   m_Children: []
   m_Father: {fileID: 4810861437888528}
   m_RootOrder: 0
@@ -200,7 +200,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.9169564, y: -2.082881}
+  m_Offset: {x: 1.9681687, y: -3.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -211,7 +211,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.1822557, y: 26.604239}
+  m_Size: {x: 5.5674944, y: 29.66}
   m_EdgeRadius: 0
 --- !u!82 &82528693753276820
 AudioSource:
@@ -333,7 +333,11 @@ MonoBehaviour:
   moveBackSpeed: 2
   waitTime: 2.71
   shouldIMove: 0
+  source: {fileID: 0}
   moving: {fileID: 8300000, guid: d2cf3249af3bbee4d826487801b15779, type: 3}
+  playArea: 0
+  fadeTime: 1
+  fading: 0
 --- !u!114 &114897030957330278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,11 +382,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bffd97c0934ffc847b6d3c2fa9465cbb, type: 3}
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: ce8c5bd3ce4fc6747889ffb49f6a4d7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
