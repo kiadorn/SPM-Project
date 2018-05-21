@@ -53,12 +53,8 @@ public class ShootingSystem : MonoBehaviour {
         hiddenPos = PassivePos.transform.position;
         //AgPos = AggroPos.transform.position;
         RangeCheck();
-        if(Muzzle.transform.position != AggroPos.transform.position) {
-            CanShoot = false;
-        }
-        else {
-            CanShoot = true;
-        }
+        CanShoot = true;
+        
 	}
 
     void RangeCheck() {
@@ -68,11 +64,11 @@ public class ShootingSystem : MonoBehaviour {
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, AggroPos.transform.position, (moveSpeed * Time.deltaTime));
+            //Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, AggroPos.transform.position, (moveSpeed * Time.deltaTime));
         }
         if (!awake) {
-            Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
-            BulletTimer = ShootInterval;
+            //Muzzle.transform.position = Vector3.MoveTowards(Muzzle.transform.position, PassivePos.transform.position, (moveSpeed * Time.deltaTime));
+            BulletTimer = 0;
         }
     }
 
