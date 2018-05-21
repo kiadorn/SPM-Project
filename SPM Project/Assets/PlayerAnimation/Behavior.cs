@@ -105,7 +105,7 @@ public class Behavior : MonoBehaviour {
         {
 
         }
-        if (Player.GetComponent<PlayerStats>().dead)
+        if (Player.GetComponent<PlayerStats>().dead && !anim.GetBool("Dead"))
         {
             anim.SetBool("Dead", true);
             anim.SetBool("RunningState", false);
@@ -116,8 +116,10 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("IsHurt", false);
 
         }
-        else anim.SetBool("Dead", false);
-
+        if (!Player.GetComponent<PlayerStats>().dead)
+        {
+            anim.SetBool("Dead", false);
+        }
     }
 
     void OnCollisionEnter(Collision col)

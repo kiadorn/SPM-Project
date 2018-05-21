@@ -169,6 +169,7 @@ public class PlayerStats : MonoBehaviour {
 
 	public IEnumerator DeathTimer() {
 		dead = true;
+        Debug.Log(dead);
         //GetComponentInChildren<SpriteRenderer>().color = Color.black;
         //Audio
         _controller.sources[1].Stop();
@@ -211,6 +212,7 @@ public class PlayerStats : MonoBehaviour {
         CurrentHealth = StartingHealth;
         UpdateHealth();
         _controller.TransitionTo<AirState>();
+        Debug.Log(dead);
 		dead = false;
     }
 
