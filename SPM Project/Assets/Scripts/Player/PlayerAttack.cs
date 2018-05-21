@@ -16,7 +16,8 @@ public class PlayerAttack : MonoBehaviour {
 	private AudioSource source;
 
 	[Header("AudioClips")]
-	public AudioClip Swing;
+	public AudioClip [] Swing;
+	[ReadOnlyAttribute] public AudioClip SwingJustPlayed;
 
 	void Start () {
 		_controller = GetComponentInParent<PlayerController>();
@@ -33,9 +34,32 @@ public class PlayerAttack : MonoBehaviour {
 		} else {
 			xDir = playerControllerScript.GetLastXDirection ();
 		}
+<<<<<<< HEAD
 
 		if (attackTimeStamp <= attackCooldown){
 			attackTimeStamp += Time.deltaTime;
+=======
+		this.GetComponent<SpriteRenderer> ().enabled = false;
+        if ((Input.GetButtonDown("Fire1") || Input.GetAxis("Fire1") != 0) && attackTimeStamp >= attackCooldown) {
+			attackArc.enabled = true;
+			this.GetComponent<SpriteRenderer> ().enabled = true;
+			attackTimeStamp = 0;
+			int length = Swing.Length;
+			int replace = Random.Range (0, (length - 1));
+			source.clip = Swing[replace];
+			source.Play ();
+			SwingJustPlayed = Swing [replace];
+			Swing [replace] = Swing [length - 1];
+			Swing [length - 1] = SwingJustPlayed;
+			spriteObject.GetComponent<SpriteRenderer> ().color = originalColor; //Testrad ta bort när spelaren har animation
+		}
+		
+	}
+	//När spelkaraktären har en sprite och storlek måste 1.5f ändras till något mer passande värde. Nuvarande värde är endast temporärt för testning.
+	private void UpdateColliderPosition(){
+		if(attackArc.enabled == true){
+		attackArc.enabled = false;
+>>>>>>> origin/Steven7
 		}
 
 		if (attackUnlocked) {

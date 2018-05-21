@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4687156577105410}
   - component: {fileID: 114647906581743862}
   - component: {fileID: 82650801567160102}
+  - component: {fileID: 82562169574735696}
   m_Layer: 0
   m_Name: BossGetHit
   m_TagString: Untagged
@@ -41,6 +42,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82562169574735696
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205721694497806}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243848878288617842, guid: cde2ba83f272afe43beca72c797c00f8,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82650801567160102
 AudioSource:
   m_ObjectHideFlags: 1
@@ -49,10 +131,11 @@ AudioSource:
   m_GameObject: {fileID: 1205721694497806}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243210390508878960, guid: cde2ba83f272afe43beca72c797c00f8,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -133,5 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakeDamageSound:
-  - {fileID: 8300000, guid: 0fb73075cfd6462428f4f3a864950a37, type: 3}
-  - {fileID: 8300000, guid: 786a380506e0fc44589896454b4f5db6, type: 3}
+  - {fileID: 8300000, guid: 8f14c4fe86709ca48add5c1f43762de7, type: 3}
+  - {fileID: 8300000, guid: 520e4e4cc5fe59844bebc405b3d0644f, type: 3}
+  - {fileID: 8300000, guid: 40655ad6218f47241917c8563142e926, type: 3}
+  TakeDamageSoundLastPlayed: {fileID: 0}
+  DealDamageSound:
+  - {fileID: 8300000, guid: 345e7d89464503841ab2a74e9e6d80fe, type: 3}
+  - {fileID: 8300000, guid: 899307008297f674fa92afc854872995, type: 3}
+  DealDamageSoundLastPlayed: {fileID: 0}
+  DeathSound:
+  - {fileID: 8300000, guid: 8447fd5dd80a0044c8906f9d75cca29c, type: 3}
+  - {fileID: 8300000, guid: 8b8920388ac5a4646b266c30f2ba9086, type: 3}

@@ -17,8 +17,13 @@ public class PatrolAggressiveState : State {
 
     public override void Enter()
     {
-		_controller.source[1].clip = _controller.Alerted;
-		_controller.source[1].Play();
+		int length = _controller.Alerted.Length;
+		int replace = Random.Range (0, (length - 1));
+		_controller.source [1].clip = _controller.Alerted[replace];
+		_controller.source [1].Play ();
+		_controller.AlertedLastPlayed = _controller.Alerted [replace];
+		_controller.Alerted [replace] = _controller.Alerted [length - 1];
+		_controller.Alerted [length - 1] = _controller.AlertedLastPlayed;
         _controller.speed = _controller.saveSpeed;
         //Gammalt, innan animation
         //Color c = _controller.GetComponentInChildren<SpriteRenderer>().color;

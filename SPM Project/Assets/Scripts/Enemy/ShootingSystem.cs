@@ -34,8 +34,10 @@ public class ShootingSystem : MonoBehaviour {
 	[Header ("Audio Clips")]
 	public AudioClip Alerted;
 	public AudioClip Retract;
-	public AudioClip Fire;
+	public AudioClip [] Fire;
+	[ReadOnlyAttribute] public AudioClip FireJustPlayed;
 	public AudioClip[] Hurt;
+	[ReadOnlyAttribute] public AudioClip HurtJustPlayed;
 	public AudioClip Death; //inte använd än
 
     void Start() {
@@ -87,8 +89,14 @@ public class ShootingSystem : MonoBehaviour {
             bulletClone.GetComponent<Rigidbody2D>().velocity = dir * BulletSpeed;
 
 			//audio
-			source[1].clip = Fire;
-			source[1].Play ();
+			int length = Fire.Length;
+			int replace = Random.Range (0, (length - 1));
+			source [1].clip = Fire[replace];
+			source [1].volume = 1f;
+			source [1].Play ();
+			FireJustPlayed = Fire [replace];
+			Fire [replace] = Fire [length - 1];
+			Fire [length - 1] = FireJustPlayed;
 
             BulletTimer = 0;
         }

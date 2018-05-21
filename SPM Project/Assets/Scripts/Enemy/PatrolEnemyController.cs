@@ -15,11 +15,13 @@ public class PatrolEnemyController : Controller
     [ReadOnly] public float saveSpeed;
     public float Gravity = 30f;
     [Header("Audio Clips")]
-    [ReadOnly] public AudioSource[] source;
+    [HideInInspector] public AudioSource[] source;
     public AudioClip Skitter;
-    public AudioClip Alerted;
+    public AudioClip [] Alerted;
+	[ReadOnlyAttribute] public AudioClip AlertedLastPlayed;
 	public AudioClip [] PlayerCollision;
-    public AudioClip [] Death;
+	[ReadOnlyAttribute] public AudioClip PlayerCollisionLastPlayed;
+    public AudioClip [] Death; 
     public float waitBeforeDeath = 3f;
     [Header("Health")]
 	public bool invulnerable;

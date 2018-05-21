@@ -12,9 +12,10 @@ public class BreakingPlatform : MonoBehaviour {
     private Collider2D _collider;
     private bool _collapsing = false;
 
-	private AudioSource source;
+	private AudioSource [] source;
 	[Header("Audio")]
-	public AudioClip breaking;
+	public AudioClip [] breaking;
+    [ReadOnly] public AudioClip BreakingLastPlayed;
 	public AudioClip rebuilding;
 
     private Vector3 OGPos;
@@ -23,6 +24,7 @@ public class BreakingPlatform : MonoBehaviour {
         _renderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         OGPos = transform.position;
+        source = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,6 @@ public class BreakingPlatform : MonoBehaviour {
         _renderer.color = new Color(1, 1, 1, 1);
         _collider.enabled = true;
         _collapsing = false;
-		source = GetComponent<AudioSource> ();
     }
 
     private IEnumerator Collapse(float collapseTime, float resetTime) {
@@ -50,6 +51,19 @@ public class BreakingPlatform : MonoBehaviour {
             yield return null;
         }
         _collider.enabled = false;
+<<<<<<< HEAD
+=======
+        _renderer.enabled = false;
+        int length = breaking.Length;
+        int replace = UnityEngine.Random.Range(0, (length - 1));
+        source[0].clip = breaking[replace];
+        source[0].Play();
+        BreakingLastPlayed = breaking[replace];
+        breaking[replace] = breaking[length - 1];
+        breaking[length - 1] = BreakingLastPlayed;
+        source[1].clip = rebuilding;
+        source[1].PlayDelayed(resetTime - 1);
+>>>>>>> origin/Steven7
         yield return new WaitForSeconds(resetTime);
         source.clip = rebuilding;
         source.Play();
@@ -59,7 +73,12 @@ public class BreakingPlatform : MonoBehaviour {
             yield return null;
         }
         _collider.enabled = true;
+<<<<<<< HEAD
         _collapsing = false;
+=======
+        _collapsing = false; 
+
+>>>>>>> origin/Steven7
     }
 
     private void OnCollisionEnter2D(Collision2D coll) {

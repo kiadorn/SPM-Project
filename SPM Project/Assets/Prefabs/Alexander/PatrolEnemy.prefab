@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212584177637970}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -9.08, y: 0.28359222, z: 0.32550076}
+  m_LocalPosition: {x: -165.68192, y: -29.16319, z: 0.32550076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4360131047669030}
@@ -157,7 +157,8 @@ AudioSource:
   m_GameObject: {fileID: 1212584177637970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243516979867368498, guid: cde2ba83f272afe43beca72c797c00f8,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -237,7 +238,8 @@ AudioSource:
   m_GameObject: {fileID: 1212584177637970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243516979867368498, guid: cde2ba83f272afe43beca72c797c00f8,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -248,8 +250,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 15
+  MinDistance: 2
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -351,10 +353,14 @@ MonoBehaviour:
   Gravity: 30
   source: []
   Skitter: {fileID: 8300000, guid: f9a1c7bb69c1db3448613b4bece0b2f5, type: 3}
-  Alerted: {fileID: 8300000, guid: 2575787bd3231c249b2ecb9a7b1f4e04, type: 3}
+  Alerted:
+  - {fileID: 8300000, guid: 2575787bd3231c249b2ecb9a7b1f4e04, type: 3}
+  - {fileID: 8300000, guid: ff3f573f55fb5f94980ad1eafb6a1c11, type: 3}
+  AlertedLastPlayed: {fileID: 0}
   PlayerCollision:
   - {fileID: 8300000, guid: 899307008297f674fa92afc854872995, type: 3}
   - {fileID: 8300000, guid: 345e7d89464503841ab2a74e9e6d80fe, type: 3}
+  PlayerCollisionLastPlayed: {fileID: 0}
   Death:
   - {fileID: 8300000, guid: 7d2a9332122a35d4cb2ea0cd64da4212, type: 3}
   - {fileID: 8300000, guid: 5d8d58269ae3546408abdca41a3554ce, type: 3}

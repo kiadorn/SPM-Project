@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectObtain : MonoBehaviour {
 
 
-	private AudioSource source;
+	private AudioSource [] source;
 	[Header("Audio Clips")]
 	public AudioClip PickUpKeySound;
 	public AudioClip PickUpSwordSound;
@@ -14,7 +14,7 @@ public class ObjectObtain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		source = GetComponent<AudioSource> ();
+		source = GetComponents<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -23,22 +23,22 @@ public class ObjectObtain : MonoBehaviour {
 	}
 
 	public void PickUpSword(){
-		source.clip = PickUpSwordSound;
-		source.Play ();
+		source[0].clip = PickUpSwordSound;
+		source[0].Play ();
 	}
 
 	public void PickUpKey(){
-		source.clip = PickUpKeySound;
-		source.Play ();
+		source[2].clip = PickUpKeySound;
+		source[2].Play ();
 	}
 
 	public void OpenDoor(){
-		source.clip = OpenDoorSound;
-		source.Play ();
+		source[1].clip = OpenDoorSound;
+		source[1].Play ();
 	}
 
 	public void StartTrigger(){
-		source.clip = StartTriggerSound;
-		source.Play ();
+		source[1].clip = StartTriggerSound;
+		source[1].Play ();
 	}
 }

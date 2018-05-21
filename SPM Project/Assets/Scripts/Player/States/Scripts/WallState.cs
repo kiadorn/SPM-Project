@@ -4,6 +4,7 @@
 public class WallState : State
 {
 	private PlayerController _controller;
+	private GameObject pitch;
 	public float GlideSpeed;
 	public float WallCheckDistance = 0.15f;
 	private Vector2 _wallNormal;
@@ -23,6 +24,7 @@ public class WallState : State
 	public override void Initialize(Controller owner)
 	{
 		_controller = (PlayerController)owner;
+		pitch = GameObject.Find ("AudioPitchController");
 	}
 	public override void Update()
 	{
@@ -109,8 +111,16 @@ public class WallState : State
 			Jump (new Vector2 (FallOffSpeed, Velocity.y));
 		else if (Input.GetButtonDown ("Jump")) {
 			Jump(WallJumpSpeed);
-			_controller.sources [0].clip = _controller.Jump;
-			_controller.sources [0].Play ();
+			_controller.sources [1].loop = false;
+			_controller.sources [1].Stop ();
+			int length = _controller.Jump.Length;
+			int replace = Random.Range (0, (length - 1));
+			_controller.sources [1].clip = _controller.Jump[replace];
+			pitch.GetComponent<PitchController> ().Pichter (_controller.sources [1]);
+			_controller.sources [1].Play ();
+			_controller.JumpJustPlayed = _controller.Jump [replace];
+			_controller.Jump [replace] = _controller.Jump [length - 1];
+			_controller.Jump [length - 1] = _controller.JumpJustPlayed;
 		}
 	}
 	private void Jump(Vector2 speed)

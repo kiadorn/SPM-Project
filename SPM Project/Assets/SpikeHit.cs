@@ -6,9 +6,10 @@ public class SpikeHit : MonoBehaviour {
 
 	private GameObject Player;
 	public bool played;
-	public AudioSource source;
+	[HideInInspector]public AudioSource source;
 	[Header ("Audio Clips")]
 	public AudioClip [] Collision;
+    [ReadOnly] public AudioClip CollisionLastPlayed;
 
 	// Use this for initialization
 	public void Start () {
@@ -24,9 +25,13 @@ public class SpikeHit : MonoBehaviour {
 
 	public void PlayImpact(){
 		if (!Player.GetComponent<PlayerStats>()._invulnerable) {
-			source.clip = Collision [Random.Range (0, Collision.Length)];
-			source.Play ();
-			played = true;
+            int length = Collision.Length;
+            int replace = Random.Range(0, (length - 1));
+            source.clip = Collision[replace];
+            source.Play();
+            CollisionLastPlayed = Collision[replace];
+            Collision[replace] = Collision[length - 1];
+            Collision[length - 1] = CollisionLastPlayed;
 		}
 	}
 }

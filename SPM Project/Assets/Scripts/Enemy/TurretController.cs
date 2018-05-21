@@ -45,7 +45,8 @@ public class TurretController : MonoBehaviour {
 		if (!invulnerable && invulnerableTime >= time) {
 			time = 0;
 			currentHealth -= 1;
-			AI.source[1].clip = AI.Hurt[Random.Range(0, AI.Hurt.Length)];
+			AI.source [1].clip = AI.Hurt[Random.Range(0, AI.Hurt.Length)];
+			AI.source [1].volume = 0.7f;
 			AI.source [1].Play ();
 //			animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för skadeanimation.
 			if(currentHealth <= 0){
@@ -59,6 +60,7 @@ public class TurretController : MonoBehaviour {
 	private IEnumerator OnDeath(){
 		AI.source[0].clip = AI.Death;
 		AI.source [0].Play();
+<<<<<<< HEAD
         //GetComponentInChildren<SpriteRenderer> ().enabled = false;
         //transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer> ().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
@@ -74,6 +76,15 @@ public class TurretController : MonoBehaviour {
         yield return new WaitForSeconds(1f); // sätt värde till tiden dödsanimaton tar.
         gameObject.SetActive(false);
         yield return 0;
+=======
+		GetComponentInChildren<MeshRenderer> ().enabled = false;
+		transform.GetChild(0).transform.GetChild(0).GetComponent<MeshRenderer> ().enabled = false;
+		GetComponent<BoxCollider2D>().enabled = false;
+//		animator.SetInteger ("VariabelNamn", VariabelVärde); //Används för animatoner, sätt korrekt datatyp och värden för dödsanimaton.
+		yield return new WaitForSeconds(1.4f); // sätt värde till tiden dödsanimaton tar.
+		this.gameObject.SetActive(false);
+		yield return 0;
+>>>>>>> origin/Steven7
 	}
 
 	public void SwitchInvulnerableState(){

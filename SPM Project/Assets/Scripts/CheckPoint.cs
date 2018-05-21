@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour {
 
+	private AudioSource source;
+	[Header("Audio")]
+	public AudioClip Checkpoint;
+
     Vector2 position;
     public bool Latest = true;
 
@@ -14,6 +18,8 @@ public class CheckPoint : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         Stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		source = GetComponent<AudioSource> ();
+		source.clip = Checkpoint;
 	}
 
 
@@ -32,6 +38,7 @@ public class CheckPoint : MonoBehaviour {
                 Stats.SavedCurrency = Stats.Currency;
                 Latest = false;
                 transform.GetChild(0).gameObject.SetActive(true);
+				source.Play ();
             }
         }
     }
