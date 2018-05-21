@@ -101,10 +101,9 @@ public class Behavior : MonoBehaviour {
             anim.SetBool("Dashing", false);
             anim.SetBool("IsHurt", true);
         }
-        if (Player.CurrentState is PlayerAttack)
-        {
-
-        }
+        //if (attack)
+        //    { 
+        //}
         if (Player.GetComponent<PlayerStats>().dead && !anim.GetBool("Dead"))
         {
             anim.SetBool("Dead", true);
