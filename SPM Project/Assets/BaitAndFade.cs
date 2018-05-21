@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaitAndFade : MonoBehaviour {
 
+    public SpriteRenderer[] fakes;
     private Color c;
 
     private void Awake()
@@ -16,7 +17,10 @@ public class BaitAndFade : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             StopAllCoroutines();
-            StartCoroutine(FadeOut());
+            foreach (SpriteRenderer r in fakes)
+            {
+                StartCoroutine(FadeOut(r));
+            }
         }
     }
 
@@ -25,29 +29,35 @@ public class BaitAndFade : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             StopAllCoroutines();
-            StartCoroutine(FadeIn());
+            foreach (SpriteRenderer r in fakes)
+            {
+                StartCoroutine(FadeIn(r));
+            }
+            
         }
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeIn(SpriteRenderer r)
     {
-        float cAlpha = GetComponent<SpriteRenderer>().color.a;
+        float cAlpha = r.color.a;
         for (float i = cAlpha; i <= 1; i += Time.deltaTime)
         {
-            GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, i);
+            r.color = new Color(1, 1, 1, i);
             yield return null;
         }
         yield return 0;
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOut(SpriteRenderer r)
     {
-        float cAlpha = GetComponent<SpriteRenderer>().color.a;
+        float cAlpha = r.color.a;
         for (float i = cAlpha; i >= 0; i -= Time.deltaTime)
         {
-            GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, i);
+            r.color = new Color(1, 1, 1, i);
             yield return null;
         }
         yield return 0;
     }
+
+
 }

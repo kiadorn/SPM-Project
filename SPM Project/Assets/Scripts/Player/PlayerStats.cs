@@ -215,9 +215,11 @@ public class PlayerStats : MonoBehaviour {
         Currency = SavedCurrency;
         UpdateCurrency();
         GetComponentInChildren<TrailRenderer>().time = 0f;
+        GetComponentInChildren<TrailRenderer>().enabled = false;
         transform.SetParent(null);
         transform.position = CurrentCheckPoint.transform.position;
         GetComponentInChildren<TrailRenderer>().time = 0.1f;
+        GetComponentInChildren<TrailRenderer>().enabled = true;
         CurrentCheckPoint.EnableEnemies();
         CurrentHealth = StartingHealth;
         UpdateHealth();
