@@ -9,6 +9,11 @@ public class TestningKommandon : MonoBehaviour
     private CheckPoint checkpointToSkipTo;
     private int i;
 
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("0"))

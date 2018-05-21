@@ -74,10 +74,10 @@ public class PlayerStats : MonoBehaviour {
 
         if (_invulnerable && !dead)
         {
-            if (!swapping)
+            /* if (!swapping)
             {
                 StartCoroutine(SwapColors());
-            }
+            } */
             timer += Time.deltaTime;
             if(timer >= InvulnerableTime)
             {

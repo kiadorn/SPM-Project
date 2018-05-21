@@ -614,83 +614,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcc28985207a51149b9186348365b2f4, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &916987933
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -21.848852
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.2652297
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435675321451716, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: HealthUI
-      value: 
-      objectReference: {fileID: 1806210032}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: CurrencyUI
-      value: 
-      objectReference: {fileID: 1806210031}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: KeyIcon
-      value: 
-      objectReference: {fileID: 1806210029}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: SwordIcon
-      value: 
-      objectReference: {fileID: 1806210030}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: DashIcon
-      value: 
-      objectReference: {fileID: 1806210028}
-    - target: {fileID: 114952717160300178, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 518514956}
-    - target: {fileID: 114784860799802398, guid: 2a631d87ff657984a96ac6343a896827,
-        type: 2}
-      propertyPath: pauseScreen
-      value: 
-      objectReference: {fileID: 1806210033}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2a631d87ff657984a96ac6343a896827, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1024937736
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +806,92 @@ Transform:
   m_PrefabParentObject: {fileID: 4239578153774682, guid: fe6e1392171144a44aae398725bae72d,
     type: 2}
   m_PrefabInternal: {fileID: 1151113103}
+--- !u!1001 &1201991784
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -21.848852
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.2652297
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522692207057064, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027562891831696, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872944857484220, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: pauseScreen
+      value: 
+      objectReference: {fileID: 1806210033}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: HealthUI
+      value: 
+      objectReference: {fileID: 1806210032}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: CurrencyUI
+      value: 
+      objectReference: {fileID: 1806210031}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: KeyIcon
+      value: 
+      objectReference: {fileID: 1806210029}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: SwordIcon
+      value: 
+      objectReference: {fileID: 1806210030}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: DashIcon
+      value: 
+      objectReference: {fileID: 1806210028}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 518514956}
+    - target: {fileID: 114412161688853280, guid: e3d94a2a213824e45b7a0fd5595337c3,
+        type: 2}
+      propertyPath: BossStageName
+      value: BossLevel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e3d94a2a213824e45b7a0fd5595337c3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1526225713
 Prefab:
   m_ObjectHideFlags: 0

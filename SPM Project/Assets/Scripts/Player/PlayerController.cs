@@ -51,7 +51,7 @@ public class PlayerController : Controller{
 
 	private void Start(){
 		sources = GetComponents<AudioSource> ();
-        if (gameObject.transform.GetChild(3) != null) centerPoint = gameObject.transform.GetChild(3).gameObject;
+        if (gameObject.transform.GetChild(3) != null) centerPoint = GameObject.Find("CenterPoint");
     }
 
 	public float GetLastXDirection(){

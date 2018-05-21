@@ -27,7 +27,6 @@ public class BreakingPlatform : MonoBehaviour {
         source = GetComponents<AudioSource>();
     }
 
-    // Update is called once per frame
     void OnEnable () {
         transform.position = OGPos;
         _renderer.color = new Color(1, 1, 1, 1);
@@ -38,8 +37,6 @@ public class BreakingPlatform : MonoBehaviour {
     private IEnumerator Collapse(float collapseTime, float resetTime) {
         _collapsing = true;
         yield return new WaitForSeconds(collapseTime);
-        source.clip = breaking;
-        source.Play();
         for (float i = 1; i >= 0; i -= (1/ fadeOutTime) * Time.deltaTime)
         {
             _renderer.color = new Color(1, 1, 1, i);
@@ -51,8 +48,6 @@ public class BreakingPlatform : MonoBehaviour {
             yield return null;
         }
         _collider.enabled = false;
-<<<<<<< HEAD
-=======
         _renderer.enabled = false;
         int length = breaking.Length;
         int replace = UnityEngine.Random.Range(0, (length - 1));
@@ -63,22 +58,15 @@ public class BreakingPlatform : MonoBehaviour {
         breaking[length - 1] = BreakingLastPlayed;
         source[1].clip = rebuilding;
         source[1].PlayDelayed(resetTime - 1);
->>>>>>> origin/Steven7
         yield return new WaitForSeconds(resetTime);
-        source.clip = rebuilding;
-        source.Play();
         for (float i = 0; i <= 1; i += (1 / fadeInTime) * Time.deltaTime)
         {
             _renderer.color = new Color(1, 1, 1, i);
             yield return null;
         }
         _collider.enabled = true;
-<<<<<<< HEAD
         _collapsing = false;
-=======
-        _collapsing = false; 
 
->>>>>>> origin/Steven7
     }
 
     private void OnCollisionEnter2D(Collision2D coll) {
