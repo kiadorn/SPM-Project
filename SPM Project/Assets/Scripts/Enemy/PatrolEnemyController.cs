@@ -109,8 +109,7 @@ public class PatrolEnemyController : Controller
     {
         if (collision.gameObject.CompareTag("Player"))
 		{
-            
-
+           
 //			source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
 //			source[1].Play ();
 
