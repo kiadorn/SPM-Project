@@ -42,7 +42,7 @@ public class GroundState : State{
 		_controller.GetState<AirState> ().canDash = true;
 		_jumps = MaxJumps;
 		_controller.sources [1].pitch = 1f;
-		_controller.sources [1].volume = 0.6f;
+		_controller.sources [1].volume = 0.5f;
 	}
 	public override void Update()
 	{
