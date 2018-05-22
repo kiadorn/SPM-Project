@@ -80,6 +80,7 @@ public class PatrolEnemyController : Controller
 	}
 	private IEnumerator OnDeath(){
 		source [1].clip = Death [Random.Range (0, Death.Length)];
+		source [1].volume = 1f;
 		source [1].Play ();
         //GetComponentInChildren<SpriteRenderer>().enabled = false; //Gammal, användes innan FadeOut animation
         GetComponent<BoxCollider2D>().enabled = false;
@@ -117,6 +118,7 @@ public class PatrolEnemyController : Controller
 
 			if (!playerStats._invulnerable) {
 				source[1].clip = PlayerCollision [Random.Range (0, PlayerCollision.Length)];
+				source [1].volume = 0.7f;
 				source[1].Play ();
 			}
 

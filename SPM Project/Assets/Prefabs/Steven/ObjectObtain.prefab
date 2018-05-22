@@ -298,6 +298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpKeySound: {fileID: 8300000, guid: ea602a8e13cc8f549b99ac5e07bb1c68, type: 3}
-  PickUpSwordSound: {fileID: 8300000, guid: e03bcedbe89c03e458425c44d9ede5c7, type: 3}
+  PickUpSwordSound: {fileID: 8300000, guid: ea602a8e13cc8f549b99ac5e07bb1c68, type: 3}
   OpenDoorSound: {fileID: 8300000, guid: b52832e357370394b896993d50ef6cec, type: 3}
   StartTriggerSound: {fileID: 8300000, guid: 30b921b3854353843a5321923c1a3dcd, type: 3}

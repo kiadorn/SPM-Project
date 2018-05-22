@@ -21,4 +21,6 @@ public class Stage1Goal : MonoBehaviour {
     public void Action() {
         BossController.TransitionTo<BossStage2Intro>();
     }
+
+
 }

@@ -22,7 +22,7 @@ public class BackgroundMusicManager : MonoBehaviour {
 	}
 
 	public void checkCurrentLevel(){
-		if (currentScene == "_MainMenu") {
+		if (currentScene == "Level1Intro") {
 			source[0].clip = BackgroundMusic [0];
 			source[0].Play ();
 		}

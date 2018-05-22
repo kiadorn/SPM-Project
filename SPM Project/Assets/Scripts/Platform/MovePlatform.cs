@@ -38,6 +38,7 @@ public class MovePlatform : MonoBehaviour {
         firstTime = false;
 		source = GetComponent<AudioSource> ();
 		source.clip = moving;
+		source.loop = true;
         timer = 0;
     }
 
@@ -63,7 +64,7 @@ public class MovePlatform : MonoBehaviour {
         if (transform.localPosition == transform.parent.GetChild(1).transform.localPosition)
         {
             isDone = true;
-            //fading = true;
+            fading = true;
             timer += Time.deltaTime;
             source.Stop ();
             if (!isWaiting && moveBack)
@@ -74,12 +75,14 @@ public class MovePlatform : MonoBehaviour {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, transform.parent.GetChild(1).transform.localPosition, moveForwardSpeed * Time.deltaTime);
 			if (!source.isPlaying) {
 				source.Play ();
+				fading = false;
 			}
         } else if (moveBack)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, originalPos, moveBackSpeed * Time.deltaTime);
 			if (!source.isPlaying) {
 				source.Play ();
+				fading = false;
 			}
 		}
 
@@ -87,7 +90,7 @@ public class MovePlatform : MonoBehaviour {
         {
             shouldIMove = false;
             isDone = false;
-            //fading = true;
+            fading = true;
             timer += Time.deltaTime;
             source.Stop ();
         }

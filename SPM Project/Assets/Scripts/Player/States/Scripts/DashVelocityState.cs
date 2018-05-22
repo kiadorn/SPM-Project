@@ -35,6 +35,7 @@ public class DashVelocityState : State
 		int replace = Random.Range (0, (length - 1));
 		_controller.sources [2].clip = _controller.Dash[replace];
 		pitch.GetComponent<PitchController> ().Pichter (_controller.sources [2]);
+		_controller.sources [2].volume *= 0.35f;
 		_controller.sources [2].Play ();
 		_controller.DashJustPlayed = _controller.Dash [replace];
 		_controller.Dash [replace] = _controller.Dash [length - 1];

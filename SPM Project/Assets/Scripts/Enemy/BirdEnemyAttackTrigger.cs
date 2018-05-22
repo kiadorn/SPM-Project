@@ -21,6 +21,7 @@ public class BirdEnemyAttackTrigger : MonoBehaviour {
 			if (!played && !behaviour.source[0].isPlaying && behaviour._canAttack){
 				played = true;
 				behaviour.source[0].clip = behaviour.Alerted;
+				behaviour.source [0].volume = 0.65f;
 				behaviour.source[0].Play ();
 			}
             behaviour.BirdAttackPlayer(collision.transform.position);
@@ -34,6 +35,7 @@ public class BirdEnemyAttackTrigger : MonoBehaviour {
 			played = false;
             behaviour._canAttack = false;
             behaviour._attacking = false;
+			behaviour.source [0].volume = 1f;
         }
     }
 }

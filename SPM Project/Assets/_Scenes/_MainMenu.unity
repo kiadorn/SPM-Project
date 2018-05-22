@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadgame: 0
+  BlackScreen: {fileID: 0}
 --- !u!1 &56011715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadgame: 1
+  BlackScreen: {fileID: 0}
 --- !u!1001 &1689402064
 Prefab:
   m_ObjectHideFlags: 0
@@ -1122,7 +1124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762608891013370, guid: dcc28985207a51149b9186348365b2f4, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114916912816234912, guid: dcc28985207a51149b9186348365b2f4,
         type: 2}
@@ -1197,7 +1199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944366114
 GameObject:

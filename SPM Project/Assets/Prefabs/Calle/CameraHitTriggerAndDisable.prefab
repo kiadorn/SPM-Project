@@ -109,8 +109,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Focus: {fileID: 1145297274875354}
   DisableObject: {fileID: 0}
+  TargetPosition: {fileID: 0}
   TimeToDisable: 1.5
+  TimeCameraStay: 3
   FreezePlayer: 1
+  DontDisableObject: 0
+  Speed: 0
+  Open: {fileID: 8300000, guid: b52832e357370394b896993d50ef6cec, type: 3}
 --- !u!212 &212504367433781782
 SpriteRenderer:
   m_ObjectHideFlags: 1

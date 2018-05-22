@@ -31,6 +31,7 @@ public class MovePlatformAuto : MonoBehaviour {
         originalPos = transform.position;
 		source = GetComponent<AudioSource> ();
 		source.clip = moving;
+		source.loop = true;
 		timer = 0;
     }
 

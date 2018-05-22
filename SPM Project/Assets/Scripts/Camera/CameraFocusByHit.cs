@@ -17,9 +17,11 @@ public class CameraFocusByHit : MonoBehaviour {
 	[Header("Audio Clips")]
 	public AudioClip Open;
     private bool StartMovingObject;
+	private GameObject Trigger;
 
     private void Awake() {
 		source = GetComponent<AudioSource> ();
+		Trigger = GameObject.Find ("ObjectObtain");
     }
 
     private void Update() {
@@ -41,6 +43,7 @@ public class CameraFocusByHit : MonoBehaviour {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         if (!DontDisableObject)
         {
+			Trigger.GetComponent<ObjectObtain> ().StartTrigger ();
             CameraShake.AddIntensity(0.5f);
             StartCoroutine(WaitForDisable());
         }

@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ca1bf08406f9849bab4e1dbecbbd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checkpoint: {fileID: 0}
+  Checkpoint: {fileID: 8300000, guid: 1757fb1b6b570384ab15b3026ea23c05, type: 3}
   Latest: 1
   Stats: {fileID: 0}
   ObjectsToReset: []

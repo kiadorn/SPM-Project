@@ -34,11 +34,13 @@ public class ObjectObtain : MonoBehaviour {
 
 	public void OpenDoor(){
 		source[1].clip = OpenDoorSound;
+		source [1].volume = 0.9f;
 		source[1].Play ();
 	}
 
 	public void StartTrigger(){
 		source[1].clip = StartTriggerSound;
+		source [1].volume = 0.75f;
 		source[1].Play ();
 	}
 }
