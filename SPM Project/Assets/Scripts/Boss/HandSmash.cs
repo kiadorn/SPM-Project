@@ -116,7 +116,7 @@ public class HandSmash : MonoBehaviour {
                 randoming = false;
             }
         }
-        Quaternion q = Quaternion.Euler(0, 0, 45+(rotateModifier * 90));
+        Quaternion q = Quaternion.Euler(0, 0, 70+(rotateModifier * 90));
         transform.rotation = q;
     }
 
