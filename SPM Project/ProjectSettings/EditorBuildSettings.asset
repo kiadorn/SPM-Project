@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/NewLevel2.unity
     guid: 83c98f650bfcf684a9348f51443f62ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/LevelBossIntro.unity
     guid: 560d0c1d3907f8a4c868305c5179853a
   - enabled: 1
