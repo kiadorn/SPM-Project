@@ -180,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027562891831696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.848852, y: -3.2652297, z: 0}
+  m_LocalPosition: {x: -256.9, y: 3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children:
   - {fileID: 4302060770558734}
@@ -273,7 +273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.4}
+  m_Size: {x: 1, y: 1.4}
   m_EdgeRadius: 0
 --- !u!82 &82370309617694076
 AudioSource:
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0
-  attackUnlocked: 1
+  attackUnlocked: 0
   Swing:
   - {fileID: 8300000, guid: fa7626fce73272d4daa4d044cac2dc1a, type: 3}
   - {fileID: 8300000, guid: 8531afea3ad28074c92ba035b515c38a, type: 3}

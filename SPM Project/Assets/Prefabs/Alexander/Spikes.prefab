@@ -36,7 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4577243149536396}
-  - component: {fileID: 60570191187322974}
   - component: {fileID: 114246758137306942}
   - component: {fileID: 60813218895772234}
   m_Layer: 0
@@ -53,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773421486523300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -98.9, y: -53.2, z: 0.32550076}
-  m_LocalScale: {x: 3.8, y: 3.1, z: 1}
+  m_LocalPosition: {x: -19.52, y: -12.991337, z: 0.3203125}
+  m_LocalScale: {x: 3.84602, y: 3.1273298, z: 1}
   m_Children:
   - {fileID: 4749581153264860}
   m_Father: {fileID: 0}
@@ -73,34 +72,6 @@ Transform:
   m_Father: {fileID: 4577243149536396}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60570191187322974
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773421486523300}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.24483562, y: 0.317565}
-      - {x: -0.24016497, y: 0.3167748}
-      - {x: -0.3233091, y: -0.3133257}
-      - {x: 0.3202998, y: -0.31240332}
 --- !u!60 &60813218895772234
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -125,10 +96,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.2360619, y: 0.18701465}
-      - {x: -0.22929744, y: 0.18554115}
-      - {x: -0.30979654, y: -0.31580973}
-      - {x: 0.30962592, y: -0.31817615}
+    - - {x: 0.32232437, y: 0.07208066}
+      - {x: -0.31934285, y: 0.07060715}
+      - {x: -0.36281392, y: -0.29823896}
+      - {x: 0.3696121, y: -0.30060536}
 --- !u!95 &95031726280735528
 Animator:
   serializedVersion: 3
